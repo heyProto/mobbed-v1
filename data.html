@@ -4,10 +4,50 @@
     <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mob Justice</title>
+    <link rel="stylesheet" type="text/css" href="lib/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="src/css/styles.css">
   </head>
   <body>
-    <div id="card-list-div"></div>
+    <div class="ui grid">
+      <div class="sixteen wide column">
+        <div class="ui secondary menu">
+          <a class="header item">
+            <h1 class="ui header">Mob Justice in India</h1>
+          </a>
+          <div class="right menu">
+            <a href="/index.html" class="ui item">Home</a>
+            <a href="/data.html" class="ui item active">Data</a>
+          </div>
+        </div>
+        <div class="ui secondary pointing menu" style="border-bottom: 0px;">
+          <a class="active item">Cattle Slaughter</a>
+          <a class="item">Sexual Harassment</a>
+          <a class="item">Crime</a>
+          <a class="item">Witch Hunting</a>
+          <a class="item">Honour Killing</a>
+        </div>
+      </div>
+      <div class="row">
+          <div class="seven wide column">
+            <img src="src/img/sample.png" style="width: 350px;"/>
+          </div>
+          <div class="nine wide column">
+            <h2 style="margin-top: 30px;">
+              A total of
+              394 incidents
+              took place from May 2, 2010 until July 8, 2017.
+            </h2>
+            <p style="font-size: 11px; color: gray; margin-top: 40px;">
+                Filter cards at the bottom by either clicking on the map or using the dropdowns.
+            </p>
+            <p>DHARA TO PLACE FILTERS HERE</p>
+          </div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="sixteen wide column">
+        <div id="card-list-div"></div>
+      </div>
+    </div>
     <script src = "dist/0.0.1/bundle.min.js"></script>
   </body>
 </html>

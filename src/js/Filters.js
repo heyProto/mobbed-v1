@@ -5,32 +5,19 @@ class Filters extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      menu: [],
-      state: [],
       state_ruling_party: [],
       victim_religion: [],
       accused_religion: [],
       does_the_state_criminalise_victims_actions: [],
-      menu_value: '',
-      state_value: '',
       ruling_party_value: '',
       victim_religion_value: '',
       accused_religion_value: '',
-      criminalise_victims_value: '',
-      date: [],
-      count_injured: [],
-      count_dead:[]
+      criminalise_victims_value: ''
     }
   }
 
   componentWillMount() {
     PykQuery.PykQuery.createTable("MobTable", "inbrowser", this.props.dataJSON);
-
-    let menu_query = PykQuery.PykQuery.createQuery("menu_query"),
-      menu = menu_query.select('menu').from("MobTable").groupBy().exec();
-
-    let state_query = PykQuery.PykQuery.createQuery("state_query"),
-      state = state_query.select('state').from("MobTable").groupBy().exec();
 
     let state_ruling_party_query = PykQuery.PykQuery.createQuery("state_ruling_party_query"),
       state_ruling_party = state_ruling_party_query.select('state_ruling_party').from("MobTable").groupBy().exec();
@@ -45,8 +32,6 @@ class Filters extends React.Component {
       does_the_state_criminalise_victims_actions = does_the_state_criminalise_victims_actions_query.select('does_the_state_criminalise_victims_actions').from("MobTable").groupBy().exec();
 
     this.setState({
-      menu: menu,
-      state: state,
       state_ruling_party: state_ruling_party,
       victim_religion: victim_religion,
       accused_religion: accused_religion,
@@ -70,16 +55,6 @@ class Filters extends React.Component {
     if (this.props.dataJSON === undefined) {
       return(<div></div>)
     } else {
-      let menuOptions = this.state.menu.map((value, i) => {
-        return (
-          <option key={i} value={value.menu}>{value.menu}</option>
-        )
-      })
-      let stateOptions = this.state.state.map((value, i) => {
-        return (
-          <option key={i} value={value.state}>{value.state}</option>
-        )
-      })
       let rulingPartyOptions = this.state.state_ruling_party.map((value, i) => {
         return (
           <option key={i} value={value.state_ruling_party}>{value.state_ruling_party}</option>
@@ -103,22 +78,7 @@ class Filters extends React.Component {
       return (
         <div className="protograph-filters-container">
           <div className="protograph-filters">
-            <select 
-              onChange={(e) => this.handleOnChange(e)}
-              data-menu-value={this.state.menu_value}
-            >
-              {menuOptions}
-            </select>
-          </div>
-          <div className="protograph-filters">
-            <select
-              onChange={(e) => this.handleOnChange(e)}
-              value={this.state.state_value}
-            >
-              {stateOptions}
-            </select>
-          </div>
-          <div className="protograph-filters">
+            <p>Party in power</p>
             <select
               onChange={(e) => this.handleOnChange(e)}
               value={this.state.ruling_party_value}
@@ -127,6 +87,7 @@ class Filters extends React.Component {
             </select>
           </div>
           <div className="protograph-filters">
+            <p>Victim religion</p>
             <select
               onChange={(e) => this.handleOnChange(e)}
               value={this.state.victim_religion_value}
@@ -135,6 +96,7 @@ class Filters extends React.Component {
             </select>
           </div>
           <div className="protograph-filters">
+            <p>Accused religion</p>
             <select
               onChange={(e) => this.handleOnChange(e)}
               value={this.state.accused_religion_value}
@@ -143,6 +105,7 @@ class Filters extends React.Component {
             </select>
           </div>
           <div className="protograph-filters">
+            <p>Was the victim possibly committing a crime?</p>
             <select
               onChange={(e) => this.handleOnChange(e)}
               value={this.state.criminalise_victims_value}
