@@ -5,7 +5,6 @@ class Filters extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      state: [],
       state_ruling_party: [],
       victim_religion: [],
       accused_religion: [],
@@ -18,9 +17,6 @@ class Filters extends React.Component {
 
   componentWillMount() {
     PykQuery.PykQuery.createTable("MobTable", "inbrowser", this.props.dataJSON);
-
-    let state_query = PykQuery.PykQuery.createQuery("state_query"),
-      state = state_query.select('state').from("MobTable").groupBy().exec();
 
     let state_ruling_party_query = PykQuery.PykQuery.createQuery("state_ruling_party_query"),
       state_ruling_party = state_ruling_party_query.select('state_ruling_party').from("MobTable").groupBy().exec();
@@ -35,7 +31,6 @@ class Filters extends React.Component {
       does_the_state_criminalise_victims_actions = does_the_state_criminalise_victims_actions_query.select('does_the_state_criminalise_victims_actions').from("MobTable").groupBy().exec();
 
     this.setState({
-      state: state,
       state_ruling_party: state_ruling_party,
       victim_religion: victim_religion,
       accused_religion: accused_religion,
@@ -52,11 +47,6 @@ class Filters extends React.Component {
     if (this.props.dataJSON === undefined) {
       return(<div></div>)
     } else {
-      let stateOptions = this.state.state.map((value, i) => {
-        return (
-          <option key={i}>{value.state}</option>
-        )
-      })
       let rulingPartyOptions = this.state.state_ruling_party.map((value, i) => {
         return (
           <option key={i}>{value.state_ruling_party}</option>
@@ -79,10 +69,6 @@ class Filters extends React.Component {
       })
       return (
         <div className="protograph-filters-container">
-          <div className="protograph-filters">
-            <p>State</p>
-            <select>{stateOptions}</select>
-          </div>
           <div className="protograph-filters">
             <p>Party in power</p>
             <select>{rulingPartyOptions}</select>
