@@ -1,5 +1,4 @@
 body{
-  background: #efefef;
   font-family: verdana, arial, helvetica, sans-serif;
 }
 
@@ -15,8 +14,6 @@ body{
 .protograph-card{
   width: 254px;
   height: 254px;
-  border-radius: 2px;
-  border: #efefef;
   display: inline-block;
   text-align: left;
   background: white;
@@ -25,6 +22,8 @@ body{
   margin-bottom: 15px;
   position: relative;
   cursor: pointer;
+  box-shadow: 0 20px 20px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.08);
   transition: all 250ms cubic-bezier(.02, .01, .47, 1);
 }
 
