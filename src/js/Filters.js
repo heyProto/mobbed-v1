@@ -11,6 +11,12 @@ class Filters extends React.Component {
       victim_religion: [],
       accused_religion: [],
       does_the_state_criminalise_victims_actions: [],
+      menu_value: '',
+      state_value: '',
+      ruling_party_value: '',
+      victim_religion_value: '',
+      accused_religion_value: '',
+      criminalise_victims_value: '',
       date: [],
       count_injured: [],
       count_dead:[]
@@ -48,65 +54,101 @@ class Filters extends React.Component {
     })
   }
 
-  handleOnChange(e, value) {
-    console.log(value, "onchange value")
+  handleOnChange(e) {
+    console.log(e, e.target, e.target.value, "eeeeeee")
+    this.setState({
+      menu_value: e.target['data-menu-value']
+    });
+    console.log("onchange value", this.state.menu_value)
+    let menu_query = PykQuery.PykQuery.createQuery("menu_query");
+    let filterd = menu_query.select().from("MobTable").where("menu","equal",this.state.menu_value).exec();
+    console.log(filterd, "filtered data")
   }
 
   render() {
-    console.log(this.props.dataJSON,"this.props.dataJSON")
+    // console.log(this.props.dataJSON,"this.props.dataJSON")
     if (this.props.dataJSON === undefined) {
       return(<div></div>)
     } else {
       let menuOptions = this.state.menu.map((value, i) => {
-        let v = value.menu
         return (
-          <option key={i} onClick={(e) => this.handleOnChange(e, v)}>{value.menu}</option>
+          <option key={i} value={value.menu}>{value.menu}</option>
         )
       })
       let stateOptions = this.state.state.map((value, i) => {
         return (
-          <option key={i}>{value.state}</option>
+          <option key={i} value={value.state}>{value.state}</option>
         )
       })
       let rulingPartyOptions = this.state.state_ruling_party.map((value, i) => {
         return (
-          <option key={i}>{value.state_ruling_party}</option>
+          <option key={i} value={value.state_ruling_party}>{value.state_ruling_party}</option>
         )
       })
       let victimReligionOptions = this.state.victim_religion.map((value, i) => {
         return (
-          <option key={i}>{value.victim_religion}</option>
+          <option key={i} value={value.victim_religion}>{value.victim_religion}</option>
         )
       })
       let accusedReligionOptions = this.state.accused_religion.map((value, i) => {
         return (
-          <option key={i}>{value.accused_religion}</option>
+          <option key={i} value={value.accused_religion}>{value.accused_religion}</option>
         )
       })
       let criminaliseVictimsOptions = this.state.does_the_state_criminalise_victims_actions.map((value, i) => {
         return (
-          <option key={i}>{value.does_the_state_criminalise_victims_actions}</option>
+          <option key={i} value={value.does_the_state_criminalise_victims_actions}>{value.does_the_state_criminalise_victims_actions}</option>
         )
       })
       return (
         <div className="protograph-filters-container">
           <div className="protograph-filters">
-            <select>{menuOptions}</select>
+            <select 
+              onChange={(e) => this.handleOnChange(e)}
+              data-menu-value={this.state.menu_value}
+            >
+              {menuOptions}
+            </select>
           </div>
           <div className="protograph-filters">
-            <select>{stateOptions}</select>
+            <select
+              onChange={(e) => this.handleOnChange(e)}
+              value={this.state.state_value}
+            >
+              {stateOptions}
+            </select>
           </div>
           <div className="protograph-filters">
-            <select>{rulingPartyOptions}</select>
+            <select
+              onChange={(e) => this.handleOnChange(e)}
+              value={this.state.ruling_party_value}
+            >
+              {rulingPartyOptions}
+            </select>
           </div>
           <div className="protograph-filters">
-            <select>{victimReligionOptions}</select>
+            <select
+              onChange={(e) => this.handleOnChange(e)}
+              value={this.state.victim_religion_value}
+            >
+              {victimReligionOptions}
+            </select>
           </div>
           <div className="protograph-filters">
-            <select>{accusedReligionOptions}</select>
+            <select
+              onChange={(e) => this.handleOnChange(e)}
+              value={this.state.accused_religion_value}
+            >
+              {accusedReligionOptions}
+            </select>
           </div>
           <div className="protograph-filters">
-            <select>{criminaliseVictimsOptions}</select>
+            <select
+              onChange={(e) => this.handleOnChange(e)}
+              value={this.state.criminalise_victims_value}
+            >
+              {criminaliseVictimsOptions}
+            </select>
           </div>
         </div>
       )
