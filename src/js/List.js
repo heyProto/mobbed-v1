@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
+import Filters from '../js/Filters';
 
 export default class ListCards extends React.Component {
   constructor(props) {
@@ -30,7 +30,7 @@ export default class ListCards extends React.Component {
             <div className="protograph-gradient">
               <div className="data-card-content">
                 <div className="data-card-title">{card.title}</div>
-                <div className="data-card-date">{card.date}</div>
+                <div className="data-card-date">{card.date} | {card.state}</div>
               </div>
             </div>
           </div>
@@ -38,6 +38,7 @@ export default class ListCards extends React.Component {
       })
       return(
         <div className="protograph-container">
+          <Filters dataJSON={this.state.dataJSON} />
           <div className="protograph-card-area">{cards}</div>
         </div>
       )

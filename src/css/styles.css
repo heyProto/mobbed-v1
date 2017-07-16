@@ -83,3 +83,14 @@ body{
   font-size: 10px;
   color: #999;
 }
+
+.protograph-filters-container{
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+}
+
+.protograph-filters{
+  display: inline-block;
+  padding: 5px
+}
