@@ -1,0 +1,86 @@
+body{
+  background: #efefef;
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.protograph-container{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.protograph-card-area{
+  width: 100%;
+  text-align: center;
+}
+.protograph-card{
+  width: 254px;
+  height: 254px;
+  border-radius: 2px;
+  border: #efefef;
+  display: inline-block;
+  text-align: left;
+  background: white;
+  margin-right: 7px;
+  margin-left: 7px;
+  margin-bottom: 15px;
+  position: relative;
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(.02, .01, .47, 1);
+}
+
+.protograph-card:hover {
+  box-shadow: 0 40px 40px rgba(0,0,0,.16);
+  transform: translate(0,-10px);
+  transition-delay: 0s !important;
+  opacity: 1;
+}
+
+.card-image{
+  height: 254px;
+}
+
+.empty-card{
+  height: 254px;
+  display: inline-block;
+}
+
+.protograph-gradient{
+  width: 100%;
+  height: 254px;
+  position: absolute;
+  bottom: 0px;
+  background: -webkit-linear-gradient(rgba(255,255,255,0.5), #fff 60%);
+  background: -o-linear-gradient(rgba(255,255,255,0.5), #fff 60%);
+  background: -moz-linear-gradient(rgba(255,255,255,0.5), #fff 60%);
+  background: linear-gradient(rgba(255,255,255,0.5), #fff 60%);
+  pointer-events: none;
+}
+
+.data-card-content{
+  position: absolute;
+  display: inline-block;
+  bottom: 0px;
+  width: 88%;
+  padding:15px;
+}
+
+.data-card-content .data-card-title{
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  line-height: 1.3em;
+  font-family: arial;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.data-card-date{
+  display: inline-block;
+  font-size: 10px;
+  color: #999;
+}
