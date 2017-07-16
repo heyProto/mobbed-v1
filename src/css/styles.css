@@ -4,13 +4,13 @@ body{
 
 .ui.grid{
   margin-top: 10px;
-  width: 950px;
+  width: 970px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .protograph-container{
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -19,8 +19,8 @@ body{
   text-align: center;
 }
 .protograph-card{
-  width: 254px;
-  height: 254px;
+  width: 210px;
+  height: 210px;
   display: inline-block;
   text-align: left;
   background: white;
@@ -42,17 +42,17 @@ body{
 }
 
 .card-image{
-  height: 254px;
+  height: 210px;
 }
 
 .empty-card{
-  height: 254px;
+  height: 210px;
   display: inline-block;
 }
 
 .protograph-gradient{
   width: 100%;
-  height: 254px;
+  height: 210px;
   position: absolute;
   bottom: 0px;
   background: -webkit-linear-gradient(rgba(255,255,255,0.5), #fff 60%);
