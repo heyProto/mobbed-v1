@@ -5,7 +5,6 @@ class Filters extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      menu: [],
       state: [],
       state_ruling_party: [],
       victim_religion: [],
@@ -19,9 +18,6 @@ class Filters extends React.Component {
 
   componentWillMount() {
     PykQuery.PykQuery.createTable("MobTable", "inbrowser", this.props.dataJSON);
-
-    let menu_query = PykQuery.PykQuery.createQuery("menu_query"),
-      menu = menu_query.select('menu').from("MobTable").groupBy().exec();
 
     let state_query = PykQuery.PykQuery.createQuery("state_query"),
       state = state_query.select('state').from("MobTable").groupBy().exec();
@@ -39,7 +35,6 @@ class Filters extends React.Component {
       does_the_state_criminalise_victims_actions = does_the_state_criminalise_victims_actions_query.select('does_the_state_criminalise_victims_actions').from("MobTable").groupBy().exec();
 
     this.setState({
-      menu: menu,
       state: state,
       state_ruling_party: state_ruling_party,
       victim_religion: victim_religion,
@@ -57,12 +52,6 @@ class Filters extends React.Component {
     if (this.props.dataJSON === undefined) {
       return(<div></div>)
     } else {
-      let menuOptions = this.state.menu.map((value, i) => {
-        let v = value.menu
-        return (
-          <option key={i} onClick={(e) => this.handleOnChange(e, v)}>{value.menu}</option>
-        )
-      })
       let stateOptions = this.state.state.map((value, i) => {
         return (
           <option key={i}>{value.state}</option>
@@ -91,21 +80,23 @@ class Filters extends React.Component {
       return (
         <div className="protograph-filters-container">
           <div className="protograph-filters">
-            <select>{menuOptions}</select>
-          </div>
-          <div className="protograph-filters">
+            <p>State</p>
             <select>{stateOptions}</select>
           </div>
           <div className="protograph-filters">
+            <p>Party in power</p>
             <select>{rulingPartyOptions}</select>
           </div>
           <div className="protograph-filters">
+            <p>Victim religion</p>
             <select>{victimReligionOptions}</select>
           </div>
           <div className="protograph-filters">
+            <p>Accused religion</p>
             <select>{accusedReligionOptions}</select>
           </div>
           <div className="protograph-filters">
+            <p>Was the victim possibly committing a crime?</p>
             <select>{criminaliseVictimsOptions}</select>
           </div>
         </div>

@@ -30,7 +30,7 @@ export default class ListCards extends React.Component {
             <div className="protograph-gradient">
               <div className="data-card-content">
                 <div className="data-card-title">{card.title}</div>
-                <div className="data-card-date">{card.date.split(" ")[0].substring(0, 3)} {card.date.split(" ")[1]} {card.date.split(" ")[2]} | {card.state.substring(0, 12)}</div>
+                <div className="data-card-date">{card.date.split(" ")[0].substring(0, 3)} {card.date.split(" ")[1]} {card.date.split(" ")[2]} | {card.state.substring(0, 13)}</div>
               </div>
             </div>
           </div>
