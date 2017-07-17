@@ -35,7 +35,7 @@ class App extends React.Component {
           victim_religion = Utils.groupBy(this.state.dataJSON, 'victim_religion'),
           accused_religion = Utils.groupBy(this.state.dataJSON, 'victim_religion'),
           does_the_state_criminalise_victims_actions = Utils.groupBy(this.state.dataJSON, 'does_the_state_criminalise_victims_actions');
-        
+
         this.setState({
           state_ruling_party: Object.keys(state_ruling_party),
           victim_religion: Object.keys(victim_religion),
@@ -97,28 +97,28 @@ class App extends React.Component {
   checkParty(val, index, arr){
     if(this === undefined) {
       return true;
-    } 
+    }
     return val.state_ruling_party === this;
   }
 
   checkVictimReligion(val, index, arr) {
     if(this === undefined) {
       return true;
-    } 
+    }
     return val.victim_religion === this;
   }
 
   checkAccusedReligion(val, index, arr) {
     if(this === undefined) {
       return true;
-    } 
+    }
     return val.accused_religion === this;
   }
 
   checkVictimCriminalised(val, index, arr) {
     if(this === undefined) {
       return true;
-    } 
+    }
     return val.does_the_state_criminalise_victims_actions === this;
   }
 
@@ -189,15 +189,18 @@ class App extends React.Component {
         range = this.getDateRange(this.state.filteredJSON);
       return (
         <div>
-          <div className="ui grid">
+          <div className="ui grid filter-section">
+            <div className="sixteen wide column">
+              <p className="hint">Filter cards at the bottom by either clicking on the map or using the dropdowns.</p>
+            </div>
             <div className="seven wide column">
               <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode}/>
             </div>
             <div className="nine wide column">
+              <br/>
               {range.startDate === '' ? <h2 className="mob-summary-text">A total of {number_of_incidents} incidents took place.</h2> : <h2 className="mob-summary-text">A total of {number_of_incidents} incidents took place from {range.startDate} until {range.endDate}.</h2>}
-              <p>
-                Filter cards at the bottom by either clicking on the map or using the dropdowns.
-              </p>
+              <br/>
+              <br/>
               <div className="protograph-filters-container">
                 <div className="protograph-filters">
                   <p>Party in power</p>
@@ -242,7 +245,6 @@ class App extends React.Component {
               </div>
             </div>
           </div>
-          <div className="ui divider"></div>
           <div className="sixteen wide column">
             <div className="protograph-container">
               <List dataJSON={this.state.filteredJSON}/>
