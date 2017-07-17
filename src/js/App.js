@@ -15,10 +15,10 @@ class App extends React.Component {
       victim_religion: [],
       accused_religion: [],
       does_the_state_criminalise_victims_actions: [],
-      ruling_party_value: undefined,
-      victim_religion_value: undefined,
-      accused_religion_value: undefined,
-      criminalise_victims_value: undefined
+      ruling_party_value: 'undefined',
+      victim_religion_value: 'undefined',
+      accused_religion_value: 'undefined',
+      criminalise_victims_value: 'undefined'
     }
   }
 
@@ -95,35 +95,35 @@ class App extends React.Component {
   }
 
   checkParty(val, index, arr){
-    if(this === undefined) {
+    if(this === 'undefined') {
       return true;
     }
     return val.state_ruling_party === this;
   }
 
   checkVictimReligion(val, index, arr) {
-    if(this === undefined) {
+    if(this === 'undefined') {
       return true;
     }
     return val.victim_religion === this;
   }
 
   checkAccusedReligion(val, index, arr) {
-    if(this === undefined) {
+    if(this === 'undefined') {
       return true;
     }
     return val.accused_religion === this;
   }
 
   checkVictimCriminalised(val, index, arr) {
-    if(this === undefined) {
+    if(this === 'undefined') {
       return true;
     }
     return val.does_the_state_criminalise_victims_actions === this;
   }
 
   getFilteredData(state) {
-    console.log(state.victim_religion_value, "state.victim_religion_value")
+    // console.log(state.victim_religion_value, "state.victim_religion_value")
     let filteredData = this.state.dataJSON
       .filter(this.checkParty, state.ruling_party_value)
       .filter(this.checkVictimReligion, state.victim_religion_value)
@@ -145,7 +145,7 @@ class App extends React.Component {
         return 1;
       }
     });
-    console.log(new_arr, "new_Arr")
+    // console.log(new_arr, "new_Arr")
     let startDate, endDate;
     if (new_arr.length === 0) {
       startDate = '';
@@ -208,7 +208,7 @@ class App extends React.Component {
                     onChange={(e) => this.handleOnChangeParty(e)}
                     value={this.state.ruling_party_value}
                   >
-                    <option value='All'>All</option>
+                    <option value='undefined'>All</option>
                     {rulingPartyOptions}
                   </select>
                 </div>
@@ -218,7 +218,7 @@ class App extends React.Component {
                     onChange={(e) => this.handleOnChangeVR(e)}
                     value={this.state.victim_religion_value}
                   >
-                    <option value='All'>All</option>
+                    <option value="undefined">All</option>
                     {victimReligionOptions}
                   </select>
                 </div>
@@ -228,7 +228,7 @@ class App extends React.Component {
                     onChange={(e) => this.handleOnChangeAR(e)}
                     value={this.state.accused_religion_value}
                   >
-                    <option value='All'>All</option>
+                    <option>All</option>
                     {accusedReligionOptions}
                   </select>
                 </div>
@@ -238,7 +238,7 @@ class App extends React.Component {
                     onChange={(e) => this.handleOnChangeIsCrime(e)}
                     value={this.state.criminalise_victims_value}
                   >
-                    <option value='All'>All</option>
+                    <option>All</option>
                     {criminaliseVictimsOptions}
                   </select>
                 </div>
