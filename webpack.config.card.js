@@ -3,24 +3,24 @@ const webpack = require('webpack');
 module.exports = {
   // entry: './main.js',
   entry: {
-    app: './main.js' 
+    app: './main.js'
   },
   output: {
     path: __dirname,
     publicPath: '/',
-    filename: './dist/0.0.1/bundle.min.js',
+    filename: 'bundle.min.js',
   },
   // output: {
   //   path: './',
   //   filename: './dist/0.0.1/card.min.js'
   // },
-  // plugins: [
-  //   new webpack.DefinePlugin({
-  //     'process.env': {
-  //       NODE_ENV: JSON.stringify('production')
-  //     }
-  //   }),
-  // ],
+  plugins: [
+     new webpack.DefinePlugin({
+       'process.env': {
+         NODE_ENV: JSON.stringify('production')
+       }
+     }),
+  ],
   node: {
     net: 'empty',
     tls: 'empty',
