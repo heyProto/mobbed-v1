@@ -70,6 +70,10 @@ body{
   padding:15px;
 }
 
+.filter-section{background: #F2F2F2; margin-bottom: 30px !important;}
+
+.hint{text-align: center; font-size: 11px; color: gray;}
+
 .data-card-content .data-card-title{
   font-size: 16px;
   color: #333;
@@ -134,7 +138,7 @@ body{
 #map_svg{
   padding-top:20px;
   padding-bottom:20px;
-  background: white;
+  background: #F2F2F2;
   float: left;
 }
 
@@ -312,8 +316,8 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   white-space: nowrap;
 }
 
-.single-tab { 
-  display: inline-block; 
+.single-tab {
+  display: inline-block;
 }
 
 .tab-switch { display: none; }
