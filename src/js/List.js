@@ -8,18 +8,22 @@ class ListCards extends React.Component {
   }
 
   handleOpenModal(){
-    $('.ui.modal').modal('show');        
+    console.log("heyyy")
+    $('.ui.modal').modal('show');  
+    console.log("modal")
+    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier=157" , "laptop") 
+    console.log(pro, "pro")      
   }
 
   handleCloseModal () {
     $('.ui.modal').modal('hide'); 
   }
 
-  afterOpenModal() {
-    console.log("modal")
-    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier=157" , "laptop") 
-    console.log(pro, "pro")
-  }
+  // componentWillMount() {
+  //   console.log("modal")
+  //   let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier=157" , "laptop") 
+  //   console.log(pro, "pro")
+  // }
 
   render() {
     if (this.props.dataJSON.length === 0) {
@@ -47,16 +51,10 @@ class ListCards extends React.Component {
               Modal Title
             </div>
             <div className="image content">
-              <div className="image">
-                An image can appear on left or an icon
-              </div>
-              <div className="description">
-                A description can appear on the right
-              </div>
+              <div id="proto-embed-card"></div>
             </div>
             <div className="actions">
               <div className="ui button">Cancel</div>
-              <div className="ui button">OK</div>
             </div>
           </div>
         </div>

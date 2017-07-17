@@ -2,6 +2,10 @@ body{
   font-family: verdana, arial, helvetica, sans-serif;
 }
 
+#proto-embed-card{
+  width: 100%;
+}
+
 .ui.grid{
   margin-top: 10px;
   width: 970px;
@@ -357,8 +361,6 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   background: #D80202 !important;
   color: white !important;
 }
-
-
 
 @media only screen and (max-width: 450px){
   #map_svg {
