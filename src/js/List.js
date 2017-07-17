@@ -32,7 +32,7 @@ class ListCards extends React.Component {
       return (
         <div>
           <div className="protograph-card-area">{cards}</div>
-          <Modal />
+          <Modal handleCircleClicked={this.props.handleCircleClicked} />
         </div>
       )
     }

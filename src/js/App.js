@@ -256,7 +256,7 @@ class App extends React.Component {
           </div>
           <div className="sixteen wide column">
             <div className="protograph-container">
-              <List dataJSON={this.state.filteredJSON}/>
+              <List dataJSON={this.state.filteredJSON} handleCircleClicked={this.handleCircleClicked}/>
             </div>
           </div>
         </div>

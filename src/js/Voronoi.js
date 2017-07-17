@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {voronoi as d3Voronoi} from 'd3-voronoi';
-// import Tooltip from '../js/Tooltip';
+// import Modal from '../js/Modal';
 import Util from '../js/Utils';
 
 class Voronoi extends React.Component {
@@ -15,16 +15,13 @@ class Voronoi extends React.Component {
   componentDidUpdate() {
     // console.log(this.props.circleHover, "this.props.circleHover")
     // if (this.props.circleHover || this.props.circleClicked) {
-    //   ReactDOM.render(<Tooltip cardData={this.state.tooltipData} height={this.props.height} mode={this.props.mode} handleCircleClicked={this.props.handleCircleClicked}/>, document.getElementById('renderTooltip')) 
+      // ReactDOM.render(<Modal />, document.getElementById('renderModal')) 
     // }   
   }
 
   handleMouseOver(e, card, name) {
     this.props.circleHover = true;
     if (!this.props.circleClicked) { 
-      // this.setState({
-      //   tooltipData: card
-      // })
       Util.highlightCircle(name)
     }
   }
@@ -32,11 +29,10 @@ class Voronoi extends React.Component {
   handleOnClick(e, card, name) {
     if (this.props.mode === 'laptop'){
       this.props.handleCircleClicked(true);
-      let allPath = document.querySelectorAll('.voronoiWrapper path');
       Util.highlightCircle(name)
-      // this.setState({
-      //   tooltipData: card
-      // })
+      $('.ui.modal').modal('show');  
+      let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier=354" , "laptop")
+      console.log(pro, "pro")
     }
   }
 
