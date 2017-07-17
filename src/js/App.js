@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import PykQuery from '../../lib/PykQuery.2.0.0.min.js';
 import List from '../js/List';
+import Utils from '../js/Utils';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,10 +13,10 @@ class App extends React.Component {
       victim_religion: [],
       accused_religion: [],
       does_the_state_criminalise_victims_actions: [],
-      ruling_party_value: 'BJP',
-      victim_religion_value: 'Muslim',
-      accused_religion_value: 'Hindu',
-      criminalise_victims_value: 'No'
+      ruling_party_value: undefined,
+      victim_religion_value: undefined,
+      accused_religion_value: undefined,
+      criminalise_victims_value: undefined
     }
   }
 
@@ -27,71 +27,105 @@ class App extends React.Component {
           dataJSON: cards_data.data,
           filteredJSON: cards_data.data
         });
-        PykQuery.PykQuery.createTable("MobTable", "inbrowser", this.state.dataJSON);
-
-        let query = PykQuery.PykQuery.createQuery("query")
-
-        let state_ruling_party_query = PykQuery.PykQuery.createQuery("state_ruling_party_query"),
-          state_ruling_party = state_ruling_party_query.select('state_ruling_party').from("MobTable").groupBy().exec();
-
-        let victim_religion_query = PykQuery.PykQuery.createQuery("victim_religion_query"),
-          victim_religion = victim_religion_query.select('victim_religion').from("MobTable").groupBy().exec();
-
-        let accused_religion_query = PykQuery.PykQuery.createQuery("accused_religion_query"),
-          accused_religion = accused_religion_query.select('accused_religion').from("MobTable").groupBy().exec();
-
-        let does_the_state_criminalise_victims_actions_query = PykQuery.PykQuery.createQuery("does_the_state_criminalise_victims_actions_query"),
-          does_the_state_criminalise_victims_actions = does_the_state_criminalise_victims_actions_query.select('does_the_state_criminalise_victims_actions').from("MobTable").groupBy().exec();
-
+        let state_ruling_party = Utils.groupBy(this.state.dataJSON, 'state_ruling_party'),
+          victim_religion = Utils.groupBy(this.state.dataJSON, 'victim_religion'),
+          accused_religion = Utils.groupBy(this.state.dataJSON, 'victim_religion'),
+          does_the_state_criminalise_victims_actions = Utils.groupBy(this.state.dataJSON, 'does_the_state_criminalise_victims_actions');
+        
         this.setState({
-          query: query,
-          state_ruling_party: state_ruling_party,
-          state_ruling_party_query: state_ruling_party_query,
-          victim_religion: victim_religion,
-          victim_religion_query: victim_religion_query,
-          accused_religion: accused_religion,
-          accused_religion_query: accused_religion_query,
-          does_the_state_criminalise_victims_actions: does_the_state_criminalise_victims_actions,
-          does_the_state_criminalise_victims_actions_query: does_the_state_criminalise_victims_actions_query
+          state_ruling_party: Object.keys(state_ruling_party),
+          victim_religion: Object.keys(victim_religion),
+          accused_religion: Object.keys(accused_religion),
+          does_the_state_criminalise_victims_actions: Object.keys(does_the_state_criminalise_victims_actions)
         })
+        // this.getFilteredData();
     });
   }
 
   handleOnChangeParty(e) {
-    this.setState({
-      ruling_party_value: e.target.value
-    });
-    console.log("onchange value", this.state.ruling_party_value)
-    this.getFilteredData()
+    let name = e.target.value;
+    this.setState((prevState, props) => {
+      prevState.ruling_party_value = name;
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        ruling_party_value: name
+      }
+    })
   }
 
   handleOnChangeVR(e) {
-    this.setState({
-      victim_religion_value: e.target.value
+    let name = e.target.value;
+    this.setState((prevState, props) => {
+      prevState.victim_religion_value = name;
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        victim_religion_value: name
+      }
     })
-    this.getFilteredData()
   }
 
   handleOnChangeAR(e) {
-    this.setState({
-      accused_religion_value: e.target.value
+    let name = e.target.value;
+    this.setState((prevState, props) => {
+      prevState.accused_religion_value = name;
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        accused_religion_value: name
+      }
     })
-    this.getFilteredData()
   }
 
   handleOnChangeIsCrime(e) {
-    this.setState({
-      criminalise_victims_value: e.target.value
+    let name = e.target.value;
+    this.setState((prevState, props) => {
+      prevState.criminalise_victims_value = name;
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        criminalise_victims_value: name
+      }
     })
-    this.getFilteredData()
   }
 
-  getFilteredData() {
-    let filterd = this.state.query.select().from("MobTable").where("state_ruling_party","equal",this.state.ruling_party_value, "and").where("victim_religion", "equal", this.state.victim_religion_value, "and").where("accused_religion", "equal", this.state.accused_religion_value, "and").where("does_the_state_criminalise_victims_actions", "equal", this.state.criminalise_victims_value).exec();
-    console.log(filterd, "filtered data")
-    this.setState({
-      filteredJSON: filterd
-    })
+  checkParty(val, index, arr){
+    if(this === undefined) {
+      return true;
+    } 
+    return val.state_ruling_party === this;
+  }
+
+  checkVictimReligion(val, index, arr) {
+    if(this === undefined) {
+      return true;
+    } 
+    return val.victim_religion === this;
+  }
+
+  checkAccusedReligion(val, index, arr) {
+    if(this === undefined) {
+      return true;
+    } 
+    return val.accused_religion === this;
+  }
+
+  checkVictimCriminalised(val, index, arr) {
+    if(this === undefined) {
+      return true;
+    } 
+    return val.does_the_state_criminalise_victims_actions === this;
+  }
+
+  getFilteredData(state) {
+    let filteredData = this.state.dataJSON
+      .filter(this.checkParty, state.ruling_party_value)
+      .filter(this.checkVictimReligion, state.victim_religion_value)
+      .filter(this.checkAccusedReligion, state.accused_religion_value)
+      .filter(this.checkVictimCriminalised, state.criminalise_victims_value)
+    // console.log(filteredData, "filteredData")
+    return filteredData;
   }
 
   render() {
@@ -100,22 +134,22 @@ class App extends React.Component {
     } else {
       let rulingPartyOptions = this.state.state_ruling_party.map((value, i) => {
         return (
-          <option key={i} value={value.state_ruling_party}>{value.state_ruling_party}</option>
+          <option key={i} value={value}>{value}</option>
         )
       })
       let victimReligionOptions = this.state.victim_religion.map((value, i) => {
         return (
-          <option key={i} value={value.victim_religion}>{value.victim_religion}</option>
+          <option key={i} value={value}>{value}</option>
         )
       })
       let accusedReligionOptions = this.state.accused_religion.map((value, i) => {
         return (
-          <option key={i} value={value.accused_religion}>{value.accused_religion}</option>
+          <option key={i} value={value}>{value}</option>
         )
       })
       let criminaliseVictimsOptions = this.state.does_the_state_criminalise_victims_actions.map((value, i) => {
         return (
-          <option key={i} value={value.does_the_state_criminalise_victims_actions}>{value.does_the_state_criminalise_victims_actions}</option>
+          <option key={i} value={value}>{value}</option>
         )
       })
       return (
@@ -127,6 +161,7 @@ class App extends React.Component {
                 onChange={(e) => this.handleOnChangeParty(e)}
                 value={this.state.ruling_party_value}
               >
+                <option value='All'>All</option>
                 {rulingPartyOptions}
               </select>
             </div>
@@ -136,6 +171,7 @@ class App extends React.Component {
                 onChange={(e) => this.handleOnChangeVR(e)}
                 value={this.state.victim_religion_value}
               >
+                <option value='All'>All</option>
                 {victimReligionOptions}
               </select>
             </div>
@@ -145,6 +181,7 @@ class App extends React.Component {
                 onChange={(e) => this.handleOnChangeAR(e)}
                 value={this.state.accused_religion_value}
               >
+                <option value='All'>All</option>
                 {accusedReligionOptions}
               </select>
             </div>
@@ -154,6 +191,7 @@ class App extends React.Component {
                 onChange={(e) => this.handleOnChangeIsCrime(e)}
                 value={this.state.criminalise_victims_value}
               >
+                <option value='All'>All</option>
                 {criminaliseVictimsOptions}
               </select>
             </div>
