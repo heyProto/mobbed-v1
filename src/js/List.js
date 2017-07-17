@@ -2,8 +2,8 @@ import React from 'react';
 
 class ListCards extends React.Component {
   render() {
-    if (this.props.dataJSON === undefined) {
-      return(<div>Loading</div>)
+    if (this.props.dataJSON.length === 0) {
+      return(<h2>No cards to show</h2>)
     } else {
       let cards = this.props.dataJSON.map((card, i) => {
         return(
