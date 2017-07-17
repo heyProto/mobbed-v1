@@ -123,6 +123,7 @@ class App extends React.Component {
   }
 
   getFilteredData(state) {
+    console.log(state.victim_religion_value, "state.victim_religion_value")
     let filteredData = this.state.dataJSON
       .filter(this.checkParty, state.ruling_party_value)
       .filter(this.checkVictimReligion, state.victim_religion_value)
@@ -145,11 +146,15 @@ class App extends React.Component {
       }
     });
     console.log(new_arr, "new_Arr")
-    let startDate = new_arr[0].date,
+    let startDate, endDate;
+    if (new_arr.length === 0) {
+      startDate = '';
+      endDate = '';
+    } else {
+      startDate = new_arr[0].date;
       endDate = new_arr[new_arr.length - 1].date;
-
-    console.log(startDate, endDate, "startDate")
-
+    }
+    
     return {
       startDate: startDate,
       endDate: endDate
@@ -189,7 +194,7 @@ class App extends React.Component {
               <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode}/>
             </div>
             <div className="nine wide column">
-              <h2 className="mob-summary-text">A total of {number_of_incidents} incidents took place from {range.startDate} until {range.endDate}.</h2>
+              {range.startDate === '' ? <h2 className="mob-summary-text">A total of {number_of_incidents} incidents took place.</h2> : <h2 className="mob-summary-text">A total of {number_of_incidents} incidents took place from {range.startDate} until {range.endDate}.</h2>}
               <p>
                 Filter cards at the bottom by either clicking on the map or using the dropdowns.
               </p>
