@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import List from './src/js/List';
+import App from './src/js/App';
 
-ReactDOM.render(<List dataURL='src/data/data.json'/>, document.getElementById('card-list-div'));
+ReactDOM.render(<App dataURL='src/data/data.json'/>, document.getElementById('card-list-div'));
+
 

@@ -1,29 +1,11 @@
 import React from 'react';
-import axios from 'axios';
-import Filters from '../js/Filters';
 
-export default class ListCards extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      dataJSON: undefined
-    }
-  }
-
-  componentDidMount() {
-    axios.get(this.props.dataURL)
-      .then(cards_data => {
-        this.setState({
-          dataJSON: cards_data.data
-        });
-    });
-  }
-
+class ListCards extends React.Component {
   render() {
-    if (this.state.dataJSON === undefined) {
+    if (this.props.dataJSON === undefined) {
       return(<div>Loading</div>)
     } else {
-      let cards = this.state.dataJSON.map((card, i) => {
+      let cards = this.props.dataJSON.map((card, i) => {
         return(
           <div key={i} className="protograph-card">
             {card.image ? <img className="card-image" src={card.image} width='100%'/> : <div className="empty-card" width='100%'></div>}
@@ -36,12 +18,9 @@ export default class ListCards extends React.Component {
           </div>
         )
       })
-      return(
-        <div className="protograph-container">
-          <Filters dataJSON={this.state.dataJSON} />
-          <div className="protograph-card-area">{cards}</div>
-        </div>
-      )
+      return (<div className="protograph-card-area">{cards}</div>)
     }
   }
 }
+
+export default ListCards;
