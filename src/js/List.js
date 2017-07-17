@@ -1,13 +1,33 @@
 import React from 'react';
 
 class ListCards extends React.Component {
+  constructor () {
+    super();   
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  handleOpenModal(){
+    $('.ui.modal').modal('show');        
+  }
+
+  handleCloseModal () {
+    $('.ui.modal').modal('hide'); 
+  }
+
+  afterOpenModal() {
+    console.log("modal")
+    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier=157" , "laptop") 
+    console.log(pro, "pro")
+  }
+
   render() {
     if (this.props.dataJSON.length === 0) {
       return(<h2>No cards to show</h2>)
     } else {
       let cards = this.props.dataJSON.map((card, i) => {
         return(
-          <div key={i} className="protograph-card">
+          <div key={i} className="protograph-card" onClick={this.handleOpenModal}>
             {card.image ? <img className="card-image" src={card.image} width='100%'/> : <div className="empty-card" width='100%'></div>}
             <div className="protograph-gradient">
               <div className="data-card-content">
@@ -18,9 +38,33 @@ class ListCards extends React.Component {
           </div>
         )
       })
-      return (<div className="protograph-card-area">{cards}</div>)
+      return (
+        <div>
+          <div className="protograph-card-area">{cards}</div>
+          <div className="ui modal">
+            <i className="close icon" onClick={this.handleCloseModal}></i>
+            <div className="header">
+              Modal Title
+            </div>
+            <div className="image content">
+              <div className="image">
+                An image can appear on left or an icon
+              </div>
+              <div className="description">
+                A description can appear on the right
+              </div>
+            </div>
+            <div className="actions">
+              <div className="ui button">Cancel</div>
+              <div className="ui button">OK</div>
+            </div>
+          </div>
+        </div>
+      )
     }
   }
 }
 
 export default ListCards;
+
+// {this.state.showModal ? <div id='proto-embed-card'>{this.callIframe()}</div> : ''}
