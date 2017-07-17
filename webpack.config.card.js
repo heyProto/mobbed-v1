@@ -3,7 +3,7 @@ const webpack = require('webpack');
 module.exports = {
   // entry: './main.js',
   entry: {
-    app: './main.js' 
+    app: './main.js'
   },
   output: {
     path: __dirname,
@@ -14,13 +14,13 @@ module.exports = {
   //   path: './',
   //   filename: './dist/0.0.1/card.min.js'
   // },
-  // plugins: [
-  //   new webpack.DefinePlugin({
-  //     'process.env': {
-  //       NODE_ENV: JSON.stringify('production')
-  //     }
-  //   }),
-  // ],
+  plugins: [
+     new webpack.DefinePlugin({
+       'process.env': {
+         NODE_ENV: JSON.stringify('production')
+       }
+     }),
+  ],
   node: {
     net: 'empty',
     tls: 'empty',
