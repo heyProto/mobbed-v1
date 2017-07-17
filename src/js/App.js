@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import List from '../js/List';
+import Map from '../js/Map';
 import Utils from '../js/Utils';
 
 class App extends React.Component {
@@ -9,6 +10,7 @@ class App extends React.Component {
     this.state = {
       dataJSON: undefined,
       filteredJSON: undefined,
+      topoJSON: {},
       state_ruling_party: [],
       victim_religion: [],
       accused_religion: [],
@@ -21,11 +23,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(this.props.dataURL)
-      .then(cards_data => {
+    const {dataURL, topoURL} = this.props;
+    axios.all([axios.get(dataURL), axios.get(topoURL)])
+      .then(axios.spread((card, topo) => {
         this.setState({
-          dataJSON: cards_data.data,
-          filteredJSON: cards_data.data
+          dataJSON: card.data,
+          filteredJSON: card.data,
+          topoJSON: topo.data
         });
         let state_ruling_party = Utils.groupBy(this.state.dataJSON, 'state_ruling_party'),
           victim_religion = Utils.groupBy(this.state.dataJSON, 'victim_religion'),
@@ -39,7 +43,7 @@ class App extends React.Component {
           does_the_state_criminalise_victims_actions: Object.keys(does_the_state_criminalise_victims_actions)
         })
         // this.getFilteredData();
-    });
+    }));
   }
 
   handleOnChangeParty(e) {
@@ -128,7 +132,31 @@ class App extends React.Component {
     return filteredData;
   }
 
-  render() {
+  getDateRange(arr) {
+    let new_arr = arr.sort(function (a, b) {
+      let key1 = new Date(a.date),
+        key2 = new Date(b.date);
+      if (key1 < key2) {
+        return -1;
+      } else if (key1 == key2) {
+        return 0;
+      } else {
+        return 1;
+      }
+    });
+    console.log(new_arr, "new_Arr")
+    let startDate = new_arr[0].date,
+      endDate = new_arr[new_arr.length - 1].date;
+
+    console.log(startDate, endDate, "startDate")
+
+    return {
+      startDate: startDate,
+      endDate: endDate
+    }
+  }
+
+  renderLaptop() {
     if (this.state.dataJSON === undefined) {
       return(<div></div>)
     } else {
@@ -152,53 +180,80 @@ class App extends React.Component {
           <option key={i} value={value}>{value}</option>
         )
       })
+      let number_of_incidents = this.state.filteredJSON.length,
+        range = this.getDateRange(this.state.filteredJSON);
       return (
-        <div className="protograph-container">
-          <div className="protograph-filters-container">
-            <div className="protograph-filters">
-              <p>Party in power</p>
-              <select
-                onChange={(e) => this.handleOnChangeParty(e)}
-                value={this.state.ruling_party_value}
-              >
-                <option value='All'>All</option>
-                {rulingPartyOptions}
-              </select>
+        <div>
+          <div className="ui grid">
+            <div className="seven wide column">
+              <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode}/>
             </div>
-            <div className="protograph-filters">
-              <p>Victim religion</p>
-              <select
-                onChange={(e) => this.handleOnChangeVR(e)}
-                value={this.state.victim_religion_value}
-              >
-                <option value='All'>All</option>
-                {victimReligionOptions}
-              </select>
-            </div>
-            <div className="protograph-filters">
-              <p>Accused religion</p>
-              <select
-                onChange={(e) => this.handleOnChangeAR(e)}
-                value={this.state.accused_religion_value}
-              >
-                <option value='All'>All</option>
-                {accusedReligionOptions}
-              </select>
-            </div>
-            <div className="protograph-filters">
-              <p>Was the victim possibly committing a crime?</p>
-              <select
-                onChange={(e) => this.handleOnChangeIsCrime(e)}
-                value={this.state.criminalise_victims_value}
-              >
-                <option value='All'>All</option>
-                {criminaliseVictimsOptions}
-              </select>
+            <div className="nine wide column">
+              <h2 className="mob-summary-text">A total of {number_of_incidents} incidents took place from {range.startDate} until {range.endDate}.</h2>
+              <p>
+                Filter cards at the bottom by either clicking on the map or using the dropdowns.
+              </p>
+              <div className="protograph-filters-container">
+                <div className="protograph-filters">
+                  <p>Party in power</p>
+                  <select
+                    onChange={(e) => this.handleOnChangeParty(e)}
+                    value={this.state.ruling_party_value}
+                  >
+                    <option value='All'>All</option>
+                    {rulingPartyOptions}
+                  </select>
+                </div>
+                <div className="protograph-filters">
+                  <p>Victim religion</p>
+                  <select
+                    onChange={(e) => this.handleOnChangeVR(e)}
+                    value={this.state.victim_religion_value}
+                  >
+                    <option value='All'>All</option>
+                    {victimReligionOptions}
+                  </select>
+                </div>
+                <div className="protograph-filters">
+                  <p>Accused religion</p>
+                  <select
+                    onChange={(e) => this.handleOnChangeAR(e)}
+                    value={this.state.accused_religion_value}
+                  >
+                    <option value='All'>All</option>
+                    {accusedReligionOptions}
+                  </select>
+                </div>
+                <div className="protograph-filters">
+                  <p>Was the victim possibly committing a crime?</p>
+                  <select
+                    onChange={(e) => this.handleOnChangeIsCrime(e)}
+                    value={this.state.criminalise_victims_value}
+                  >
+                    <option value='All'>All</option>
+                    {criminaliseVictimsOptions}
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
-          <List dataJSON={this.state.filteredJSON}/>
+          <div className="ui divider"></div>
+          <div className="sixteen wide column">
+            <div className="protograph-container">
+              <List dataJSON={this.state.filteredJSON}/>
+            </div>
+          </div>
         </div>
       )
+    }
+  }
+
+  render() {
+    switch(this.props.mode) {
+      case 'laptop' :
+        return this.renderLaptop();
+      case 'mobile' :
+        return this.renderLaptop();
     }
   }
 }
