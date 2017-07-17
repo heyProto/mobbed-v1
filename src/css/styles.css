@@ -6,6 +6,10 @@ body{
   width: 100%;
 }
 
+.ui.modal{
+  top: 10%;
+}
+
 .ui.grid{
   margin-top: 10px;
   width: 970px;

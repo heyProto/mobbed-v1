@@ -3,27 +3,33 @@ import React from 'react';
 class ListCards extends React.Component {
   constructor () {
     super();   
+    this.setState({
+      modal: 'hide'
+    })
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   handleOpenModal(){
-    console.log("heyyy")
+    console.log("modal open")
     $('.ui.modal').modal('show');  
-    console.log("modal")
-    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier=157" , "laptop") 
-    console.log(pro, "pro")      
+    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier=157" , "laptop")     
   }
 
   handleCloseModal () {
     $('.ui.modal').modal('hide'); 
+    let element = document.querySelector("#proto-embed-card iframe");
+    element.parentNode.removeChild(element);
   }
 
-  // componentWillMount() {
-  //   console.log("modal")
-  //   let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier=157" , "laptop") 
-  //   console.log(pro, "pro")
-  // }
+  componentDidMount() {
+    console.log("will mount")
+    // let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier=157" , "laptop") 
+  }
+
+  componentWillUnmount() {
+    console.log("will unmount")
+  }
 
   render() {
     if (this.props.dataJSON.length === 0) {
@@ -45,16 +51,10 @@ class ListCards extends React.Component {
       return (
         <div>
           <div className="protograph-card-area">{cards}</div>
-          <div className="ui modal">
+          <div className="ui modal small">
             <i className="close icon" onClick={this.handleCloseModal}></i>
-            <div className="header">
-              Modal Title
-            </div>
             <div className="image content">
               <div id="proto-embed-card"></div>
-            </div>
-            <div className="actions">
-              <div className="ui button">Cancel</div>
             </div>
           </div>
         </div>
