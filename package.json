@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
+    "axios": "^0.16.1",
     "d3-geo": "^1.6.4",
     "d3-scale": "^1.0.6",
     "d3-voronoi": "^1.1.2",
-    "axios": "^0.16.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-modal": "^2.2.2",
     "topojson-client": "^3.0.0"
   },
   "devDependencies": {

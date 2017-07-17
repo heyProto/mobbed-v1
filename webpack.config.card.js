@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: __dirname,
     publicPath: '/',
-    filename: './dist/0.0.1/bundle.min.js',
+    filename: 'bundle.min.js',
   },
   // output: {
   //   path: './',
