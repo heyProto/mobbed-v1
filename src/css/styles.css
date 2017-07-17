@@ -101,3 +101,309 @@ body{
   display: inline-block;
   padding: 5px
 }
+
+.mob-summary-text{
+  margin-top: 30px;
+}
+
+/*Map styling*/
+
+.geo-borders {
+  fill: none;
+  stroke: white;
+  stroke-width: 0.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.geo-region {
+  fill: #DADFF4;
+}
+
+.region-outline{
+  stroke: none;
+  fill-opacity: 0;
+}
+
+.voronoiWrapper{
+  fill: none;
+ /* stroke: red;
+  stroke-width: 0.5px*/
+}
+
+#map_svg{
+  padding-top:20px;
+  padding-bottom:20px;
+  background: white;
+  float: left;
+}
+
+#map_circles{
+  cursor: pointer;
+}
+
+#protograph_map_title{
+  font-size: 20px;
+  color: #000;
+  margin:0px;
+  padding: 20px;
+  font-weight: 400;
+  border-top: 2px solid #D80202;
+}
+
+#protograph_parent{
+  position: relative;
+  border: 1px solid #efefef;
+  border-top: 0px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#protograph-tooltip {
+  background: #fafafa;
+  color: black;
+  font-family: sans-serif;
+  font-size: 14px;
+  padding: 10px;
+  position: absolute;
+  width: 244px;
+  line-height: 24px;
+  z-index: 100;
+  pointer-events: all;
+  overflow-y: scroll;
+  height: 413px;
+}
+
+.protograph-source {
+  padding: 5px 10px;
+  font-size: 10px;
+  line-height: 15px;
+  color: #7a7a7a;
+  border-top: 1px solid #efefef;
+}
+
+.protograph-source-header, .protograph-source-summary {
+  display: inline;
+}
+
+.protograph-credits {
+  display: inline;
+  float: right;
+  font-size: 10px;
+}
+
+
+.protograph-legends{
+  padding: 10px 20px;
+  background: #fafafa;
+}
+
+.protograph-legends-title{
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  display: none;
+}
+
+.stop{
+  white-space: nowrap;
+  margin-bottom: 2px;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.stop-swatch{
+  display: inline-block;
+  width: 10px;
+  vertical-align: middle;
+  height: 10px;
+  border-radius: 50px;
+  margin-right: 5px;
+}
+
+.stop-label{
+  font-size: 12px;
+  display: inline-block;
+  color: #666;
+}
+
+.t-ownership{
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #777;
+}
+
+.t-title{
+  font-family: helvetica;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.t-image {
+  height: 135px;
+}
+
+
+.t-date{
+  font-size: 10px;
+  margin-bottom: 3px;
+  color: #777;
+  letter-spacing: 0.5px;
+  line-height: 14px;
+}
+
+
+#t-pin {
+  display: none;
+}
+
+.t-pushpin {
+  height: 30px;
+  float: right;
+  cursor: pointer;
+}
+
+.t-location{
+  font-size: 12px;
+  margin-bottom: 15px;
+  color: #777;
+  letter-spacing: 0.5px;
+  line-height: 14px;
+}
+
+.t-header{
+  font-size: 10px;
+  text-transform: uppercase;
+  color: gray;
+  margin-bottom: 0px;
+}
+
+#t-further-reading{
+  word-wrap: break-word;
+}
+
+hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
+
+.t-p, .t-law{
+  font-size: 13px;
+  color: black;
+  line-height: 15px;
+}
+
+.t-padup{
+  margin-top: 10px;
+}
+
+.top-row{
+  border: 0px !important;
+  color: #777;
+}
+
+.pg-tabs {
+  position: relative;
+  background: white;
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  display: inline-block;
+  overflow-x: scroll;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.single-tab { 
+  display: inline-block; 
+}
+
+.tab-switch { display: none; }
+
+.tab-label {
+  position: relative;
+  display: block;
+  padding: 7px 15px;
+  color: #999 !important;
+  cursor: pointer;
+  top: 0;
+  transition: all 0.25s;
+  margin-right: 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  background: #fafafa;
+  letter-spacing: 0.5px;
+}
+
+.tab-label:hover{
+  background: #efefef !important;
+}
+
+.tab-switch:checked + .tab-label {
+  color: #4d4d4d;
+  transition: all 0.35s;
+  z-index: 2;
+}
+
+.tab-switch:checked + .tab-label{
+  opacity: 1;
+  transition: all 0.35s;
+  z-index: 3;
+}
+
+.active_tab, .active_tab:hover{
+  background: #D80202 !important;
+  color: white !important;
+}
+
+
+
+@media only screen and (max-width: 450px){
+  #map_svg {
+    padding: 10px;
+  }
+
+  .tooltip-close-icon{
+    width: 15px;
+    float: right;
+    z-index: 200;
+  }
+
+  .t-image {
+    height: 165px;
+  }
+
+  #protograph-tooltip {
+    pointer-events:all;
+    height: auto;
+  }
+
+  #protograph_parent{
+    -moz-box-shadow: 0 0 0 0 lightgrey;
+    -webkit-box-shadow: 0 0 0 0 lightgrey;
+    box-shadow: 0 0 0 0 lightgrey;
+    border-radius: 0px;
+    border: 0;
+    border-bottom: 1px solid #efefef;
+  }
+  #protograph_map_title{
+    padding: 15px;
+  }
+
+  .pg-tabs{
+    padding-left: 15px;
+  }
+
+  .protograph-legends{
+    padding: 10px 15px;
+  }
+
+  #protograph-tooltip {
+    width:100%;
+    box-shadow: 0px 0px 10px lightgrey;
+    box-sizing: border-box;
+  }
+
+  body{
+    margin: 0px;
+  }
+}
+

@@ -29,7 +29,8 @@
           <a class="item" href="/data-other.html">Other</a>
         </div>
       </div>
-      <div class="row">
+      <div id="card-list-div"></div>
+     <!--  <div class="row">
           <div class="seven wide column">
             <img src="src/img/sample.png" style="width: 350px;"/>
           </div>
@@ -48,8 +49,25 @@
       <div class="ui divider"></div>
       <div class="sixteen wide column">
         <div id="card-list-div"></div>
-      </div>
+      </div> -->
     </div>
     <script src = "dist/0.0.1/bundle.min.js"></script>
+    <script type="text/javascript">
+      var x = new ProtoGraph.Card.toMaps()
+        x.init({
+        selector: document.querySelector('#card-list-div'),
+        dataURL: 'src/data/data.json',
+        topoURL: 'src/data/india-topo.json',
+        chartOptions: {
+          chartTitle: 'Mob Justice in India',
+          height: 400,
+          // colorCategory: 'Thematic Area',
+          // colorRange: ["#F7630C", "#B146C2", "#00AFF0", "#00CC6A"], //orange, purple, blue, green
+          defaultCircleColor: '#2e80e0',
+          filterBy: 'menu'
+        }
+      })
+      x.renderLaptop();
+    </script>
   </body>
 </html>
