@@ -1,276 +1,232 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset = "UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mob Justice</title>
-    <link rel="stylesheet" type="text/css" href="lib/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="src/css/styles.css">
-  </head>
-  <body>
-    <div class="ui grid">
-      <div class="sixteen wide column">
-        <div class="ui secondary menu">
-          <a class="header item" href="/index.html">
-            <h1 class="ui header">Mob Justice in India</h1>
-          </a>
-          <div class="right menu">
-            <a href="/index.html" class="ui item">Home</a>
-            <a href="/data.html" class="ui item">Data</a>
-            <a href="/about.html" class="ui item">About</a>
-          </div>
+<head>
+  <meta charset = "UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mob Justice</title>
+  <link rel="stylesheet" type="text/css" href="lib/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="src/css/styles.css">
+</head>
+<body>
+  <div class="ui grid">
+    <div class="sixteen wide column">
+      <div class="ui secondary menu">
+        <a class="header item" href="/index.html">
+          <h1 class="ui header">Mob Justice in India</h1>
+        </a>
+        <div class="right menu">
+          <a href="/index.html" class="ui item">Home</a>
+          <a href="/data.html" class="ui item">Data</a>
+          <a href="/about.html" class="ui item">About</a>
         </div>
-        <div class="ui divider" style=""></div>
-        <br/>
-        <h1 class="ui header centered">How to fill up the data?</h1>
-        <p class="hint">Definition of Done of how to fill up the data.</p>
-        <br/><br/>
-        <table class="ui very basic table">
-          <thead>
-            <tr>
-              <th>Column Name
-              </th>
-              <th>Rules
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>title
-              </td>
-              <td>Choose one victim's name (choose person who died over those who were injured), followed by age of the victim in brackets e.g. Junaid Khan (15). If there are more than one victim then append "and others" to the name of the victim e.g. Junaid Khan (15) and others.
-              </td>
-
-            </tr>
-            <tr>
-              <td>menu
-              </td>
-              <td>Choose one from following - Cattle Protection, Crime, Sexual Harassment, Witch Craft, Honour Killing and Other.
-              </td>
-
-            </tr>
-            <tr>
-              <td>sub_crime
-              </td>
-              <td>This is an informal column. Scribble any crime that was committed either by the victim or accused.
-              </td>
-
-            </tr>
-            <tr>
-              <td>date
-              </td>
-              <td>Date when the article was published.
-              </td>
-
-            </tr>
-            <tr>
-              <td>area
-              </td>
-              <td>Ideally enter village or town name. If it is not available, then district name. Do not copy paste the location in the byline since sometime more precise location details are given in the story itself.
-              </td>
-
-            </tr>
-            <tr>
-              <td>state
-              </td>
-              <td>State where the incident occurred.
-              </td>
-
-            </tr>
-            <tr>
-              <td>state_ruling_party
-              </td>
-              <td>Which political party's chief minister was in power in the state when this article was published.
-              </td>
-
-            </tr>
-            <tr>
-              <td>image
-              </td>
-              <td>URL of the cover image
-              </td>
-
-            </tr>
-          </tbody>
-        </table>
-        <br/><br/>
-        <h3 class="ui header centered" style="color: blue;">VICTIM - the people who got lynched</h3>
-        <br/>
-        <p class="hint">Following columns need to read like a narrative is appended.</p>
-        <p class="hint">{victim_religion} {victim_tag} ({victim_gender}) {victim_action}</p>
-        <p class="hint">Muslim farmers (men) were legally transporting two milch cows to Haryana in a pickup truck.</p>
-        <br/><br/>
-        <table class="ui very basic table">
-          <thead>
-            <tr>
-              <th>Column Name
-              </th>
-              <th>Rules
-              </th>
-              <th>Extra Notes
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>victim_religion
-              </td>
-              <td>Religion of the victim. If multi-religion then write Hindu and Muslim. If not explicitly mentioned in the article, then leave blank.
-              </td>
-              <td rowspan="3">Start the first word amongst these three columns in capital.
-              </td>
-            </tr>
-            <tr>
-              <td>victim_tag
-              </td>
-              <td>Generally the occupation of the victim. E.g. agricultural labourers, farmers, BSF officer, housewife, etc.
-              </td>
-
-            </tr>
-            <tr>
-              <td>victim_gender
-              </td>
-              <td>men, man, boy, boys, women, woman, girl, girls, etc.
-              </td>
-
-            </tr>
-            <tr>
-              <td>victim_action
-              </td>
-              <td>What were the victims doing when the mob lynching took place? End this statement with a full stop.
-              </td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>victim_names
-              </td>
-              <td>Comma separated list of name of victims followed by their age in bracket.
-              </td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-        <br/><br/>
-        <h3 class="ui header centered" style="color: blue;">ACCUSED - the people who did the lynching</h3>
-        <br/><br/>
-        <table class="ui very basic table">
-          <thead>
-            <tr>
-              <th>Column Name
-              </th>
-              <th>Rules
-              </th>
-              <th>Extra Notes
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>accused_religion
-              </td>
-              <td>Religion of the accused If multi-religion then write Hindu and Muslim. If not explicitly mentioned in the article, then leave blank.
-              </td>
-              <td rowspan="3">Start the first word amongst these three columns in capital.
-              </td>
-            </tr>
-            <tr>
-              <td>accused_tag
-              </td>
-              <td>Generally the occupation of the accused E.g. agricultural labourers, farmers, BSF officer, housewife, etc.
-              </td>
-
-            </tr>
-            <tr>
-              <td>accused_gender
-              </td>
-              <td>men, man, boy, boys, women, woman, girl, girls, etc.
-              </td>
-
-            </tr>
-            <tr>
-              <td>accused_action
-              </td>
-              <td>What were the accused doing before the mob lynching took place? End this statement with a full stop.
-              </td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>accused_names
-              </td>
-              <td>Comma separated list of name of victims followed by their age in bracket.
-              </td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-        <br/><br/>
-        <h3 class="ui header centered" style="color: blue;">The details of the lynching</h3>
-        <br/><br/>
-        <table class="ui very basic table">
-          <thead>
-            <tr>
-              <th>Column Name
-              </th>
-              <th>Rules
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>the_lynching
-              </td>
-              <td>How did the actual lynching take place? More details on the incident.
-              </td>
-
-            </tr>
-            <tr>
-              <td>count_injured
-              </td>
-              <td>Number of victims who did not die but got injured, raped, harrassed, etc.
-              </td>
-
-            </tr>
-            <tr>
-              <td>count_dead
-              </td>
-              <td>Number of victims who died
-              </td>
-
-            </tr>
-            </tbody>
-            </table>
-            <br/><br/>
-        <h3 class="ui header centered" style="color: blue;">Were the victims doing something illegal?</h3>
-        <p  class="hint">Example - Junaid Khan did not do anything illegal. He was simply traveling in train. However there is a case where a couple of Muslim women were transporting bufallo meat in Madhya Pradesh where it is illegal to possess or sell bufallo meat. Hence, the victim's actions can be illegal.</p>
-        <br/><br/>
-        <table class="ui very basic table">
-          <thead>
-            <tr>
-              <th>Column Name
-              </th>
-              <th>Rules
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>does_the_state_criminalise_victims_actions
-              </td>
-              <td>Value for this column can only be Yes, No or Don't know.
-              </td>
-
-            </tr>
-            <tr>
-              <td>which_law
-              </td>
-              <td>Need to explain in simple words which law did the victim potentially violate
-              </td>
-
-            </tr>
-            </tbody>
-            </table>
       </div>
+      <div class="ui divider" style=""></div>
+      <br/>
+      <h1 class="ui header centered">How to fill up the data?</h1>
+      <p class="hint">Definition of Done of how to fill up the data.</p>
+      <br/><br/>
+      <table class="ui celled structured table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Column Name
+            </th>
+            <th>Rules
+            </th>
+            <th>Extra Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="active" rowspan="8">General</td>
+            <td>title
+            </td>
+            <td class="hint">Choose one victim's name (choose person who died over those who were injured), followed by age of the victim in brackets e.g. Junaid Khan (15). If there are more than one victim then append "and others" to the name of the victim e.g. Junaid Khan (15) and others.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>menu
+            </td>
+            <td class="hint">Choose one from following - Cattle Protection, Crime, Sexual Harassment, Witch Craft, Honour Killing and Other.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>sub_crime
+            </td>
+            <td class="hint">This is an informal column. Scribble any crime that was committed either by the victim or accused.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>date
+            </td>
+            <td class="hint">Date when the article was published.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>area
+            </td>
+            <td class="hint">Ideally enter village or town name. If it is not available, then district name. Do not copy paste the location in the byline since sometime more precise location details are given in the story itself.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>state
+            </td>
+            <td class="hint">State where the incident occurred.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>state_ruling_party
+            </td>
+            <td class="hint">Which political party's chief minister was in power in the state when this article was published.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>image
+            </td>
+            <td class="hint">URL of the cover image
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="active" rowspan="5">VICTIM - the people who got lynched
+            </td>
+            <td>victim_religion
+            </td>
+            <td class="hint">Religion of the victim. If multi-religion then write Hindu and Muslim. If not explicitly mentioned in the article, then leave blank.
+            </td>
+            <td  class="hint" rowspan="3">Start the first word amongst these three columns in capital.
+            </td>
+          </tr>
+          <tr>
+            <td>victim_tag
+            </td>
+            <td class="hint">Generally the occupation of the victim. E.g. agricultural labourers, farmers, BSF officer, housewife, etc.
+            </td>
+
+          </tr>
+          <tr>
+            <td>victim_gender
+            </td>
+            <td class="hint">men, man, boy, boys, women, woman, girl, girls, etc.
+            </td>
+          </tr>
+          <tr>
+            <td>victim_action
+            </td>
+            <td class="hint">What were the victims doing when the mob lynching took place? End this statement with a full stop.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>victim_names
+            </td>
+            <td class="hint">Comma separated list of name of victims followed by their age in bracket.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="active" rowspan="5">ACCUSED - the people who did the lynching
+            </td>
+            <td>accused_religion
+            </td>
+            <td class="hint">Religion of the accused If multi-religion then write Hindu and Muslim. If not explicitly mentioned in the article, then leave blank.
+            </td>
+            <td  class="hint" rowspan="3">Start the first word amongst these three columns in capital.
+            </td>
+          </tr>
+          <tr>
+            <td>accused_tag
+            </td>
+            <td class="hint">Generally the occupation of the accused E.g. agricultural labourers, farmers, BSF officer, housewife, etc.
+            </td>
+
+          </tr>
+          <tr>
+            <td>accused_gender
+            </td>
+            <td class="hint">men, man, boy, boys, women, woman, girl, girls, etc.
+            </td>
+
+          </tr>
+          <tr>
+            <td>accused_action
+            </td>
+            <td class="hint">What were the accused doing before the mob lynching took place? End this statement with a full stop.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>accused_names
+            </td>
+            <td class="hint">Comma separated list of name of victims followed by their age in bracket.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="active" rowspan="3">The details of the lynching
+            </td>
+            <td>the_lynching
+            </td>
+            <td class="hint">How did the actual lynching take place? More details on the incident.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>count_injured
+            </td>
+            <td class="hint">Number of victims who did not die but got injured, raped, harrassed, etc.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>count_dead
+            </td>
+            <td class="hint">Number of victims who died
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="active" rowspan="2">Were the victims doing something illegal?
+            </td>
+            <td>does_the_state_ criminalise_ victims_actions
+            </td>
+            <td class="hint">Value for this column can only be Yes, No or Don't know.
+            </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>which_law
+            </td>
+            <td class="hint">Need to explain in simple words which law did the victim potentially violate
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <br/><br/>
+      <h3 class="ui header centered" style="color: blue;"></h3>
+      <br/>
+      <p class="hint">Following columns need to read like a narrative is appended.</p>
+      <p class="hint">{victim_religion} {victim_tag} ({victim_gender}) {victim_action}</p>
+      <p class="hint">Muslim farmers (men) were legally transporting two milch cows to Haryana in a pickup truck.</p>
+      <table class="ui very basic table">
+        <tbody>
+
+        </tbody>
+      </table>
+      <br/><br/>
+      <h3 class="ui header centered" style="color: blue;">Were the victims doing something illegal?</h3>
+      <p  class="hint">Example - Junaid Khan did not do anything illegal. He was simply traveling in train. However there is a case where a couple of Muslim women were transporting bufallo meat in Madhya Pradesh where it is illegal to possess or sell bufallo meat. Hence, the victim's actions can be illegal.</p>
+      <br/><br/>
     </div>
-    <br/><br/><br/><br/><br/><br/><br/><br/>
-  </body>
+  </div>
+  <br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
 </html>
