@@ -31,7 +31,7 @@ class Voronoi extends React.Component {
       this.props.handleCircleClicked(true);
       Util.highlightCircle(name)
       $('.ui.modal').modal('show');  
-      let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier=354" , "laptop")
+      let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier="+card.view_cast_identifier, "laptop")
       console.log(pro, "pro")
     }
   }

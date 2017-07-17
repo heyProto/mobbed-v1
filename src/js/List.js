@@ -7,9 +7,10 @@ class ListCards extends React.Component {
     this.handleOpenModal = this.handleOpenModal.bind(this);
   }
 
-  handleOpenModal(){
+  handleOpenModal(e, card){
+    // console.log(card, "card-----")
     $('.ui.modal').modal('show');  
-    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier=354" , "laptop")     
+    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier="+card.view_cast_identifier , "laptop")     
   }
 
   render() {
@@ -18,8 +19,8 @@ class ListCards extends React.Component {
     } else {
       let cards = this.props.dataJSON.map((card, i) => {
         return(
-          <div key={i} className="protograph-card" onClick={this.handleOpenModal}>
-            {card.image ? <img className="card-image" src={card.image} width='100%'/> : <div className="empty-card" width='100%'></div>}
+          <div key={i} className="protograph-card" onClick={(e) => this.handleOpenModal(e, card)}>
+            {card.image ? <img className="card-image" src={card.image} width='100%'/> : <img className="card-image" src={card.screen_shot_url} width='100%'/>}
             <div className="protograph-gradient">
               <div className="data-card-content">
                 <div className="data-card-title">{card.title}</div>
