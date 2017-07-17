@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset = "UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Lynched: Mobs enacting violent justice on alleged criminals in India.</title>
+  <link rel="stylesheet" type="text/css" href="lib/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="src/css/styles.css">
+</head>
+<body>
+  <div class="ui grid">
+    <div class="sixteen wide column">
+      <div class="ui secondary menu">
+        <a class="header item" href="/index.html">
+          <h1 class="ui header">
+            The Lynched
+            <p class="hint" style="font-weight: 400">Mobs enacting violent justice on alleged criminals in India.</p>
+          </h1>
+        </a>
+        <div class="right menu">
+
+          <a href="/data.html" class="ui item">Data</a>
+          <a href="/about.html" class="ui item active">About</a>
+        </div>
+      </div>
+      <div class="ui divider" style=""></div>
+      <br/>
+    </div>
+  </div>
+  <div class="ui grid" style="width: 600px; margin-left: auto; margin-right: auto;">
+    <div class="sixteen wide column">
+      <h1 class="ui header centered" style="font-size: 2.7em; font-weight: 100;">About the Project</h1>
+      <br/>
+      <h3 class="ui header">What are we collecting data for?</h3>
+      <p>We are collecting data on "mob justice" and not on mob violence i.e. a group of people taking the law into their own hands and enacting violent justice on an alleged criminal. Other words used to describe mob justice are mob rule, moral policing, jungle justice and instant justice.</p>
+      <p>We are searching for news reports in IndianExpress.com and are qualifying incidents as mob justice if both the following conditions are met:</p>
+      <ul>
+        <li>Violence or harassment done by many on few.</li>
+        <li>The accused should believe that the victim has committed a crime.</li>
+      </ul>
+      <h3 class="ui header">Why focus on this now?</h3>
+      <p>Over the last few years, there have been a string of mob justice incidents. Hence, it was important to collect this data. National Crime Records Bureau (NCRB) itself is planning to launch their own database on lynching - <a href="http://indianexpress.com/article/india/ncrb-plans-to-create-database-on-lynchings-indin-mob-killings-4742279" target="_blank">http://indianexpress.com/article/india/ncrb-plans-to-create-database-on-lynchings-indin-mob-killings-4742279</a></p>
+      <h3 class="ui header">How we collected the data?</h3>
+      <p>
+        We used MIT Media Cloud to search for articles in IndianExpress.com from 2010 until 2017 with the keywords "gau rakshak" OR "mob justice" OR lynch* OR vigilant* OR "beaten to death" OR "mob violence" OR "mob rule" or "mob killing" or "mob beats up" OR "stoned to death" OR death or killing.
+        <br/><br/>
+        It gave us a total of 100,000 plus results. The above keywords got articles from even sections like Entertainment, Sports, Lifestyle, Education, Technology, World, Opinion, etc. Next we used WebScraper.io to enrich the data with section and location. All articles that were not part of the “Cities” and “India” section or had a location that was outside India were removed.
+      </p>
+    </div>
+  </div>
+  <script src = "dist/0.0.1/bundle.min.js"></script>
+</body>
+</html>
