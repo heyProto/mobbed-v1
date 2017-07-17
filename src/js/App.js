@@ -10,6 +10,8 @@ class App extends React.Component {
     this.state = {
       dataJSON: undefined,
       filteredJSON: undefined,
+      circleClicked: false,
+      circleHover: false,
       topoJSON: {},
       state_ruling_party: [],
       victim_religion: [],
@@ -20,6 +22,7 @@ class App extends React.Component {
       accused_religion_value: 'undefined',
       criminalise_victims_value: 'undefined'
     }
+    this.handleCircleClicked = this.handleCircleClicked.bind(this);
   }
 
   componentDidMount() {
@@ -44,6 +47,12 @@ class App extends React.Component {
         })
         // this.getFilteredData();
     }));
+  }
+
+  handleCircleClicked(bool) {
+    this.setState({
+      circleClicked: bool
+    })
   }
 
   handleOnChangeParty(e) {
@@ -194,7 +203,7 @@ class App extends React.Component {
               <p className="hint">Filter cards at the bottom by either clicking on the map or using the dropdowns.</p>
             </div>
             <div className="seven wide column">
-              <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode}/>
+              <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>
             </div>
             <div className="nine wide column">
               <br/>
