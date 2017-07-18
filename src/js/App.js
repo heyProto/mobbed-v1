@@ -237,7 +237,7 @@ class App extends React.Component {
                     onChange={(e) => this.handleOnChangeAR(e)}
                     value={this.state.accused_religion_value}
                   >
-                    <option>All</option>
+                    <option value="undefined">All</option>
                     {accusedReligionOptions}
                   </select>
                 </div>
@@ -247,7 +247,7 @@ class App extends React.Component {
                     onChange={(e) => this.handleOnChangeIsCrime(e)}
                     value={this.state.criminalise_victims_value}
                   >
-                    <option>All</option>
+                    <option value="undefined">All</option>
                     {criminaliseVictimsOptions}
                   </select>
                 </div>
