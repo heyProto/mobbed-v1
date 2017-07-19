@@ -12,13 +12,6 @@ class Voronoi extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    // console.log(this.props.circleHover, "this.props.circleHover")
-    // if (this.props.circleHover || this.props.circleClicked) {
-      // ReactDOM.render(<Modal />, document.getElementById('renderModal')) 
-    // }   
-  }
-
   handleMouseOver(e, card, name) {
     this.props.circleHover = true;
     if (!this.props.circleClicked) { 
@@ -30,9 +23,16 @@ class Voronoi extends React.Component {
     if (this.props.mode === 'laptop'){
       this.props.handleCircleClicked(true);
       Util.highlightCircle(name)
-      $('.ui.modal').modal('show');  
+      let props = this.props;
+      $('.ui.modal').modal({
+        onHidden: function(e) {
+          let element = document.querySelector("#proto-embed-card iframe");
+          // console.log(element, "element")
+          element.parentNode.removeChild(element);
+          props.handleCircleClicked(false);
+        }
+      }).modal('attach events', '.close').modal('show')  
       let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier="+card.view_cast_identifier, "laptop")
-      console.log(pro, "pro")
     }
   }
 

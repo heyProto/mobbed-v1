@@ -8,9 +8,15 @@ class ListCards extends React.Component {
   }
 
   handleOpenModal(e, card){
-    // console.log(card, "card-----")
-    $('.ui.modal').modal('show');  
-    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier="+card.view_cast_identifier , "laptop")     
+    $('.ui.modal').modal({
+      onHidden: function(e) {
+        let element = document.querySelector("#proto-embed-card iframe");
+        // console.log(element, "element")
+        element.parentNode.removeChild(element);
+        props.handleCircleClicked(false);
+      }
+    }).modal('attach events', '.close').modal('show')  
+    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier="+card.view_cast_identifier, "laptop")     
   }
 
   render() {
