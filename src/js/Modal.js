@@ -1,11 +1,6 @@
 import React from 'react';
 
 class Modal extends React.Component {
-  constructor () {
-    super();   
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-  }
-
   render() {
     return(
       <div id="proto-modal" className="ui modal small">
