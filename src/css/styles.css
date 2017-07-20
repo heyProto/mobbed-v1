@@ -1,6 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
 body{
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.5px;
 }
+
+.container{
+  max-width: 980px;
+  margin-left:auto;
+  margin-right: auto;
+  height: 100vh;
+}
+
+.page-navigation{
+  display: inline-block;
+  width: 100%;
+  padding: 15px 0px;
+  border-bottom: 1px solid #efefef;
+}
+
+.page-navigation .navigation-link{
+  display: inline-block;
+  margin-right: 30px;
+  color: #999;
+  font-weight: 300;
+}
+
+.page-navigation .navigation-link a{
+  color: #999;
+}
+
+.page-navigation .active-link a{
+  color: black !important;
+  font-weight: 700;
+}
+
+.page-title{
+  width: 100%;
+  text-align: center;
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+.page-title h1{
+  font-size: 36px;
+  font-weight: 300;
+  border-bottom: 2px solid #F02E2E;
+  padding: 5px 15px;
+  display: inline-block;
+}
+
+.page-subtitle{
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.filter-area{
+  display: inline-block;
+  width: 100%;
+  background: #fafafa;
+}
+
+.filter-area .tap-area {
+  display: inline-block;
+  width: 100%;
+  color: #F02E2E;
+  text-align: center;
+  padding: 15px 0px;
+}
+
+.filter-title{
+  font-weight: 400;
+}
+
+.display-number{
+  font-size: 72px;
+  font-weight: 300;
+  letter-spacing: 15px;
+  top: 43px;
+  position: absolute;
+  left: 19px;
+}
+
+.number-background{
+  position: absolute;
+}
+
+.single-background{
+  background: #fafafa;
+  height: 80px;
+  width: 50px;
+  display: inline-block;
+  margin-right: 7px;
+  float: left;
+  box-shadow: 0px 1px 2px #bdbdbd;
+  z-index: -1;
+}
+
+.light-text{
+  color: #d1d1d1;
+}
+
+.count-area{
+  height: 80px;
+}
+
+.display-text{
+  font-size: 18px;
+  line-height: 32px;
+  margin-top: 20px;
+}
+
+.display-text-dropdown{
+  background: #F02E2E;
+  color: white;
+  font-weight: 400;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+
+
 
 #proto-embed-card{
   width: 100%;
@@ -11,7 +131,7 @@ body{
 }
 
 .ui.grid{
-  margin-top: 10px;
+  margin-top: 0px;
   width: 970px;
   margin-left: auto;
   margin-right: auto;
