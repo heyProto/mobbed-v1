@@ -20,10 +20,10 @@ class MapsCard extends React.Component {
 
   componentWillMount() {
     let padding = this.props.mode === 'mobile' ? 20 : 0,
-      offsetWidth = 600 - padding,
+      offsetWidth = 480 - padding,
       actualHeight = this.props.chartOptions.height
 
-    let tx = this.props.mode === 'mobile' ? offsetWidth / 2 : 450;
+    let tx = this.props.mode === 'mobile' ? offsetWidth / 2 : offsetWidth / 2;
 
     let ch = this.props.topoJSON,
       country = topojson.feature(ch, ch.objects),

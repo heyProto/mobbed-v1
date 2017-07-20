@@ -197,61 +197,30 @@ class App extends React.Component {
       let number_of_incidents = this.state.filteredJSON.length,
         range = this.getDateRange(this.state.filteredJSON);
       return (
-        <div>
-          <div className="ui grid filter-section">
-            <div className="sixteen wide column">
-              <p className="hint">Filter cards at the bottom by either clicking on the map or using the dropdowns.</p>
-            </div>
-            <div className="seven wide column">
-              <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>
-            </div>
-            <div className="nine wide column">
-              <br/>
-              {range.startDate === '' ? <h2 className="mob-summary-text">A total of {number_of_incidents} incidents took place.</h2> : <h2 className="mob-summary-text">A total of {number_of_incidents} incidents took place from {range.startDate} until {range.endDate}.</h2>}
-              <br/>
-              <br/>
-              <div className="protograph-filters-container">
-                <div className="protograph-filters">
-                  <p>Party in power</p>
-                  <select
-                    onChange={(e) => this.handleOnChangeParty(e)}
-                    value={this.state.ruling_party_value}
-                  >
-                    <option value='undefined'>All</option>
-                    {rulingPartyOptions}
-                  </select>
+        <div className="banner-area">
+          <div className="ui grid">
+            <div className="eight wide column filter-title">
+              <div className="count-area">
+                <div className="number-background">
+                  <div className="single-background"></div>
+                  <div className="single-background"></div>
+                  <div className="single-background"></div>
                 </div>
-                <div className="protograph-filters">
-                  <p>Victim religion</p>
-                  <select
-                    onChange={(e) => this.handleOnChangeVR(e)}
-                    value={this.state.victim_religion_value}
-                  >
-                    <option value="undefined">All</option>
-                    {victimReligionOptions}
-                  </select>
-                </div>
-                <div className="protograph-filters">
-                  <p>Accused religion</p>
-                  <select
-                    onChange={(e) => this.handleOnChangeAR(e)}
-                    value={this.state.accused_religion_value}
-                  >
-                    <option value="undefined">All</option>
-                    {accusedReligionOptions}
-                  </select>
-                </div>
-                <div className="protograph-filters">
-                  <p>Was the victim possibly committing a crime?</p>
-                  <select
-                    onChange={(e) => this.handleOnChangeIsCrime(e)}
-                    value={this.state.criminalise_victims_value}
-                  >
-                    <option value="undefined">All</option>
-                    {criminaliseVictimsOptions}
-                  </select>
-                </div>
+                <div className="display-number"><span className="light-text">0</span>36</div>
               </div>
+              <div className="display-text">Reports of lynching were reported <br/> under 
+                <select className="display-text-dropdown">
+                  <option href="data-sexual-harassment.html">Cattle Protection</option>
+                  <option href="data-sexual-harassment.html">Sexual Harassment</option>
+                  <option href="data-crime.html">criminalise_victims_value</option>
+                  <option href="data-witch-hunting.html">Witch Hunting</option>
+                  <option href="data-honour-killings.html">Honour Killing</option>
+                  <option href="data-other.html">Other</option>
+                </select>
+                <br/> from Aug14 to Jul17</div>
+            </div>
+            <div className="eight wide column filter-title">
+              <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>
             </div>
           </div>
           <div className="sixteen wide column">
@@ -275,3 +244,66 @@ class App extends React.Component {
 }
 
 export default App;
+
+ // <div className="ui grid filter-section">
+ //            <div className="sixteen wide column">
+ //              <p className="hint">Filter cards at the bottom by either clicking on the map or using the dropdowns.</p>
+ //            </div>
+ //            <div className="seven wide column">
+ //              <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>
+ //            </div>
+ //            <div className="nine wide column">
+ //              <br/>
+ //              {range.startDate === '' ? <h2 className="mob-summary-text">A total of {number_of_incidents} incidents took place.</h2> : <h2 className="mob-summary-text">A total of {number_of_incidents} incidents took place from {range.startDate} until {range.endDate}.</h2>}
+ //              <br/>
+ //              <br/>
+ //              <div className="protograph-filters-container">
+ //                <div className="protograph-filters">
+ //                  <p>Party in power</p>
+ //                  <select
+ //                    onChange={(e) => this.handleOnChangeParty(e)}
+ //                    value={this.state.ruling_party_value}
+ //                  >
+ //                    <option value='undefined'>All</option>
+ //                    {rulingPartyOptions}
+ //                  </select>
+ //                </div>
+ //                <div className="protograph-filters">
+ //                  <p>Victim religion</p>
+ //                  <select
+ //                    onChange={(e) => this.handleOnChangeVR(e)}
+ //                    value={this.state.victim_religion_value}
+ //                  >
+ //                    <option value="undefined">All</option>
+ //                    {victimReligionOptions}
+ //                  </select>
+ //                </div>
+ //                <div className="protograph-filters">
+ //                  <p>Accused religion</p>
+ //                  <select
+ //                    onChange={(e) => this.handleOnChangeAR(e)}
+ //                    value={this.state.accused_religion_value}
+ //                  >
+ //                    <option value="undefined">All</option>
+ //                    {accusedReligionOptions}
+ //                  </select>
+ //                </div>
+ //                <div className="protograph-filters">
+ //                  <p>Was the victim possibly committing a crime?</p>
+ //                  <select
+ //                    onChange={(e) => this.handleOnChangeIsCrime(e)}
+ //                    value={this.state.criminalise_victims_value}
+ //                  >
+ //                    <option value="undefined">All</option>
+ //                    {criminaliseVictimsOptions}
+ //                  </select>
+ //                </div>
+ //              </div>
+ //            </div>
+ //          </div>
+ //          <div className="sixteen wide column">
+ //            <div className="protograph-container">
+ //              <List dataJSON={this.state.filteredJSON} handleCircleClicked={this.handleCircleClicked}/>
+ //            </div>
+ //          </div>
+ //        </div>
