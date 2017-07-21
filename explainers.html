@@ -16,7 +16,8 @@
       background: #CCE2FF;
     }
     .green{
-      background-color: green !important;
+      background-color: #CCE2FF !important;
+      color: black;
     }
   </style>
 </head>
@@ -201,7 +202,7 @@
     }
     if($(window).scrollTop() + $(window).height() == $(document).height()) {
       $('.question').css({'background-color':'white'});
-      $('.question:last').css({'background-color':'rgba(255,0,0,0.5)'});
+      $('.question:last').css({'background-color':'#CCE2FF'});
     }
     lastScrollTop = st;
   });
@@ -210,26 +211,26 @@
       onTopPassed:function(calculations){
         if(!scrollingUp && scrollspy){
           $('.question').css({'background-color':'white'});
-          $('#q'+$(this).attr('id')).next().css({'background-color':'rgba(255,0,0,0.5)'});
+          $('#q'+$(this).attr('id')).next().css({'background-color':'#CCE2FF'});
         }else if(!scrollspy){
           $('.question').css({'background-color':'white'});
-          $('.question:first').css({'background-color':'rgba(255,0,0,0.5)'});
+          $('.question:first').css({'background-color':'#CCE2FF'});
         }
       },
       onBottomVisible:function(calculations){
         if(scrollingUp && scrollspy){
           $('.question').css({'background-color':'white'});
-          $('#q'+$(this).attr('id')).prev().css({'background-color':'rgba(255,0,0,0.5)'});
+          $('#q'+$(this).attr('id')).prev().css({'background-color':'#CCE2FF'});
         }else if(!scrollspy){
           $('.question').css({'background-color':'white'});
-          $('.question:first').css({'background-color':'rgba(255,0,0,0.5)'});
+          $('.question:first').css({'background-color':'#CCE2FF'});
         }
       }
     });
 
   $('.question').hover(function(){
     $(this).addClass('green');
-    $(this).children('p').children('a').css({"color":"white"});
+    $(this).children('p').children('a').css({"color":"black"});
     $( $(this).children('p').children('a')[0].hash ).addClass('green');
   },function(){
     $(this).removeClass('green');
