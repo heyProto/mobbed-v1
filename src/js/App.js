@@ -185,7 +185,7 @@ class App extends React.Component {
     let new_arr = arr.sort(function (a, b) {
       let key1 = new Date(a.date),
         key2 = new Date(b.date);
-      if (key1 < key2) {
+      if (key1 > key2) {
         return -1;
       } else if (key1 == key2) {
         return 0;
@@ -199,8 +199,8 @@ class App extends React.Component {
       startDate = '';
       endDate = '';
     } else {
-      startDate = new_arr[0].date;
-      endDate = new_arr[new_arr.length - 1].date;
+      startDate = new_arr[new_arr.length - 1].date;
+      endDate = new_arr[0].date;
     }
     
     return {
@@ -325,7 +325,7 @@ class App extends React.Component {
                   <option href="data-honour-killings.html">Honour Killing</option>
                   <option href="data-other.html">Other</option>
                 </select>
-                <br/> from Aug14 to Jul17</div>
+                <br/> from {range.startDate} to {range.endDate}</div>
             </div>
             <div className="eight wide column filter-title">
               <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>
