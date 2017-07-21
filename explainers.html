@@ -31,7 +31,7 @@
   </div>
   <div class="ui grid">
       <div class="eight wide column">
-          <div class="ui compact segments" style="border: 0px;" id="dhara-to-make-this-sticky">
+          <div class="ui compact segments sticky" style="border: 0px;">
             <div class="ui compact segment" style="border: 0px;">
               <p><a href="#what">1. What is mob justice?</a></p>
             </div>
@@ -61,7 +61,7 @@
             </div>
           </div>
       </div>
-      <div class="eight wide column">
+      <div class="eight wide column" id="question-answer-section">
         <h3 class="ui header" id="what">1. What is mob justice?</h3>
       <p>Say tomorrow morning you are driving to work and a pedestrian suddenly crosses the road. You slam the brake and narrowly miss him. He gets angry and starts shouting at you. Within minutes, a crowd surrounds you and starts beating you up. That’s mob justice!</p>
       <p>The mob believes that they have been victimised by you, the wrongdoer. So they act as the jury and the executioner and they take the law unto themselves and mete out instant and, often violent, justice.</p>
@@ -91,7 +91,14 @@
       </div>
   </div>
 </div>
-<script src = "dist/0.0.1/bundle.min.js"></script>
+<script src="lib/jquery.min.js"></script>
+<script src="lib/semantic.min.js"></script>
+<script type="text/javascript">
+  $('.ui.sticky')
+  .sticky({
+    context: '#question-answer-section'
+  });
+</script>
 <br/><br/><br/><br/><br/>
 </body>
 </html>
