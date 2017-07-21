@@ -7,6 +7,23 @@ import Utils from '../js/Utils';
 class App extends React.Component {
   constructor(props) {
     super(props)
+    console.log(location.href, "window.location.href")
+    let url = location.href,
+      file_name = url.split('/').pop(),
+      category;
+    if (file_name === 'data.html'){
+      category = 'Cattle Protection'
+    } else if(file_name === 'data-crime.html') {
+      category = 'Crime'
+    } else if (file_name === 'data-honour-killings.html') {
+      category = 'Honour Killing'
+    } else if (file_name === 'data-other.html'){
+      category = 'Other'
+    } else if (file_name === 'data-sexual-harassment.html') {
+      category = 'Sexual Harassment'
+    } else if (file_name === 'data-witch-hunting.html') {
+      category = 'Witch Hunting'
+    }
     this.state = {
       dataJSON: undefined,
       filteredJSON: undefined,
@@ -24,7 +41,8 @@ class App extends React.Component {
       ruling_party_value: 'undefined',
       victim_religion_value: 'undefined',
       accused_religion_value: 'undefined',
-      criminalise_victims_value: 'undefined'
+      criminalise_victims_value: 'undefined',
+      category: category
     }
     this.handleCircleClicked = this.handleCircleClicked.bind(this);
   }
@@ -50,6 +68,7 @@ class App extends React.Component {
           does_the_state_criminalise_victims_actions: does_the_state_criminalise_victims_actions
         })
     }));
+    this.showCounter();
   }
 
   handleCircleClicked(bool) {
@@ -181,6 +200,22 @@ class App extends React.Component {
     })
   }
 
+  showCounter() {
+    setTimeout(function(){
+      $('.animate-number').each(function () {
+        $(this).prop('Counter',0).animate({
+          Counter: $(this).text()
+        },{
+            duration: 2000,
+            easing: 'swing',
+            step: function (now) {
+              $(this).text(Math.ceil(now));
+            }
+        });
+      }); 
+    },1000)
+  }
+
   getDateRange(arr) {
     let new_arr = arr.sort(function (a, b) {
       let key1 = new Date(a.date),
@@ -209,6 +244,11 @@ class App extends React.Component {
     }
   }
 
+  handleCategory(e) {
+    let href_val = e.target.value
+    window.location.href = href_val
+  }
+
   renderLaptop() {
     if (this.state.dataJSON === undefined) {
       return(<div></div>)
@@ -227,23 +267,29 @@ class App extends React.Component {
         )
       })
       let victimReligionOptions = Object.keys(this.state.victim_religion).map((value, i) => {
+        let name;
         if (value === ''){
-          value = 'Unknown'
+          name = 'Unknown'
+        } else {
+          name = value
         }
         return (
           <tr className='victim_inactive_item' id={`victim-${value}`}>
-            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeVR(e, value)}>{value}</td>
+            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeVR(e, value)}>{name}</td>
             <td>{victimReligionStats[i].length}</td>
           </tr>
         )
       })
       let accusedReligionOptions = Object.keys(this.state.accused_religion).map((value, i) => {
+        let name;
         if (value === ''){
-          value = 'Unknown'
-        };
+          name = 'Unknown'
+        } else {
+          name = value
+        }
         return (
           <tr className='accused_inactive_item' id={`accused-${value}`}>
-            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeAR(e, value)}>{value}</td>
+            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeAR(e, value)}>{name}</td>
             <td>{accusedReligionStats[i].length}</td>
           </tr>
         )
@@ -270,6 +316,8 @@ class App extends React.Component {
       second_tap_area_style = {
         display: this.state.hideTapArea
       }
+
+      $('.ui.dropdown').dropdown()
 
       return (
         <div className="banner-area">
@@ -314,17 +362,25 @@ class App extends React.Component {
                   <div className="single-background"></div>
                   <div className="single-background"></div>
                 </div>
-                <div className="display-number"><span className="light-text">0</span>36</div>
+                <div className="display-number">
+                  <span className="light-text">0</span>
+                  <span className="animate-number">{number_of_incidents}</span>
+                </div>
               </div>
               <div className="display-text">Reports of lynching were reported <br/> under 
-                <select className="display-text-dropdown">
-                  <option href="data-sexual-harassment.html">Cattle Protection</option>
-                  <option href="data-sexual-harassment.html">Sexual Harassment</option>
-                  <option href="data-crime.html">criminalise_victims_value</option>
-                  <option href="data-witch-hunting.html">Witch Hunting</option>
-                  <option href="data-honour-killings.html">Honour Killing</option>
-                  <option href="data-other.html">Other</option>
-                </select>
+                <div className="ui selection dropdown display-text-dropdown">
+                  <input type="hidden" name="category"/>
+                  <i className="dropdown icon"></i>
+                  <div className="default text def-option">{this.state.category}</div>
+                  <div className="menu">
+                    <a className="item" href="data.html">Cattle Protection</a>
+                    <a className="item" href="data-sexual-harassment.html">Sexual Harassment</a>
+                    <a className="item" href="data-crime.html">Crime</a>
+                    <a className="item" href="data-witch-hunting.html">Witch Hunting</a>
+                    <a className="item" href="data-honour-killings.html">Honour Killing</a>
+                    <a className="item" href="data-other.html">Other</a>
+                  </div>
+                </div>
                 <br/> from {range.startDate} to {range.endDate}</div>
             </div>
             <div className="eight wide column filter-title">
@@ -415,3 +471,13 @@ export default App;
  //            </div>
  //          </div>
  //        </div>
+
+  // <select className="display-text-dropdown" onChange={(e) => this.handleCategory(e)}>
+  //   <option value="data.html">Cattle Protection</option>
+  //   <option value="data-sexual-harassment.html">Sexual Harassment</option>
+  //   <option value="data-crime.html">Crime</option>
+  //   <option value="data-witch-hunting.html">Witch Hunting</option>
+  //   <option value="data-honour-killings.html">Honour Killing</option>
+  //   <option value="data-other.html">Other</option>
+  // </select> 
+                

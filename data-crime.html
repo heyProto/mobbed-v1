@@ -8,30 +8,17 @@
     <link rel="stylesheet" type="text/css" href="src/css/styles.css">
   </head>
   <body>
-    <div class="ui grid">
-      <div class="sixteen wide column">
-        <div class="ui secondary menu">
-          <a class="header item" href="data.html">
-            <h1 class="ui header">
-            The Lynched
-            <p class="hint" style="font-weight: 400">Mobs enacting violent justice on alleged criminals in India.</p>
-          </h1>
-          </a>
-          <div class="right menu">
-
-            <a href="data.html" class="ui item active">Data</a>
-            <a href="explainers.html" class="ui item">Understand the issue</a>
-            <a href="about.html" class="ui item">About</a>
-          </div>
-        </div>
-        <div class="ui divider" style=""></div>
-        <div class="ui secondary pointing menu" style="border-bottom: 0px;">
-          <a class="item" href="data.html">Cattle Protection</a>
-          <a class="item" href="data-sexual-harassment.html">Sexual Harassment</a>
-          <a class="active item" href="data-crime.html">Crime</a>
-          <a class="item" href="data-witch-hunting.html">Witch Hunting</a>
-          <a class="item" href="data-honour-killings.html">Honour Killing</a>
-          <a class="item" href="data-other.html">Other</a>
+    <div class="container">
+      <div class="page-navigation">
+        <div class="navigation-link"><a href="index.html">Home</a></div>
+        <div class="navigation-link active-link"><a href="data.html">Data</a></div>
+        <div class="navigation-link"><a href="explainers.html">Understand the issue</a></div>
+        <div class="navigation-link"><a href="about.html">About</a></div>
+      </div>
+      <div class="page-title">
+        <h1>The Lynched</h1>
+        <div class="page-subtitle">
+          Mobs enacting violent justice on alleged criminals in India.
         </div>
       </div>
       <div id="card-list-div"></div>
@@ -49,9 +36,7 @@
         chartOptions: {
           chartTitle: 'Mob Justice in India',
           height: 400,
-          // colorCategory: 'Thematic Area',
-          // colorRange: ["#F7630C", "#B146C2", "#00AFF0", "#00CC6A"], //orange, purple, blue, green
-          defaultCircleColor: '#2e80e0',
+          defaultCircleColor: '#F02E2E',
           filterBy: 'menu'
         }
       })
