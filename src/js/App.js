@@ -7,6 +7,23 @@ import Utils from '../js/Utils';
 class App extends React.Component {
   constructor(props) {
     super(props)
+    console.log(location.href, "window.location.href")
+    let url = location.href,
+      file_name = url.split('/').pop(),
+      category;
+    if (file_name === 'data.html'){
+      category = 'Cattle Protection'
+    } else if(file_name === 'data-crime.html') {
+      category = 'Crime'
+    } else if (file_name === 'data-honour-killings.html') {
+      category = 'Honour Killing'
+    } else if (file_name === 'data-other.html'){
+      category = 'Other'
+    } else if (file_name === 'data-sexual-harassment.html') {
+      category = 'Sexual Harassment'
+    } else if (file_name === 'data-witch-hunting.html') {
+      category = 'Witch Hunting'
+    }
     this.state = {
       dataJSON: undefined,
       filteredJSON: undefined,
@@ -24,7 +41,8 @@ class App extends React.Component {
       ruling_party_value: 'undefined',
       victim_religion_value: 'undefined',
       accused_religion_value: 'undefined',
-      criminalise_victims_value: 'undefined'
+      criminalise_victims_value: 'undefined',
+      category: category
     }
     this.handleCircleClicked = this.handleCircleClicked.bind(this);
   }
@@ -226,6 +244,11 @@ class App extends React.Component {
     }
   }
 
+  handleCategory(e) {
+    let href_val = e.target.value
+    window.location.href = href_val
+  }
+
   renderLaptop() {
     if (this.state.dataJSON === undefined) {
       return(<div></div>)
@@ -294,7 +317,7 @@ class App extends React.Component {
         display: this.state.hideTapArea
       }
 
-      $('.ui.dropdown').dropdown('set selected', 'Cattle')
+      $('.ui.dropdown').dropdown()
 
       return (
         <div className="banner-area">
@@ -348,15 +371,16 @@ class App extends React.Component {
                 <div className="ui selection dropdown display-text-dropdown">
                   <input type="hidden" name="category"/>
                   <i className="dropdown icon"></i>
-                  <div className="default text def-option">Cattle Protection</div>
+                  <div className="default text def-option">{this.state.category}</div>
                   <div className="menu">
+                    <a className="item" href="data.html">Cattle Protection</a>
                     <a className="item" href="data-sexual-harassment.html">Sexual Harassment</a>
                     <a className="item" href="data-crime.html">Crime</a>
                     <a className="item" href="data-witch-hunting.html">Witch Hunting</a>
                     <a className="item" href="data-honour-killings.html">Honour Killing</a>
                     <a className="item" href="data-other.html">Other</a>
                   </div>
-                </div> 
+                </div>
                 <br/> from {range.startDate} to {range.endDate}</div>
             </div>
             <div className="eight wide column filter-title">
@@ -448,11 +472,12 @@ export default App;
  //          </div>
  //        </div>
 
-    // <select className="display-text-dropdown">
-    //               <option href="data-sexual-harassment.html">Cattle Protection</option>
-    //               <option href="data-sexual-harassment.html">Sexual Harassment</option>
-    //               <option href="data-crime.html">criminalise_victims_value</option>
-    //               <option href="data-witch-hunting.html">Witch Hunting</option>
-    //               <option href="data-honour-killings.html">Honour Killing</option>
-    //               <option href="data-other.html">Other</option>
-    //             </select>
+  // <select className="display-text-dropdown" onChange={(e) => this.handleCategory(e)}>
+  //   <option value="data.html">Cattle Protection</option>
+  //   <option value="data-sexual-harassment.html">Sexual Harassment</option>
+  //   <option value="data-crime.html">Crime</option>
+  //   <option value="data-witch-hunting.html">Witch Hunting</option>
+  //   <option value="data-honour-killings.html">Honour Killing</option>
+  //   <option value="data-other.html">Other</option>
+  // </select> 
+                
