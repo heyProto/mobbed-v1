@@ -80,7 +80,7 @@ body{
   font-size: 72px;
   font-weight: 300;
   letter-spacing: 15px;
-  top: 43px;
+  top: 93px;
   position: absolute;
   left: 19px;
 }
@@ -106,6 +106,7 @@ body{
 
 .count-area{
   height: 80px;
+  margin-top: 50px;
 }
 
 .display-text{
@@ -119,10 +120,15 @@ body{
   border: 1px solid #F02E2E !important;
   color: white !important;
   font-weight: 400 !important;
-  padding: 3px 10px !important;
+  padding: 1px 10px !important;
   border-radius: 4px;
+  margin-left: 5px;
   line-height: 32px !important;
   min-height: 0px !important;
+}
+
+.dropdown .icon{
+  padding: 8px !important;
 }
 
 .def-option {
