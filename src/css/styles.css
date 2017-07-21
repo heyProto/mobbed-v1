@@ -67,6 +67,9 @@ body{
   color: #F02E2E;
   text-align: center;
   padding: 15px 0px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #fafafa;
 }
 
 .filter-title{

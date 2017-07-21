@@ -12,6 +12,10 @@ class App extends React.Component {
       filteredJSON: undefined,
       circleClicked: false,
       circleHover: false,
+      height: 0,
+      overflow: 'hidden',
+      showTapArea: 'block',
+      hideTapArea: 'none',
       topoJSON: {},
       state_ruling_party: [],
       victim_religion: [],
@@ -159,6 +163,24 @@ class App extends React.Component {
     return filteredData;
   }
 
+  showFilters() {
+    this.setState({
+      height: 255,
+      overflow: 'auto',
+      showTapArea: 'none',
+      hideTapArea: 'block'
+    })
+  }
+
+  hideFilters() {
+    this.setState({
+      height: 0,
+      overflow: 'hidden',
+      showTapArea: 'block',
+      hideTapArea: 'none'
+    })
+  }
+
   getDateRange(arr) {
     let new_arr = arr.sort(function (a, b) {
       let key1 = new Date(a.date),
@@ -236,10 +258,26 @@ class App extends React.Component {
       })
       let number_of_incidents = this.state.filteredJSON.length,
         range = this.getDateRange(this.state.filteredJSON);
+
+      let styles = {
+        height: this.state.height,
+        overflow: this.state.overflow,
+        transition: 'ease-in 0.3s'
+      };
+      let first_tap_area_style = {
+        display: this.state.showTapArea
+      },
+      second_tap_area_style = {
+        display: this.state.hideTapArea
+      }
+
       return (
         <div className="banner-area">
           <div className="filter-area">
-            <div className="ui grid">
+            <div className="tap-area" style={first_tap_area_style} onClick={(e) => this.showFilters(e)}>
+              Tap here to explore data
+            </div>
+            <div id="filter-region" className="ui grid" style={styles}>
               <div className="four wide column filter-title">
                 <table><tbody>
                   <th className="table-head">Ruling party</th>{rulingPartyOptions}
@@ -264,7 +302,7 @@ class App extends React.Component {
                 </tbody></table>
               </div>
             </div>
-            <div className="tap-area">
+            <div className="tap-area" style={second_tap_area_style} onClick={(e) => this.hideFilters(e)}>
               Tap here to hide filters
             </div>
           </div>
