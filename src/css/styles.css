@@ -113,6 +113,7 @@ body{
 
 .display-text-dropdown{
   background: #F02E2E;
+  border: 1px solid #F02E2E;
   color: white;
   font-weight: 400;
   padding: 3px 10px;
@@ -132,6 +133,19 @@ tr{
 tr:hover{
   background: #F02E2E;
   cursor: pointer;
+}
+
+.accused_active_item{
+  background: #F02E2E;
+}
+.criminalise_active_item {
+  background: #F02E2E;
+}
+.party_active_item{
+  background: #F02E2E;
+}
+.victim_active_item{
+  background: #F02E2E;
 }
 
 tr:hover td{

@@ -40,12 +40,11 @@ class App extends React.Component {
           does_the_state_criminalise_victims_actions = Utils.groupBy(this.state.dataJSON, 'does_the_state_criminalise_victims_actions');
 
         this.setState({
-          state_ruling_party: Object.keys(state_ruling_party),
-          victim_religion: Object.keys(victim_religion),
-          accused_religion: Object.keys(accused_religion),
-          does_the_state_criminalise_victims_actions: Object.keys(does_the_state_criminalise_victims_actions)
+          state_ruling_party: state_ruling_party,
+          victim_religion: victim_religion,
+          accused_religion: accused_religion,
+          does_the_state_criminalise_victims_actions: does_the_state_criminalise_victims_actions
         })
-        // this.getFilteredData();
     }));
   }
 
@@ -55,8 +54,8 @@ class App extends React.Component {
     })
   }
 
-  handleOnChangeParty(e) {
-    let name = e.target.value;
+  handleOnChangeParty(e, value) {
+    let name = value;
     this.setState((prevState, props) => {
       prevState.ruling_party_value = name;
       let filteredData = this.getFilteredData(prevState)
@@ -65,10 +64,11 @@ class App extends React.Component {
         ruling_party_value: name
       }
     })
+    this.highlightItem(value, 'party_inactive_item', 'party_active_item', 'party');
   }
 
-  handleOnChangeVR(e) {
-    let name = e.target.value;
+  handleOnChangeVR(e, value) {
+    let name = value;
     this.setState((prevState, props) => {
       prevState.victim_religion_value = name;
       let filteredData = this.getFilteredData(prevState)
@@ -77,10 +77,11 @@ class App extends React.Component {
         victim_religion_value: name
       }
     })
+    this.highlightItem(value, 'victim_inactive_item', 'victim_active_item', 'victim');
   }
 
-  handleOnChangeAR(e) {
-    let name = e.target.value;
+  handleOnChangeAR(e, value) {
+    let name = value;
     this.setState((prevState, props) => {
       prevState.accused_religion_value = name;
       let filteredData = this.getFilteredData(prevState)
@@ -89,10 +90,11 @@ class App extends React.Component {
         accused_religion_value: name
       }
     })
+    this.highlightItem(value, 'accused_inactive_item', 'accused_active_item', 'accused');
   }
 
-  handleOnChangeIsCrime(e) {
-    let name = e.target.value;
+  handleOnChangeIsCrime(e, value) {
+    let name = value;
     this.setState((prevState, props) => {
       prevState.criminalise_victims_value = name;
       let filteredData = this.getFilteredData(prevState)
@@ -101,6 +103,21 @@ class App extends React.Component {
         criminalise_victims_value: name
       }
     })
+    this.highlightItem(value, 'criminalise_inactive_item','criminalise_active_item', 'criminalise');
+  }
+
+  highlightItem(value, inactive, active, identifier) {
+    let elm = document.getElementsByClassName(active),
+      inactiveClass = inactive,
+      activeClass = active;
+    let i = 0;
+    console.log(elm, "element")
+    while (i < elm.length) {
+      i++;
+      elm[0].className = inactiveClass;
+    }
+    let selectItem = document.getElementById(`${identifier}-${value}`);
+    selectItem.className = activeClass;
   }
 
   checkParty(val, index, arr){
@@ -138,7 +155,7 @@ class App extends React.Component {
       .filter(this.checkVictimReligion, state.victim_religion_value)
       .filter(this.checkAccusedReligion, state.accused_religion_value)
       .filter(this.checkVictimCriminalised, state.criminalise_victims_value)
-    // console.log(filteredData, "filteredData")
+    console.log(filteredData, "filteredData")
     return filteredData;
   }
 
@@ -174,30 +191,83 @@ class App extends React.Component {
     if (this.state.dataJSON === undefined) {
       return(<div></div>)
     } else {
-      let rulingPartyOptions = this.state.state_ruling_party.map((value, i) => {
+      let partyStats = Object.values(this.state.state_ruling_party),
+        victimReligionStats = Object.values(this.state.victim_religion),
+        accusedReligionStats = Object.values(this.state.victim_religion),
+        crimaliseVictimsStats = Object.values(this.state.does_the_state_criminalise_victims_actions);
+
+      let rulingPartyOptions = Object.keys(this.state.state_ruling_party).map((value, i) => { 
         return (
-          <option key={i} value={value}>{value}</option>
+          <tr className='party_inactive_item' id={`party-${value}`}>
+            <td key={i} value={value} onClick={(e) => this.handleOnChangeParty(e, value)}>{value}</td>
+            <td>{partyStats[i].length}</td>
+          </tr>
         )
       })
-      let victimReligionOptions = this.state.victim_religion.map((value, i) => {
+      let victimReligionOptions = Object.keys(this.state.victim_religion).map((value, i) => {
+        if (value === ''){
+          value = 'Unknown'
+        }
         return (
-          <option key={i} value={value}>{value}</option>
+          <tr className='victim_inactive_item' id={`victim-${value}`}>
+            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeVR(e, value)}>{value}</td>
+            <td>{victimReligionStats[i].length}</td>
+          </tr>
         )
       })
-      let accusedReligionOptions = this.state.accused_religion.map((value, i) => {
+      let accusedReligionOptions = Object.keys(this.state.accused_religion).map((value, i) => {
+        if (value === ''){
+          value = 'Unknown'
+        };
         return (
-          <option key={i} value={value}>{value}</option>
+          <tr className='accused_inactive_item' id={`accused-${value}`}>
+            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeAR(e, value)}>{value}</td>
+            <td>{accusedReligionStats[i].length}</td>
+          </tr>
         )
       })
-      let criminaliseVictimsOptions = this.state.does_the_state_criminalise_victims_actions.map((value, i) => {
+      let criminaliseVictimsOptions = Object.keys(this.state.does_the_state_criminalise_victims_actions).map((value, i) => {
         return (
-          <option key={i} value={value}>{value}</option>
+          <tr className='criminalise_inactive_item' id={`criminalise-${value}`}>
+            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeIsCrime(e, value)}>{value}</td>
+            <td>{crimaliseVictimsStats[i].length}</td>
+          </tr>
         )
       })
       let number_of_incidents = this.state.filteredJSON.length,
         range = this.getDateRange(this.state.filteredJSON);
       return (
         <div className="banner-area">
+          <div className="filter-area">
+            <div className="ui grid">
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Ruling party</th>{rulingPartyOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Victim religion</th>
+                  {victimReligionOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Accused religion</th>
+                  {accusedReligionOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Victim committed crime?</th>
+                  {criminaliseVictimsOptions}
+                </tbody></table>
+              </div>
+            </div>
+            <div className="tap-area">
+              Tap here to hide filters
+            </div>
+          </div>
           <div className="ui grid">
             <div className="eight wide column filter-title">
               <div className="count-area">
