@@ -129,6 +129,19 @@ body{
   color: white !important;
 }
 
+.ie-navbar{
+  height: 60px;
+  background: black;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.ie-navbar img{
+  height: 38px;
+}
+
 table{
   font-size: 14px;
   width: 100%;
