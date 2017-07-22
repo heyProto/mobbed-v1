@@ -58,7 +58,7 @@ class App extends React.Component {
         });
         let state_ruling_party = Utils.groupBy(this.state.dataJSON, 'state_ruling_party'),
           victim_religion = Utils.groupBy(this.state.dataJSON, 'victim_religion'),
-          accused_religion = Utils.groupBy(this.state.dataJSON, 'victim_religion'),
+          accused_religion = Utils.groupBy(this.state.dataJSON, 'accused_religion'),
           does_the_state_criminalise_victims_actions = Utils.groupBy(this.state.dataJSON, 'does_the_state_criminalise_victims_actions');
 
         this.setState({
@@ -253,19 +253,9 @@ class App extends React.Component {
     if (this.state.dataJSON === undefined) {
       return(<div></div>)
     } else {
-      let partyStats = Object.values(this.state.state_ruling_party),
-        victimReligionStats = Object.values(this.state.victim_religion),
-        accusedReligionStats = Object.values(this.state.victim_religion),
-        crimaliseVictimsStats = Object.values(this.state.does_the_state_criminalise_victims_actions);
-
-      let rulingPartyOptions = Object.keys(this.state.state_ruling_party).map((value, i) => { 
-        return (
-          <tr className='party_inactive_item' id={`party-${value}`}>
-            <td key={i} value={value} onClick={(e) => this.handleOnChangeParty(e, value)}>{value}</td>
-            <td>{partyStats[i].length}</td>
-          </tr>
-        )
-      })
+      let victimReligionStats = Object.values(this.state.victim_religion),
+        accusedReligionStats = Object.values(this.state.accused_religion);
+        
       let victimReligionOptions = Object.keys(this.state.victim_religion).map((value, i) => {
         let name;
         if (value === ''){
@@ -294,19 +284,13 @@ class App extends React.Component {
           </tr>
         )
       })
-      let criminaliseVictimsOptions = Object.keys(this.state.does_the_state_criminalise_victims_actions).map((value, i) => {
-        return (
-          <tr className='criminalise_inactive_item' id={`criminalise-${value}`}>
-            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeIsCrime(e, value)}>{value}</td>
-            <td>{crimaliseVictimsStats[i].length}</td>
-          </tr>
-        )
-      })
       let number_of_incidents = this.state.filteredJSON.length,
-        range = this.getDateRange(this.state.filteredJSON),
-        number_of_digits = number_of_incidents.toString().length;
-
-      console.log(number_of_incidents.toString(), number_of_incidents.toString().length, "number_of_incidents")
+        range = this.state.filteredJSON,
+        // range = this.getDateRange(this.state.filteredJSON),
+        number_of_digits = number_of_incidents.toString().length,
+        length = range.length - 1,
+        start_date = range[length].date,
+        end_date = range[0].date;
 
       let styles = {
         height: this.state.height,
@@ -331,14 +315,14 @@ class App extends React.Component {
             <div id="filter-region" className="ui grid" style={styles}>
               <div className="four wide column filter-title">
                 <table><tbody>
-                  <th className="table-head">Accused religion</th>
-                  {accusedReligionOptions}
+                  <th className="table-head">Victim religion</th>
+                  {victimReligionOptions}
                 </tbody></table>
               </div>
               <div className="four wide column filter-title">
                 <table><tbody>
-                  <th className="table-head">Victim committed crime?</th>
-                  {criminaliseVictimsOptions}
+                  <th className="table-head">Accused religion</th>
+                  {accusedReligionOptions}
                 </tbody></table>
               </div>
             </div>
@@ -374,7 +358,7 @@ class App extends React.Component {
                     <a className="item" href="data-other.html">Other</a>
                   </div>
                 </div>
-                <br/> from {range.startDate} to {range.endDate}</div>
+                <br/> from {start_date} to {end_date}</div>
             </div>
             <div className="eight wide column filter-title">
               <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>
@@ -411,6 +395,24 @@ export default App;
   //   <option value="data-other.html">Other</option>
   // </select> 
 
+  // let rulingPartyOptions = Object.keys(this.state.state_ruling_party).map((value, i) => { 
+      //   return (
+      //     <tr className='party_inactive_item' id={`party-${value}`}>
+      //       <td key={i} value={value} onClick={(e) => this.handleOnChangeParty(e, value)}>{value}</td>
+      //       <td>{partyStats[i].length}</td>
+      //     </tr>
+      //   )
+      // })
+
+// let criminaliseVictimsOptions = Object.keys(this.state.does_the_state_criminalise_victims_actions).map((value, i) => {
+//         return (
+//           <tr className='criminalise_inactive_item' id={`criminalise-${value}`}>
+//             <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeIsCrime(e, value)}>{value}</td>
+//             <td>{crimaliseVictimsStats[i].length}</td>
+//           </tr>
+//         )
+//       })
+
   // <div className="four wide column filter-title">
   //   <table><tbody>
   //     <th className="table-head">Ruling party</th>{rulingPartyOptions}
@@ -418,8 +420,8 @@ export default App;
   // </div>
   // <div className="four wide column filter-title">
   //   <table><tbody>
-  //     <th className="table-head">Victim religion</th>
-  //     {victimReligionOptions}
+  //     <th className="table-head">Victim committed crime?</th>
+  //     {criminaliseVictimsOptions}
   //   </tbody></table>
   // </div>
                 
