@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="src/css/styles.css">
   </head>
   <body>
+    <div class="ie-navbar"><img src="http://s0.wp.com/wp-content/themes/vip/indianexpress/images/theindianexpress-logo.svg"></div>
     <div class="container">
       <div class="page-navigation">
         <div class="navigation-link"><a href="index.html">Home</a></div>
@@ -20,6 +21,8 @@
         <div class="page-subtitle">
           Mobs enacting violent justice on alleged criminals in India.
         </div>
+        <h2 style="font-weight: 100; text-align: center;"> Database and Map</h2>
+        <div class="ui divider" style=""></div>
       </div>
       <div id="card-list-div"></div>
     </div>
@@ -31,7 +34,7 @@
       var x = new ProtoGraph.Card.toMaps()
         x.init({
         selector: document.querySelector('#card-list-div'),
-        dataURL: 'https://dkqrqc7q64awx.cloudfront.net/toMobJustice/crime.json',
+        dataURL: 'https://dkqrqc7q64awx.cloudfront.net/toMobJustice/cattle_protection.json',
         topoURL: 'src/data/india-topo.json',
         chartOptions: {
           chartTitle: 'Mob Justice in India',

@@ -12,9 +12,9 @@ class App extends React.Component {
       file_name = url.split('/').pop(),
       category;
     if (file_name === 'data.html'){
-      category = 'Cattle Protection'
-    } else if(file_name === 'data-crime.html') {
       category = 'Crime'
+    } else if(file_name === 'data-cattle-protection.html') {
+      category = 'Cattle Protection'
     } else if (file_name === 'data-honour-killings.html') {
       category = 'Honour Killing'
     } else if (file_name === 'data-other.html'){
@@ -362,9 +362,9 @@ class App extends React.Component {
                   <i className="dropdown icon"></i>
                   <div className="default text def-option">{this.state.category}</div>
                   <div className="menu">
-                    <a className="item" href="data.html">Cattle Protection</a>
+                    <a className="item" href="data-cattle-protection.html">Cattle Protection</a>
                     <a className="item" href="data-sexual-harassment.html">Sexual Harassment</a>
-                    <a className="item" href="data-crime.html">Crime</a>
+                    <a className="item" href="data.html">Crime</a>
                     <a className="item" href="data-witch-hunting.html">Witch Hunting</a>
                     <a className="item" href="data-honour-killings.html">Honour Killing</a>
                     <a className="item" href="data-other.html">Other</a>
