@@ -135,6 +135,32 @@ body{
   color: white !important;
 }
 
+.arrow-up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  border: solid #F02E2E;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left:10px;
+  margin-right:10px;
+}
+
+.arrow-down{
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  border: solid #F02E2E;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left:10px;
+  margin-right:10px;
+}
+
+#tap-me{
+  display: inline-block;
+}
+
 .ie-navbar{
   height: 60px;
   background: black;
@@ -357,14 +383,13 @@ tr th{
 
 .voronoiWrapper{
   fill: none;
- /* stroke: red;
+  /*stroke: red;
   stroke-width: 0.5px*/
 }
 
 #map_svg{
   padding-top:20px;
   padding-bottom:20px;
-  background: white;
   float: left;
 }
 

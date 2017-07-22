@@ -323,7 +323,7 @@ class App extends React.Component {
         <div className="banner-area">
           <div className="filter-area">
             <div className="tap-area" style={first_tap_area_style} onClick={(e) => this.showFilters(e)}>
-              Tap here to explore data
+              <span className="arrow-up"></span><div id="tap-me">Tap here to explore data</div><span className="arrow-up"></span>
             </div>
             <div id="filter-region" className="ui grid" style={styles}>
               <div className="four wide column filter-title">
@@ -351,7 +351,7 @@ class App extends React.Component {
               </div>
             </div>
             <div className="tap-area" style={second_tap_area_style} onClick={(e) => this.hideFilters(e)}>
-              Tap here to hide filters
+              <span className="arrow-down"></span><div id="tap-me">Tap here to hide filters</div><span className="arrow-down"></span>
             </div>
           </div>
           <div className="ui grid">
