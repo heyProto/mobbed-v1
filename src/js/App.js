@@ -303,7 +303,10 @@ class App extends React.Component {
         )
       })
       let number_of_incidents = this.state.filteredJSON.length,
-        range = this.getDateRange(this.state.filteredJSON);
+        range = this.getDateRange(this.state.filteredJSON),
+        number_of_digits = number_of_incidents.toString().length;
+
+      console.log(number_of_incidents.toString(), number_of_incidents.toString().length, "number_of_incidents")
 
       let styles = {
         height: this.state.height,
@@ -352,7 +355,8 @@ class App extends React.Component {
                   <div className="single-background"></div>
                 </div>
                 <div className="display-number">
-                  <span className="light-text">0</span>
+                  {number_of_digits !== 3 ? <span className="light-text">0</span>:'' }
+                  {number_of_digits === 1 ? <span className="light-text">0</span>:'' }
                   <span className="animate-number">{number_of_incidents}</span>
                 </div>
               </div>
