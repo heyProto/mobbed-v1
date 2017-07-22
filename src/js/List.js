@@ -8,6 +8,8 @@ class ListCards extends React.Component {
   }
 
   handleOpenModal(e, card){
+    console.log(card, "single card data")
+    // debugger;
     $('.ui.modal').modal({
       onHidden: function(e) {
         let element = document.querySelector("#proto-embed-card iframe");
@@ -16,7 +18,7 @@ class ListCards extends React.Component {
         props.handleCircleClicked(false);
       }
     }).modal('attach events', '.close').modal('show')  
-    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier="+card.view_cast_identifier, "laptop")     
+    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?view_cast_id="+card.view_cast_id+"&schema_id="+card.schema_id, "laptop")     
   }
 
   render() {

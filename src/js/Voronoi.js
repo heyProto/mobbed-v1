@@ -32,7 +32,7 @@ class Voronoi extends React.Component {
           props.handleCircleClicked(false);
         }
       }).modal('attach events', '.close').modal('show')  
-      let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?ViewCast_Unique_Identifier="+card.view_cast_identifier, "laptop")
+      let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?view_cast_id="+card.view_cast_id+"&schema_id="+card.schema_id, "laptop")
     }
   }
 
