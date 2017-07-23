@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Halogen from 'halogen';
 import List from '../js/List';
 import Map from '../js/Map';
 import Utils from '../js/Utils';
@@ -258,8 +259,46 @@ class App extends React.Component {
 
   renderLaptop() {
     if (this.state.dataJSON === undefined) {
-      return(<div></div>)
+      let color = '#F02E2E';
+
+      let style = {
+        display: '-webkit-flex',
+        display: 'flex',
+        WebkitFlex: '0 1 auto',
+        flex: '0 1 auto',
+        WebkitFlexDirection: 'column',
+        flexDirection: 'column',
+        WebkitFlexGrow: 1,
+        flexGrow: 1,
+        WebkitFlexShrink: 0,
+        flexShrink: 0,
+        WebkitFlexBasis: '25%',
+        flexBasis: '25%',
+        maxWidth: '100%',
+        height: '200px',
+        WebkitAlignItems: 'center',
+        alignItems: 'center',
+        WebkitJustifyContent: 'center',
+        justifyContent: 'center'
+      };
+      return(
+       <div style={{
+          boxSizing: 'border-box',
+          display: '-webkit-flex',
+          display: 'flex',
+          WebkitFlex: '0 1 auto',
+          flex: '0 1 auto',
+          WebkitFlexDirection: 'row',
+          flexDirection: 'row',
+          WebkitFlexWrap: 'wrap',
+          flexWrap: 'wrap',
+        }}>
+          <div style={style}><Halogen.RiseLoader color={color}/></div>
+        </div>
+      )
     } else {
+      // debugger;
+      // document.getElementById('loading-gif-icon').style.display = 'none';
       let menuStats = Object.values(this.state.menu),
         victimReligionStats = Object.values(this.state.victim_religion),
         accusedReligionStats = Object.values(this.state.accused_religion),

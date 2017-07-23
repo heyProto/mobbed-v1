@@ -16,9 +16,9 @@
   <div class="container" style="height: auto !important;">
       <div class="page-navigation">
         <div class="navigation-link active-link"><a href="index.html">Home</a></div>
+        <div class="navigation-link"><a href="findings.html">Findings</a></div>
         <div class="navigation-link"><a href="data.html">Database</a></div>
         <div class="navigation-link"><a href="explainers.html">Understand the issue</a></div>
-        <div class="navigation-link"><a href="stories.html">Read Stories</a></div>
         <div class="navigation-link"><a href="about.html">About</a></div>
       </div>
       <div class="page-title">
@@ -30,7 +30,7 @@
       <div class="ui divider" style=""></div>
   </div>
   <div class="ui grid" style="width: 1050px;">
-    <div class="four wide column" style="background: white;">
+    <div class="four wide column" style="background: #F7F7F7;">
         <h4 class="ui center aligned header" style="margin-bottom: 20px;">Chatter on Twitter</h4>
         <div class="ui feed">
           <div class="event" style="margin-bottom: 20px;">
@@ -336,7 +336,7 @@
         <div id="ProtoCard-283"></div><script src="https://d2m6lzru8erw1k.cloudfront.net/lib/protoGraph.min.js"></script><script type="text/javascript">new ProtoEmbed.initFrame(document.getElementById("ProtoCard-283"), "https://dwln9tzsi7g07.cloudfront.net/1cc352b8dae0/index.html?view_cast_id=3457167a4afde19b5d80b29f&schema_id=8fe46be1629b" , 'mobile')</script>
         <br/>
     </div>
-    <div class="seven wide column" style="background-color: #fafafa">
+    <div class="seven wide column" style="background: #e6e7e8;">
         <h4 class="ui center aligned header">IndianExpress Stories</h4>
         <div class="indianexpress-story">
           <div class="cover-img"><img src="src/img/cover-img.jpg" width="100%"></div>
@@ -366,30 +366,6 @@
 
     </div>
   </div>
-  <div class="ui grid">
-    <div class="twelve wide column">
-        <p>Mobs lynch people for all sorts of reasons ranging from Witch Craft to Theft.  </p>
-        <div id="percentage-chart"></div>
-        <p>If we ignore cases in New Delhi, then ~87% of the lynchings take place in states with:</p>
-        <ul>
-            <li>Police to Population ratios that are lower than UN recommendation.</li>
-            <li>Bad or Below Average Judge to Population ratio.</li>
-        </ul>
-        <p>Lynchings have been constantly on the rise since 2012.</p>
-
-    </div>
-  </div>
 </div>
-<script src = "lib/pykcharts.1.1.0.min.js"></script>
-<script type="text/javascript">
-  window.PykChartsInit = function (e) {
-    var k = new PykCharts.oneD.percentageBar({
-      selector: "#percentage-chart",
-      data: "percentage-bar.csv",
-      clubdata_enable: "no"
-    });
-    k.execute();
-  }
-</script>
 </body>
 </html>
