@@ -508,6 +508,27 @@ tr th{
   height: 135px;
 }
 
+.story-title{
+  font-family: helvetica;
+  font-size: 20px;
+  line-height: 28px;
+  /*font-weight: bold;*/
+  margin-top: 10px;
+}
+
+.stroy-subtitle{
+  opacity: 0.7;
+  color : #333;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.story-info{
+  font-size: 12px;
+  opacity: 0.4;
+  margin-bottom: 10px;
+  margin-bottom: 30px;
+}
 
 .t-date{
   font-size: 10px;
