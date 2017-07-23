@@ -371,13 +371,13 @@ class App extends React.Component {
               </div>
               <div className="four wide column filter-title">
                 <table><tbody>
-                  <th className="table-head">Police to Population</th>
+                  <th className="table-head">Police to population ratio</th>
                   {policeRatioOptions}
                 </tbody></table>
               </div>
               <div className="four wide column filter-title">
                 <table><tbody>
-                  <th className="table-head">Judge to Population</th>
+                  <th className="table-head">Judge to population ratio</th>
                   {judgeRatioOptions}
                 </tbody></table>
               </div>
