@@ -7,23 +7,6 @@ import Utils from '../js/Utils';
 class App extends React.Component {
   constructor(props) {
     super(props)
-    console.log(location.href, "window.location.href")
-    let url = location.href,
-      file_name = url.split('/').pop(),
-      category;
-    if (file_name === 'data.html'){
-      category = 'Crime'
-    } else if(file_name === 'data-cattle-protection.html') {
-      category = 'Cattle Protection'
-    } else if (file_name === 'data-honour-killings.html') {
-      category = 'Honour Killing'
-    } else if (file_name === 'data-other.html'){
-      category = 'Other'
-    } else if (file_name === 'data-sexual-harassment.html') {
-      category = 'Sexual Harassment'
-    } else if (file_name === 'data-witch-hunting.html') {
-      category = 'Witch Hunting'
-    }
     this.state = {
       dataJSON: undefined,
       filteredJSON: undefined,
@@ -34,15 +17,17 @@ class App extends React.Component {
       showTapArea: 'block',
       hideTapArea: 'none',
       topoJSON: {},
-      state_ruling_party: [],
+      category: null,
+      menu: [],
       victim_religion: [],
       accused_religion: [],
-      does_the_state_criminalise_victims_actions: [],
-      ruling_party_value: 'undefined',
+      police_to_population: [],
+      judge_to_population: [],
+      menu_value: 'undefined',
       victim_religion_value: 'undefined',
       accused_religion_value: 'undefined',
-      criminalise_victims_value: 'undefined',
-      category: category
+      police_to_population_value: 'undefined',
+      judge_to_population_value: 'undefined'
     }
     this.handleCircleClicked = this.handleCircleClicked.bind(this);
   }
@@ -56,16 +41,21 @@ class App extends React.Component {
           filteredJSON: card.data,
           topoJSON: topo.data
         });
-        let state_ruling_party = Utils.groupBy(this.state.dataJSON, 'state_ruling_party'),
+        let menu = Utils.groupBy(this.state.dataJSON, 'menu'),
           victim_religion = Utils.groupBy(this.state.dataJSON, 'victim_religion'),
           accused_religion = Utils.groupBy(this.state.dataJSON, 'accused_religion'),
-          does_the_state_criminalise_victims_actions = Utils.groupBy(this.state.dataJSON, 'does_the_state_criminalise_victims_actions');
+          police_to_population = Utils.groupBy(this.state.dataJSON, 'police_to_population'),
+          judge_to_population = Utils.groupBy(this.state.dataJSON, 'judge_to_population');
+
+        console.log(menu, "meu----");
 
         this.setState({
-          state_ruling_party: state_ruling_party,
+          menu: menu,
           victim_religion: victim_religion,
           accused_religion: accused_religion,
-          does_the_state_criminalise_victims_actions: does_the_state_criminalise_victims_actions
+          police_to_population: police_to_population,
+          judge_to_population: judge_to_population
+
         })
     }));
     this.showCounter();
@@ -77,17 +67,18 @@ class App extends React.Component {
     })
   }
 
-  handleOnChangeParty(e, value) {
+  handleOnChangeMenu(e, value) {
     let name = value;
+    this.state.category = value
     this.setState((prevState, props) => {
-      prevState.ruling_party_value = name;
+      prevState.menu_value = name;
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        ruling_party_value: name
+        menu_value: name
       }
     })
-    this.highlightItem(value, 'party_inactive_item', 'party_active_item', 'party');
+    this.highlightItem(value, 'menu_inactive_item', 'menu_active_item', 'menu');
   }
 
   handleOnChangeVR(e, value) {
@@ -116,17 +107,30 @@ class App extends React.Component {
     this.highlightItem(value, 'accused_inactive_item', 'accused_active_item', 'accused');
   }
 
-  handleOnChangeIsCrime(e, value) {
+  handleOnChangePolice(e, value) {
     let name = value;
     this.setState((prevState, props) => {
-      prevState.criminalise_victims_value = name;
+      prevState.police_to_population_value = name;
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        criminalise_victims_value: name
+        police_to_population_value: name
       }
     })
-    this.highlightItem(value, 'criminalise_inactive_item','criminalise_active_item', 'criminalise');
+    this.highlightItem(value, 'police_inactive_item','police_active_item', 'police');
+  }
+
+  handleOnChangeJudge(e, value) {
+    let name = value;
+    this.setState((prevState, props) => {
+      prevState.judge_to_population_value = name;
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        judge_to_population_value: name
+      }
+    })
+    this.highlightItem(value, 'judge_inactive_item','judge_active_item', 'judge');
   }
 
   highlightItem(value, inactive, active, identifier) {
@@ -143,11 +147,11 @@ class App extends React.Component {
     selectItem.className = activeClass;
   }
 
-  checkParty(val, index, arr){
+  checkMenu(val, index, arr){
     if(this === 'undefined') {
       return true;
     }
-    return val.state_ruling_party === this;
+    return val.menu === this;
   }
 
   checkVictimReligion(val, index, arr) {
@@ -164,20 +168,28 @@ class App extends React.Component {
     return val.accused_religion === this;
   }
 
-  checkVictimCriminalised(val, index, arr) {
+  checkPoliceRatio(val, index, arr) {
     if(this === 'undefined') {
       return true;
     }
-    return val.does_the_state_criminalise_victims_actions === this;
+    return val.police_to_population === this;
+  }
+
+  checkJudgeRatio(val, index, arr) {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.judge_to_population === this;
   }
 
   getFilteredData(state) {
     // console.log(state.victim_religion_value, "state.victim_religion_value")
     let filteredData = this.state.dataJSON
-      .filter(this.checkParty, state.ruling_party_value)
+      .filter(this.checkMenu, state.menu_value)
       .filter(this.checkVictimReligion, state.victim_religion_value)
       .filter(this.checkAccusedReligion, state.accused_religion_value)
-      .filter(this.checkVictimCriminalised, state.criminalise_victims_value)
+      .filter(this.checkPoliceRatio, state.police_to_population_value)
+      .filter(this.checkJudgeRatio, state.judge_to_population_value)
     console.log(filteredData, "filteredData")
     return filteredData;
   }
@@ -244,17 +256,24 @@ class App extends React.Component {
     }
   }
 
-  handleCategory(e) {
-    let href_val = e.target.value
-    window.location.href = href_val
-  }
-
   renderLaptop() {
     if (this.state.dataJSON === undefined) {
       return(<div></div>)
     } else {
-      let victimReligionStats = Object.values(this.state.victim_religion),
-        accusedReligionStats = Object.values(this.state.accused_religion);
+      let menuStats = Object.values(this.state.menu),
+        victimReligionStats = Object.values(this.state.victim_religion),
+        accusedReligionStats = Object.values(this.state.accused_religion),
+        policeRatioStats = Object.values(this.state.police_to_population),
+        judgeRatioStats = Object.values(this.state.judge_to_population);
+
+      let menuOptions = Object.keys(this.state.menu).map((value, i) => {
+        return (
+          <tr className='menu_inactive_item' id={`menu-${value}`}>
+            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeMenu(e, value)}>{value}</td>
+            <td>{menuStats[i].length}</td>
+          </tr>
+        )
+      })
         
       let victimReligionOptions = Object.keys(this.state.victim_religion).map((value, i) => {
         let name;
@@ -270,6 +289,7 @@ class App extends React.Component {
           </tr>
         )
       })
+
       let accusedReligionOptions = Object.keys(this.state.accused_religion).map((value, i) => {
         let name;
         if (value === ''){
@@ -284,9 +304,27 @@ class App extends React.Component {
           </tr>
         )
       })
+
+      let policeRatioOptions = Object.keys(this.state.police_to_population).map((value, i) => {
+        return (
+          <tr className='police_inactive_item' id={`police-${value}`}>
+            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangePolice(e, value)}>{value}</td>
+            <td>{policeRatioStats[i].length}</td>
+          </tr>
+        )
+      })
+
+      let judgeRatioOptions = Object.keys(this.state.judge_to_population).map((value, i) => {
+        return (
+          <tr className='judge_inactive_item' id={`judge-${value}`}>
+            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeJudge(e, value)}>{value}</td>
+            <td>{judgeRatioStats[i].length}</td>
+          </tr>
+        )
+      })
+
       let number_of_incidents = this.state.filteredJSON.length,
         range = this.state.filteredJSON,
-        // range = this.getDateRange(this.state.filteredJSON),
         number_of_digits = number_of_incidents.toString().length,
         length = range.length - 1,
         start_date = range[length].date,
@@ -315,6 +353,12 @@ class App extends React.Component {
             <div id="filter-region" className="ui grid" style={styles}>
               <div className="four wide column filter-title">
                 <table><tbody>
+                  <th className="table-head">Reason</th>
+                  {menuOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
                   <th className="table-head">Victim religion</th>
                   {victimReligionOptions}
                 </tbody></table>
@@ -323,6 +367,18 @@ class App extends React.Component {
                 <table><tbody>
                   <th className="table-head">Accused religion</th>
                   {accusedReligionOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Police to Population</th>
+                  {policeRatioOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Judge to Population</th>
+                  {judgeRatioOptions}
                 </tbody></table>
               </div>
             </div>
@@ -344,21 +400,9 @@ class App extends React.Component {
                   <span className="animate-number">{number_of_incidents}</span>
                 </div>
               </div>
-              <div className="display-text">Reports of lynching were reported <br/> under 
-                <div className="ui selection dropdown display-text-dropdown">
-                  <input type="hidden" name="category"/>
-                  <i className="dropdown icon"></i>
-                  <div className="default text def-option">{this.state.category}</div>
-                  <div className="menu">
-                    <a className="item" href="data-cattle-protection.html">Cattle Protection</a>
-                    <a className="item" href="data-sexual-harassment.html">Sexual Harassment</a>
-                    <a className="item" href="data.html">Crime</a>
-                    <a className="item" href="data-witch-hunting.html">Witch Hunting</a>
-                    <a className="item" href="data-honour-killings.html">Honour Killing</a>
-                    <a className="item" href="data-other.html">Other</a>
-                  </div>
-                </div>
-                <br/> from {start_date} to {end_date}</div>
+              <div className="display-text">Instances of lynching were reported 
+                {this.state.category === null ? <br/> : <div>under <span className="display-text-dropdown">{this.state.category}</span></div>}
+                from {start_date} to {end_date}</div>
             </div>
             <div className="eight wide column filter-title">
               <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>
