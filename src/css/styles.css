@@ -507,20 +507,28 @@ tr th{
   line-height: 28px;
   /*font-weight: bold;*/
   margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.indianexpress-story{
+  padding: 15px;
+  /*box-shadow: 0px 2px 3px lightgrey;*/
+  margin-bottom: 30px;
+  /*border: 1px solid #efefef;*/
+  background: white;
 }
 
 .stroy-subtitle{
-  opacity: 0.7;
-  color : #333;
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  color: rgba(0,0,0,.87);
 }
 
 .story-info{
   font-size: 12px;
   opacity: 0.4;
-  margin-bottom: 10px;
-  margin-bottom: 30px;
+  /*margin-bottom: 10px;*/
+  /*margin-bottom: 50px;*/
 }
 
 .t-date{
