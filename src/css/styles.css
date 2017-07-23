@@ -5,6 +5,13 @@ body{
   letter-spacing: 0.5px;
 }
 
+.loading-bar{
+  text-align: center;
+  vertical-align: middle;
+  color: #F02E2E;
+  font-size: 20px;
+}
+
 .container{
   max-width: 980px;
   margin-left:auto;

@@ -7,6 +7,7 @@
     "d3-geo": "^1.6.4",
     "d3-scale": "^1.0.6",
     "d3-voronoi": "^1.1.2",
+    "halogen": "^0.2.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-modal": "^2.2.2",
