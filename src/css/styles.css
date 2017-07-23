@@ -619,6 +619,45 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   color: white !important;
 }
 
+
+
+/*========= stories page =======*/
+.user-image, .user-name, .user-id, .tweet-date, .user-info{
+  display: inline-block;
+  line-height: 16px;
+  vertical-align: top;
+}
+
+.user-image{
+  background: #efefef;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  margin-right: 5px;
+  display: none;
+}
+
+.user-name{
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.user-info{
+  font-size: 12px;
+  opacity: 0.4;
+}
+
+.user-id, .tweet-date, span{
+  /*opacity: 0.4;*/
+}
+
+.tweet-text{
+  margin-top: 10px;
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
 @media only screen and (max-width: 450px){
   #map_svg {
     padding: 10px;
