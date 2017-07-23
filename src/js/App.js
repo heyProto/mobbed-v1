@@ -196,7 +196,7 @@ class App extends React.Component {
 
   showFilters() {
     this.setState({
-      height: 200,
+      height: 355,
       overflow: 'auto',
       showTapArea: 'none',
       hideTapArea: 'block'
