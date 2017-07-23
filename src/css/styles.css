@@ -192,13 +192,16 @@ tr:hover{
 .accused_active_item{
   background: #F02E2E;
 }
-.criminalise_active_item {
-  background: #F02E2E;
-}
-.party_active_item{
-  background: #F02E2E;
-}
 .victim_active_item{
+  background: #F02E2E;
+}
+.menu_active_item {
+  background: #F02E2E;
+}
+.police_active_item {
+  background: #F02E2E;
+}
+.judge_active_item {
   background: #F02E2E;
 }
 
