@@ -360,30 +360,6 @@
 
     </div>
   </div>
-  <div class="ui grid">
-    <div class="twelve wide column">
-        <p>Mobs lynch people for all sorts of reasons ranging from Witch Craft to Theft.  </p>
-        <div id="percentage-chart"></div>
-        <p>If we ignore cases in New Delhi, then ~87% of the lynchings take place in states with:</p>
-        <ul>
-            <li>Police to Population ratios that are lower than UN recommendation.</li>
-            <li>Bad or Below Average Judge to Population ratio.</li>
-        </ul>
-        <p>Lynchings have been constantly on the rise since 2012.</p>
-
-    </div>
-  </div>
 </div>
-<script src = "lib/pykcharts.1.1.0.min.js"></script>
-<script type="text/javascript">
-  window.PykChartsInit = function (e) {
-    var k = new PykCharts.oneD.percentageBar({
-      selector: "#percentage-chart",
-      data: "percentage-bar.csv",
-      clubdata_enable: "no"
-    });
-    k.execute();
-  }
-</script>
 </body>
 </html>
