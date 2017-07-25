@@ -30,18 +30,22 @@
       <div class="navigation-link"><a href="about.html">About</a></div>
     </div>
   </div>
-  <div class="ui grid" style="width: 1050px; margin-bottom:  50px;">
+  <div class="ui grid" style="width: 1050px; margin-bottom:  20px;">
         <img src="src/img/cover.png" style="width:  1050px;"/>
   </div>
   <div class="ui grid">
+
       <div class="sixteen wide column">
+        <div style="text-align: right;">
+      <a href="explainers-audio.html">Also available on SoundCloud</a>
+    </div>
           <h2 style="font-weight: 800; text-align: center;">
       India's mob lynchings, explained
     </h2>
     <br/><br/>
       </div>
   </div>
-  <div class="ui grid">
+  <div class="ui grid" id="check">
     <div class="seven wide column">
       <div class="ui compact segments sticky" style="border: 0px;">
         <div class="ui compact segment question" style="border: 0px;" id="qwhat">
@@ -187,15 +191,14 @@ The National Commission for Minorities (NCM) received 16.5% less complaints from
 <script type="text/javascript">
   $('.ui.sticky')
   .sticky({
-    context: '#question-answer-section'
+    context: '#check'
   });
   var scrollingUp = false;
   var lastScrollTop = 0;
   var scrollspy = false;
   var hitBottom = false;
   $(window).scroll(function(event){
-    var st = $(this).scrollTop();
-        $('.green').children('p').children('a').css({"color":"blue"});
+    $('.green').children('p').children('a').css({"color":"blue"});
 
     $('.green').removeClass('green');
 
@@ -204,38 +207,16 @@ The National Commission for Minorities (NCM) received 16.5% less complaints from
     }else{
       scrollspy = false;
     }
-    if (st > lastScrollTop){
-      scollingUp = false;
-    } else {
-      scrollingUp = true;
-    }
-    if($(window).scrollTop() + $(window).height() == $(document).height()) {
-      $('.question').css({'background-color':'white'});
-      $('.question:last').css({'background-color':'#CCE2FF'});
-    }
-    lastScrollTop = st;
-  });
-    $('.answer').visibility({
-      once:false,
-      onTopPassed:function(calculations){
-        if(!scrollingUp && scrollspy){
-          $('.question').css({'background-color':'white'});
-          $('#q'+$(this).attr('id')).next().css({'background-color':'#CCE2FF'});
-        }else if(!scrollspy){
-          $('.question').css({'background-color':'white'});
-          $('.question:first').css({'background-color':'#CCE2FF'});
+    var cutoff = $(window).scrollTop();
+    $('.answer').removeClass('green').each(function() {
+        if ($(this).offset().top - 25 > cutoff) {
+            $('#q'+$(this).attr('id')).addClass('green');
+
+            return false; // stops the iteration after the first one on screen
         }
-      },
-      onBottomVisible:function(calculations){
-        if(scrollingUp && scrollspy){
-          $('.question').css({'background-color':'white'});
-          $('#q'+$(this).attr('id')).prev().css({'background-color':'#CCE2FF'});
-        }else if(!scrollspy){
-          $('.question').css({'background-color':'white'});
-          $('.question:first').css({'background-color':'#CCE2FF'});
-        }
-      }
     });
+
+  });
 
   $('.question').hover(function(){
     $(this).addClass('green');
