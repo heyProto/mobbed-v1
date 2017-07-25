@@ -22,7 +22,7 @@ getJSON('https://dwln9tzsi7g07.cloudfront.net/toMobJustice/index.json', function
       let createDiv = document.createElement('div');
       createDiv.id = 'ProtoCard-'+i
       document.getElementById('display-cards').appendChild(createDiv)
-      new ProtoEmbed.initFrame(document.getElementById("ProtoCard-"+i), "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?view_cast_id="+filteredData[i].view_cast_id+"&schema_id="+filteredData[i].schema_id, 'mobile')
+      new ProtoEmbed.initFrame(document.getElementById("ProtoCard-"+i), "https://dwln9tzsi7g07.cloudfront.net/1cc352b8dae0/index.html?view_cast_id="+filteredData[i].view_cast_id+"&schema_id="+filteredData[i].schema_id, 'mobile')
     })
   }
 })
