@@ -19,7 +19,7 @@ class ListCards extends React.Component {
         props.handleCircleClicked(false);
       }
     }).modal('attach events', '.close').modal('show')  
-    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?view_cast_id="+card.view_cast_id+"&schema_id="+card.schema_id, "laptop")     
+    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dwln9tzsi7g07.cloudfront.net/1cc352b8dae0/index.html?view_cast_id="+card.view_cast_id+"&schema_id="+card.schema_id, "laptop")     
   }
 
   render() {
