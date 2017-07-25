@@ -71,12 +71,12 @@
         <div class="ui compact segment question" style="border: 0px;" id="qcow-violence-up-since-2014">
           <p><a href="#cow-violence-up-since-2014">9. Has cow slaughter related mob justice incidents taken off since 2014? Why?</a></p>
         </div>
-        <!-- <div class="ui compact segment question" style="border: 0px;" id="qwhy-now">
+        <div class="ui compact segment question" style="border: 0px;" id="qwhy-now">
           <p><a href="#why-now">10. Why has the national discourse on lynching taken off now?</a></p>
         </div>
         <div class="ui compact segment question" style="border: 0px;" id="qare-victims-only-dalits-and-muslims">
           <p><a href="#are-victims-only-dalits-and-muslims">11. Are only Muslims and Dalits targets of mob justice? Have crimes against Muslims and Dalits gone up since 2014?</a></p>
-        </div> -->
+        </div>
       </div>
     </div>
     <div class="nine wide column" id="question-answer-section">
@@ -163,7 +163,7 @@ Today, 99.38% of India's population lives under cow-protection laws. With the BJ
 </p></blockquote>
             </div><script src="https://d2m6lzru8erw1k.cloudfront.net/lib/protoGraph.min.js"></script><script type="text/javascript">new ProtoEmbed.initFrame(document.getElementById("ProtoCard-364"), "https://dwln9tzsi7g07.cloudfront.net/f96a388525160ed7/index.html?view_cast_id=f180a66aaa72bca7f3dd3180&schema_id=2e804dc00b362f24" , "laptop")</script>
       </div>
-<!--       <div class="answer" id="why-now">
+      <div class="answer" id="why-now">
                     <div id="ProtoCard-365">
               <blockquote><h3>Why has the national discourse on lynching taken off now?</h3><p>An analysis of 298 incidents of mob lynching from 2011 till 2017 and found prior to 2014, mob lynchings were mostly associated with issues like suspected theft, suspected murder, altercations, inter-religion or inter-caste marriages (honour killing), sexual harassment and witch hunting. Since 2014, cow protection has become one of the major reasons. The national discourse on lynching took off after this because cow protection has communal dimensions and has been an important political issue for the ruling party.</p></blockquote>
             </div><script src="https://d2m6lzru8erw1k.cloudfront.net/lib/protoGraph.min.js"></script><script type="text/javascript">new ProtoEmbed.initFrame(document.getElementById("ProtoCard-365"), "https://dwln9tzsi7g07.cloudfront.net/f96a388525160ed7/index.html?view_cast_id=d8322bfecc1c86d19a0c11f6&schema_id=2e804dc00b362f24" , "laptop")</script>
@@ -178,7 +178,7 @@ Today, 99.38% of India's population lives under cow-protection laws. With the BJ
 
 The National Commission for Minorities (NCM) received 16.5% less complaints from Muslims between 2014-2016 (2858 complaints) compared to 2012-2014 (3424 complaints).</p></blockquote>
             </div><script src="https://d2m6lzru8erw1k.cloudfront.net/lib/protoGraph.min.js"></script><script type="text/javascript">new ProtoEmbed.initFrame(document.getElementById("ProtoCard-366"), "https://dwln9tzsi7g07.cloudfront.net/f96a388525160ed7/index.html?view_cast_id=6980b76329f7c31d0032a7e8&schema_id=2e804dc00b362f24" , "laptop")</script>
-      </div> -->
+      </div>
     </div>
   </div>
 </div>
@@ -205,13 +205,13 @@ The National Commission for Minorities (NCM) received 16.5% less complaints from
     }
     var cutoff = $(window).scrollTop();
     $('.answer').removeClass('green').each(function() {
-        if ($(this).offset().top > cutoff) {
+        if ($(this).offset().top - 25 > cutoff) {
             $('#q'+$(this).attr('id')).addClass('green');
 
             return false; // stops the iteration after the first one on screen
         }
     });
-    
+
   });
 
   $('.question').hover(function(){
