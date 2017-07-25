@@ -184,15 +184,9 @@ The National Commission for Minorities (NCM) received 16.5% less complaints from
 </div>
 <script src="lib/jquery.min.js"></script>
 <script src="lib/semantic.min.js"></script>
+<script src="lib/jquery.sticky.js"></script>
 <script type="text/javascript">
-  $('.ui.sticky')
-  .sticky({
-    context: '#check'
-  });
-  var scrollingUp = false;
-  var lastScrollTop = 0;
-  var scrollspy = false;
-  var hitBottom = false;
+  $('.ui.sticky').sticky();
   $(window).scroll(function(event){
     $('.green').children('p').children('a').css({"color":"blue"});
 
