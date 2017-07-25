@@ -10,6 +10,7 @@ class ListCards extends React.Component {
   handleOpenModal(e, card){
     console.log(card, "single card data")
     // debugger;
+    let props = this.props;
     $('.ui.modal').modal({
       onHidden: function(e) {
         let element = document.querySelector("#proto-embed-card iframe");
