@@ -84,6 +84,38 @@ body{
   font-weight: 700;
 }
 
+/*========== bottom navigation =========*/
+.bottom-navigation{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background: white;
+  border-top: 1px solid #efefef;
+}
+
+.page-bottom-navigation{
+  display: inline-block;
+  width: 100%;
+  padding: 15px 0px;
+  border-bottom: 1px solid #efefef;
+}
+
+.page-bottom-navigation .navigation-link{
+  display: inline-block;
+  margin-right: 30px;
+  color: #999;
+  font-weight: 300;
+}
+
+.page-bottom-navigation .navigation-link a{
+  color: #999;
+}
+
+.page-bottom-navigation .active-link a{
+  color: black !important;
+  font-weight: 700;
+}
+
 .page-title{
   width: 100%;
   text-align: center;
