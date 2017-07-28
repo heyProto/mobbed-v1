@@ -816,3 +816,39 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   }
 }
 
+.protograph-toMobJustice-sticky {
+  position: fixed;
+  background: white;
+  width: 100%;
+  z-index: 1000;
+  max-width: 100%;
+  bottom: -1000px;
+}
+
+.slide-in {
+  animation: slide-in 0.25s forwards;
+  -webkit-animation: slide-in 0.25s forwards;
+}
+
+.slide-out {
+  animation: slide-out 0.25s forwards;
+  -webkit-animation: slide-out 0.25s forwards;
+}
+
+@keyframes slide-in {
+  100% { bottom: 0; }
+}
+
+@-webkit-keyframes slide-in {
+  100% { bottom: 0; }
+}
+
+@keyframes slide-out {
+  0% { bottom: 0; }
+  100% { bottom: -1000px; }
+}
+
+@-webkit-keyframes slide-out {
+  0% { bottom: 0; }
+  100% { bottom: -1000px; }
+}
