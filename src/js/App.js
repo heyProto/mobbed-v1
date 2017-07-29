@@ -3,7 +3,7 @@ import axios from 'axios';
 import Halogen from 'halogen';
 import List from '../js/List';
 import Map from '../js/Map';
-// import TimeBrush from '../js/TimeBrush';
+import TimeBrush from '../js/TimeBrush';
 import Utils from '../js/Utils';
 
 class App extends React.Component {
@@ -322,14 +322,21 @@ class App extends React.Component {
         </div>
       )
     } else {
-      // debugger;
-      // document.getElementById('loading-gif-icon').style.display = 'none';
       let menuStats = Object.values(this.state.menu),
         stateStats = Object.values(this.state.state),
         victimReligionStats = Object.values(this.state.victim_religion),
         accusedReligionStats = Object.values(this.state.accused_religion),
         policeRatioStats = Object.values(this.state.police_to_population),
         judgeRatioStats = Object.values(this.state.judge_to_population);
+
+      console.log("hey", $("#range-slider"))
+      $("#range-slider").ionRangeSlider({
+        type: "double",
+        min: 2010,
+        max: 2017,
+        grid: true,
+        grid_num: 7
+      });
 
       let menuOptions = Object.keys(this.state.menu).map((value, i) => {
         return (
@@ -484,7 +491,9 @@ class App extends React.Component {
                 {this.state.category === null ? <br/> : <div>under <span className="display-text-dropdown">{this.state.category}</span></div>}
                 from {start_date} to {end_date}
               </div>
-              
+              <br/>
+              <TimeBrush dataJSON={this.state.filteredJSON}/>
+              <div id="range-slider"></div>
             </div>
             <div className="ten wide column filter-title">
               <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>
@@ -551,4 +560,4 @@ export default App;
   //   </tbody></table>
   // </div>
              
-// <TimeBrush dataJSON={this.state.filteredJSON}/>   
+//    

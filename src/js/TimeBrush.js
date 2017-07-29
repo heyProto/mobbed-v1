@@ -103,51 +103,6 @@ class TimeBrush extends React.Component {
       <svg className='barchart' height={100} width={'100%'}>
         <g>
           <g className="bar-group">{rects}</g>
-          <g className="brush">
-            <rect 
-              className="background"
-              x={0}
-              width={300}
-              height={100}
-              style={{visibility: 'hidden', cursor: 'crosshair'}}
-              >
-            </rect>
-            <rect 
-              className="extent"
-              x={0}
-              width={300}
-              height={100}
-              >
-            </rect>
-            <g className="resize e" transform={'translate(50,0)'} style={{cursor: 'ew-resize'}}>
-              <rect 
-                x={-3}
-                width={6}
-                height={100}
-                style={{visibility:'hidden'}}
-                >
-              </rect>
-              <path 
-                transform={"translate(0,50)"}
-                d={'M6.123233995736766e-16,-10A10,10 0 0,1 6.123233995736766e-16,10L0,0Z'}
-                >
-              </path>
-            </g>
-            <g className="resize w" transform={'translate(100,0)'} style={{cursor: 'ew-resize'}}>
-              <rect
-                x={-3}
-                width={6}
-                height={100}
-                style={{visibility:'hidden'}}
-                >
-              </rect>
-              <path 
-                transform={"translate(0,50)"}
-                d={'M6.123233995736766e-16,-10A10,10 0 0,1 6.123233995736766e-16,10L0,0Z'}
-                >
-              </path>
-            </g>
-          </g>
         </g>
       </svg>
     )
@@ -155,3 +110,50 @@ class TimeBrush extends React.Component {
 }
 
 export default TimeBrush;
+
+
+// <g className="brush">
+//             <rect 
+//               className="background"
+//               x={0}
+//               width={300}
+//               height={100}
+//               style={{visibility: 'hidden', cursor: 'crosshair'}}
+//               >
+//             </rect>
+//             <rect 
+//               className="extent"
+//               x={0}
+//               width={300}
+//               height={100}
+//               >
+//             </rect>
+//             <g className="resize e" transform={'translate(50,0)'} style={{cursor: 'ew-resize'}}>
+//               <rect 
+//                 x={-3}
+//                 width={6}
+//                 height={100}
+//                 style={{visibility:'hidden'}}
+//                 >
+//               </rect>
+//               <path 
+//                 transform={"translate(0,50)"}
+//                 d={'M6.123233995736766e-16,-10A10,10 0 0,1 6.123233995736766e-16,10L0,0Z'}
+//                 >
+//               </path>
+//             </g>
+//             <g className="resize w" transform={'translate(100,0)'} style={{cursor: 'ew-resize'}}>
+//               <rect
+//                 x={-3}
+//                 width={6}
+//                 height={100}
+//                 style={{visibility:'hidden'}}
+//                 >
+//               </rect>
+//               <path 
+//                 transform={"translate(0,50)"}
+//                 d={'M6.123233995736766e-16,-10A10,10 0 0,1 6.123233995736766e-16,10L0,0Z'}
+//                 >
+//               </path>
+//             </g>
+//           </g>

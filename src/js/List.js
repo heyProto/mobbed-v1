@@ -8,8 +8,8 @@ class ListCards extends React.Component {
   }
 
   handleOpenModal(e, card){
-    console.log(card, "single card data")
-    // debugger;
+    console.log(card, "single card data")    
+    window.location.hash = '#'+ card.view_cast_id
     let props = this.props;
     $('.ui.modal').modal({
       onHidden: function(e) {
@@ -19,7 +19,7 @@ class ListCards extends React.Component {
         props.handleCircleClicked(false);
       }
     }).modal('attach events', '.close').modal('show')  
-    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dwln9tzsi7g07.cloudfront.net/1cc352b8dae0/index.html?view_cast_id="+card.view_cast_id+"&schema_id="+card.schema_id, "laptop")     
+    let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dwln9tzsi7g07.cloudfront.net/1cc352b8dae0/index.html?view_cast_id="+card.view_cast_id+"&schema_id="+card.schema_id, "laptop")
   }
 
   render() {
