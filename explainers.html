@@ -6,6 +6,7 @@
   <title>#TheLynched: India's mob lynchings, explained</title>
   <link rel="stylesheet" type="text/css" href="lib/semantic.min.css">
   <link rel="stylesheet" type="text/css" href="src/css/styles.css">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <style>
     a{color: blue;}
     .share{text-align: right; font-size: 10px;}
@@ -20,6 +21,14 @@
   </style>
 </head>
 <body>
+  <div class="social-share-icons">
+    <a href="http://www.facebook.com/sharer/sharer.php?u=https://the-lynched.pykih.com/index.html" target="_blank" class="share-btn facebook">
+        <i class="fa fa-facebook"></i>
+    </a>
+    <a href="http://twitter.com/share?url=https://the-lynched.pykih.com/index.html" target="_blank" class="share-btn twitter">
+      <i class="fa fa-twitter"></i>
+    </a>
+  </div>
   <div class="ie-navbar"><img src="http://s0.wp.com/wp-content/themes/vip/indianexpress/images/theindianexpress-logo.svg"></div>
   <div class="container" style="height: auto !important;">
     <div class="page-navigation">
@@ -186,9 +195,22 @@ The National Commission for Minorities (NCM) received 16.5% less complaints from
     </div>
   </div>
 </div>
+<div class="bottom-navigation protograph-toMobJustice-sticky" id="protograph_toMobJustice_footer_container">
+  <div class="container" style="height: auto !important;">
+      <div class="page-bottom-navigation">
+        <div class="navigation-link"><a href="index.html">Home</a></div>
+
+        <div class="navigation-link"><a href="data.html">Data</a></div>
+        <div class="navigation-link active-link"><a href="explainers.html">Explainers</a></div>
+        <div class="navigation-link"><a href="about.html">About</a></div>
+      </div>
+  </div>
+</div>
 <script src="lib/jquery.min.js"></script>
 <script src="lib/semantic.min.js"></script>
 <script src="lib/jquery.sticky.js"></script>
+<script src="src/js/fixedNavBar.js"></script>
+
 <script type="text/javascript">
   $('.ui.sticky').sticky();
   $(window).scroll(function(event){

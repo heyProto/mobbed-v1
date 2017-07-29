@@ -26,6 +26,47 @@ body{
   shape-rendering: crispEdges;
 }
 
+/*========== social share ==========*/
+.social-share-icons{
+  display: inline-block;
+  position: fixed;
+  left: 50px;
+  top: 30%;
+  width: 3em;
+}
+
+.social-share-icons .share-btn {
+  display: inline-block !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 0.7em !important;
+  width: 3em !important;
+  border-radius: 50px !important;
+  height: 3em !important;
+  opacity: 0.9 !important;
+  outline: none !important;
+  text-align: center !important;
+  margin-bottom: 7px !important;
+}
+.social-share-icons .share-btn:hover,.social-share-icons .share-btn:focus {
+  color: #eeeeee !important;
+}
+
+.social-share-icons .share-btn:active {
+  position: relative !important;
+  top: 2px !important;
+  box-shadow: none !important;
+  color: #e2e2e2 !important;
+  outline: none !important;
+}
+.social-share-icons .share-btn.twitter { background: #55acee !important; }
+.social-share-icons .share-btn.google-plus { background: #dd4b39 !important; }
+.social-share-icons .share-btn.facebook { background: #3B5998 !important; }
+.social-share-icons .share-btn.stumbleupon { background: #EB4823 !important; }
+.social-share-icons .share-btn.reddit { background: #ff5700 !important; }
+.social-share-icons .share-btn.linkedin    { background: #4875B4 !important; }
+.social-share-icons .share-btn.email { background: #444444 !important; }
+
 .loading-bar{
   text-align: center;
   vertical-align: middle;
@@ -59,6 +100,38 @@ body{
 }
 
 .page-navigation .active-link a{
+  color: black !important;
+  font-weight: 700;
+}
+
+/*========== bottom navigation =========*/
+.bottom-navigation{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background: white;
+  border-top: 1px solid #efefef;
+}
+
+.page-bottom-navigation{
+  display: inline-block;
+  width: 100%;
+  padding: 15px 0px;
+  border-bottom: 1px solid #efefef;
+}
+
+.page-bottom-navigation .navigation-link{
+  display: inline-block;
+  margin-right: 30px;
+  color: #999;
+  font-weight: 300;
+}
+
+.page-bottom-navigation .navigation-link a{
+  color: #999;
+}
+
+.page-bottom-navigation .active-link a{
   color: black !important;
   font-weight: 700;
 }
@@ -766,3 +839,39 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   }
 }
 
+.protograph-toMobJustice-sticky {
+  position: fixed;
+  background: white;
+  width: 100%;
+  z-index: 1000;
+  max-width: 100%;
+  bottom: -1000px;
+}
+
+.slide-in {
+  animation: slide-in 0.25s forwards;
+  -webkit-animation: slide-in 0.25s forwards;
+}
+
+.slide-out {
+  animation: slide-out 0.25s forwards;
+  -webkit-animation: slide-out 0.25s forwards;
+}
+
+@keyframes slide-in {
+  100% { bottom: 0; }
+}
+
+@-webkit-keyframes slide-in {
+  100% { bottom: 0; }
+}
+
+@keyframes slide-out {
+  0% { bottom: 0; }
+  100% { bottom: -1000px; }
+}
+
+@-webkit-keyframes slide-out {
+  0% { bottom: 0; }
+  100% { bottom: -1000px; }
+}
