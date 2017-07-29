@@ -3,6 +3,7 @@ import axios from 'axios';
 import Halogen from 'halogen';
 import List from '../js/List';
 import Map from '../js/Map';
+// import TimeBrush from '../js/TimeBrush';
 import Utils from '../js/Utils';
 
 class App extends React.Component {
@@ -20,11 +21,13 @@ class App extends React.Component {
       topoJSON: {},
       category: null,
       menu: [],
+      state: [],
       victim_religion: [],
       accused_religion: [],
       police_to_population: [],
       judge_to_population: [],
       menu_value: 'undefined',
+      state_value: 'undefined',
       victim_religion_value: 'undefined',
       accused_religion_value: 'undefined',
       police_to_population_value: 'undefined',
@@ -43,15 +46,15 @@ class App extends React.Component {
           topoJSON: topo.data
         });
         let menu = Utils.groupBy(this.state.dataJSON, 'menu'),
+          state = Utils.groupBy(this.state.dataJSON, 'state'),
           victim_religion = Utils.groupBy(this.state.dataJSON, 'victim_religion'),
           accused_religion = Utils.groupBy(this.state.dataJSON, 'accused_religion'),
           police_to_population = Utils.groupBy(this.state.dataJSON, 'police_to_population'),
           judge_to_population = Utils.groupBy(this.state.dataJSON, 'judge_to_population');
 
-        console.log(menu, "meu----");
-
         this.setState({
           menu: menu,
+          state: state,
           victim_religion: victim_religion,
           accused_religion: accused_religion,
           police_to_population: police_to_population,
@@ -80,6 +83,20 @@ class App extends React.Component {
       }
     })
     this.highlightItem(value, 'menu_inactive_item', 'menu_active_item', 'menu');
+  }
+
+  handleOnChangeState(e, value) {
+    let name = value;
+    this.state.category = value
+    this.setState((prevState, props) => {
+      prevState.state_value = name;
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        state_value: name
+      }
+    })
+    this.highlightItem(value, 'state_inactive_item', 'state_active_item', 'state');
   }
 
   handleOnChangeVR(e, value) {
@@ -155,6 +172,13 @@ class App extends React.Component {
     return val.menu === this;
   }
 
+  checkState(val, index, arr){
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.state === this;
+  }
+
   checkVictimReligion(val, index, arr) {
     if(this === 'undefined') {
       return true;
@@ -187,6 +211,7 @@ class App extends React.Component {
     // console.log(state.victim_religion_value, "state.victim_religion_value")
     let filteredData = this.state.dataJSON
       .filter(this.checkMenu, state.menu_value)
+      .filter(this.checkState, state.state_value)
       .filter(this.checkVictimReligion, state.victim_religion_value)
       .filter(this.checkAccusedReligion, state.accused_religion_value)
       .filter(this.checkPoliceRatio, state.police_to_population_value)
@@ -197,7 +222,7 @@ class App extends React.Component {
 
   showFilters() {
     this.setState({
-      height: 355,
+      height: 380,
       overflow: 'auto',
       showTapArea: 'none',
       hideTapArea: 'block'
@@ -300,6 +325,7 @@ class App extends React.Component {
       // debugger;
       // document.getElementById('loading-gif-icon').style.display = 'none';
       let menuStats = Object.values(this.state.menu),
+        stateStats = Object.values(this.state.state),
         victimReligionStats = Object.values(this.state.victim_religion),
         accusedReligionStats = Object.values(this.state.accused_religion),
         policeRatioStats = Object.values(this.state.police_to_population),
@@ -310,6 +336,15 @@ class App extends React.Component {
           <tr className='menu_inactive_item' id={`menu-${value}`}>
             <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeMenu(e, value)}>{value}</td>
             <td>{menuStats[i].length}</td>
+          </tr>
+        )
+      })
+
+      let stateOptions = Object.keys(this.state.state).map((value, i) => {
+        return (
+          <tr className='state_inactive_item' id={`state-${value}`}>
+            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeState(e, value)}>{value}</td>
+            <td>{stateStats[i].length}</td>
           </tr>
         )
       })
@@ -390,6 +425,12 @@ class App extends React.Component {
               <span className="arrow-down"></span><div id="tap-me">Tap here to explore data</div><span className="arrow-down"></span>
             </div>
             <div id="filter-region" className="ui grid" style={styles}>
+              <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
+                <table><tbody>
+                  <th className="table-head">State</th>
+                  {stateOptions}
+                </tbody></table>
+              </div>
               <div className="four wide column filter-title">
                 <table><tbody>
                   <th className="table-head">Reason</th>
@@ -426,7 +467,7 @@ class App extends React.Component {
             </div>
           </div>
           <div className="ui grid">
-            <div className="eight wide column filter-title">
+            <div className="six wide column filter-title">
               <div className="count-area">
                 <div className="number-background">
                   <div className="single-background"></div>
@@ -441,9 +482,11 @@ class App extends React.Component {
               </div>
               <div className="display-text">Instances of lynching were reported 
                 {this.state.category === null ? <br/> : <div>under <span className="display-text-dropdown">{this.state.category}</span></div>}
-                from {start_date} to {end_date}</div>
+                from {start_date} to {end_date}
+              </div>
+              
             </div>
-            <div className="eight wide column filter-title">
+            <div className="ten wide column filter-title">
               <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>
             </div>
           </div>
@@ -507,4 +550,5 @@ export default App;
   //     {criminaliseVictimsOptions}
   //   </tbody></table>
   // </div>
-                
+             
+// <TimeBrush dataJSON={this.state.filteredJSON}/>   

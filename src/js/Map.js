@@ -20,7 +20,7 @@ class MapsCard extends React.Component {
 
   componentWillMount() {
     let padding = this.props.mode === 'mobile' ? 20 : 0,
-      offsetWidth = 480 - padding,
+      offsetWidth = 550 - padding,
       actualHeight = this.props.chartOptions.height
 
     let tx = this.props.mode === 'mobile' ? offsetWidth / 2 : offsetWidth / 2;

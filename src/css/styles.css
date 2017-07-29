@@ -5,6 +5,27 @@ body{
   letter-spacing: 0.5px;
 }
 
+.barchart {
+  z-index: 30;
+  display: block;
+  visibility: visible;
+  position: relative;
+  padding-top:15px;
+  margin-top: 15px;
+}
+.resize path {
+  fill:black;
+  fill-opacity: 0.4;
+  stroke: grey;
+  stroke-width: 1.5px;
+}
+
+.brush .extent {
+  fill:black;
+  fill-opacity: 0.1;
+  shape-rendering: crispEdges;
+}
+
 .loading-bar{
   text-align: center;
   vertical-align: middle;
@@ -203,6 +224,9 @@ tr:hover{
   background: #F02E2E;
 }
 .menu_active_item {
+  background: #F02E2E;
+}
+.state_active_item {
   background: #F02E2E;
 }
 .police_active_item {
