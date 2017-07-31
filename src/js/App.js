@@ -31,7 +31,11 @@ class App extends React.Component {
       victim_religion_value: 'undefined',
       accused_religion_value: 'undefined',
       police_to_population_value: 'undefined',
-      judge_to_population_value: 'undefined'
+      judge_to_population_value: 'undefined',
+      year_value: {
+        min: 'undefined',
+        max: 'undefined'
+      }
     }
     this.handleCircleClicked = this.handleCircleClicked.bind(this);
   }
@@ -207,8 +211,17 @@ class App extends React.Component {
     return val.judge_to_population === this;
   }
 
+  checkYear (val, index, arr) {
+    console.log(this, val, "-------- check year")
+    if(this.min === 'undefined' || this.max === 'undefined') {
+      return true;
+    }
+    let new_date = val.date.slice(-2)
+    return new_date > this.min && new_date < this.max;
+  }
+
   getFilteredData(state) {
-    // console.log(state.victim_religion_value, "state.victim_religion_value")
+    console.log(state, "state")
     let filteredData = this.state.dataJSON
       .filter(this.checkMenu, state.menu_value)
       .filter(this.checkState, state.state_value)
@@ -216,6 +229,7 @@ class App extends React.Component {
       .filter(this.checkAccusedReligion, state.accused_religion_value)
       .filter(this.checkPoliceRatio, state.police_to_population_value)
       .filter(this.checkJudgeRatio, state.judge_to_population_value)
+      .filter(this.checkYear, state.year_value)
     console.log(filteredData, "filteredData")
     return filteredData;
   }
@@ -329,13 +343,36 @@ class App extends React.Component {
         policeRatioStats = Object.values(this.state.police_to_population),
         judgeRatioStats = Object.values(this.state.judge_to_population);
 
-      console.log("hey", $("#range-slider"))
-      $("#range-slider").ionRangeSlider({
+      let that = this;
+      let a = $("#range-slider").ionRangeSlider({
         type: "double",
         min: 2010,
         max: 2017,
         grid: true,
-        grid_num: 7
+        grid_num: 7,
+        onChange: function (data) {       
+          let new_min = data.from_pretty.slice(-2),
+            new_max = data.to_pretty.slice(-2);
+          that.setState((prevState, props) => {
+          prevState.year_value = {
+            min: new_min,
+            max: new_max
+          };
+          let filteredData = that.getFilteredData(prevState)
+          return {
+            filteredJSON: filteredData,
+            year_value: {
+              min: new_min,
+              max: new_max
+            }
+          }
+        })
+          // that.state.filteredJSON = that.state.filteredJSON.filter(function (data) {
+          //   let new_date = data.date.slice(-2)
+          //   console.log(new_date, )
+          //   return new_date > new_min && new_date < new_max;
+          // })
+        }
       });
 
       let menuOptions = Object.keys(this.state.menu).map((value, i) => {
