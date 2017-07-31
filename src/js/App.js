@@ -196,7 +196,6 @@ class App extends React.Component {
       inactiveClass = inactive,
       activeClass = active;
     let i = 0;
-    console.log(elm, "element")
     while (i < elm.length) {
       i++;
       elm[0].className = inactiveClass;
@@ -248,7 +247,6 @@ class App extends React.Component {
   }
 
   checkYear (val, index, arr) {
-    console.log(this, val, "-------- check year")
     if(this.min === 'undefined' || this.max === 'undefined') {
       return true;
     }
@@ -257,7 +255,6 @@ class App extends React.Component {
   }
 
   getFilteredData(state) {
-    console.log(state, "state")
     let filteredData = this.state.dataJSON
       .filter(this.checkMenu, state.menu_value)
       .filter(this.checkState, state.state_value)
@@ -384,8 +381,6 @@ class App extends React.Component {
         type: "double",
         min: 2010,
         max: 2017,
-        grid: true,
-        grid_num: 7,
         onChange: function (data) {       
           let new_min = data.from_pretty.slice(-2),
             new_max = data.to_pretty.slice(-2);
@@ -591,44 +586,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-  // <select className="display-text-dropdown" onChange={(e) => this.handleCategory(e)}>
-  //   <option value="data.html">Cattle Protection</option>
-  //   <option value="data-sexual-harassment.html">Sexual Harassment</option>
-  //   <option value="data-crime.html">Crime</option>
-  //   <option value="data-witch-hunting.html">Witch Hunting</option>
-  //   <option value="data-honour-killings.html">Honour Killing</option>
-  //   <option value="data-other.html">Other</option>
-  // </select> 
-
-  // let rulingPartyOptions = Object.keys(this.state.state_ruling_party).map((value, i) => { 
-      //   return (
-      //     <tr className='party_inactive_item' id={`party-${value}`}>
-      //       <td key={i} value={value} onClick={(e) => this.handleOnChangeParty(e, value)}>{value}</td>
-      //       <td>{partyStats[i].length}</td>
-      //     </tr>
-      //   )
-      // })
-
-// let criminaliseVictimsOptions = Object.keys(this.state.does_the_state_criminalise_victims_actions).map((value, i) => {
-//         return (
-//           <tr className='criminalise_inactive_item' id={`criminalise-${value}`}>
-//             <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeIsCrime(e, value)}>{value}</td>
-//             <td>{crimaliseVictimsStats[i].length}</td>
-//           </tr>
-//         )
-//       })
-
-  // <div className="four wide column filter-title">
-  //   <table><tbody>
-  //     <th className="table-head">Ruling party</th>{rulingPartyOptions}
-  //   </tbody></table>
-  // </div>
-  // <div className="four wide column filter-title">
-  //   <table><tbody>
-  //     <th className="table-head">Victim committed crime?</th>
-  //     {criminaliseVictimsOptions}
-  //   </tbody></table>
-  // </div>
-             
-//    

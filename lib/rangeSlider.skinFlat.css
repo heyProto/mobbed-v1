@@ -8,20 +8,21 @@
 // Skin details */
 
 .irs {
-    height: 55px;
+    /*height: 30px;*/
     width: 290px;
 }
 .irs-with-grid {
     height: 75px;
 }
 .irs-line {
-    height: 6px; 
-    top: 33px;
-    background: #EEE;
-    background: linear-gradient(to bottom, #DDD -50%, #FFF 150%); /* W3C */
-    border: 1px solid #CCC;
+    /*height: 6px; */
+    /*top: 33px;*/
+    /*background: #EEE;*/
+    /*background: linear-gradient(to bottom, #DDD -50%, #FFF 150%); /* W3C */*/
+    border: 1px solid #eae9e9;
     border-radius: 16px;
     -moz-border-radius: 16px;
+    bottom: 0px;
 }
     .irs-line-left {
         height: 8px;
@@ -34,12 +35,15 @@
     }
 
 .irs-bar {
-    height: 6px; 
-    top: 33px;
-    border-top: 1px solid #F02E2E;
-    border-bottom: 1px solid #F02E2E;
-    background: #F02E2E;
-    background: linear-gradient(to top, #F02E2E 0%, #F02E2E 100%); /* W3C */
+    height: 60px; 
+    /*top: 33px;*/
+    /*border-top: 1px solid #F02E2E;*/
+    /*border-bottom: 1px solid #F02E2E;*/
+    background: grey;
+    opacity:0.1;
+    /*background: linear-gradient(to top, #F02E2E 0%, #F02E2E 100%); /* W3C */*/
+    z-index: 200;
+    bottom:1px;
 }
     .irs-bar-edge {
         height: 10px; top: 33px;
@@ -64,20 +68,15 @@
 }
 
 .irs-slider {
-    top: 25px;
-    width: 6px; 
-    height: 25px;
-    border: 1px solid #AAA;
-    background: #DDD;
-    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(220,220,220,1) 20%,rgba(255,255,255,1) 100%); /* W3C */
-   /* border-radius: 27px;
-    -moz-border-radius: 27px;*/
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    width: 25px; 
+    height: 61px;
+    background: transparent !important;
     cursor: pointer;
+    bottom: 0px;
 }
 
 .irs-slider.state_hover, .irs-slider:hover {
-    background: #FFF;
+    background: transparent;
 }
 
 .irs-min, .irs-max {
@@ -97,12 +96,12 @@
 }
 
 .irs-from, .irs-to, .irs-single {
-    color: #fff;
+    color: grey;
     font-size: 12px; 
     line-height: 1.333;
     text-shadow: none;
     padding: 1px 5px;
-    background: #F02E2E;
+    /*background: #F02E2E;*/
     border-radius: 3px;
     -moz-border-radius: 3px;
 }

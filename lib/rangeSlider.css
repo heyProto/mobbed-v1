@@ -78,8 +78,10 @@
     }
 
     .irs-from, .irs-to, .irs-single {
-        position: absolute; display: block;
-        top: 0; left: 0;
+        position: absolute; 
+        display: block;
+        top: 5px; 
+        left: 0;
         cursor: default;
         white-space: nowrap;
     }
