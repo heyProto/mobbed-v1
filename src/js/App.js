@@ -263,7 +263,7 @@ class App extends React.Component {
       .filter(this.checkPoliceRatio, state.police_to_population_value)
       .filter(this.checkJudgeRatio, state.judge_to_population_value)
       .filter(this.checkYear, state.year_value)
-    console.log(filteredData, "filteredData")
+    // console.log(filteredData, "filteredData")
     return filteredData;
   }
 

@@ -71,7 +71,7 @@
     width: 25px; 
     height: 61px;
     background: transparent !important;
-    cursor: pointer;
+    cursor: ew-resize;
     bottom: 0px;
 }
 
