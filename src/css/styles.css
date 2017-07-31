@@ -177,6 +177,19 @@ body{
   font-weight: 400;
 }
 
+.filter-area .tap-area .reset-all {
+  border: 1px solid #F02E2E;
+  color: #F02E2E;
+  background-color: #fafafa;
+  z-index: 200;
+}
+
+.filter-area .tap-area .reset-all:hover {
+  border: 1px solid #F02E2E;
+  color: white;
+  background-color: #F02E2E;
+}
+
 .display-number{
   font-size: 72px;
   font-weight: 300;

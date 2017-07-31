@@ -9,7 +9,7 @@ class ListCards extends React.Component {
 
   handleOpenModal(e, card){
     console.log(card, "single card data")    
-    window.location.hash = '#'+ card.view_cast_id
+    // window.location.hash = '#'+ card.view_cast_id
     let props = this.props;
     $('.ui.modal').modal({
       onHidden: function(e) {

@@ -77,7 +77,6 @@ class App extends React.Component {
 
   handleOnChangeMenu(e, value) {
     let name = value;
-    this.state.category = value
     this.setState((prevState, props) => {
       prevState.menu_value = name;
       let filteredData = this.getFilteredData(prevState)
@@ -91,7 +90,6 @@ class App extends React.Component {
 
   handleOnChangeState(e, value) {
     let name = value;
-    this.state.category = value
     this.setState((prevState, props) => {
       prevState.state_value = name;
       let filteredData = this.getFilteredData(prevState)
@@ -153,6 +151,44 @@ class App extends React.Component {
       }
     })
     this.highlightItem(value, 'judge_inactive_item','judge_active_item', 'judge');
+  }
+
+  handleReset(e) {
+    this.setState({
+      filteredJSON: this.state.dataJSON,
+      category: null
+    })
+    $("#range-slider").data('ionRangeSlider').reset()
+    if (this.state.menu_value !== 'undefined') {
+      document.getElementById('menu-'+this.state.menu_value).className = 'menu_inactive_item';
+    }
+    if (this.state.state_value !== 'undefined'){
+      document.getElementById('state-'+this.state.state_value).className = 'state_inactive_item';
+    }
+    if (this.state.victim_religion_value !== 'undefined') {
+      document.getElementById('victim-'+this.state.victim_religion_value).className = 'victim_inactive_item';
+    }
+    if (this.state.accused_religion_value !== 'undefined') {
+      document.getElementById('accused-'+this.state.accused_religion_value).className = 'accused_inactive_item';
+    }
+    if (this.state.police_to_population_value !== 'undefined') {
+      document.getElementById('police-'+this.state.police_to_population_value).className = 'police_inactive_item';
+    }
+    if (this.state.judge_to_population_value !== 'undefined') {
+      document.getElementById('judge-'+this.state.judge_to_population_value).className = 'judge_inactive_item';
+    }
+    this.setState({
+      menu_value: 'undefined',
+      state_value: 'undefined',
+      victim_religion_value: 'undefined',
+      accused_religion_value: 'undefined',
+      police_to_population_value: 'undefined',
+      judge_to_population_value: 'undefined',
+      year_value: {
+        min: 'undefined',
+        max: 'undefined'
+      }
+    })
   }
 
   highlightItem(value, inactive, active, identifier) {
@@ -354,24 +390,19 @@ class App extends React.Component {
           let new_min = data.from_pretty.slice(-2),
             new_max = data.to_pretty.slice(-2);
           that.setState((prevState, props) => {
-          prevState.year_value = {
-            min: new_min,
-            max: new_max
-          };
-          let filteredData = that.getFilteredData(prevState)
-          return {
-            filteredJSON: filteredData,
-            year_value: {
+            prevState.year_value = {
               min: new_min,
               max: new_max
+            };
+            let filteredData = that.getFilteredData(prevState)
+            return {
+              filteredJSON: filteredData,
+              year_value: {
+                min: new_min,
+                max: new_max
+              }
             }
-          }
-        })
-          // that.state.filteredJSON = that.state.filteredJSON.filter(function (data) {
-          //   let new_date = data.date.slice(-2)
-          //   console.log(new_date, )
-          //   return new_date > new_min && new_date < new_max;
-          // })
+          })
         }
       });
 
@@ -507,7 +538,10 @@ class App extends React.Component {
               </div>
             </div>
             <div className="tap-area" style={second_tap_area_style} onClick={(e) => this.hideFilters(e)}>
-              <span className="arrow-up"></span><div id="tap-me">Tap here to hide filters</div><span className="arrow-up"></span>
+              <div style={{marginLeft:320, marginRight: 330, display:'inline-block'}}>
+                <span className="arrow-up"></span><div id="tap-me">Tap here to hide filters</div><span className="arrow-up"></span>
+              </div>
+              <button className="ui secondary button reset-all" onClick={(e) => this.handleReset(e)}>Reset</button>
             </div>
           </div>
           <div className="ui grid">
