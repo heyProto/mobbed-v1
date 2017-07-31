@@ -381,6 +381,8 @@ class App extends React.Component {
         type: "double",
         min: 2010,
         max: 2017,
+        from: 2010,
+        to: 2017,
         onChange: function (data) {       
           let new_min = data.from_pretty.slice(-2),
             new_max = data.to_pretty.slice(-2);
