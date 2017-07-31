@@ -535,7 +535,7 @@ class App extends React.Component {
               </div>
             </div>
             <div className="tap-area" style={second_tap_area_style} onClick={(e) => this.hideFilters(e)}>
-              <div style={{marginLeft:320, marginRight: 330, display:'inline-block'}}>
+              <div className="tap-area-div">
                 <span className="arrow-up"></span><div id="tap-me">Tap here to hide filters</div><span className="arrow-up"></span>
               </div>
               <button className="ui secondary button reset-all" onClick={(e) => this.handleReset(e)}>Reset</button>
@@ -559,8 +559,7 @@ class App extends React.Component {
                 {this.state.category === null ? <br/> : <div>under <span className="display-text-dropdown">{this.state.category}</span></div>}
                 from {start_date} to {end_date}
               </div>
-              <br/>
-              <TimeBrush dataJSON={this.state.filteredJSON}/>
+              <TimeBrush dataJSON={this.state.filteredJSON} dimensionWidth={this.props.dimensionWidth} mode={this.props.mode}/>
               <div id="range-slider"></div>
             </div>
             <div className="ten wide column filter-title">
@@ -569,7 +568,7 @@ class App extends React.Component {
           </div>
           <div className="sixteen wide column">
             <div className="protograph-container">
-              <List dataJSON={this.state.filteredJSON} handleCircleClicked={this.handleCircleClicked}/>
+              <List dataJSON={this.state.filteredJSON} mode={this.props.mode} handleCircleClicked={this.handleCircleClicked}/>
             </div>
           </div>
         </div>

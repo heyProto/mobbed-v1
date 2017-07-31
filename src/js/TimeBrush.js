@@ -16,11 +16,18 @@ class TimeBrush extends React.Component {
     }
   }
   componentWillMount() {
-    let parseDate = timeFormat("%B %Y");
+    let parseDate = timeFormat("%B %Y"),
+      width;
+
+    if (this.props.mode === 'mobile'){
+      width = this.props.dimensionWidth - 20
+    } else {
+      width = 300
+    }
 
     let x = d3ScaleBand()
-      .rangeRound([0, 300])
-      .padding(0.1),
+      .rangeRound([0, width])
+      .padding(0.2),
     y = d3ScaleLinear().range([80, 0]);
 
     let num_incidents = [];
@@ -45,11 +52,6 @@ class TimeBrush extends React.Component {
       return d.year;
     }))
     y.domain([0, d3Max(sorted_arr, function (d) { return d.count })]);
-
-    // let brush = brushX()
-    //   .x(x)
-    //   .on("brush", this.brushmove)
-    //   .on("brushend", this.brushend);
 
     this.setState({
       x: x,
@@ -93,7 +95,7 @@ class TimeBrush extends React.Component {
           key={i} 
           x={this.state.x(d.year)}
           y={this.state.y(d.count)}
-          width={2.5}
+          width={this.state.x.bandwidth()}
           height={80 - this.state.y(d.count)}
           fill={"#F02E2E"}>
         </rect>
