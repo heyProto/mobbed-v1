@@ -365,6 +365,12 @@ tr th{
   margin-right: auto;
 }
 
+.about-page{
+  width: 600px; 
+  margin-left: auto; 
+  margin-right: auto;
+}
+
 .proto-graph-code {
     width: 100%;
     height: 100px;
@@ -1002,6 +1008,10 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   .filter-area .tap-area .tap-area-div{
     margin-left: 0px;
     margin-right: 0px; 
+  }
+
+  .about-page{
+    width: 100%;
   }
 }
 
