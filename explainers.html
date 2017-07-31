@@ -6,18 +6,9 @@
   <title>#TheLynched: India's mob lynchings, explained</title>
   <link rel="stylesheet" type="text/css" href="lib/semantic.min.css">
   <link rel="stylesheet" type="text/css" href="src/css/styles.css">
-  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <!-- <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
   <style>
     a{color: blue;}
-    .share{text-align: right; font-size: 10px;}
-    .answer{
-      padding: 0px 10px;
-      margin-bottom: 30px;
-    }
-    .green{
-      background-color: #CCE2FF !important;
-      color: black;
-    }
   </style>
 </head>
 <body>
@@ -33,21 +24,23 @@
   <div class="container" style="height: auto !important;">
     <div class="page-navigation">
       <div class="navigation-link"><a href="index.html">Home</a></div>
-
       <div class="navigation-link"><a href="data.html">Data</a></div>
       <div class="navigation-link active-link"><a href="explainers.html">Explainers</a></div>
       <div class="navigation-link"><a href="about.html">About</a></div>
     </div>
   </div>
-  <div class="ui grid" style="width: 1050px; margin-bottom:  20px;">
-        <img src="src/img/cover.png" style="width:  1050px;"/>
+  <div class="page-title">
+    <h1>The Lynched</h1>
+    <div class="page-subtitle">Mobs enacting violent justice on<br/>alleged criminals in India.</div>
+  </div>
+  <div class="ui grid cover-image-div">
+    <img class="cover-image" src="src/img/cover.png"/>
   </div>
   <div class="ui grid">
-
       <div class="sixteen wide column">
-        <div style="text-align: right;">
-      <a href="explainers-audio.html">Also available on SoundCloud</a>
-    </div>
+      <div class="sound-cloud-div">
+        <a href="explainers-audio.html">Also available on SoundCloud</a>
+      </div>
           <h2 style="font-weight: 800; text-align: center;">
       India's mob lynchings, explained
     </h2>
@@ -55,7 +48,7 @@
       </div>
   </div>
   <div class="ui grid" id="check">
-    <div class="seven wide column">
+    <div class="seven wide column qa-side-panel">
       <div class="ui compact segments sticky" style="border: 0px;">
         <div class="ui compact segment question" style="border: 0px;" id="qwhat">
           <p><a href="#what">1. What is mob justice?</a></p>
@@ -214,9 +207,9 @@ The National Commission for Minorities (NCM) received 16.5% less complaints from
 <script type="text/javascript">
   $('.ui.sticky').sticky();
   $(window).scroll(function(event){
-    $('.green').children('p').children('a').css({"color":"blue"});
+    $('.qa-highlight-color').children('p').children('a').css({"color":"blue"});
 
-    $('.green').removeClass('green');
+    $('.qa-highlight-color').removeClass('qa-highlight-color');
 
     if($('.ui.sticky').hasClass('fixed')){
       scrollspy = true;
@@ -224,9 +217,9 @@ The National Commission for Minorities (NCM) received 16.5% less complaints from
       scrollspy = false;
     }
     var cutoff = $(window).scrollTop();
-    $('.answer').removeClass('green').each(function() {
+    $('.answer').removeClass('qa-highlight-color').each(function() {
         if ($(this).offset().top - 25 > cutoff) {
-            $('#q'+$(this).attr('id')).addClass('green');
+            $('#q'+$(this).attr('id')).addClass('qa-highlight-color');
 
             return false; // stops the iteration after the first one on screen
         }
@@ -235,15 +228,14 @@ The National Commission for Minorities (NCM) received 16.5% less complaints from
   });
 
   $('.question').hover(function(){
-    $(this).addClass('green');
+    $(this).addClass('qa-highlight-color');
     $(this).children('p').children('a').css({"color":"black"});
-    $( $(this).children('p').children('a')[0].hash ).addClass('green');
+    $( $(this).children('p').children('a')[0].hash ).addClass('qa-highlight-color');
   },function(){
-    $(this).removeClass('green');
+    $(this).removeClass('qa-highlight-color');
     $(this).children('p').children('a').css({"color":"blue"});
-    $( $(this).children('p').children('a')[0].hash ).removeClass('green');
+    $( $(this).children('p').children('a')[0].hash ).removeClass('qa-highlight-color');
   })
 </script>
-<br/><br/><br/><br/><br/>
 </body>
 </html>

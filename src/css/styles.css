@@ -371,6 +371,24 @@ tr th{
   margin-right: auto;
 }
 
+.sound-cloud-div{
+  text-align: right;
+}
+
+.qa-side-panel{
+  display: block;
+}
+
+.answer{
+  padding: 0px 10px;
+  margin-bottom: 30px;
+}
+
+.qa-highlight-color{
+  background-color: #CCE2FF !important;
+  color: black;
+}
+
 .proto-graph-code {
     width: 100%;
     height: 100px;
@@ -923,6 +941,12 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
     width: 100%!important;
   }
 
+  .ui.grid>[class*="nine wide"].column {
+    width: 100%!important;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .ui.grid>[class*="ten wide"].column {
     width: 100%!important;
     padding-left: 0px;
@@ -1012,6 +1036,19 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
   .about-page{
     width: 100%;
+  }
+
+  .sound-cloud-div{
+    text-align: center;
+  }
+
+  .qa-side-panel{
+    display: none !important;
+  }
+
+  .answer{
+    padding: 0px;
+    margin-bottom: 0px;
   }
 }
 
