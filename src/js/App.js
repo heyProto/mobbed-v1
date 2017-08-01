@@ -26,12 +26,20 @@ class App extends React.Component {
       accused_religion: [],
       police_to_population: [],
       judge_to_population: [],
+      police_prevent_death:[],
+      lynching_planned: [],
+      criminalise_victims: [], 
+      area_classification: [], 
       menu_value: 'undefined',
       state_value: 'undefined',
       victim_religion_value: 'undefined',
       accused_religion_value: 'undefined',
       police_to_population_value: 'undefined',
       judge_to_population_value: 'undefined',
+      police_prevent_death_value: 'undefined',
+      lynching_planned_value: 'undefined',
+      criminalise_victims_value: 'undefined',
+      area_classification_value: 'undefined',
       year_value: {
         min: 'undefined',
         max: 'undefined'
@@ -54,7 +62,11 @@ class App extends React.Component {
           victim_religion = Utils.groupBy(this.state.dataJSON, 'victim_religion'),
           accused_religion = Utils.groupBy(this.state.dataJSON, 'accused_religion'),
           police_to_population = Utils.groupBy(this.state.dataJSON, 'police_to_population'),
-          judge_to_population = Utils.groupBy(this.state.dataJSON, 'judge_to_population');
+          judge_to_population = Utils.groupBy(this.state.dataJSON, 'judge_to_population'),
+          police_prevent_death = Utils.groupBy(this.state.dataJSON, 'did_the_police_intervene_and_prevent_the_death?'),
+          lynching_planned = Utils.groupBy(this.state.dataJSON, 'how_was_the_lynching_planned'),
+          criminalise_victims = Utils.groupBy(this.state.dataJSON, 'does_the_state_criminalise_victims_actions'),
+          area_classification = Utils.groupBy(this.state.dataJSON, 'area_classification');
 
         this.setState({
           menu: menu,
@@ -62,8 +74,11 @@ class App extends React.Component {
           victim_religion: victim_religion,
           accused_religion: accused_religion,
           police_to_population: police_to_population,
-          judge_to_population: judge_to_population
-
+          judge_to_population: judge_to_population,
+          police_prevent_death: police_prevent_death,
+          lynching_planned: lynching_planned,
+          criminalise_victims: criminalise_victims,
+          area_classification: area_classification
         })
     }));
     this.showCounter();
@@ -151,6 +166,58 @@ class App extends React.Component {
       }
     })
     this.highlightItem(value, 'judge_inactive_item','judge_active_item', 'judge');
+  }
+
+  handleOnChangePolicePrevent(e, value) {
+    let name = value;
+    this.setState((prevState, props) => {
+      prevState.police_prevent_death_value = name;
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        police_prevent_death_value: name
+      }
+    })
+    this.highlightItem(value, 'police_prevent_inactive_item','police_prevent_active_item', 'police-prevent');
+  }
+
+  handleOnChangeLynchingPlanned(e, value) {
+    let name = value;
+    this.setState((prevState, props) => {
+      prevState.lynching_planned_value = name;
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        lynching_planned_value: name
+      }
+    })
+    this.highlightItem(value, 'lynching_inactive_item','lynching_active_item', 'lynching');
+  }
+
+  handleOnChangeCriminaliseVictims(e, value){
+    let name = value;
+    this.setState((prevState, props) => {
+      prevState.criminalise_victims_value = name;
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        criminalise_victims_value: name
+      }
+    })
+    this.highlightItem(value, 'criminalise_inactive_item','criminalise_active_item', 'criminalise');
+  }
+
+  handleOnChangeArea(e, value){
+    let name = value;
+    this.setState((prevState, props) => {
+      prevState.area_classification_value = name;
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        area_classification_value: name
+      }
+    })
+    this.highlightItem(value, 'area_inactive_item','area_active_item', 'area');
   }
 
   handleReset(e) {
@@ -254,6 +321,34 @@ class App extends React.Component {
     return new_date > this.min && new_date < this.max;
   }
 
+  checkPolicePrevent(val, index, arr) {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.did_the_police_intervene_and_prevent_the_death === this;
+  }
+
+  checkLynchingPlanned(val, index, arr) {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.how_was_the_lynching_planned === this;
+  }
+
+  checkCriminaliseVictims(val, index, arr) {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.does_the_state_criminalise_victims_actions === this;
+  }
+
+  checkArea(val, index, arr) {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.area_classification === this;
+  }
+
   getFilteredData(state) {
     let filteredData = this.state.dataJSON
       .filter(this.checkMenu, state.menu_value)
@@ -262,6 +357,10 @@ class App extends React.Component {
       .filter(this.checkAccusedReligion, state.accused_religion_value)
       .filter(this.checkPoliceRatio, state.police_to_population_value)
       .filter(this.checkJudgeRatio, state.judge_to_population_value)
+      .filter(this.checkPolicePrevent, state.police_prevent_death_value)
+      .filter(this.checkLynchingPlanned, state.lynching_planned_value)
+      .filter(this.checkCriminaliseVictims, state.criminalise_victims_value)
+      .filter(this.checkArea, state.area_classification_value)
       .filter(this.checkYear, state.year_value)
     // console.log(filteredData, "filteredData")
     return filteredData;
@@ -374,7 +473,11 @@ class App extends React.Component {
         victimReligionStats = Object.values(this.state.victim_religion),
         accusedReligionStats = Object.values(this.state.accused_religion),
         policeRatioStats = Object.values(this.state.police_to_population),
-        judgeRatioStats = Object.values(this.state.judge_to_population);
+        judgeRatioStats = Object.values(this.state.judge_to_population),
+        policePreventStats = Object.values(this.state.police_prevent_death),
+        lynchingStats = Object.values(this.state.lynching_planned),
+        criminaliseStats = Object.values(this.state.criminalise_victims),
+        areaStats = Object.values(this.state.area_classification);
 
       let that = this;
       let a = $("#range-slider").ionRangeSlider({
@@ -469,6 +572,42 @@ class App extends React.Component {
         )
       })
 
+      let policePreventOptions = Object.keys(this.state.police_prevent_death).map((value, i) => {
+        return (
+          <tr className='police_prevent_inactive_item' id={`police-prevent-${value}`}>
+            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangePolicePrevent(e, value)}>{value}</td>
+            <td>{policePreventStats[i].length}</td>
+          </tr>
+        )
+      })
+
+      let lynchingOptions = Object.keys(this.state.lynching_planned).map((value, i) => {
+        return (
+          <tr className='lynching_inactive_item' id={`lynching-${value}`}>
+            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeLynchingPlanned(e, value)}>{value}</td>
+            <td>{lynchingStats[i].length}</td>
+          </tr>
+        )
+      })
+
+      let criminaliseOptions = Object.keys(this.state.criminalise_victims).map((value, i) => {
+        return (
+          <tr className='criminalise_inactive_item' id={`criminalise-${value}`}>
+            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeCriminaliseVictims(e, value)}>{value}</td>
+            <td>{criminaliseStats[i].length}</td>
+          </tr>
+        )
+      })
+
+      let areaOptions = Object.keys(this.state.area_classification).map((value, i) => {
+        return (
+          <tr className='area_inactive_item' id={`area-${value}`}>
+            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeArea(e, value)}>{value}</td>
+            <td>{areaStats[i].length}</td>
+          </tr>
+        )
+      })
+
       let number_of_incidents = this.state.filteredJSON.length,
         range = this.state.filteredJSON,
         number_of_digits = number_of_incidents.toString().length,
@@ -499,26 +638,38 @@ class App extends React.Component {
             <div id="filter-region" className="ui grid" style={styles}>
               <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
                 <table><tbody>
-                  <th className="table-head">State</th>
-                  {stateOptions}
-                </tbody></table>
-              </div>
-              <div className="four wide column filter-title">
-                <table><tbody>
                   <th className="table-head">Reason</th>
                   {menuOptions}
                 </tbody></table>
               </div>
               <div className="four wide column filter-title">
                 <table><tbody>
-                  <th className="table-head">Victim religion</th>
-                  {victimReligionOptions}
+                  <th className="table-head">Did the police prevent death?</th>
+                  {policePreventOptions}
                 </tbody></table>
               </div>
               <div className="four wide column filter-title">
                 <table><tbody>
-                  <th className="table-head">Accused religion</th>
-                  {accusedReligionOptions}
+                  <th className="table-head">Was the lynching planned?</th>
+                  {lynchingOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">If the allegation on the victim were true, would it be a punishable offence?</th>
+                  {criminaliseOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
+                <table><tbody>
+                  <th className="table-head">State</th>
+                  {stateOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Area Type</th>
+                  {areaOptions}
                 </tbody></table>
               </div>
               <div className="four wide column filter-title">
@@ -531,6 +682,18 @@ class App extends React.Component {
                 <table><tbody>
                   <th className="table-head">Judge to population ratio</th>
                   {judgeRatioOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Victim religion</th>
+                  {victimReligionOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Accused religion</th>
+                  {accusedReligionOptions}
                 </tbody></table>
               </div>
             </div>

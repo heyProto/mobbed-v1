@@ -14,7 +14,7 @@ function getJSON(url, callback) {
 };
 
 if (document.getElementsByClassName('latest-incidents')[0].style.display === '') {
-  getJSON('https://dwln9tzsi7g07.cloudfront.net/toMobJustice/index.json', function (err, data){
+  getJSON('https://dwln9tzsi7g07.cloudfront.net/toReportViolence/index.json', function (err, data){
     if (err != null) {
       alert('Something went wrong: ' + err);
     } else {
