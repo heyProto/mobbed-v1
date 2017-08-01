@@ -301,6 +301,8 @@ table{
 
 tr{
   border-top: 1px solid #efefef;
+  font-size: 11px;
+  color: grey;
 }
 
 tr:hover{
@@ -310,6 +312,10 @@ tr:hover{
 
 .accused_active_item, .victim_active_item, .menu_active_item, .state_active_item, .police_active_item, .judge_active_item, .police_prevent_active_item, .lynching_active_item, .criminalise_active_item, .area_active_item {
   background: #F02E2E;
+}
+
+.table-head{
+  padding: 5px !important;
 }
 
 tr:hover td{
