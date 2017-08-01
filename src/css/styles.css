@@ -827,6 +827,14 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   bottom: -1000px;
 }
 
+.latest-incidents{
+  display: block !important;
+}
+
+.main-content-grid{
+  width: 1050px !important;
+}
+
 .slide-in {
   animation: slide-in 0.25s forwards;
   -webkit-animation: slide-in 0.25s forwards;
@@ -941,6 +949,16 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
     width: 100%!important;
   }
 
+  .ui.grid>[class*="seven wide"].column {
+    width: 100%!important;
+  }
+
+  .ui.grid>[class*="eight wide"].column {
+    width: 100%!important;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .ui.grid>[class*="nine wide"].column {
     width: 100%!important;
     padding-left: 0px;
@@ -1049,6 +1067,14 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   .answer{
     padding: 0px;
     margin-bottom: 0px;
+  }
+
+  .twitter-chatter, .latest-incidents{
+    display: none !important;
+  }
+
+  .main-content-grid{
+    width: 100% !important;
   }
 }
 
