@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import {scaleLinear as d3ScaleLinear, scaleOrdinal as d3ScaleOrdinal, scaleBand as d3ScaleBand} from 'd3-scale';
 import {timeParse as d3TimeParse, timeFormat} from 'd3-time-format';
-import {brushX} from 'd3-brush';
 import {axisBottom, axisLeft} from 'd3-axis';
 import {max as d3Max, extent as d3Extend} from 'd3-array';
 
