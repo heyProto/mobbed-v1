@@ -36,733 +36,560 @@
         Methodology
       </h2>
       <br/>
-      <h3>Copy paste from the article</h3>
-      <table class="ui celled structured table">
-        <thead>
-          <tr>
-            <th>Column Name
-            </th>
-            <th>Is Mandatory
-            </th>
-            <th>Description
-            </th>
-            <th>Rules</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>headline
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>url
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>story_source
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">E.g. Express Web Desk, PTI, IANS, Express News Service, Ravik Bhattacharya, etc.
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>story_source_summary
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">Intefered from story_source
-            </td>
-            <td class="hint">
-              <ul>
-                <li>If story_source is "Express Web Desk", "PTI", "IANS"... then story_source_summary is "Wire Copies"</li>
-                <li>If story_source is "Express News Service" then story_source_summary is "Wire with reporter input"</li>
-                <li>If story_source is has a reporters name e.g. Ravik Bhattacharya then story_source_summary is "Reportage"</li>
-              </ul>
-            </td>
-          </tr>
-          <tr>
-            <td>date
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">Date when the article was published.
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>image
-            </td>
-            <td class="hint">Optional
-            </td>
-            <td class="hint">URL of the cover image
-            </td>
-            <td>
-            </td class="hint">
-          </tr>
-        </tbody>
-      </table>
-      <h3>Where did it happen?</h3>
-      <table class="ui celled structured table">
-        <thead>
-          <tr>
-            <th>Column Name
-            </th>
-            <th>Is Mandatory
-            </th>
-            <th>Description
-            </th>
-            <th>Rules</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>state
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">
-              <p>Valid values are in row judge_to_population</p>
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>police_to_population
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">
-              <p>Data on Police Organizations as on 01.01.2016 compiled by Bureau of Police Research and Development. There are only 2 valid values:</p>
-                <ul>
-                    <li>Below UN recommendation</li>
-                    <li>Above UN recommendation</li>
-                </ul>
-            </td>
-            <td class="hint">
-              <p>Rules are in row judge_to_population</p>
-            </td>
-          </tr>
-          <tr>
-            <td>judge_to_population
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">
-              <p>Numbers of Judges for the Subordinate Courts, as on March 31, 2016 (from Court News, publication of the Supreme Court, Vol XI Issue No. 1 Jan - Mar 2016). There are 5 valid values:</p>
-                <ul>
+    </div>
+    <div class="sixteen wide column" style="font-family: Courier New;">
+      <p>Following data is being collected.</p>
+      <h3 style="font-family: Courier New;">Copy paste from the article</h3>
+      <p>1. <span style="color: red;">*</span>Headline of the article</p>
+      <p>2. <span style="color: red;">*</span>URL of the article</p>
+      <p>3. <span style="color: red;">*</span>Byline e.g. Reporter name, Express News Service, PTI, Reuters, etc.</p>
+      <p>4. <span style="color: red;">*</span>Byline summary. If story_source is "Express Web Desk", "PTI", "IANS"... then story_source_summary is "Wire Copies". If story_source is "Express News Service" then story_source_summary is "Wire with reporter input". If story_source is has a reporters name e.g. Ravik Bhattacharya then story_source_summary is "Reportage".</p>
+      <p>5. <span style="color: red;">*</span>When was the article published?</p>
+      <p>6. URL of the Cover Image from the article</p>
+      <h3 style="font-family: Courier New;">Where did it happen?</h3>
+      <p>7. <span style="color: red;">*</span>Where did the incident occur? (State)</p>
+      <p>8. <span style="color: red;">*</span>District</p>
+      <p>9. Area. Hint - Go as local as possible e.g. village name, town name.</p>
+      <p>10. <span style="color: red;">*</span>Area classification. Rural or Urban.</p>
+      <p>11. <span style="color: red;">*</span>Which party’s Chief Minister was in power in the state when the incident occurred?</p>
+      <p>12. <span style="color: red;">*</span>Police to Population Ratio in that state</p>
+      <p style="margin-left: 100px;">Data on Police Organizations as on 01.01.2016 compiled by Bureau of Police Research and Development. There are only 2 valid values:</p>
+      <ul style="margin-left: 100px;">
+          <li>Below UN recommendation</li>
+          <li>Above UN recommendation</li>
+      </ul>
+      <p>13. <span style="color: red;">*</span>Judge to Population Ratio in that state</p>
+      <p style="margin-left: 100px;">Numbers of Judges for the Subordinate Courts, as on March 31, 2016 (from Court News, publication of the Supreme Court, Vol XI Issue No. 1 Jan - Mar 2016). There are 5 valid values:</p>
+                <ul style="margin-left: 100px;">
                     <li>Good</li>
                     <li>Above Average</li>
                     <li>Average</li>
                     <li>Below Average</li>
                     <li>Bad</li>
                 </ul>
-            </td>
-            <td class="hint">
-                <table class="hint">
-                    <tr>
-                      <th>state
-                      </th>
-                      <th>Police per lakh of Population as on Jan 2016
-                      </th>
-                      <th>UN recommendation
-                      </th>
-                      <th>police_to_population
-                      </th>
-                      <th>Subordinate Court Judges per lakh of Population as on Mar 2016
-                      </th>
-                      <th>judge_to_population
-                      </th>
-                    </tr>
-                    <tr>
-                        <td>Andaman and Nicobar Island
-                        </td>
-                        <td>712.57
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Above UN recommendation
-                        </td>
-                        <td>10.09
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Andhra Pradesh
-                        </td>
-                        <td>95.74
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>0.89
-                        </td>
-                        <td>Bad
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Arunachal Pradesh
-                        </td>
-                        <td>835.73
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Above UN recommendation
-                        </td>
-                        <td>10.84
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Assam
-                        </td>
-                        <td>140.86
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>10.16
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Bihar
-                        </td>
-                        <td>90.68
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>10.01
-                        </td>
-                        <td>Bad
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Chandigarh
-                        </td>
-                        <td>333.47
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Above UN recommendation
-                        </td>
-                        <td>28.42
-                        </td>
-                        <td>Above Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Chhattisgarh
-                        </td>
-                        <td>214.92
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>13.31
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Dadra and Nagar Haveli
-                        </td>
-                        <td>79.33
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Daman and Diu
-                        </td>
-                        <td>120.37
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>24.67
-                        </td>
-                        <td>Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>New Delhi
-                        </td>
-                        <td>363.13
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Above UN recommendation
-                        </td>
-                        <td>29.19
-                        </td>
-                        <td>Above Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Goa
-                        </td>
-                        <td>341.52
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Above UN recommendation
-                        </td>
-                        <td>32.22
-                        </td>
-                        <td>Above Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Gujarat
-                        </td>
-                        <td>112.74
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>19.24
-                        </td>
-                        <td>Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Haryana
-                        </td>
-                        <td>155.16
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>18.62
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Himachal Pradesh
-                        </td>
-                        <td>200.48
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>20.69
-                        </td>
-                        <td>Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jammu and Kashmir
-                        </td>
-                        <td>565.75
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Above UN recommendation
-                        </td>
-                        <td>17.54
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jharkhand
-                        </td>
-                        <td>167.92
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>13.94
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Karnataka
-                        </td>
-                        <td>114.15
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>13.45
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Kerala
-                        </td>
-                        <td>151.36
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>13.14
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Lakshadweep
-                        </td>
-                        <td>461.25
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Above UN recommendation
-                        </td>
-                        <td>46.53
-                        </td>
-                        <td>Good
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Madhya Pradesh
-                        </td>
-                        <td>112.07
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>17.21
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Maharashtra
-                        </td>
-                        <td>147.3
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>17.18
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Manipur
-                        </td>
-                        <td>974.65
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Above UN recommendation
-                        </td>
-                        <td>13.23
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Meghalaya
-                        </td>
-                        <td>454.47
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Above UN recommendation
-                        </td>
-                        <td>9.77
-                        </td>
-                        <td>Bad
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Mizoram
-                        </td>
-                        <td>797.26
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Above UN recommendation
-                        </td>
-                        <td>27.34
-                        </td>
-                        <td>Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Nagaland
-                        </td>
-                        <td>939.81
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Above UN recommendation
-                        </td>
-                        <td>12.13
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Odisha
-                        </td>
-                        <td>130.95
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>14.22
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Puducherry
-                        </td>
-                        <td>191.62
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>11.22
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Punjab
-                        </td>
-                        <td>240.44
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Above UN recommendation
-                        </td>
-                        <td>17.84
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Rajasthan
-                        </td>
-                        <td>123.12
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>14.59
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Sikkim
-                        </td>
-                        <td>708.85
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Above UN recommendation
-                        </td>
-                        <td>22.93
-                        </td>
-                        <td>Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Tamil Nadu
-                        </td>
-                        <td>158.77
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>13.33
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Telangana
-                        </td>
-                        <td>130.71
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>0.89
-                        </td>
-                        <td>Bad
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Tripura
-                        </td>
-                        <td>630.56
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Above UN recommendation
-                        </td>
-                        <td>17.42
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Uttar Pradesh
-                        </td>
-                        <td>83.9
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>9.02
-                        </td>
-                        <td>Bad
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Uttarakhand
-                        </td>
-                        <td>188.97
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>20.42
-                        </td>
-                        <td>Average
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>West Bengal
-                        </td>
-                        <td>72.8
-                        </td>
-                        <td>230
-                        </td>
-                        <td>Below UN recommendation
-                        </td>
-                        <td>10.09
-                        </td>
-                        <td>Below Average
-                        </td>
-                    </tr>
-                </table>
-            </td>
+      <p>14. <span style="color: red;">*</span>Latitude. You will have to find it manually.</p>
+      <p>15. <span style="color: red;">*</span>Longitude. You will have to find it manually.</p>
+      <table class="hint" style="margin-left: 100px;">
+          <tr>
+            <th>state
+            </th>
+            <th>Police per lakh of Population as on Jan 2016
+            </th>
+            <th>UN recommendation
+            </th>
+            <th>police_to_population
+            </th>
+            <th>Subordinate Court Judges per lakh of Population as on Mar 2016
+            </th>
+            <th>judge_to_population
+            </th>
           </tr>
           <tr>
-            <td>district
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">
-            </td>
-            <td class="hint">
-            </td>
+              <td>Andaman and Nicobar Island
+              </td>
+              <td>712.57
+              </td>
+              <td>230
+              </td>
+              <td>Above UN recommendation
+              </td>
+              <td>10.09
+              </td>
+              <td>Below Average
+              </td>
           </tr>
           <tr>
-            <td>area
-            </td>
-            <td class="hint">Optional
-            </td>
-            <td class="hint">As local as possible. Generally village name or town name.
-            </td>
-            <td class="hint">
-            </td>
+              <td>Andhra Pradesh
+              </td>
+              <td>95.74
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>0.89
+              </td>
+              <td>Bad
+              </td>
           </tr>
           <tr>
-            <td>area_classification
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">
-            </td>
-            <td class="hint">
-              <p>Valid Values</p>
-              <ul>
-                <li>Urban</li>
-                <li>Rural</li>
-              </ul>
-            </td>
+              <td>Arunachal Pradesh
+              </td>
+              <td>835.73
+              </td>
+              <td>230
+              </td>
+              <td>Above UN recommendation
+              </td>
+              <td>10.84
+              </td>
+              <td>Below Average
+              </td>
           </tr>
           <tr>
-            <td>state_ruling_party
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">Party whose Chief Minister is in power when the incident took place.
-            </td>
-            <td class="hint">
-            </td>
+              <td>Assam
+              </td>
+              <td>140.86
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>10.16
+              </td>
+              <td>Below Average
+              </td>
           </tr>
           <tr>
-            <td>latitude
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">
-            </td>
-            <td>
-            </td class="hint">
+              <td>Bihar
+              </td>
+              <td>90.68
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>10.01
+              </td>
+              <td>Bad
+              </td>
           </tr>
           <tr>
-            <td>longitude
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">
-            </td>
-            <td>
-            </td class="hint">
+              <td>Chandigarh
+              </td>
+              <td>333.47
+              </td>
+              <td>230
+              </td>
+              <td>Above UN recommendation
+              </td>
+              <td>28.42
+              </td>
+              <td>Above Average
+              </td>
           </tr>
-        </tbody>
+          <tr>
+              <td>Chhattisgarh
+              </td>
+              <td>214.92
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>13.31
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Dadra and Nagar Haveli
+              </td>
+              <td>79.33
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>
+              </td>
+              <td>
+              </td>
+          </tr>
+          <tr>
+              <td>Daman and Diu
+              </td>
+              <td>120.37
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>24.67
+              </td>
+              <td>Average
+              </td>
+          </tr>
+          <tr>
+              <td>New Delhi
+              </td>
+              <td>363.13
+              </td>
+              <td>230
+              </td>
+              <td>Above UN recommendation
+              </td>
+              <td>29.19
+              </td>
+              <td>Above Average
+              </td>
+          </tr>
+          <tr>
+              <td>Goa
+              </td>
+              <td>341.52
+              </td>
+              <td>230
+              </td>
+              <td>Above UN recommendation
+              </td>
+              <td>32.22
+              </td>
+              <td>Above Average
+              </td>
+          </tr>
+          <tr>
+              <td>Gujarat
+              </td>
+              <td>112.74
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>19.24
+              </td>
+              <td>Average
+              </td>
+          </tr>
+          <tr>
+              <td>Haryana
+              </td>
+              <td>155.16
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>18.62
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Himachal Pradesh
+              </td>
+              <td>200.48
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>20.69
+              </td>
+              <td>Average
+              </td>
+          </tr>
+          <tr>
+              <td>Jammu and Kashmir
+              </td>
+              <td>565.75
+              </td>
+              <td>230
+              </td>
+              <td>Above UN recommendation
+              </td>
+              <td>17.54
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Jharkhand
+              </td>
+              <td>167.92
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>13.94
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Karnataka
+              </td>
+              <td>114.15
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>13.45
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Kerala
+              </td>
+              <td>151.36
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>13.14
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Lakshadweep
+              </td>
+              <td>461.25
+              </td>
+              <td>230
+              </td>
+              <td>Above UN recommendation
+              </td>
+              <td>46.53
+              </td>
+              <td>Good
+              </td>
+          </tr>
+          <tr>
+              <td>Madhya Pradesh
+              </td>
+              <td>112.07
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>17.21
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Maharashtra
+              </td>
+              <td>147.3
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>17.18
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Manipur
+              </td>
+              <td>974.65
+              </td>
+              <td>230
+              </td>
+              <td>Above UN recommendation
+              </td>
+              <td>13.23
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Meghalaya
+              </td>
+              <td>454.47
+              </td>
+              <td>230
+              </td>
+              <td>Above UN recommendation
+              </td>
+              <td>9.77
+              </td>
+              <td>Bad
+              </td>
+          </tr>
+          <tr>
+              <td>Mizoram
+              </td>
+              <td>797.26
+              </td>
+              <td>230
+              </td>
+              <td>Above UN recommendation
+              </td>
+              <td>27.34
+              </td>
+              <td>Average
+              </td>
+          </tr>
+          <tr>
+              <td>Nagaland
+              </td>
+              <td>939.81
+              </td>
+              <td>230
+              </td>
+              <td>Above UN recommendation
+              </td>
+              <td>12.13
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Odisha
+              </td>
+              <td>130.95
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>14.22
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Puducherry
+              </td>
+              <td>191.62
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>11.22
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Punjab
+              </td>
+              <td>240.44
+              </td>
+              <td>230
+              </td>
+              <td>Above UN recommendation
+              </td>
+              <td>17.84
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Rajasthan
+              </td>
+              <td>123.12
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>14.59
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Sikkim
+              </td>
+              <td>708.85
+              </td>
+              <td>230
+              </td>
+              <td>Above UN recommendation
+              </td>
+              <td>22.93
+              </td>
+              <td>Average
+              </td>
+          </tr>
+          <tr>
+              <td>Tamil Nadu
+              </td>
+              <td>158.77
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>13.33
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Telangana
+              </td>
+              <td>130.71
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>0.89
+              </td>
+              <td>Bad
+              </td>
+          </tr>
+          <tr>
+              <td>Tripura
+              </td>
+              <td>630.56
+              </td>
+              <td>230
+              </td>
+              <td>Above UN recommendation
+              </td>
+              <td>17.42
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
+          <tr>
+              <td>Uttar Pradesh
+              </td>
+              <td>83.9
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>9.02
+              </td>
+              <td>Bad
+              </td>
+          </tr>
+          <tr>
+              <td>Uttarakhand
+              </td>
+              <td>188.97
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>20.42
+              </td>
+              <td>Average
+              </td>
+          </tr>
+          <tr>
+              <td>West Bengal
+              </td>
+              <td>72.8
+              </td>
+              <td>230
+              </td>
+              <td>Below UN recommendation
+              </td>
+              <td>10.09
+              </td>
+              <td>Below Average
+              </td>
+          </tr>
       </table>
+
       <h3>What happened?</h3>
       <p>These columns would be used to automatically construct sentences. Hence, fill accordinly keeping capitalization, punctuation in mind. Example "Unknown truckers (men) were allegedly carrying buffalo calves. Mob beat them up and also reportedly vandalized the vehicles in which the calves were being carried.</p>
       <table class="ui celled structured table">
