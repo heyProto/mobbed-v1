@@ -15,7 +15,7 @@ class Voronoi extends React.Component {
   handleMouseOver(e, card, name) {
     this.props.circleHover = true;
     if (!this.props.circleClicked) { 
-      Util.highlightCircle(name)
+      Util.highlightCircle(name, card)
     }
   }
 
@@ -56,11 +56,11 @@ class Voronoi extends React.Component {
     }
    
     let voronoiPaths = cleanVoronoiCells.map((d, i) => {
-      let name = `${d.data.state}-${d.data.area}`
+      let name = `${d.data.view_cast_id}-${d.data.area}`
       return(
         <path style={styles}
           d={`M ${d.join("L")} Z`}
-          className={`voronoi ${d.data.state}-${d.data.area}`}
+          className={`voronoi ${d.data.view_cast_id}-${d.data.area}`}
           onClick={(e) => this.handleOnClick(e, d.data, name)}
           onMouseMove={(e) => this.handleMouseOver(e, d.data, name)}
           onTouchStart={(e) => this.handleMouseOver(e, d.data, name)}

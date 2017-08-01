@@ -94,9 +94,6 @@ class App extends React.Component {
         });
       }
     }
-    // arr.sort(function(a, b) { 
-    //   return a.value - b.value; 
-    // });
     arr.sort(function (a, b) {
       let key1 = a.value,
         key2 = b.value;

@@ -16,15 +16,14 @@ class PlotCircles extends React.Component {
     } else {
       const {colorCategory, defaultCircleColor} = this.props.chartOptions;
       const circles = this.props.dataJSON.map((point, i) => {
-        // console.log(point, "point")
         return(
           <circle id="map_circles"
-            className={`map-circles circle-${point.state}-${point.area}`}
+            className={`map-circles circle-${point.view_cast_id}-${point.area}`}
             key={i} 
             cx={this.props.projection([point.lng, point.lat])[0]} 
             cy={this.props.projection([point.lng, point.lat])[1]} 
             r={3} 
-            fill={colorCategory !== undefined ? this.setColor(point[colorCategory]) : defaultCircleColor}>
+            fill={point.is_notable_incident === 'Yes' ? defaultCircleColor : '#FF9494'}>
           </circle>
         )
       });

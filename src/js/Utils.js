@@ -8,17 +8,21 @@ function setColorScale(value, colorDomain, colorRange) {
   return colorScale(value);
 }
 
-function highlightCircle(name) {
+function highlightCircle(name, data) {
   let getCircles = document.getElementsByClassName(`circle-${name}`),
     allCircles = document.getElementsByClassName('map-circles');
   // remove highlight of previous circle
   for (let j=0; j<allCircles.length; j++){
-    allCircles[j].style.stroke = 'none';
+    allCircles[j].r.baseVal.value = 3
+    // allCircles[j].style.stroke = 'none';
+    // allCircles[j].style.fill = 'none';
   }
-
   for (let i=0; i<getCircles.length; i++){
-    getCircles[i].style.stroke = '#D80202';
-    getCircles[i].style.strokeWidth = '3.5px';    
+    // getCircles[i].style.stroke = '#D80202';
+    getCircles[i].r.baseVal.value = 5
+    // getCircles[i].style.strokeWidth = '3.5px'; 
+    // getCircles[i].style.fill = '#D80202';
+    // getCircles[i].style.strokeWidth = '3.5px';    
   }
 }
 
