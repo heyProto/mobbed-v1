@@ -23,7 +23,7 @@
       <div class="navigation-link"><a href="index.html">Home</a></div>
       <div class="navigation-link"><a href="data.html">Data</a></div>
       <div class="navigation-link"><a href="explainers.html">Explainers</a></div>
-      <div class="navigation-link active-link"><a href="about.html">About</a></div>
+      <div class="navigation-link"><a href="about.html">About</a></div>
     </div>
   </div>
     <div class="ui grid cover-image-div" >
@@ -38,7 +38,7 @@
       <br/>
     </div>
     <div class="sixteen wide column" style="font-family: Courier New;">
-      <p>Following data is being collected.</p>
+      <p>Below is how we collected data.</p>
       <h3 style="font-family: Courier New;">Copy paste from the article</h3>
       <p>1. <span style="color: red;">*</span>Headline of the article</p>
       <p>2. <span style="color: red;">*</span>URL of the article</p>
@@ -589,269 +589,44 @@
               </td>
           </tr>
       </table>
-
-      <h3>What happened?</h3>
+      <h3 style="font-family: Courier New;">What happened?</h3>
       <p>These columns would be used to automatically construct sentences. Hence, fill accordinly keeping capitalization, punctuation in mind. Example "Unknown truckers (men) were allegedly carrying buffalo calves. Mob beat them up and also reportedly vandalized the vehicles in which the calves were being carried.</p>
-      <table class="ui celled structured table">
-        <thead>
-          <tr>
-            <th>Column Name
-            </th>
-            <th>Is Mandatory
-            </th>
-            <th>Description
-            </th>
-            <th>Rules</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>victim_religion
-            </td>
-            <td class="hint">Optional
-            </td>
-            <td class="hint"><p>Take directly from article if mentioned. Deduce from name where possible to ascertain with some surety. In case of confusion, leave blank.</p>
-            </td>
-            <td class="hint">
-              <p>{victim_religion} {victim_tag} ({victim_gender}) {victim_action}. -- will read as a sentence. Hence, the first word amongst victim_religion and victim_tag should be capital. victim_action should end with a full stop.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>victim_tag
-            </td>
-            <td class="hint">Optional
-            </td>
-            <td class="hint"><p>Generally the occupation of the victim. E.g. agricultural labourers, farmers, BSF officer, housewife, etc.</p>
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>victim_gender
-            </td>
-            <td class="hint">Optional
-            </td>
-            <td class="hint"><p>men, man, boy, boys, women, woman, girl, girls, etc.</p>
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>victim_action
-            </td>
-            <td class="hint">Optional
-            </td>
-            <td class="hint"><p>What were the victims doing when the mob lynching took place? End this statement with a full stop.</p>
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>accused_religion
-            </td>
-            <td class="hint">Optional
-            </td>
-            <td class="hint"><p>Take directly from article if mentioned. Deduce from name where possible to ascertain with some surety. In case of confusion, leave blank.</p>
-            </td>
-            <td class="hint">
-              <p>{accused_religion} {accused_tag} ({accused_gender}) {accused_action}. -- will read as a sentence. Hence, the first word amongst accused_religion and accused_tag should be capital. accused_action should end with a full stop.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>accused_tag
-            </td>
-            <td class="hint">Optional
-            </td>
-            <td class="hint">
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>accused_gender
-            </td>
-            <td class="hint">Optional
-            </td>
-            <td class="hint">
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>accused_action
-            </td>
-            <td class="hint">Optional
-            </td>
-            <td class="hint"><p>What were the accused doing before the mob lynching took place? End this statement with a full stop.</p>
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>the_lynching
-            </td>
-            <td class="hint">Optional
-            </td>
-            <td class="hint"><p>How did the actual lynching take place? More details on the incident.</p>
-            </td>
-            <td class="hint">
-              Extra details not captured by previous columns.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <h3>More details</h3>
-      <table class="ui celled structured table">
-        <thead>
-          <tr>
-            <th>Column Name
-            </th>
-            <th>Is Mandatory
-            </th>
-            <th>Description
-            </th>
-            <th>Rules</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>count_injured
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint"><p>Number of people impacted but not dead.</p>
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>count_dead
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>victim_names
-            </td>
-            <td class="hint">Optional
-            </td>
-            <td class="hint"><p>Comma separated list of name of victims followed by their age in bracket.</p>
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>title
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint"><p>Choose one victim's name (choose person who died over those who were injured), followed by age of the victim in brackets e.g. Junaid Khan (15). If there are more than one victim then append "and others" to the name of the victim e.g. Junaid Khan (15) and others.</p>
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>how_was_the_lynching_planned
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint"><p>3 categories for now: 1. Planned where it was clearly planned against the victim. 2. Sporadic where it was a spontaneous act. 3. Neighbourhood watch where the mob was on the lookout for alleged criminals and prepared to punish him/her/them.</p>
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>accused_names
-            </td>
-            <td class="hint">Optional
-            </td>
-            <td class="hint"><p>Comma separated list of name of accused followed by their age in bracket.</p>
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>did_the_police_intervene_and_prevent_the_death?
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint"><p>Yes if the police intervened and prevented a possible death. Otherwise, no. </p>
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>does_the_state_criminalise_victims_actions
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <h3>Broad Classification</h3>
-      <table class="ui celled structured table">
-        <thead>
-          <tr>
-            <th>Column Name
-            </th>
-            <th>Is Mandatory
-            </th>
-            <th>Description
-            </th>
-            <th>Rules</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>what_the_victim_did
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>what_was_the_mob_doing
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>menu
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-          <tr>
-            <td>is_notable_incident
-            </td>
-            <td class="hint">Mandatory
-            </td>
-            <td class="hint">Yes for those which caused outrage / got too much attention / or are important for our explainers etc. Otherwise no.
-            </td>
-            <td class="hint">
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <p>{victim_religion} {victim_tag} ({victim_gender}) {victim_action}. -- will read as a sentence. Hence, the first word amongst victim_religion and victim_tag should be capital. victim_action should end with a full stop.</p>
+      <p>16. Victim’s religion</p>
+      <p style="margin-left: 100px;">Hint - Take directly from article if mentioned. Deduce from name where possible to ascertain with some surety. In case of confusion or if victims are from multiple religions then leave blank.</p>
+      <p>17. Victim’s profession or title</p>
+      <p style="margin-left: 100px;">Hint - Generally the occupation of the victim. E.g. agricultural labourers, farmers, BSF officer, housewife, etc.</p>
+      <p>18. Victim’s gender</p>
+      <p>19. What was victims doing when the mob lynching took place? </p>
+      <p style="margin-left: 100px;">Hint - End this statement with a full stop.</p>
+      <p>20. Accused’s religion</p>
+      <p style="margin-left: 100px;">Hint - Take directly from article if mentioned. Deduce from name where possible to ascertain with some surety. In case of confusion or if accused are from multiple religions then leave blank.</p>
+      <p>21. Accused’s profession or title</p>
+      <p style="margin-left: 100px;">Hint - Generally the occupation of the victim. E.g. agricultural labourers, farmers, BSF officer, housewife, etc.</p>
+      <p>22. Accused’s gender</p>
+      <p>23. What were the accused doing before the mob lynching took place? </p>
+      <p style="margin-left: 100px;">Hint - End this statement with a full stop.</p>
+      <p>24. Extra details of the lynching</p>
+      <p style="margin-left: 100px;">Hint - How did the actual lynching take place? More details on the incident. Please do not repeat details from above. End this statement with a full stop.</p>
+      <h3 style="font-family: Courier New;">More details</h3>
+      <p>25. Number of victims injured (people impacted but not dead)</p>
+      <p>26. Number of victims dead</p>
+      <p>27. Names of the Victims</p>
+      <p style="margin-left: 100px;">Hint - Comma separated list of name of victims followed by their age in bracket.</p>
+      <p>28. Title of the card</p>
+      <p style="margin-left: 100px;">Hint - Choose one victim’s name (choose person who died over those who were injured), followed by age of the victim in brackets e.g. Junaid Khan (15). If there are more than one victim then append “and others” to the name of the victim e.g. Junaid Khan (15) and others.</p>
+      <p>29. Was the lynching planned?</p>
+      <p style="margin-left: 100px;">Hint - 3 categories for now: 1. Planned where it was clearly planned against the victim. 2. Sporadic where it was a spontaneous act. 3. Neighbourhood watch where the mob was on the lookout for alleged criminals and prepared to punish him/her/them.</p>
+      <p>30. Names of the Accused</p>
+      <p style="margin-left: 100px;">Hint - Comma separated list of name of accused followed by their age in bracket.</p>
+      <p>31. Did the police intervene and prevent death?</p>
+      <p style="margin-left: 100px;">Hint - Yes if the police intervened and prevented a possible death. Otherwise, no.</p>
+      <p>32. If the allegation on the victim were true, would it be a punishable offence?</p>
+      <h3 style="font-family: Courier New;">Broad Classification</h3>
+      <p>33. What did the victim do? (in two words)</p>
+      <p>34. What did the accused do? (in two words)</p>
+      <p>35. Reason for the lynching (in two words)</p>
+      <p>36. Is notable incident? If yes, then it will show up differently on the map.</p>
       <br/><br/><br/>
     </div>
   </div>
