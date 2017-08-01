@@ -268,6 +268,18 @@ class App extends React.Component {
     if (this.state.judge_to_population_value !== 'undefined') {
       document.getElementById('judge-'+this.state.judge_to_population_value).className = 'judge_inactive_item';
     }
+    if (this.state.police_prevent_death_value !== 'undefined') {
+      document.getElementById('police-prevent-'+this.state.police_prevent_death_value).className = 'police_prevent_inactive_item';
+    }
+    if (this.state.lynching_planned_value !== 'undefined') {
+      document.getElementById('lynching-'+this.state.lynching_planned_value).className = 'lynching_inactive_item';
+    }
+    if (this.state.criminalise_victims_value !== 'undefined') {
+      document.getElementById('criminalise-'+this.state.criminalise_victims_value).className = 'criminalise_inactive_item';
+    }
+    if (this.state.area_classification_value !== 'undefined') {
+      document.getElementById('area-'+this.state.area_classification_value).className = 'area_inactive_item';
+    }
     this.setState({
       menu_value: 'undefined',
       state_value: 'undefined',
@@ -275,6 +287,10 @@ class App extends React.Component {
       accused_religion_value: 'undefined',
       police_to_population_value: 'undefined',
       judge_to_population_value: 'undefined',
+      police_prevent_death_value: 'undefined',
+      lynching_planned_value: 'undefined',
+      criminalise_victims_value: 'undefined',
+      area_classification_value: 'undefined',
       year_value: {
         min: 'undefined',
         max: 'undefined'
@@ -467,8 +483,8 @@ class App extends React.Component {
         flexGrow: 1,
         WebkitFlexShrink: 0,
         flexShrink: 0,
-        WebkitFlexBasis: '25%',
-        flexBasis: '25%',
+        WebkitFlexBasis: '100%',
+        flexBasis: '100%',
         maxWidth: '100%',
         height: '200px',
         WebkitAlignItems: 'center',
@@ -492,6 +508,7 @@ class App extends React.Component {
         </div>
       )
     } else {
+      // debugger;
       let that = this;
       let a = $("#range-slider").ionRangeSlider({
         type: "double",
