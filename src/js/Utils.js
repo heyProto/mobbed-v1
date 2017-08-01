@@ -15,14 +15,11 @@ function highlightCircle(name, data) {
   for (let j=0; j<allCircles.length; j++){
     allCircles[j].r.baseVal.value = 3
     // allCircles[j].style.stroke = 'none';
-    // allCircles[j].style.fill = 'none';
   }
   for (let i=0; i<getCircles.length; i++){
     // getCircles[i].style.stroke = '#D80202';
     getCircles[i].r.baseVal.value = 5
-    // getCircles[i].style.strokeWidth = '3.5px'; 
-    // getCircles[i].style.fill = '#D80202';
-    // getCircles[i].style.strokeWidth = '3.5px';    
+    // getCircles[i].style.strokeWidth = '3.5px';  
   }
 }
 
