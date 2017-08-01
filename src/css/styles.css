@@ -428,6 +428,53 @@ tr th{
   transition: all 250ms cubic-bezier(.02, .01, .47, 1);
 }
 
+.protograph-tolink-card{
+  padding: 20px;
+  background: white;
+  transition: 0.2s ease-in-out;
+}
+
+.protograph-tolink-card:hover{
+    background: #fafafa;
+}
+
+.protograph-tolink-card > .protograph-footer{
+    display: inline-block;
+    width: 100%;
+}
+
+.protograph-tolink-card > .protograph-footer > .protograph-source{
+  padding: 0px;
+  font-size: 10px;
+  color: transparent;
+  display: inline;
+  float: left;
+  transition: 0.2s ease-in-out;
+}
+
+.protograph-tolink-card:hover > .protograph-footer > .protograph-source{
+  color: #7a7a7a;
+}
+
+.protograph-tolink-card > .protograph-footer > .protograph-credits > .protograph-card-link{
+  color: transparent;
+}
+
+.protograph-tolink-card:hover > .protograph-footer > .protograph-credits > .protograph-card-link{
+  color: #7a7a7a;
+}
+
+.protograph-url{
+  text-decoration: none;
+  color: black;
+}
+
+.protograph-url:hover{
+  text-decoration: none;
+  color: black;
+}
+
+
 .protograph-card:hover {
   box-shadow: 0 40px 40px rgba(0,0,0,.16);
   transform: translate(0,-10px);
