@@ -27,7 +27,7 @@ body{
 
 .cover-image-div{
   width: 1050px !important;
-  margin-bottom:  50px !important;
+  margin-bottom:  30px !important;
   box-shadow: 0px 0px 5px lightgrey;
 }
 
@@ -385,7 +385,7 @@ tr th{
 }
 
 .answer{
-  padding: 0px 10px;
+  padding: 10px;
   margin-bottom: 30px;
 }
 
