@@ -57,16 +57,16 @@ class App extends React.Component {
           filteredJSON: card.data,
           topoJSON: topo.data
         });
-        let menu = Utils.groupBy(this.state.dataJSON, 'menu'),
-          state = Utils.groupBy(this.state.dataJSON, 'state'),
-          victim_religion = Utils.groupBy(this.state.dataJSON, 'victim_religion'),
-          accused_religion = Utils.groupBy(this.state.dataJSON, 'accused_religion'),
-          police_to_population = Utils.groupBy(this.state.dataJSON, 'police_to_population'),
-          judge_to_population = Utils.groupBy(this.state.dataJSON, 'judge_to_population'),
-          police_prevent_death = Utils.groupBy(this.state.dataJSON, 'did_the_police_intervene_and_prevent_the_death?'),
-          lynching_planned = Utils.groupBy(this.state.dataJSON, 'how_was_the_lynching_planned'),
-          criminalise_victims = Utils.groupBy(this.state.dataJSON, 'does_the_state_criminalise_victims_actions'),
-          area_classification = Utils.groupBy(this.state.dataJSON, 'area_classification');
+        let menu = this.sortObject(Utils.groupBy(this.state.dataJSON, 'menu')),
+          state = this.sortObject(Utils.groupBy(this.state.dataJSON, 'state')),
+          victim_religion = this.sortObject(Utils.groupBy(this.state.dataJSON, 'victim_religion')),
+          accused_religion = this.sortObject(Utils.groupBy(this.state.dataJSON, 'accused_religion')),
+          police_to_population = this.sortObject(Utils.groupBy(this.state.dataJSON, 'police_to_population')),
+          judge_to_population = this.sortObject(Utils.groupBy(this.state.dataJSON, 'judge_to_population')),
+          police_prevent_death = this.sortObject(Utils.groupBy(this.state.dataJSON, 'did_the_police_intervene_and_prevent_the_death?')),
+          lynching_planned = this.sortObject(Utils.groupBy(this.state.dataJSON, 'how_was_the_lynching_planned')),
+          criminalise_victims = this.sortObject(Utils.groupBy(this.state.dataJSON, 'does_the_state_criminalise_victims_actions')),
+          area_classification = this.sortObject(Utils.groupBy(this.state.dataJSON, 'area_classification'));
 
         this.setState({
           menu: menu,
@@ -82,6 +82,33 @@ class App extends React.Component {
         })
     }));
     this.showCounter();
+  }
+
+  sortObject(obj) {
+    var arr = [];
+    for (var prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        arr.push({
+          'key': prop,
+          'value': obj[prop].length
+        });
+      }
+    }
+    // arr.sort(function(a, b) { 
+    //   return a.value - b.value; 
+    // });
+    arr.sort(function (a, b) {
+      let key1 = a.value,
+        key2 = b.value;
+      if (key1 > key2) {
+        return -1;
+      } else if (key1 == key2) {
+        return 0;
+      } else {
+        return 1;
+      }
+    });
+    return arr; // returns array
   }
 
   handleCircleClicked(bool) {
@@ -325,7 +352,7 @@ class App extends React.Component {
     if(this === 'undefined') {
       return true;
     }
-    return val.did_the_police_intervene_and_prevent_the_death === this;
+    return val['did_the_police_intervene_and_prevent_the_death?'] === this;
   }
 
   checkLynchingPlanned(val, index, arr) {
@@ -468,17 +495,6 @@ class App extends React.Component {
         </div>
       )
     } else {
-      let menuStats = Object.values(this.state.menu),
-        stateStats = Object.values(this.state.state),
-        victimReligionStats = Object.values(this.state.victim_religion),
-        accusedReligionStats = Object.values(this.state.accused_religion),
-        policeRatioStats = Object.values(this.state.police_to_population),
-        judgeRatioStats = Object.values(this.state.judge_to_population),
-        policePreventStats = Object.values(this.state.police_prevent_death),
-        lynchingStats = Object.values(this.state.lynching_planned),
-        criminaliseStats = Object.values(this.state.criminalise_victims),
-        areaStats = Object.values(this.state.area_classification);
-
       let that = this;
       let a = $("#range-slider").ionRangeSlider({
         type: "double",
@@ -505,105 +521,105 @@ class App extends React.Component {
           })
         }
       });
-
-      let menuOptions = Object.keys(this.state.menu).map((value, i) => {
+  
+      let menuOptions = this.state.menu.map((d, i) => {
         return (
-          <tr className='menu_inactive_item' id={`menu-${value}`}>
-            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeMenu(e, value)}>{value}</td>
-            <td>{menuStats[i].length}</td>
-          </tr>
-        )
-      })
-
-      let stateOptions = Object.keys(this.state.state).map((value, i) => {
-        return (
-          <tr className='state_inactive_item' id={`state-${value}`}>
-            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeState(e, value)}>{value}</td>
-            <td>{stateStats[i].length}</td>
+          <tr className='menu_inactive_item' id={`menu-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeMenu(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
           </tr>
         )
       })
         
-      let victimReligionOptions = Object.keys(this.state.victim_religion).map((value, i) => {
+      let stateOptions = this.state.state.map((d, i) => {
+        return (
+          <tr className='state_inactive_item' id={`state-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeState(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
+   
+      let victimReligionOptions = this.state.victim_religion.map((d, i) => {
         let name;
-        if (value === ''){
+        if (d.key === ''){
           name = 'Unknown'
         } else {
-          name = value
+          name = d.key
         }
         return (
-          <tr className='victim_inactive_item' id={`victim-${value}`}>
-            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeVR(e, value)}>{name}</td>
-            <td>{victimReligionStats[i].length}</td>
+          <tr className='victim_inactive_item' id={`victim-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeVR(e, d.key)}>{name}</td>
+            <td>{d.value}</td>
           </tr>
         )
       })
 
-      let accusedReligionOptions = Object.keys(this.state.accused_religion).map((value, i) => {
+      let accusedReligionOptions = this.state.accused_religion.map((d, i) => {
         let name;
-        if (value === ''){
+        if (d.key === ''){
           name = 'Unknown'
         } else {
-          name = value
+          name = d.key
         }
         return (
-          <tr className='accused_inactive_item' id={`accused-${value}`}>
-            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeAR(e, value)}>{name}</td>
-            <td>{accusedReligionStats[i].length}</td>
+          <tr className='accused_inactive_item' id={`accused-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeAR(e, d.key)}>{name}</td>
+            <td>{d.value}</td>
           </tr>
         )
       })
 
-      let policeRatioOptions = Object.keys(this.state.police_to_population).map((value, i) => {
+      let policeRatioOptions = this.state.police_to_population.map((d, i) => {
         return (
-          <tr className='police_inactive_item' id={`police-${value}`}>
-            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangePolice(e, value)}>{value}</td>
-            <td>{policeRatioStats[i].length}</td>
+          <tr className='police_inactive_item' id={`police-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangePolice(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
+      
+      let judgeRatioOptions = this.state.judge_to_population.map((d, i) => {
+        return (
+          <tr className='judge_inactive_item' id={`judge-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeJudge(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
           </tr>
         )
       })
 
-      let judgeRatioOptions = Object.keys(this.state.judge_to_population).map((value, i) => {
+      let policePreventOptions = this.state.police_prevent_death.map((d, i) => {
         return (
-          <tr className='judge_inactive_item' id={`judge-${value}`}>
-            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeJudge(e, value)}>{value}</td>
-            <td>{judgeRatioStats[i].length}</td>
+          <tr className='police_prevent_inactive_item' id={`police-prevent-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangePolicePrevent(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
+      
+      let lynchingOptions = this.state.lynching_planned.map((d, i) => {
+        return (
+          <tr className='lynching_inactive_item' id={`lynching-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeLynchingPlanned(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
           </tr>
         )
       })
 
-      let policePreventOptions = Object.keys(this.state.police_prevent_death).map((value, i) => {
+      let criminaliseOptions = this.state.criminalise_victims.map((d, i) => {
         return (
-          <tr className='police_prevent_inactive_item' id={`police-prevent-${value}`}>
-            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangePolicePrevent(e, value)}>{value}</td>
-            <td>{policePreventStats[i].length}</td>
+          <tr className='criminalise_inactive_item' id={`criminalise-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeCriminaliseVictims(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
           </tr>
         )
       })
-
-      let lynchingOptions = Object.keys(this.state.lynching_planned).map((value, i) => {
+      
+      let areaOptions = this.state.area_classification.map((d, i) => {
         return (
-          <tr className='lynching_inactive_item' id={`lynching-${value}`}>
-            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeLynchingPlanned(e, value)}>{value}</td>
-            <td>{lynchingStats[i].length}</td>
-          </tr>
-        )
-      })
-
-      let criminaliseOptions = Object.keys(this.state.criminalise_victims).map((value, i) => {
-        return (
-          <tr className='criminalise_inactive_item' id={`criminalise-${value}`}>
-            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeCriminaliseVictims(e, value)}>{value}</td>
-            <td>{criminaliseStats[i].length}</td>
-          </tr>
-        )
-      })
-
-      let areaOptions = Object.keys(this.state.area_classification).map((value, i) => {
-        return (
-          <tr className='area_inactive_item' id={`area-${value}`}>
-            <td id={value} key={i} value={value} onClick={(e) => this.handleOnChangeArea(e, value)}>{value}</td>
-            <td>{areaStats[i].length}</td>
+          <tr className='area_inactive_item' id={`area-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeArea(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
           </tr>
         )
       })
