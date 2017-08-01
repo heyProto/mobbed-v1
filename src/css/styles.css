@@ -127,6 +127,21 @@ body{
   display: none;
 }
 
+.event{
+  margin-bottom: 20px !important; 
+  padding-right: 20px !important;
+}
+
+.index-story-image{
+  margin-bottom: 20px;
+}
+
+.index-story-text{
+  color: black;
+  margin-bottom: 10px;
+}
+
+
 /*========== bottom navigation =========*/
 .bottom-navigation{
   position: fixed;
@@ -433,6 +448,7 @@ tr th{
   padding: 20px;
   background: white;
   transition: 0.2s ease-in-out;
+  width: 100%;
 }
 
 .protograph-tolink-card:hover{
@@ -831,11 +847,25 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 .latest-incidents{
   display: block !important;
+  border-left: 1px solid #efefef; 
+  border-right: 1px solid #efefef;
 }
 
 .main-content-grid{
   width: 970px !important;
   margin-top: 70px !important; 
+}
+
+.column-header{
+  margin-bottom: 20px !important; 
+  text-transform: uppercase !important; 
+  font-weight: 100 !important; 
+  padding-left: 20px !important; 
+  color: gray !important;
+}
+
+.column-header.zero-padding{
+  padding-left: 0px !important;
 }
 
 .main-content-grid.ui.grid>.column:not(.row){
