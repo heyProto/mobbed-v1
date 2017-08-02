@@ -357,8 +357,9 @@ class App extends React.Component {
     if(this.min === 'undefined' || this.max === 'undefined') {
       return true;
     }
-    let new_date = val.date.slice(-2)
-    return new_date > this.min && new_date < this.max;
+    let new_date = val.date.slice(0, 4)
+    // console.log(new_date, "new_date")
+    return new_date >= this.min && new_date <= this.max;
   }
 
   checkPolicePrevent(val, index, arr) {
@@ -508,16 +509,23 @@ class App extends React.Component {
         </div>
       )
     } else {
-      let that = this;
+      let that = this,
+        start_month = (new Date('2016-06')).getUTCMonth(),
+        start_year = (new Date('2016-06')).getUTCFullYear(),
+        end_month = (new Date('2017-07')).getUTCMonth(),
+        end_year = (new Date('2017-07')).getUTCFullYear();
+
+      console.log(start_month, start_year, end_month, end_year, "month and years")
+
       let a = $("#range-slider").ionRangeSlider({
         type: "double",
         min: 2010,
         max: 2017,
-        from: 2010,
-        to: 2017,
-        onChange: function (data) {       
-          let new_min = data.from_pretty.slice(-2),
-            new_max = data.to_pretty.slice(-2);
+        onChange: function (data) { 
+          console.log(data, "data---")     
+          let new_min = data.from,
+            new_max = data.to;
+          // console.log(new_min, new_max, "new min max") 
           that.setState((prevState, props) => {
             prevState.year_value = {
               min: new_min,
@@ -649,8 +657,10 @@ class App extends React.Component {
         start_date = '';
         end_date = '';
       } else {
-        start_date = range[length].date;
-        end_date =  range[0].date;
+        let formated_start_date = Utils.formatDate(range[length].date);
+        start_date = range[length].date.split("-")[2] + " " +formated_start_date.split(" ")[0].substring(0, 3) + " '" + formated_start_date.split(" ")[1].substring(3, 5)
+        let formated_end_date = Utils.formatDate(range[0].date)
+        end_date = range[0].date.split("-")[2] + " " +formated_end_date.split(" ")[0].substring(0, 3) + " '" + formated_end_date.split(" ")[1].substring(3, 5) ;
       }
 
       let styles = {

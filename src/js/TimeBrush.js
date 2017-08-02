@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {scaleLinear as d3ScaleLinear, scaleOrdinal as d3ScaleOrdinal, scaleBand as d3ScaleBand} from 'd3-scale';
-import {timeParse as d3TimeParse, timeFormat} from 'd3-time-format';
+import {timeFormat} from 'd3-time-format';
 import {axisBottom, axisLeft} from 'd3-axis';
 import {max as d3Max, extent as d3Extend} from 'd3-array';
 
@@ -15,7 +15,7 @@ class TimeBrush extends React.Component {
     }
   }
   componentWillMount() {
-    let parseDate = timeFormat("%B %Y"),
+    let parseDate = timeFormat("%B'%Y"),
       width;
 
     if (this.props.mode === 'mobile'){
@@ -37,6 +37,7 @@ class TimeBrush extends React.Component {
     let count_obj = this.count(num_incidents),
       count = Object.values(count_obj);
 
+    // console.log(count_obj, "count_obj")
     let arr=[], j=0;
     for (let i in count_obj) {
       arr[j] = ({
@@ -78,15 +79,8 @@ class TimeBrush extends React.Component {
     return new_arr;
   }
 
-  brushend() {
-    console.log("hey I am brushed")
-  }
-
-  brushmove() {
-    console.log("I am moved")
-  }
-
   render() {
+    // console.log(this.state.sorted_arr, "this.state.sorted_arr")
     const rects = this.state.sorted_arr.map((d, i) => {
       return(
         <rect

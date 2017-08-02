@@ -1125,6 +1125,10 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   .cover-image{
     display: none !important;
   }
+
+  .ui.modal>.content {
+    padding:5px !important;
+  }
 }
 
 

@@ -1,4 +1,5 @@
 import {scaleOrdinal as d3ScaleOrdinal} from 'd3-scale';
+import {timeFormat} from 'd3-time-format';
 
 function setColorScale(value, colorDomain, colorRange) {
   let colorScale = d3ScaleOrdinal()
@@ -21,6 +22,12 @@ function highlightCircle(name, data) {
     getCircles[i].r.baseVal.value = 5
     // getCircles[i].style.strokeWidth = '3.5px';  
   }
+}
+
+function formatDate(date) {
+  let parseTime = timeFormat("%B '%Y");
+  // console.log(parseTime(new Date(date)), "inside parse function")
+  return parseTime(new Date(date));
 }
 
 function groupBy(data, column) {
@@ -52,5 +59,6 @@ function groupBy(data, column) {
 module.exports = {
   groupBy : groupBy,
   setColorScale : setColorScale,
-  highlightCircle: highlightCircle
+  highlightCircle: highlightCircle,
+  formatDate: formatDate
 }
