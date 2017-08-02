@@ -35,12 +35,12 @@
     }
 
 .irs-bar {
-    height: 60px; 
+    height: 80px; 
     /*top: 33px;*/
     /*border-top: 1px solid #F02E2E;*/
     /*border-bottom: 1px solid #F02E2E;*/
     background: grey;
-    opacity:0.1;
+    opacity:0.3;
     /*background: linear-gradient(to top, #F02E2E 0%, #F02E2E 100%); /* W3C */*/
     z-index: 200;
     bottom:1px;
@@ -69,7 +69,7 @@
 
 .irs-slider {
     width: 25px; 
-    height: 61px;
+    height: 80px;
     background: transparent !important;
     cursor: ew-resize;
     bottom: 0px;

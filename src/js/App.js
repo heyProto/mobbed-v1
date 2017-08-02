@@ -508,7 +508,6 @@ class App extends React.Component {
         </div>
       )
     } else {
-      // debugger;
       let that = this;
       let a = $("#range-slider").ionRangeSlider({
         type: "double",
@@ -638,12 +637,21 @@ class App extends React.Component {
         )
       })
 
+      console.log(this.state.filteredJSON,this.state.filteredJSON.length, "-----------" )
+
       let number_of_incidents = this.state.filteredJSON.length,
         range = this.state.filteredJSON,
         number_of_digits = number_of_incidents.toString().length,
         length = range.length - 1,
-        start_date = range[length].date,
-        end_date = range[0].date;
+        start_date, end_date;
+
+      if (range.length === 0) {
+        start_date = '';
+        end_date = '';
+      } else {
+        start_date = range[length].date;
+        end_date =  range[0].date;
+      }
 
       let styles = {
         height: this.state.height,
@@ -750,10 +758,10 @@ class App extends React.Component {
               </div>
               <div className="display-text">Instances of lynching were reported 
                 {this.state.category === null ? <br/> : <div>under <span className="display-text-dropdown">{this.state.category}</span></div>}
-                from {start_date} to {end_date}
+               {start_date === '' || end_date === '' ? '' : `from ${start_date} to ${end_date}` } 
               </div>
               <TimeBrush dataJSON={this.state.filteredJSON} dimensionWidth={this.props.dimensionWidth} mode={this.props.mode}/>
-              <div id="range-slider"></div>
+              <input id="range-slider"></input>
             </div>
             <div className="ten wide column filter-title">
               <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>
