@@ -802,7 +802,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 .index-page table.footer{
     display: hidden;
 }
-.index-page .footer-container{
+.footer-container{
   height: auto !important;
   max-width: 970px;
   margin-left:auto;
