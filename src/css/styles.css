@@ -858,6 +858,10 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   font-family: monospace !important;
 }
 
+.methodology-page h3{
+  font-family: monospace;
+}
+
 .red-asterisk{
   color: red !important;
 }
