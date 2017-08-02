@@ -808,17 +808,25 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   margin-left:auto;
   margin-right: auto;
 }
-.index-page
-.index-page
-.index-page
-.index-page
-.index-page
-.index-page
-.index-page
-.index-page
-.index-page
-
 /*=== end of index-page css ===*/
+
+
+/*=== explainers-page ===*/
+.explainers-page a{color: blue;}
+
+.explainers-page h2{
+  font-weight: 800; 
+  text-align: center;
+}
+
+.explainers-page .explainers-sticky-segment{
+  border: 0px !important;
+}
+
+.explainers-page .explainers-sticky-segment-question{
+  border: 0px !important;
+}
+/*=== end of explainers-page css ===*/
 
 
 /*========= stories page =======*/
