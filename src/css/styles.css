@@ -828,6 +828,20 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 }
 /*=== end of explainers-page css ===*/
 
+/*=== proto-about-page ===*/
+.proto-about-page h2{
+  font-weight: 800; 
+  text-align: center;
+}
+.proto-about-page .about-page-link{
+  color: black !important;
+}
+.proto-about-page
+.proto-about-page
+.proto-about-page
+.proto-about-page
+/*=== end of proto-about-page css ===*/
+
 
 /*========= stories page =======*/
 .user-image, .user-name, .user-id, .tweet-date, .user-info{
