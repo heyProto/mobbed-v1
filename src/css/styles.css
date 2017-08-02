@@ -844,6 +844,30 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 /*=== end of proto-about-page css ===*/
 
 
+/*=== methodology-page ===*/
+.methodology-page h2{
+  font-weight: 800; 
+  text-align: center;
+}
+
+.methodology-page li{
+  margin-bottom: 10px;
+}
+
+.methodology-page{
+  font-family: monospace !important;
+}
+
+.red-asterisk{
+  color: red !important;
+}
+
+.methodology-page .hint{
+  text-align: left !important;
+}
+/*=== end of methodology-page css ===*/
+
+
 /*========= stories page =======*/
 .user-image, .user-name, .user-id, .tweet-date, .user-info{
   display: inline-block;
@@ -936,27 +960,9 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   -webkit-animation: slide-out 0.25s forwards;
 }
 
-.methodology-page h2{
-
-}
-
 .methodology .container{
   width: 640px !important;
 }
-
-.methodology-page li{
-  margin-bottom: 10px;
-}
-
-.red-asterisk{
-  color: red !important;
-}
-
-.methodology-page .hint{
-  text-align: left !important;
-}
-
-
 
 @keyframes slide-in {
   100% { bottom: 0; }
