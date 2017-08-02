@@ -97,7 +97,7 @@ body{
   max-width: 970px;
   margin-left:auto;
   margin-right: auto;
-  height: 100vh;
+  height: auto;
 }
 
 .page-navigation{
@@ -796,6 +796,29 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   background: #D80202 !important;
   color: white !important;
 }
+
+
+/*=== index-page ===*/
+.index-page table.footer{
+    display: hidden;
+}
+.index-page .footer-container{
+  height: auto !important;
+  max-width: 970px;
+  margin-left:auto;
+  margin-right: auto;
+}
+.index-page
+.index-page
+.index-page
+.index-page
+.index-page
+.index-page
+.index-page
+.index-page
+.index-page
+
+/*=== end of index-page css ===*/
 
 
 /*========= stories page =======*/
