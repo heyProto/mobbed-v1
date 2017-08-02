@@ -82,6 +82,9 @@ class App extends React.Component {
         })
     }));
     this.showCounter();
+    if (this.props.mode === 'mobile'){
+
+    }
   }
 
   sortObject(obj) {

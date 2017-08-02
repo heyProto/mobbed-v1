@@ -19,7 +19,7 @@ class TimeBrush extends React.Component {
       width;
 
     if (this.props.mode === 'mobile'){
-      width = this.props.dimensionWidth - 20
+      width = this.props.dimensionWidth -30
     } else {
       width = 300
     }
@@ -94,8 +94,18 @@ class TimeBrush extends React.Component {
         </rect>
       )
     });
+    let styles;
+    if (this.props.mode === 'laptop'){
+      styles = {
+        left: '18px'
+      }
+    } else {
+      styles = {
+        left: 0
+      }
+    }
     return (
-      <svg className='barchart' height={100} width={'100%'}>
+      <svg className='barchart' height={100} width={'100%'} style={styles}>
         <g>
           <g className="bar-group">{rects}</g>
         </g>

@@ -8,8 +8,7 @@
 // Skin details */
 
 .irs {
-    /*height: 30px;*/
-    width: 290px;
+  /*  width: 300px;*/
 }
 .irs-with-grid {
     height: 75px;
@@ -43,7 +42,7 @@
     opacity:0.3;
     /*background: linear-gradient(to top, #F02E2E 0%, #F02E2E 100%); /* W3C */*/
     z-index: 200;
-    bottom:1px;
+    bottom:0px;
 }
     .irs-bar-edge {
         height: 10px; top: 33px;
@@ -126,4 +125,8 @@
 }
 
 .irs-disabled {
+}
+
+@media only screen and (max-width: 450px){
+    
 }
