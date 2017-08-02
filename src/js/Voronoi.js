@@ -20,19 +20,21 @@ class Voronoi extends React.Component {
   }
 
   handleOnClick(e, card, name) {
+    let props = this.props; 
+    $('.ui.modal').modal({
+      onHidden: function(e) {
+        let element = document.querySelector("#proto-embed-card iframe");
+        // console.log(element, "element")
+        element.parentNode.removeChild(element);
+        props.handleCircleClicked(false);
+      }
+    }).modal('attach events', '.close').modal('show')
     if (this.props.mode === 'laptop'){
       this.props.handleCircleClicked(true);
-      Util.highlightCircle(name)
-      let props = this.props;
-      $('.ui.modal').modal({
-        onHidden: function(e) {
-          let element = document.querySelector("#proto-embed-card iframe");
-          // console.log(element, "element")
-          element.parentNode.removeChild(element);
-          props.handleCircleClicked(false);
-        }
-      }).modal('attach events', '.close').modal('show')  
-      let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dkqrqc7q64awx.cloudfront.net/5c14b258c86e/index.html?view_cast_id="+card.view_cast_id+"&schema_id="+card.schema_id, "laptop")
+      Util.highlightCircle(name) 
+      let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dwln9tzsi7g07.cloudfront.net/1cc352b8dae0/index.html?view_cast_id="+card.view_cast_id+"&schema_id="+card.schema_id, "laptop")
+    } else {
+      let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dwln9tzsi7g07.cloudfront.net/1cc352b8dae0/index.html?view_cast_id="+card.view_cast_id+"&schema_id="+card.schema_id, "mobile")
     }
   }
 

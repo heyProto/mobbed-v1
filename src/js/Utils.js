@@ -10,7 +10,6 @@ function setColorScale(value, colorDomain, colorRange) {
 }
 
 function highlightCircle(name, data) {
-  console.log(data, "this data")
   let getCircles = document.getElementsByClassName(`circle-${name}`),
     allCircles = document.getElementsByClassName('map-circles');
   // remove highlight of previous circle
