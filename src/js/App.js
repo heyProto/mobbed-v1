@@ -409,7 +409,7 @@ class App extends React.Component {
 
   showFilters() {
     this.setState({
-      height: 380,
+      height: 600,
       overflow: 'auto',
       showTapArea: 'none',
       hideTapArea: 'block'
@@ -509,13 +509,7 @@ class App extends React.Component {
         </div>
       )
     } else {
-      let that = this,
-        start_month = (new Date('2016-06')).getUTCMonth(),
-        start_year = (new Date('2016-06')).getUTCFullYear(),
-        end_month = (new Date('2017-07')).getUTCMonth(),
-        end_year = (new Date('2017-07')).getUTCFullYear();
-
-      console.log(start_month, start_year, end_month, end_year, "month and years")
+      let that = this;
 
       let a = $("#range-slider").ionRangeSlider({
         type: "double",
@@ -645,7 +639,7 @@ class App extends React.Component {
         )
       })
 
-      console.log(this.state.filteredJSON,this.state.filteredJSON.length, "-----------" )
+      // console.log(this.state.filteredJSON,this.state.filteredJSON.length, "-----------" )
 
       let number_of_incidents = this.state.filteredJSON.length,
         range = this.state.filteredJSON,

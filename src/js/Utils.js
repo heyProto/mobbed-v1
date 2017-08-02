@@ -10,17 +10,15 @@ function setColorScale(value, colorDomain, colorRange) {
 }
 
 function highlightCircle(name, data) {
+  console.log(data, "this data")
   let getCircles = document.getElementsByClassName(`circle-${name}`),
     allCircles = document.getElementsByClassName('map-circles');
   // remove highlight of previous circle
   for (let j=0; j<allCircles.length; j++){
-    allCircles[j].r.baseVal.value = 3
-    // allCircles[j].style.stroke = 'none';
+    allCircles[j].r.baseVal.value = 3    
   }
   for (let i=0; i<getCircles.length; i++){
-    // getCircles[i].style.stroke = '#D80202';
-    getCircles[i].r.baseVal.value = 5
-    // getCircles[i].style.strokeWidth = '3.5px';  
+    getCircles[i].r.baseVal.value = 5 
   }
 }
 

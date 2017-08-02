@@ -22,7 +22,7 @@ class PlotCircles extends React.Component {
             key={i} 
             cx={this.props.projection([point.lng, point.lat])[0]} 
             cy={this.props.projection([point.lng, point.lat])[1]} 
-            r={point.is_notable_incident === 'Yes' ? 5 : 3}
+            r={3}
             fill={point.is_notable_incident === 'Yes' ? defaultCircleColor : '#FF9494'}>
           </circle>
         )
