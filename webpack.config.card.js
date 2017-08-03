@@ -8,18 +8,14 @@ module.exports = {
   output: {
     path: __dirname,
     publicPath: '/',
-    filename: 'bundle.min.js',
+    filename: 'the-lynched-app.min.js',
   },
-  // output: {
-  //   path: './',
-  //   filename: './dist/0.0.1/card.min.js'
-  // },
   plugins: [
-     new webpack.DefinePlugin({
-       'process.env': {
-         NODE_ENV: JSON.stringify('production')
-       }
-     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
   ],
   node: {
     net: 'empty',
