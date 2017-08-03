@@ -93,6 +93,17 @@ body{
   font-size: 20px;
 }
 
+.one-br-space,.two-br-space,.five-br-space,.ten-br-space,{
+  display: inline-block !important;
+  width: 100% !important;
+  background: transparent !important;
+}
+
+.one-br-space{height: 10px !important;}
+.two-br-space{height: 20px !important;}
+.five-br-space{height: 50px !important;}
+.ten-br-space{height: 100px !important;}
+
 .container{
   max-width: 970px;
   margin-left:auto;
@@ -128,7 +139,7 @@ body{
 }
 
 .event{
-  margin-bottom: 20px !important; 
+  margin-bottom: 20px !important;
   padding-right: 20px !important;
 }
 
@@ -813,11 +824,17 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 /*=== end of index-page css ===*/
 
 
+/*=== data-page ===*/
+.data-page .card-list-div{
+  width: 100% !important;
+}
+/*=== end of data-page css ===*/
+
 /*=== explainers-page ===*/
 .explainers-page a{color: blue;}
 
 .explainers-page h2{
-  font-weight: 800; 
+  font-weight: 800;
   text-align: center;
 }
 
@@ -832,7 +849,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 /*=== proto-about-page ===*/
 .proto-about-page h2{
-  font-weight: 800; 
+  font-weight: 800;
   text-align: center;
 }
 .proto-about-page .about-page-link{
@@ -847,7 +864,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 /*=== methodology-page ===*/
 .methodology-page h2{
-  font-weight: 800; 
+  font-weight: 800;
   text-align: center;
 }
 
@@ -922,20 +939,20 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 .latest-incidents{
   display: block !important;
-  border-left: 1px solid #efefef; 
+  border-left: 1px solid #efefef;
   border-right: 1px solid #efefef;
 }
 
 .main-content-grid{
   width: 970px !important;
-  margin-top: 70px !important; 
+  margin-top: 70px !important;
 }
 
 .column-header{
-  margin-bottom: 20px !important; 
-  text-transform: uppercase !important; 
-  font-weight: 100 !important; 
-  padding-left: 20px !important; 
+  margin-bottom: 20px !important;
+  text-transform: uppercase !important;
+  font-weight: 100 !important;
+  padding-left: 20px !important;
   color: gray !important;
 }
 
