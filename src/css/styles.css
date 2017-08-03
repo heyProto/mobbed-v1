@@ -1,10 +1,13 @@
 /*@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
 
+<<<<<<< HEAD
 body{
   font-family: 'Lato', sans-serif;
   letter-spacing: 0.5px;
 }
 */
+=======
+>>>>>>> 64920a4723824df66e4283e356be8bba6276f13a
 .barchart {
   display: block;
   visibility: visible;
@@ -810,6 +813,12 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 .index-page table.footer{
     display: hidden;
 }
+
+.index-page{
+  font-family: 'Lato', sans-serif !important;
+  letter-spacing: 0.5px !important;
+}
+
 .footer-container{
   height: auto !important;
   max-width: 970px;
@@ -820,6 +829,12 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 
 /*=== data-page ===*/
+
+.data-page{
+  font-family: 'Lato', sans-serif !important;
+  letter-spacing: 0.5px !important;
+}
+
 .data-page .card-list-div{
   width: 100% !important;
 }
@@ -834,6 +849,10 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 /*=== end of data-page css ===*/
 
 /*=== explainers-page ===*/
+.explainers-page{
+  font-family: 'Lato', sans-serif !important;
+  letter-spacing: 0.5px !important;
+}
 .explainers-page a{color: blue;}
 
 .explainers-page h2{
@@ -851,6 +870,10 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 /*=== end of explainers-page css ===*/
 
 /*=== proto-about-page ===*/
+.proto-about-page{
+  font-family: 'Lato', sans-serif !important;
+  letter-spacing: 0.5px !important;
+}
 .proto-about-page h2{
   font-weight: 800;
   text-align: center;
