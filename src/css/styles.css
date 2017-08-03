@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+/*@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
 
 body{
   font-family: 'Lato', sans-serif;
   letter-spacing: 0.5px;
 }
-
+*/
 .barchart {
   display: block;
   visibility: visible;
@@ -87,12 +87,6 @@ body{
 .social-share-icons .share-btn.linkedin    { background: #4875B4 !important; }
 .social-share-icons .share-btn.email { background: #444444 !important; }
 
-.loading-bar{
-  text-align: center;
-  vertical-align: middle;
-  color: #F02E2E;
-  font-size: 20px;
-}
 
 .one-br-space,.two-br-space,.five-br-space,.ten-br-space,{
   display: inline-block !important;
