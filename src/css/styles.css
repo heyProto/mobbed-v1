@@ -34,6 +34,7 @@ body{
 
 #card-list-div{
   padding: 0px !important;
+  width: 100%;
 }
 
 .cover-image{

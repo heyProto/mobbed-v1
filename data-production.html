@@ -10,7 +10,7 @@
   <body>
   <div class="social-share-icons">
     <a href="http://www.facebook.com/sharer/sharer.php?u=https://the-lynched.pykih.com/index.html" target="_blank" class="share-btn facebook">
-      <i class="fa fa-facebook"></i>
+        <i class="fa fa-facebook"></i>
     </a>
     <a href="http://twitter.com/share?url=https://the-lynched.pykih.com/index.html" target="_blank" class="share-btn twitter">
       <i class="fa fa-twitter"></i>
@@ -29,9 +29,9 @@
       <img class="cover-image-mobile" src="src/img/lynching-cover-mobile.png" width="100%" >
     </div>
     <div class="ui grid">
-      <div id="card-list-div" style="width:100%"></div>
+      <div id="card-list-div"></div>
     </div>
-    <br><br><br><br><br>
+    <div class="ten-br-space"></div>
     <div class="bottom-navigation protograph-toMobJustice-sticky" id="protograph_toMobJustice_footer_container">
       <div class="footer-container">
           <div class="page-bottom-navigation">
@@ -43,22 +43,6 @@
     </div>
     <script src="the-lynched-lib.min.js"></script>
     <script src="https://d2m6lzru8erw1k.cloudfront.net/lib/protoGraph.min.js"></script>
-    <script src="src/js/fixedNavBar.js"></script>
-    <script src="the-lynched-app.min.js"></script>
-    <script type="text/javascript">
-      var x = new ProtoGraph.Card.toMaps()
-        x.init({
-        selector: document.querySelector('#card-list-div'),
-        dataURL: 'https://dwln9tzsi7g07.cloudfront.net/toReportViolence/index.json',
-        topoURL: 'src/data/india-topo.json',
-        chartOptions: {
-          chartTitle: 'Mob Justice in India',
-          height: 600,
-          defaultCircleColor: '#F02E2E',
-          filterBy: 'menu'
-        }
-      })
-      x.renderLaptop();
-    </script>
+    <script src = "the-lynched-app.min.js"></script>
   </body>
 </html>
