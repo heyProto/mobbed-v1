@@ -829,6 +829,14 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 .data-page .card-list-div{
   width: 100% !important;
 }
+
+.data-page .container{
+  text-align: center;
+  max-width: 970px;
+  margin-left:auto;
+  margin-right: auto;
+  height: auto;
+}
 /*=== end of data-page css ===*/
 
 /*=== explainers-page ===*/
