@@ -824,6 +824,12 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 /*=== end of index-page css ===*/
 
 
+/*=== data-page ===*/
+.data-page .card-list-div{
+  width: 100% !important;
+}
+/*=== end of data-page css ===*/
+
 /*=== explainers-page ===*/
 .explainers-page a{color: blue;}
 
