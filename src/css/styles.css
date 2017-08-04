@@ -6,6 +6,28 @@
   margin-top: 15px;
 }
 
+.limitations{
+  margin-bottom: 9px;
+}
+
+.notes-div{
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.green{
+  color: green;
+}
+
+.red{
+  color: red;
+}
+
+.gray{color: gray;}
+
+.right{
+  text-align: right;
+}
 .resize path {
   fill:black;
   fill-opacity: 0.4;

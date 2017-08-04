@@ -36,47 +36,101 @@
       <h2>About the project</h2>
       <br/>
       <h3 class="ui header">What is #TheLynched?</h3>
-      <p>#TheLynched is a project by the IndianExpress.com — working to count the number of people killed in mob justice related incidents in India from 2010 until 2017, to monitor their demographics and to tell the stories of how they were lynched.</p>
-      <p>The database will build on IndianExpress.com reporting to build a more comprehensive record of such incidents. #TheLynched is the most thorough public accounting of such incidents in India, but it will operate as an imperfect work in progress – and will be updated by IndianExpress.com as frequently and as promptly as possible.</p>
-      <p>Contributions of any information that may improve the quality of our data will be greatly welcomed as we work from a dearth of available information toward better accountability.</p>
-      <h3 class="ui header">Why is this necessary? </h3>
-      <p>Mob lynching is common in India. Every time such an incident occurs, most media organisations rehash wire copies and print the stories. The sheer volume of everyday crime related stories translates into readers developing mental fatigue or numbness towards such incidents. Readers and journalists alike start ignoring these stories.</p>
-      <p><a href="http://indianexpress.com/article/india/ncrb-plans-to-create-database-on-lynchings-indin-mob-killings-4742279" target="_blank">Even the though the National Crime Records Bureau (NCRB) recognises the need to record data on lynchings, they are not yet.</a></p>
-      <p>With so much going on, we thought it would be prudent to collect data on lynchings from across the country and analyse the reasons that actually lead to murderous behaviour by mobs. Hence, we scoured IndianExpress.com for first incident reports of mob lynchings from 2010.</p>
-      <h3 class="ui header">What is included in #TheLynched?</h3>
-      <p>We are collecting data on "mob justice" and not on mob violence i.e. a group of people taking the law into their own hands and enacting violent justice on an alleged criminal. Other words used to describe mob justice are mob rule, moral policing, jungle justice and instant justice.</p>
-      <p>We are searching for news reports in IndianExpress.com and are qualifying incidents as mob justice if both the following conditions are met:</p>
+      <p>#TheLynched aims to build a public database of mob justice related incidents in India from 2011, so that one can <u class="green">draw indicative insights</u> from the data that throw more light onto the problem.</p>
+      <p>This project will operate as an imperfect work in progress and <u class="red">does not aim to build a precise database from which one can draw definitive facts</u>. We are working on this now because the national conversation around lynching has taken off, however the <a href="http://indianexpress.com/article/india/ncrb-plans-to-create-database-on-lynchings-indin-mob-killings-4742279" target="_blank"> National Crime Records Bureau (NCRB) does not collect data on lynchings</a>.</p>
+      <h4 class="right"><a href="">Download the data <i class='download icon'></i></a></h4>
+      <h3 class="ui header">How are we defining lynching?</h3>
+      <p>Human Rights Watch defines “mob justice” or “lynching” as the beating or killing of a suspected criminal by a crowd, generally consisting of civilians. <sup><a href="https://www.hrw.org/report/2010/03/26/mob-justice-burundi/" target="_blank">reference</a></sup></p>
+      <p>Building on this definition, this project is looking for incidents, where —</p>
       <ul>
-        <li>Violence or harassment done by many on few.</li>
-        <li>The accused should believe that the victim has committed a crime.</li>
+          <li>Violence or harassment is done by many on few.</li>
+          <li>The accused should believe that the victim has committed a crime.</li>
       </ul>
-      <h3 class="ui header">What is not included in #TheLynched?</h3>
-      <p>We are not focusing on mob violence, riots and general 1 on 1 crimes.</p>
-      <h3 class="ui header">How we collected the data?</h3>
-      <p>
-        We used MIT Media Cloud to search for articles in IndianExpress.com from 2010 until 2017 with the keywords "gau rakshak" OR "mob justice" OR lynch* OR vigilant* OR "beaten to death" OR "mob violence" OR "mob rule" or "mob killing" or "mob beats up" OR "stoned to death" OR death or killing.
-        <br/><br/>
-        It gave us a total of 100,000 plus results. The above keywords got articles from even sections like Entertainment, Sports, Lifestyle, Education, Technology, World, Opinion, etc. Next we used WebScraper.io to enrich the data with section and location. All articles that were not part of the “Cities” and “India” section or had a location that was outside India were removed.
-        <br/><br/>
-        Following that, we went through the incidents manually using <a href="methodology.html">following methodology</a>.
-      </p>
+      <h3 class="ui header">How did we collect the data?</h3>
+      <p>We used MIT Media Cloud to scour through IndianExpress.com from 2010 until 2017 for first reports of mob justice. This gave us a total of 100,000 plus results. Having cast a wide net, we then progressively narrowed down the result set to 250+ unique incidents. </p>
+      <h3 class="ui header">What is new in our approach?</h3>
+      <p>#TheLynched aims to go beyond "what happened" and hopes to discover correlations and indicative insights that can add to our collective understanding.</p>
+
+          <p>We are looking at mob justice at large and not just cow vigilantism related incidents.</p>
+          <p>Based on when and where the lynching took place, we are augmenting the data with:</p>
+          <ul>
+              <li>Police to Population Ratio in that state
+                <ul>
+                  <li class="gray">Source: Data compiled by Bureau of Police Research and Development as on Jan 2016. <sup><a href="reference-data.html">reference</a></sup></li>
+                </ul>
+               </li>
+              <li>Benchmarked the Police to Population Ratio against recommended ratio by United Nations.</li>
+              <li>Subordinate Court Judges (lower judiciary) to Population Ratio in that state.
+                  <ul>
+                  <li class="gray">Source: From Court News, publication of the Supreme Court, Vol XI Issue No. 1 Jan - Mar 2016. <sup><a href="reference-data.html" >reference</a></sup></li>
+                </ul>
+              </li>
+              <li>Literacy of the state</li>
+              <li>
+                Did the lynching take place in an urban or rural area?
+              </li>
+              <li>Which political party's Chief Minister was in power?</li>
+          </ul>
+          <p>From the story, we are trying to infer:</p>
+          <ul>
+              <li>Did the local police intervene in time and prevent a possible death?</li>
+              <li>
+                Prima face, was the lynching planned? We followed the following approach:
+              </li>
+              <li>Religion of the victim and the accused.
+              </li>
+              <li>If the allegation on the victim were true, would it be a punishable offence in that state?
+              </li>
+          </ul>
+
+      <h3 class="ui header">Limitations of our approach</h3>
+      <p>In order to provide a resource that can help contribute to ongoing national conversations about lynchings, the project has made every effort to infer the following fields for every incident in the database. These will occasionally prove inaccurate. If you know of more accurate information, please contact us as soon possible.</p>
+      <ol>
+        <li class="limitations">We are analysing stories only from IndianExpress.com and hence might be missing incidents, specially from regional local media.
+        </li>
+        <li class="limitations">We are populating our database only from the first report of the incident. To maintain consistency of the database across all cases, we are not looking at follow up stories for any of these incidents. Information from first reports are not verified and finer details are not yet known.
+        </li>
+        <li class="limitations">There are 4 fields where we have taken an approximation.
+        </li>
+      </ol>
+      <blockquote>
+          <ul>
+          <li>
+            Did the lynching take place in an urban or rural area?
+            <ul>
+              <li class="gray">Approach: Filled up approximately after a quick Google search of the exact village or town name. Ideally, we should have used RBI's classification of the areas by population.</li>
+            </ul>
+          </li>
+          <li>
+            Was the lynching planned? We followed the following approach:
+            <ul>
+              <li class="gray">Mark it as "Planned" if it was clearly planned against a specific victim. Example - a village meeting that decides that someone needs to be lynched.</li>
+              <li class="gray">Mark it as "Neighbourhood watch" where local citizens were on the lookout for wrongdoers and prepared to punish him/her/them. Example - Sometimes police ask villagers to stay on watch themselves against child lifters.</li></li>
+              <li class="gray">Mark it as "Spontaneous" if the accused lynchers found the victims out of coincidence.</li>
+              <li class="gray">Mark it as "Don't know" if nothing is mentioned in the article.</li>
+            </ul>
+          </li>
+          <li>Religion of the victim and the accused.
+              <ul>
+              <li class="gray">Approach: We are taking the religion directly from the article if mentioned. If not mentioned, then we are deducing from name where it is possible to ascertain with some surety. In case of confusion or if victims are from multiple religions then we are leaving it blank.</li>
+            </ul>
+          </li>
+          <li>If the allegation on the victim were true, would it be a punishable offence in that state?
+              <ul>
+              <li class="gray">The objective of this field is not to justify any illegal act or lynching.</li>
+              <li class="gray">The definition of “lynching” is the beating or killing of a <u>suspected criminal</u>. This field is being collected to analyse if the mob is even accusing the victim of an illegality.</li>
+              <li class="gray">The legality or illegality of the victim's actions does not justify the lynching.</li>
+            </ul>
+          </li>
+        </ul>
+      </blockquote>
       <h3 class="ui header">What should I do if I have more information on a mob justice incident that is not recorded, or find an error?</h3>
       <p>We welcome all contributions of information that may improve the quality of our data. #TheLynched is a comprehensive and ongoing process of verification, as we continue to work from an inaccurate standard toward a more perfect standard. Please pass on your information as soon as possible to <a href="mailto:rparrikh@icfj.news" target="_top">rparrikh@icfj.news</a>.</p>
       <h3 class="ui header">Credits</h3>
-      <p class="hint">Data</p><br/>
       <div class="ui middle aligned divided list">
         <div class="item">
           <div class="right floated content">
-            ICFJ Associate
-          </div>
-          <img class="ui avatar image" src="https://pbs.twimg.com/profile_images/77086067/Pensato_400x400.jpg">
-          <div class="content">
-            Cyril Sam
-          </div>
-        </div>
-        <div class="item">
-          <div class="right floated content">
-            ICFJ Associate
+            Data, Concept
           </div>
           <img class="ui avatar image" src="https://pbs.twimg.com/profile_images/838716610890235904/itRy0Wf5_400x400.jpg">
           <div class="content">
@@ -85,7 +139,16 @@
         </div>
         <div class="item">
           <div class="right floated content">
-            ICFJ Associate
+            Data, Concept
+          </div>
+          <img class="ui avatar image" src="https://pbs.twimg.com/profile_images/77086067/Pensato_400x400.jpg">
+          <div class="content">
+            Cyril Sam
+          </div>
+        </div>
+        <div class="item">
+          <div class="right floated content">
+            Data
           </div>
           <img class="ui avatar image" src="https://pbs.twimg.com/profile_images/677137857144750080/Tbq3KFKg_200x200.jpg">
           <div class="content">
@@ -94,7 +157,7 @@
         </div>
         <div class="item">
           <div class="right floated content">
-            ICFJ Associate
+            Data
           </div>
           <img class="ui avatar image" src="https://pbs.twimg.com/profile_images/725567782675345409/dAEjOs9r_400x400.jpg">
           <div class="content">
@@ -103,16 +166,22 @@
         </div>
         <div class="item">
           <div class="right floated content">
-            ICFJ Knight Fellow
+            Illustration
+          </div>
+          <img class="ui avatar image" src="https://pbs.twimg.com/profile_images/863856485922516992/lKfxmVnr_400x400.jpg">
+          <div class="content">
+            Bondhon Das
+          </div>
+        </div>
+        <div class="item">
+          <div class="right floated content">
+            Data, Concept, Design
           </div>
           <img class="ui avatar image" src="https://pbs.twimg.com/profile_images/858151632986669056/injHB8BJ_400x400.jpg">
           <div class="content">
             Ritvvij Parrikh
           </div>
         </div>
-      </div>
-      <p class="hint">Other</p><br/>
-      <div class="ui middle aligned divided list">
         <div class="item">
           <div class="right floated content">
             Funder
