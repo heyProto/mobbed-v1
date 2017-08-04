@@ -119,8 +119,8 @@ class App extends React.Component {
 
   handleOnChangeMenu(e, value) {
     this.setState((prevState, props) => {
-      console.log(prevState.menu_value, value, prevState.menu_value === value, "values of menu")
-      if (prevState.menu_value !== value || prevState.menu_value === undefined ) {
+      console.log(prevState.menu_value, value, prevState.menu_value !== value, prevState.menu_value === 'undefined', "menu change" )
+      if (prevState.menu_value !== value || prevState.menu_value === 'undefined' ) {
         prevState.menu_value = value;
         this.highlightItem(value, 'menu_inactive_item', 'menu_active_item', 'menu');
       } else {
@@ -137,7 +137,7 @@ class App extends React.Component {
 
   handleOnChangeState(e, value) {
     this.setState((prevState, props) => {
-      if (prevState.state_value !== value || prevState.state_value === undefined ) {
+      if (prevState.state_value !== value || prevState.state_value === 'undefined' ) {
         prevState.state_value = value;
         this.highlightItem(value, 'state_inactive_item', 'state_active_item', 'state');
       } else {
@@ -154,7 +154,7 @@ class App extends React.Component {
 
   handleOnChangeVR(e, value) {
     this.setState((prevState, props) => {
-      if (prevState.victim_religion_value !== value || prevState.victim_religion_value === undefined ) {
+      if (prevState.victim_religion_value !== value || prevState.victim_religion_value === 'undefined' ) {
         prevState.victim_religion_value = value;
         this.highlightItem(value, 'victim_inactive_item', 'victim_active_item', 'victim');
       } else {
@@ -171,7 +171,7 @@ class App extends React.Component {
 
   handleOnChangeAR(e, value) {
     this.setState((prevState, props) => {
-      if (prevState.victim_religion_value !== value || prevState.victim_religion_value === undefined ) {
+      if (prevState.victim_religion_value !== value || prevState.victim_religion_value === 'undefined' ) {
         prevState.accused_religion_value = value;
         this.highlightItem(value, 'accused_inactive_item', 'accused_active_item', 'accused');
       } else {
@@ -188,7 +188,7 @@ class App extends React.Component {
 
   handleOnChangePolice(e, value) {
     this.setState((prevState, props) => {
-      if (prevState.police_to_population_value !== value || prevState.police_to_population_value === undefined ) {
+      if (prevState.police_to_population_value !== value || prevState.police_to_population_value === 'undefined' ) {
         prevState.police_to_population_value = value;
         this.highlightItem(value, 'police_inactive_item','police_active_item', 'police');
       } else {
@@ -205,7 +205,7 @@ class App extends React.Component {
 
   handleOnChangeJudge(e, value) {
     this.setState((prevState, props) => {
-      if (prevState.judge_to_population_value !== value || prevState.judge_to_population_value === undefined) {
+      if (prevState.judge_to_population_value !== value || prevState.judge_to_population_value === 'undefined') {
         prevState.judge_to_population_value = value;
         this.highlightItem(value, 'judge_inactive_item','judge_active_item', 'judge');
       } else {
@@ -222,7 +222,7 @@ class App extends React.Component {
 
   handleOnChangePolicePrevent(e, value) {
     this.setState((prevState, props) => {
-      if(prevState.police_prevent_death_value !== value || prevState.police_prevent_death_value === undefined) {
+      if(prevState.police_prevent_death_value !== value || prevState.police_prevent_death_value === 'undefined') {
         prevState.police_prevent_death_value = value;
         this.highlightItem(value, 'police_prevent_inactive_item','police_prevent_active_item', 'police-prevent');
       } else {
@@ -239,7 +239,7 @@ class App extends React.Component {
 
   handleOnChangeLynchingPlanned(e, value) {
     this.setState((prevState, props) => {
-      if (prevState.lynching_planned_value !== value || prevState.lynching_planned_value === undefined) {
+      if (prevState.lynching_planned_value !== value || prevState.lynching_planned_value === 'undefined') {
         prevState.lynching_planned_value = value;
         this.highlightItem(value, 'lynching_inactive_item','lynching_active_item', 'lynching');
       } else {
@@ -256,7 +256,7 @@ class App extends React.Component {
 
   handleOnChangeCriminaliseVictims(e, value){
     this.setState((prevState, props) => {
-      if (prevState.criminalise_victims_value !== value || prevState.criminalise_victims_value === undefined) {
+      if (prevState.criminalise_victims_value !== value || prevState.criminalise_victims_value === 'undefined') {
         prevState.criminalise_victims_value = value;
         this.highlightItem(value, 'criminalise_inactive_item','criminalise_active_item', 'criminalise');
       } else {
@@ -273,7 +273,7 @@ class App extends React.Component {
 
   handleOnChangeArea(e, value){
     this.setState((prevState, props) => {
-      if (prevState.area_classification_value !== value || prevState.area_classification_value === undefined) {
+      if (prevState.area_classification_value !== value || prevState.area_classification_value === 'undefined') {
         prevState.area_classification_value = value;
         this.highlightItem(value, 'area_inactive_item','area_active_item', 'area');
       } else {
@@ -580,8 +580,8 @@ class App extends React.Component {
           })
         }
       });
-  
-      let menuOptions = this.state.menu.map((d, i) => {
+      // console.log(this.sortObject(Utils.groupBy(this.state.filteredJSON, 'menu')), "aeeeeee")
+      let menuOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'menu')).map((d, i) => {
         return (
           <tr className='menu_inactive_item' id={`menu-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeMenu(e, d.key)}>{d.key}</td>
@@ -590,7 +590,7 @@ class App extends React.Component {
         )
       })
         
-      let stateOptions = this.state.state.map((d, i) => {
+      let stateOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'state')).map((d, i) => {
         return (
           <tr className='state_inactive_item' id={`state-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeState(e, d.key)}>{d.key}</td>
@@ -599,7 +599,7 @@ class App extends React.Component {
         )
       })
    
-      let victimReligionOptions = this.state.victim_religion.map((d, i) => {
+      let victimReligionOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'victim_religion')).map((d, i) => {
         let name;
         if (d.key === ''){
           name = 'Unknown'
@@ -614,7 +614,7 @@ class App extends React.Component {
         )
       })
 
-      let accusedReligionOptions = this.state.accused_religion.map((d, i) => {
+      let accusedReligionOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'accused_religion')).map((d, i) => {
         let name;
         if (d.key === ''){
           name = 'Unknown'
@@ -629,7 +629,7 @@ class App extends React.Component {
         )
       })
 
-      let policeRatioOptions = this.state.police_to_population.map((d, i) => {
+      let policeRatioOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'police_to_population')).map((d, i) => {
         return (
           <tr className='police_inactive_item' id={`police-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangePolice(e, d.key)}>{d.key}</td>
@@ -638,7 +638,7 @@ class App extends React.Component {
         )
       })
       
-      let judgeRatioOptions = this.state.judge_to_population.map((d, i) => {
+      let judgeRatioOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'judge_to_population')).map((d, i) => {
         return (
           <tr className='judge_inactive_item' id={`judge-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeJudge(e, d.key)}>{d.key}</td>
@@ -647,7 +647,7 @@ class App extends React.Component {
         )
       })
 
-      let policePreventOptions = this.state.police_prevent_death.map((d, i) => {
+      let policePreventOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'did_the_police_intervene_and_prevent_the_death?')).map((d, i) => {
         return (
           <tr className='police_prevent_inactive_item' id={`police-prevent-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangePolicePrevent(e, d.key)}>{d.key}</td>
@@ -656,7 +656,7 @@ class App extends React.Component {
         )
       })
       
-      let lynchingOptions = this.state.lynching_planned.map((d, i) => {
+      let lynchingOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'how_was_the_lynching_planned')).map((d, i) => {
         return (
           <tr className='lynching_inactive_item' id={`lynching-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeLynchingPlanned(e, d.key)}>{d.key}</td>
@@ -665,7 +665,7 @@ class App extends React.Component {
         )
       })
 
-      let criminaliseOptions = this.state.criminalise_victims.map((d, i) => {
+      let criminaliseOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'does_the_state_criminalise_victims_actions')).map((d, i) => {
         return (
           <tr className='criminalise_inactive_item' id={`criminalise-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeCriminaliseVictims(e, d.key)}>{d.key}</td>
@@ -674,7 +674,7 @@ class App extends React.Component {
         )
       })
       
-      let areaOptions = this.state.area_classification.map((d, i) => {
+      let areaOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'area_classification')).map((d, i) => {
         return (
           <tr className='area_inactive_item' id={`area-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeArea(e, d.key)}>{d.key}</td>
