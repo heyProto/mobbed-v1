@@ -118,133 +118,174 @@ class App extends React.Component {
   }
 
   handleOnChangeMenu(e, value) {
-    let name = value;
     this.setState((prevState, props) => {
-      prevState.menu_value = name;
+      console.log(prevState.menu_value, value, prevState.menu_value === value, "values of menu")
+      if (prevState.menu_value !== value || prevState.menu_value === undefined ) {
+        prevState.menu_value = value;
+        this.highlightItem(value, 'menu_inactive_item', 'menu_active_item', 'menu');
+      } else {
+        prevState.menu_value = 'undefined';
+        this.highlightItem(value, 'menu_inactive_item', 'menu_inactive_item', 'menu');
+      }
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        menu_value: name
+        menu_value: prevState.menu_value
       }
     })
-    this.highlightItem(value, 'menu_inactive_item', 'menu_active_item', 'menu');
   }
 
   handleOnChangeState(e, value) {
-    let name = value;
     this.setState((prevState, props) => {
-      prevState.state_value = name;
+      if (prevState.state_value !== value || prevState.state_value === undefined ) {
+        prevState.state_value = value;
+        this.highlightItem(value, 'state_inactive_item', 'state_active_item', 'state');
+      } else {
+        prevState.state_value = 'undefined';
+        this.highlightItem(value, 'state_inactive_item', 'state_inactive_item', 'state');
+      }
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        state_value: name
+        state_value: prevState.state_value
       }
     })
-    this.highlightItem(value, 'state_inactive_item', 'state_active_item', 'state');
   }
 
   handleOnChangeVR(e, value) {
-    let name = value;
     this.setState((prevState, props) => {
-      prevState.victim_religion_value = name;
+      if (prevState.victim_religion_value !== value || prevState.victim_religion_value === undefined ) {
+        prevState.victim_religion_value = value;
+        this.highlightItem(value, 'victim_inactive_item', 'victim_active_item', 'victim');
+      } else {
+        prevState.victim_religion_value = 'undefined';
+        this.highlightItem(value, 'victim_inactive_item', 'victim_inactive_item', 'victim');
+      }     
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        victim_religion_value: name
+        victim_religion_value: prevState.victim_religion_value
       }
     })
-    this.highlightItem(value, 'victim_inactive_item', 'victim_active_item', 'victim');
   }
 
   handleOnChangeAR(e, value) {
-    let name = value;
     this.setState((prevState, props) => {
-      prevState.accused_religion_value = name;
+      if (prevState.victim_religion_value !== value || prevState.victim_religion_value === undefined ) {
+        prevState.accused_religion_value = value;
+        this.highlightItem(value, 'accused_inactive_item', 'accused_active_item', 'accused');
+      } else {
+        prevState.accused_religion_value = 'undefined';
+        this.highlightItem(value, 'accused_inactive_item', 'accused_inactive_item', 'accused');
+      }
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        accused_religion_value: name
+        accused_religion_value: prevState.accused_religion_value
       }
     })
-    this.highlightItem(value, 'accused_inactive_item', 'accused_active_item', 'accused');
   }
 
   handleOnChangePolice(e, value) {
-    let name = value;
     this.setState((prevState, props) => {
-      prevState.police_to_population_value = name;
+      if (prevState.police_to_population_value !== value || prevState.police_to_population_value === undefined ) {
+        prevState.police_to_population_value = value;
+        this.highlightItem(value, 'police_inactive_item','police_active_item', 'police');
+      } else {
+        prevState.police_to_population_value = 'undefined';
+        this.highlightItem(value, 'police_inactive_item','police_inactive_item', 'police');
+      }
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        police_to_population_value: name
+        police_to_population_value: prevState.police_to_population_value
       }
     })
-    this.highlightItem(value, 'police_inactive_item','police_active_item', 'police');
   }
 
   handleOnChangeJudge(e, value) {
-    let name = value;
     this.setState((prevState, props) => {
-      prevState.judge_to_population_value = name;
+      if (prevState.judge_to_population_value !== value || prevState.judge_to_population_value === undefined) {
+        prevState.judge_to_population_value = value;
+        this.highlightItem(value, 'judge_inactive_item','judge_active_item', 'judge');
+      } else {
+        prevState.judge_to_population_value = 'undefined';
+        this.highlightItem(value, 'judge_inactive_item','judge_inactive_item', 'judge');
+      }     
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        judge_to_population_value: name
+        judge_to_population_value: prevState.judge_to_population_value
       }
     })
-    this.highlightItem(value, 'judge_inactive_item','judge_active_item', 'judge');
   }
 
   handleOnChangePolicePrevent(e, value) {
-    let name = value;
     this.setState((prevState, props) => {
-      prevState.police_prevent_death_value = name;
+      if(prevState.police_prevent_death_value !== value || prevState.police_prevent_death_value === undefined) {
+        prevState.police_prevent_death_value = value;
+        this.highlightItem(value, 'police_prevent_inactive_item','police_prevent_active_item', 'police-prevent');
+      } else {
+        prevState.police_prevent_death_value = 'undefined';
+        this.highlightItem(value, 'police_prevent_inactive_item','police_prevent_inactive_item', 'police-prevent');
+      }
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        police_prevent_death_value: name
+        police_prevent_death_value: prevState.police_prevent_death_value
       }
     })
-    this.highlightItem(value, 'police_prevent_inactive_item','police_prevent_active_item', 'police-prevent');
   }
 
   handleOnChangeLynchingPlanned(e, value) {
-    let name = value;
     this.setState((prevState, props) => {
-      prevState.lynching_planned_value = name;
+      if (prevState.lynching_planned_value !== value || prevState.lynching_planned_value === undefined) {
+        prevState.lynching_planned_value = value;
+        this.highlightItem(value, 'lynching_inactive_item','lynching_active_item', 'lynching');
+      } else {
+        prevState.lynching_planned_value = 'undefined';
+        this.highlightItem(value, 'lynching_inactive_item','lynching_inactive_item', 'lynching');
+      }
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        lynching_planned_value: name
+        lynching_planned_value: prevState.lynching_planned_value
       }
     })
-    this.highlightItem(value, 'lynching_inactive_item','lynching_active_item', 'lynching');
   }
 
   handleOnChangeCriminaliseVictims(e, value){
-    let name = value;
     this.setState((prevState, props) => {
-      prevState.criminalise_victims_value = name;
+      if (prevState.criminalise_victims_value !== value || prevState.criminalise_victims_value === undefined) {
+        prevState.criminalise_victims_value = value;
+        this.highlightItem(value, 'criminalise_inactive_item','criminalise_active_item', 'criminalise');
+      } else {
+        prevState.criminalise_victims_value = 'undefined';
+        this.highlightItem(value, 'criminalise_inactive_item','criminalise_inactive_item', 'criminalise');
+      }
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        criminalise_victims_value: name
+        criminalise_victims_value: prevState.criminalise_victims_value
       }
     })
-    this.highlightItem(value, 'criminalise_inactive_item','criminalise_active_item', 'criminalise');
   }
 
   handleOnChangeArea(e, value){
-    let name = value;
     this.setState((prevState, props) => {
-      prevState.area_classification_value = name;
+      if (prevState.area_classification_value !== value || prevState.area_classification_value === undefined) {
+        prevState.area_classification_value = value;
+        this.highlightItem(value, 'area_inactive_item','area_active_item', 'area');
+      } else {
+        prevState.area_classification_value = 'undefined';
+        this.highlightItem(value, 'area_inactive_item','area_inactive_item', 'area');
+      }    
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        area_classification_value: name
+        area_classification_value: prevState.area_classification_value
       }
     })
-    this.highlightItem(value, 'area_inactive_item','area_active_item', 'area');
   }
 
   handleReset(e) {
