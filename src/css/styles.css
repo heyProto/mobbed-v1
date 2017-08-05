@@ -838,6 +838,39 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   margin-left:auto;
   margin-right: auto;
 }
+
+.banner-div{
+  background-image: url("../../src/img/banner.png");
+  height: 211px;
+  width: 100%;
+}
+
+.display-counter{
+  font-size: 72px;
+  font-weight: 300;
+  letter-spacing: 15px;
+  position: absolute;
+  top: 468px;
+  left: 267px;
+}
+
+.display-summary{
+  font-size: 18px;
+  line-height: 27px;
+  margin-top: 15px;
+  margin-left:15px;
+  color: white;
+}
+
+.counter-area{
+  height: 80px;
+  margin-top: 25px;
+  margin-left: 15px;
+}
+
+.data-url {
+  color: #333 !important;
+}
 /*=== end of index-page css ===*/
 
 
