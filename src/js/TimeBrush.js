@@ -64,30 +64,32 @@ class TimeBrush extends React.Component {
     return (
       <VictoryChart 
         domainPadding={10}
-        width={300} height={120} padding={{left:0, right: 0, top:10, bottom:50}}
+        width={300} height={120} padding={{left:20, right: 20, top:10, bottom:50}}
         scale={{x: "time"}}
         containerComponent={
           <VictoryBrushContainer 
             dimension="x" 
             responsive={false}
+            handleStyle={{fill: "#bdb8b8", height: 27, y:25, width: 7}}
             onDomainChange={(domain) => this.props.handleSelectDateRange(domain)}/>
         }
       > 
         <VictoryAxis
           fixLabelOverlap={true}
           style={{
-            axis: {stroke: "black", strokeWidth: 0.5},
+            axis: {stroke: "#bdb8b8", strokeWidth: 0.5},
             axisLabel: {fontSize: 10},
-            ticks: {stroke: "black", size: 5},
+            ticks: {stroke: "#bdb8b8", size: 5},
             tickLabels: {fontSize: 10}
           }}/>
 
         <VictoryBar
           style={{ data: { fill: "#F02E2E" } }}
-          padding={{left: 10, right: 10, bottom:50}}
+          padding={{left: 20, right: 20, bottom:50}}
           data={this.state.sorted_arr}
           x="date_obj"
           y="count"/>
+
       </VictoryChart>
     )
   }
