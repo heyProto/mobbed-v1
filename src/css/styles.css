@@ -824,7 +824,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 /*=== index-page ===*/
 .index-page table.footer{
-    display: hidden;
+  display: hidden;
 }
 
 .index-page{
@@ -1305,6 +1305,45 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   .ui.modal>.content {
     padding:5px !important;
   }
+
+  /*=== index-page ===*/
+  .banner-div{
+    background-image: url("../../src/img/banner-mobile.png");
+    height: 263px;
+    width: 320px;
+    margin: auto;
+    position: relative;
+  }
+
+  .display-counter{
+    font-size: 72px;
+    font-weight: 300;
+    letter-spacing: 15px;
+    position: absolute;
+    top: 53px;
+    left: 73px;
+  }
+
+  .display-summary{
+    margin-top: 50px;
+  }
+
+  .counter-area{
+    height: 80px;
+    margin-top: 25px;
+    margin-left: 15px;
+    padding-top: 25px;
+  }
+
+  .notes-div{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .main-content-grid {
+    margin-top: 0px !important;
+  }
+/*=== end of index-page css ===*/
+
 }
 
 
