@@ -5,6 +5,7 @@ import List from '../js/List';
 import Map from '../js/Map';
 import TimeBrush from '../js/TimeBrush';
 import Utils from '../js/Utils';
+import {timeFormat} from 'd3-time-format';
 
 class App extends React.Component {
   constructor(props) {
@@ -43,9 +44,11 @@ class App extends React.Component {
       year_value: {
         min: 'undefined',
         max: 'undefined'
-      }
+      },
+      parseMonth: timeFormat("%Y-%m"),
     }
     this.handleCircleClicked = this.handleCircleClicked.bind(this);
+    this.handleSelectDateRange = this.handleSelectDateRange.bind(this);
   }
 
   componentDidMount() {
@@ -117,9 +120,29 @@ class App extends React.Component {
     })
   }
 
+  handleSelectDateRange(domain) {
+    let min = this.state.parseMonth(domain.x[0]),
+      max = this.state.parseMonth(domain.x[1])
+    // console.log(min, max, "hey min and max")
+    this.setState((prevState, props) => {
+      prevState.year_value = {
+        min: min,
+        max: max
+      };
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        year_value: {
+          min: min,
+          max: max
+        }
+      }
+    })
+  }
+
   handleOnChangeMenu(e, value) {
     this.setState((prevState, props) => {
-      console.log(prevState.menu_value, value, prevState.menu_value !== value, prevState.menu_value === 'undefined', "menu change" )
+      // console.log(prevState.menu_value, value, prevState.menu_value !== value, prevState.menu_value === 'undefined', "menu change" )
       if (prevState.menu_value !== value || prevState.menu_value === 'undefined' ) {
         prevState.menu_value = value;
         this.highlightItem(value, 'menu_inactive_item', 'menu_active_item', 'menu');
@@ -401,7 +424,7 @@ class App extends React.Component {
     if(this.min === 'undefined' || this.max === 'undefined') {
       return true;
     }
-    let new_date = val.date.slice(0, 4)
+    let new_date = val.date.slice(0, 7)
     // console.log(new_date, "new_date")
     return new_date >= this.min && new_date <= this.max;
   }
@@ -555,31 +578,31 @@ class App extends React.Component {
     } else {
       let that = this;
 
-      let a = $("#range-slider").ionRangeSlider({
-        type: "double",
-        min: 2010,
-        max: 2017,
-        onChange: function (data) { 
-          console.log(data, "data---")     
-          let new_min = data.from,
-            new_max = data.to;
-          // console.log(new_min, new_max, "new min max") 
-          that.setState((prevState, props) => {
-            prevState.year_value = {
-              min: new_min,
-              max: new_max
-            };
-            let filteredData = that.getFilteredData(prevState)
-            return {
-              filteredJSON: filteredData,
-              year_value: {
-                min: new_min,
-                max: new_max
-              }
-            }
-          })
-        }
-      });
+      // let a = $("#range-slider").ionRangeSlider({
+      //   type: "double",
+      //   min: 2010,
+      //   max: 2017,
+      //   onChange: function (data) { 
+      //     console.log(data, "data---")     
+      //     let new_min = data.from,
+      //       new_max = data.to;
+      //     // console.log(new_min, new_max, "new min max") 
+      //     that.setState((prevState, props) => {
+      //       prevState.year_value = {
+      //         min: new_min,
+      //         max: new_max
+      //       };
+      //       let filteredData = that.getFilteredData(prevState)
+      //       return {
+      //         filteredJSON: filteredData,
+      //         year_value: {
+      //           min: new_min,
+      //           max: new_max
+      //         }
+      //       }
+      //     })
+      //   }
+      // });
       // console.log(this.sortObject(Utils.groupBy(this.state.filteredJSON, 'menu')), "aeeeeee")
       let menuOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'menu')).map((d, i) => {
         return (
@@ -808,8 +831,7 @@ class App extends React.Component {
                 {this.state.category === null ? <br/> : <div>under <span className="display-text-dropdown">{this.state.category}</span></div>}
                {start_date === '' || end_date === '' ? '' : `from ${start_date} to ${end_date}` } 
               </div>
-              <TimeBrush dataJSON={this.state.filteredJSON} dimensionWidth={this.props.dimensionWidth} mode={this.props.mode}/>
-              <input id="range-slider"></input>
+              <TimeBrush dataJSON={this.state.filteredJSON} dimensionWidth={this.props.dimensionWidth} mode={this.props.mode} handleSelectDateRange={this.handleSelectDateRange}/>
             </div>
             <div className="ten wide column filter-title">
               <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>
