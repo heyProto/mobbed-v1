@@ -8,8 +8,8 @@
   <link rel="stylesheet" type="text/css" href="src/css/styles.css">
   <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
-<body class="methodology-page">
-  <div class="social-share-icons">
+<body>
+    <div class="social-share-icons">
     <a href="http://www.facebook.com/sharer/sharer.php?u=https://the-lynched.pykih.com/index.html" target="_blank" class="share-btn facebook">
         <i class="fa fa-facebook"></i>
     </a>
@@ -29,50 +29,15 @@
       <img class="cover-image" src="src/img/lynching-cover-desktop.png" >
       <img class="cover-image-mobile" src="src/img/lynching-cover-mobile.png" width="100%" >
     </div>
+</body>
+<body class="methodology-page">
+
   <div class="ui grid about-page">
     <div class="sixteen wide column">
-      <h2>Methodology</h2>
+      <h2>Reference Data</h2>
       <br/>
     </div>
     <div class="sixteen wide column">
-      <p>Below is how we collected data.</p>
-      <br>
-        <ol>
-        <h3>Copy paste from the article</h3>
-          <li><span class="red-asterisk">*</span>Headline of the article</li>
-          <li><span class="red-asterisk">*</span>URL of the article</li>
-          <li><span class="red-asterisk">*</span>Byline e.g. Reporter name, Express News Service, PTI, Reuters, etc.</li>
-          <li><span class="red-asterisk">*</span>Byline summary. If story_source is "Express Web Desk", "PTI", "IANS"... then story_source_summary is "Wire Copies". If story_source is "Express News Service" then story_source_summary is "Wire with reporter input". If story_source is has a reporters name e.g. Ravik Bhattacharya then story_source_summary is "Reportage".</li>
-          <li><span class="red-asterisk">*</span>When was the article published?</li>
-          <li>URL of the Cover Image from the article</li>
-      <br>
-      <h3>Where did it happen?</h3>
-          <li><span class="red-asterisk">*</span>Where did the incident occur? (State)</li>
-          <li><span class="red-asterisk">*</span>District</li>
-          <li>Area. Hint - Go as local as possible e.g. village name, town name.</li>
-          <li><span class="red-asterisk">*</span>Area classification. Rural or Urban.</li>
-          <li><span class="red-asterisk">*</span>Which party’s Chief Minister was in power in the state when the incident occurred?</li>
-          <li><span class="red-asterisk">*</span>Police to Population Ratio in that state</li>
-            <ul>
-                <li>Data on Police Organizations as on 01.01.2016 compiled by Bureau of Police Research and Development. There are only 2 valid values:</li>
-                <ul>
-                    <li>Below UN recommendation</li>
-                    <li>Above UN recommendation</li>
-                </ul>
-            </ul>
-          <li>Judge to Population Ratio in that state</li>
-            <ul>
-                <li>Numbers of Judges for the Subordinate Courts, as on March 31, 2016 (from Court News, publication of the Supreme Court, Vol XI Issue No. 1 Jan - Mar 2016). There are 5 valid values:</li>
-                <ul>
-                    <li>Good</li>
-                    <li>Above Average</li>
-                    <li>Average</li>
-                    <li>Below Average</li>
-                    <li>Bad</li>
-                </ul>
-            </ul>
-          <li><span class="red-asterisk">*</span>Latitude. You will have to find it manually.</li>
-          <li><span class="red-asterisk">*</span>Longitude. You will have to find it manually.</li>
       <table class="hint">
           <tr>
             <th>state
@@ -593,68 +558,6 @@
               </td>
           </tr>
       </table>
-      <br>
-      <h3>What happened?</h3>
-      <p>These columns would be used to automatically construct sentences. Hence, fill accordinly keeping capitalization, punctuation in mind. Example "Unknown truckers (men) were allegedly carrying buffalo calves. Mob beat them up and also reportedly vandalized the vehicles in which the calves were being carried.</p>
-      <p>{victim_religion} {victim_tag} ({victim_gender}) {victim_action}. -- will read as a sentence. Hence, the first word amongst victim_religion and victim_tag should be capital. victim_action should end with a full stop.</p>
-      <li>Victim’s religion</li>
-        <ul>
-            <li class="hint">Hint - Take directly from article if mentioned. Deduce from name where possible to ascertain with some surety. In case of confusion or if victims are from multiple religions then leave blank.</li>
-        </ul>
-      <li>Victim’s profession or title</li>
-      <ul>
-          <li class="hint">Hint - Generally the occupation of the victim. E.g. agricultural labourers, farmers, BSF officer, housewife, etc.</li>
-      </ul>
-      <li>Victim’s gender</li>
-      <li>What was victims doing when the mob lynching took place?</li>
-      <ul>
-          <li class="hint">Hint - End this statement with a full stop.</li>
-      </ul>
-      <li>Accused’s religion</li>
-      <ul>
-          <li class="hint">Hint - Take directly from article if mentioned. Deduce from name where possible to ascertain with some surety. In case of confusion or if accused are from multiple religions then leave blank.</li>
-      </ul>
-      <li>Accused’s profession or title</li>
-      <ul>
-          <li class="hint">Hint - Generally the occupation of the victim. E.g. agricultural labourers, farmers, BSF officer, housewife, etc.</li>
-      </ul>
-      <li>Accused’s gender</li>
-      <li>What were the accused doing before the mob lynching took place?</li>
-      <ul>
-          <li class="hint">Hint - End this statement with a full stop.</li>
-      </ul>
-      <li>Extra details of the lynching</li>
-      <ul>
-          <li class="hint">Hint - How did the actual lynching take place? More details on the incident. Please do not repeat details from above. End this statement with a full stop.</li>
-      </ul>
-      <br>
-      <h3>More details</h3>
-      <li>Number of victims injured (people impacted but not dead)</li>
-      <li>Number of victims dead</li>
-      <li>Names of the Victims</li>
-      <ul>
-          <li class="hint">Hint - Comma separated list of name of victims followed by their age in bracket.</li>
-      </ul>
-      <li>Title of the card</li>
-      <ul>
-          <li class="hint">Hint - Choose one victim’s name (choose person who died over those who were injured), followed by age of the victim in brackets e.g. Junaid Khan (15). If there are more than one victim then append “and others” to the name of the victim e.g. Junaid Khan (15) and others.</li>
-      </ul>
-      <li>Was the lynching planned?</li>
-      <ul><li class="hint">Hint - 3 categories for now: 1. Planned where it was clearly planned against the victim. 2. Sporadic where it was a spontaneous act. 3. Neighbourhood watch where the mob was on the lookout for alleged criminals and prepared to punish him/her/them.</li></ul>
-      <li>Names of the Accused</li>
-      <ul><li class="hint">Hint - Comma separated list of name of accused followed by their age in bracket.</li></ul>
-      <li>31. Did the police intervene and prevent death?</li>
-      <ul><li class="hint">Hint - Yes if the police intervened and prevented a possible death. Otherwise, no.</li></ul>
-      <li>If the allegation on the victim were true, would it be a punishable offence?</li>
-
-      <br>
-      <h3>Broad Classification</h3>
-      <li>What did the victim do? <span class="hint">(in two words)</span></li>
-      <li>What did the accused do? <span class="hint">(in two words)</span></li>
-      <li>Reason for the lynching <span class="hint">(in two words)</span></li>
-      <li>Is notable incident? If yes, then it will show up differently on the map.</li>
-      <br/><br/><br/>
-      </ol>
     </div>
   </div>
 </div>
