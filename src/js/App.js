@@ -576,34 +576,6 @@ class App extends React.Component {
         </div>
       )
     } else {
-      let that = this;
-
-      // let a = $("#range-slider").ionRangeSlider({
-      //   type: "double",
-      //   min: 2010,
-      //   max: 2017,
-      //   onChange: function (data) { 
-      //     console.log(data, "data---")     
-      //     let new_min = data.from,
-      //       new_max = data.to;
-      //     // console.log(new_min, new_max, "new min max") 
-      //     that.setState((prevState, props) => {
-      //       prevState.year_value = {
-      //         min: new_min,
-      //         max: new_max
-      //       };
-      //       let filteredData = that.getFilteredData(prevState)
-      //       return {
-      //         filteredJSON: filteredData,
-      //         year_value: {
-      //           min: new_min,
-      //           max: new_max
-      //         }
-      //       }
-      //     })
-      //   }
-      // });
-      // console.log(this.sortObject(Utils.groupBy(this.state.filteredJSON, 'menu')), "aeeeeee")
       let menuOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'menu')).map((d, i) => {
         return (
           <tr className='menu_inactive_item' id={`menu-${d.key}`}>
