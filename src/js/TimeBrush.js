@@ -64,7 +64,7 @@ class TimeBrush extends React.Component {
     return (
       <VictoryChart 
         domainPadding={10}
-        width={300} height={100} padding={{left:0, right: 0, bottom:50}}
+        width={300} height={120} padding={{left:0, right: 0, top:10, bottom:50}}
         scale={{x: "time"}}
         containerComponent={
           <VictoryBrushContainer 
@@ -76,9 +76,9 @@ class TimeBrush extends React.Component {
         <VictoryAxis
           fixLabelOverlap={true}
           style={{
-            axis: {stroke: "grey"},
+            axis: {stroke: "black", strokeWidth: 0.5},
             axisLabel: {fontSize: 10},
-            ticks: {stroke: "grey", size: 3},
+            ticks: {stroke: "black", size: 5},
             tickLabels: {fontSize: 10}
           }}/>
 
