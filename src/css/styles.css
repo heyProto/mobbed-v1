@@ -336,20 +336,9 @@
 }
 
 table{
-  font-size: 14px;
+  font-size: 1.1em;
   width: 100%;
   text-align: left;
-}
-
-tr{
-  border-top: 1px solid #efefef;
-  font-size: 11px;
-  color: grey;
-}
-
-tr:hover{
-  background: #F02E2E;
-  cursor: pointer;
 }
 
 .accused_active_item, .victim_active_item, .menu_active_item, .state_active_item, .police_active_item, .judge_active_item, .police_prevent_active_item, .lynching_active_item, .criminalise_active_item, .area_active_item {
@@ -359,34 +348,6 @@ tr:hover{
 
 .table-head{
   padding: 5px !important;
-}
-
-tr:hover td{
-  color: white;
-}
-
-tr td{
-  padding: 3px 5px;
-}
-
-tr td:last-child{
-  text-align: right;
-}
-
-tr:first-child{
-  border-top: 0px;
-  font-weight: bold;
-}
-
-tr:first-child:hover{
-  background: transparent;
-}
-
-tr th{
-  padding: 3px 5px;
-  padding-bottom: 5px;
-  /*height: 45px;*/
-  vertical-align: bottom;
 }
 
 #proto-embed-card{
