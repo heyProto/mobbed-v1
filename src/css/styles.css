@@ -990,6 +990,40 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 }
 /*=== end of proto-about-page css ===*/
 
+/* Data Collection ====*/
+
+.data-collection-page .footer-container{
+  height: auto !important;
+  max-width: 970px;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+.data-collection-page .page-navigation{
+  display: inline-block;
+  width: 100%;
+  padding: 15px 0px;
+  border-bottom: 1px solid #efefef;
+}
+
+.data-collection-page .page-navigation .navigation-link{
+  display: inline-block;
+  color: #999;
+  font-weight: 300;
+  margin-right: 30px;
+}
+
+.data-collection-page .page-navigation .navigation-link a{
+  color: #999;
+}
+
+.data-collection-page .page-navigation .active-link a{
+  color: black !important;
+  font-weight: 700;
+}
+
+/*=== end of Data Collection  ===*/
+
 
 /*=== methodology-page ===*/
 .methodology-page h2{
