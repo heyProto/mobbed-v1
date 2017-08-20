@@ -122,29 +122,6 @@
   height: auto;
 }
 
-.page-navigation{
-  display: inline-block;
-  width: 100%;
-  padding: 15px 0px;
-  border-bottom: 1px solid #efefef;
-}
-
-.page-navigation .navigation-link{
-  display: inline-block;
-  color: #999;
-  font-weight: 300;
-  margin-right: 30px;
-}
-
-.page-navigation .navigation-link a{
-  color: #999;
-}
-
-.page-navigation .active-link a{
-  color: black !important;
-  font-weight: 700;
-}
-
 .page-title{
   display: none;
 }
@@ -339,11 +316,6 @@ table{
   font-size: 1.1em;
   width: 100%;
   text-align: left;
-}
-
-.accused_active_item, .victim_active_item, .menu_active_item, .state_active_item, .police_active_item, .judge_active_item, .police_prevent_active_item, .lynching_active_item, .criminalise_active_item, .area_active_item {
-  background: #F02E2E;
-  color: white;
 }
 
 .table-head{
@@ -783,7 +755,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 }
 
 
-/*=== index-page ===*/
+/*================================ INDEX PAGE =========================================*/
 .index-page table.footer{
   display: hidden;
 }
@@ -793,20 +765,20 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   letter-spacing: 0.5px !important;
 }
 
-.footer-container{
+.index-page .footer-container{
   height: auto !important;
   max-width: 970px;
   margin-left:auto;
   margin-right: auto;
 }
 
-.banner-div{
+.index-page .banner-div{
   background-image: url("../../src/img/banner.png");
   height: 211px;
   width: 100%;
 }
 
-.display-counter{
+.index-page .display-counter{
   font-size: 72px;
   font-weight: 300;
   letter-spacing: 15px;
@@ -815,7 +787,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   left: 4px;
 }
 
-.display-summary{
+.index-page .display-summary{
   font-size: 18px;
   line-height: 27px;
   margin-top: 15px;
@@ -823,17 +795,41 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   color: white;
 }
 
-.counter-area{
+.index-page .counter-area{
   height: 80px;
   margin-top: 25px;
   margin-left: 15px;
   position: relative;
 }
 
-.data-url {
+.index-page .data-url {
   color: #333 !important;
 }
-/*=== end of index-page css ===*/
+
+.index-page .page-navigation{
+  display: inline-block;
+  width: 100%;
+  padding: 15px 0px;
+  border-bottom: 1px solid #efefef;
+}
+
+.index-page .page-navigation .navigation-link{
+  display: inline-block;
+  color: #999;
+  font-weight: 300;
+  margin-right: 30px;
+}
+
+.index-page .page-navigation .navigation-link a{
+  color: #999;
+}
+
+.index-page .page-navigation .active-link a{
+  color: black !important;
+  font-weight: 700;
+}
+/*=============================== END OF INDEX PAGE ========================*/
+/*===========================================================================*/
 
 
 /*=== data-page ===*/
@@ -847,13 +843,88 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   width: 100% !important;
 }
 
-.data-page .container{
-  text-align: center;
+.data-page .footer-container{
+  height: auto !important;
   max-width: 970px;
   margin-left:auto;
   margin-right: auto;
-  height: auto;
 }
+
+.data-page .accused_active_item, .victim_active_item, .menu_active_item, .state_active_item, .police_active_item, .judge_active_item, .police_prevent_active_item, .lynching_active_item, .criminalise_active_item, .area_active_item {
+  background: #F02E2E;
+  color: white;
+}
+
+.data-page table{
+  font-size: 1.1em;
+  width: 100%;
+  text-align: left;
+}
+
+.data-page .table-head{
+  padding: 5px !important;
+}
+
+.data-page tr{
+ border-top: 1px solid #efefef;
+ font-size: 11px;
+ color: grey;
+}
+
+.data-page .page-navigation{
+  display: inline-block;
+  width: 100%;
+  padding: 15px 0px;
+  border-bottom: 1px solid #efefef;
+}
+
+.data-page .page-navigation .navigation-link{
+  display: inline-block;
+  color: #999;
+  font-weight: 300;
+  margin-right: 30px;
+}
+
+.data-page .page-navigation .navigation-link a{
+  color: #999;
+}
+
+.data-page .page-navigation .active-link a{
+  color: black !important;
+  font-weight: 700;
+}
+
+.data-page tr:hover{
+  background: #F02E2E;
+  cursor: pointer;
+}
+
+.data-page tr:hover td{
+ color: white;
+}
+
+.data-page tr td{
+  padding: 3px 5px;
+}
+
+.data-page tr td:last-child{
+  text-align: right;
+}
+
+.data-page tr:first-child{
+  border-top: 0px;
+ font-weight: bold;
+}
+
+.data-page tr:first-child:hover{
+  background: transparent;
+ }
+ 
+.data-page tr th{
+  padding: 3px 5px;
+  padding-bottom: 5px;
+  vertical-align: bottom;
+ }
 /*=== end of data-page css ===*/
 
 /*=== explainers-page ===*/
@@ -878,6 +949,28 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 /*=== end of explainers-page css ===*/
 
 /*=== proto-about-page ===*/
+.proto-about-page .page-navigation{
+  display: inline-block;
+  width: 100%;
+  padding: 15px 0px;
+  border-bottom: 1px solid #efefef;
+}
+
+.proto-about-page .page-navigation .navigation-link{
+  display: inline-block;
+  color: #999;
+  font-weight: 300;
+  margin-right: 30px;
+}
+
+.proto-about-page .page-navigation .navigation-link a{
+  color: #999;
+}
+
+.proto-about-page .page-navigation .active-link a{
+  color: black !important;
+  font-weight: 700;
+}
 .proto-about-page{
   font-family: 'Lato', sans-serif !important;
   letter-spacing: 0.5px !important;
@@ -889,10 +982,12 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 .proto-about-page .about-page-link{
   color: black !important;
 }
-.proto-about-page
-.proto-about-page
-.proto-about-page
-.proto-about-page
+.proto-about-page .footer-container{
+  height: auto !important;
+  max-width: 970px;
+  margin-left:auto;
+  margin-right: auto;
+}
 /*=== end of proto-about-page css ===*/
 
 
