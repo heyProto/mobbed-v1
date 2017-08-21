@@ -7,7 +7,7 @@ import TimeBrush from '../js/TimeBrush';
 import Utils from '../js/Utils';
 import {timeFormat} from 'd3-time-format';
 
-class App extends React.Component {
+class HateCrime extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -25,35 +25,42 @@ class App extends React.Component {
       state: [],
       victim_religion: [],
       accused_religion: [],
-      police_vehicles: [],
-      police_intervene: [],
-      village_defense_force: [],
-      police_to_population: [],
-      judge_to_population: [],
-      police_prevent_death:[],
       party: [],
       lynching_planned: [],
       criminalise_victims: [], 
       area_classification: [], 
+      is_hate_crime:[],
+      is_gender_hate_crime: [],
+      is_caste_hate_crime: [],
+      is_race_hate_crime: [],
+      is_religion_hate_crime: [],
+      is_political_hate_crime: [],
+      is_sexual_hate_crime: [],
+      is_disability_hate_crime: [],
+      is_ethnicity_hate_crime: [],
       menu_value: 'undefined',
       party_value: 'undefined',
       state_value: 'undefined',
       victim_religion_value: 'undefined',
       accused_religion_value: 'undefined',
-      police_to_population_value: 'undefined',
-      police_vehicles_value: 'undefined',
-      village_defense_force_value: 'undefined',
-      judge_to_population_value: 'undefined',
-      police_prevent_death_value: 'undefined',
       lynching_planned_value: 'undefined',
       criminalise_victims_value: 'undefined',
       area_classification_value: 'undefined',
-      police_intervene_value: 'undefined',
+      is_hate_crime_value:'undefined',
+      is_gender_hate_crime_value: 'undefined',
+      is_caste_hate_crime_value: 'undefined',
+      is_race_hate_crime_value: 'undefined',
+      is_religion_hate_crime_value: 'undefined',
+      is_political_hate_crime_value: 'undefined',
+      is_sexual_hate_crime_value: 'undefined',
+      is_disability_hate_crime_value: 'undefined',
+      is_ethnicity_hate_crime_value: 'undefined',
       year_value: {
         min: 'undefined',
         max: 'undefined'
       },
       parseMonth: timeFormat("%Y-%m"),
+
     }
     this.handleCircleClicked = this.handleCircleClicked.bind(this);
     this.handleSelectDateRange = this.handleSelectDateRange.bind(this);
@@ -73,15 +80,18 @@ class App extends React.Component {
           state = this.sortObject(Utils.groupBy(this.state.dataJSON, 'state')),
           victim_religion = this.sortObject(Utils.groupBy(this.state.dataJSON, 'victim_social_classification')),
           accused_religion = this.sortObject(Utils.groupBy(this.state.dataJSON, 'accused_social_classification')),
-          police_to_population = this.sortObject(Utils.groupBy(this.state.dataJSON, 'police_to_population')),
-          judge_to_population = this.sortObject(Utils.groupBy(this.state.dataJSON, 'judge_to_population')),
-          police_prevent_death = this.sortObject(Utils.groupBy(this.state.dataJSON, 'did_the_police_intervention_prevent_death')),
           lynching_planned = this.sortObject(Utils.groupBy(this.state.dataJSON, 'was_incident_planned')),
           criminalise_victims = this.sortObject(Utils.groupBy(this.state.dataJSON, 'does_the_state_criminalise_victims_actions')),
           area_classification = this.sortObject(Utils.groupBy(this.state.dataJSON, 'area_classification')),
-          police_vehicles = this.sortObject(Utils.groupBy(this.state.dataJSON, 'police_vehicles_per_km')),
-          village_defense_force = this.sortObject(Utils.groupBy(this.state.dataJSON, 'does_state_have_village_defence_force')),
-          police_intervene = this.sortObject(Utils.groupBy(this.state.dataJSON, 'did_the_police_intervene'));
+          is_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_hate_crime')),
+          is_gender_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_gender_hate_crime')),
+          is_caste_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_caste_hate_crime')),
+          is_race_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_race_hate_crime')),
+          is_religion_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_religion_hate_crime')),
+          is_political_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_political_affiliation_hate_crime')),
+          is_sexual_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_sexual_orientation_and_gender_identity_hate_crime')),
+          is_disability_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_disability_hate_crime')),
+          is_ethnicity_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_ethnicity_hate_crime'));
 
         this.setState({
           menu: menu,
@@ -89,15 +99,18 @@ class App extends React.Component {
           state: state,
           victim_religion: victim_religion,
           accused_religion: accused_religion,
-          police_to_population: police_to_population,
-          judge_to_population: judge_to_population,
-          police_prevent_death: police_prevent_death,
           lynching_planned: lynching_planned,
           criminalise_victims: criminalise_victims,
           area_classification: area_classification,
-          police_vehicles:police_vehicles,
-          village_defense_force: village_defense_force,
-          police_intervene: police_intervene
+          is_hate_crime: is_hate_crime,
+          is_gender_hate_crime: is_gender_hate_crime,
+          is_caste_hate_crime: is_caste_hate_crime,
+          is_race_hate_crime: is_race_hate_crime,
+          is_religion_hate_crime: is_religion_hate_crime,
+          is_political_hate_crime: is_political_hate_crime,
+          is_sexual_hate_crime: is_sexual_hate_crime,
+          is_disability_hate_crime: is_disability_hate_crime,
+          is_ethnicity_hate_crime: is_ethnicity_hate_crime
         })
     }));
     this.showCounter();
@@ -238,57 +251,6 @@ class App extends React.Component {
     })
   }
 
-  handleOnChangePolice(e, value) {
-    this.setState((prevState, props) => {
-      if (prevState.police_to_population_value !== value || prevState.police_to_population_value === 'undefined' ) {
-        prevState.police_to_population_value = value;
-        this.highlightItem(value, 'police_inactive_item','police_active_item', 'police');
-      } else {
-        prevState.police_to_population_value = 'undefined';
-        this.highlightItem(value, 'police_inactive_item','police_inactive_item', 'police');
-      }
-      let filteredData = this.getFilteredData(prevState)
-      return {
-        filteredJSON: filteredData,
-        police_to_population_value: prevState.police_to_population_value
-      }
-    })
-  }
-
-  handleOnChangeJudge(e, value) {
-    this.setState((prevState, props) => {
-      if (prevState.judge_to_population_value !== value || prevState.judge_to_population_value === 'undefined') {
-        prevState.judge_to_population_value = value;
-        this.highlightItem(value, 'judge_inactive_item','judge_active_item', 'judge');
-      } else {
-        prevState.judge_to_population_value = 'undefined';
-        this.highlightItem(value, 'judge_inactive_item','judge_inactive_item', 'judge');
-      }     
-      let filteredData = this.getFilteredData(prevState)
-      return {
-        filteredJSON: filteredData,
-        judge_to_population_value: prevState.judge_to_population_value
-      }
-    })
-  }
-
-  handleOnChangePolicePrevent(e, value) {
-    this.setState((prevState, props) => {
-      if(prevState.police_prevent_death_value !== value || prevState.police_prevent_death_value === 'undefined') {
-        prevState.police_prevent_death_value = value;
-        this.highlightItem(value, 'police_prevent_inactive_item','police_prevent_active_item', 'police-prevent');
-      } else {
-        prevState.police_prevent_death_value = 'undefined';
-        this.highlightItem(value, 'police_prevent_inactive_item','police_prevent_inactive_item', 'police-prevent');
-      }
-      let filteredData = this.getFilteredData(prevState)
-      return {
-        filteredJSON: filteredData,
-        police_prevent_death_value: prevState.police_prevent_death_value
-      }
-    })
-  }
-
   handleOnChangeLynchingPlanned(e, value) {
     this.setState((prevState, props) => {
       if (prevState.lynching_planned_value !== value || prevState.lynching_planned_value === 'undefined') {
@@ -340,53 +302,155 @@ class App extends React.Component {
     })
   }
 
-  handleOnChangePoliceVehicles(e, value) {
+  handleOnIsHateCrime(e, value) {
     this.setState((prevState, props) => {
-      if (prevState.police_vehicles_value !== value || prevState.police_vehicles_value === 'undefined') {
-        prevState.police_vehicles_value = value;
-        this.highlightItem(value, 'police_vehicles_inactive_item','police_vehicles_active_item', 'police_vehicles');
+      if (prevState.is_hate_crime_value !== value || prevState.is_hate_crime_value === 'undefined') {
+        prevState.is_hate_crime_value = value;
+        this.highlightItem(value, 'hate_inactive_item','hate_active_item', 'hate');
       } else {
-        prevState.police_vehicles_value = 'undefined';
-        this.highlightItem(value, 'police_vehicles_inactive_item','police_vehicles_inactive_item', 'police_vehicles');
+        prevState.is_hate_crime_value = 'undefined';
+        this.highlightItem(value, 'hate_inactive_item','hate_inactive_item', 'hate');
       }    
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        police_vehicles_value: prevState.police_vehicles_value
+        is_hate_crime_value: prevState.is_hate_crime_value
       }
     })
   }
 
-  handleOnChangeVillageDefenseForce(e, value) {
+  handleOnIsGenderCrime(e, value) {
     this.setState((prevState, props) => {
-      if (prevState.village_defense_force_value !== value || prevState.village_defense_force_value === 'undefined') {
-        prevState.village_defense_force_value = value;
-        this.highlightItem(value, 'defense_force_inactive_item','defense_force_active_item', 'defense_force');
+      if (prevState.is_gender_hate_crime_value !== value || prevState.is_gender_hate_crime_value === 'undefined') {
+        prevState.is_gender_hate_crime_value = value;
+        this.highlightItem(value, 'gender_inactive_item','gender_active_item', 'gender');
       } else {
-        prevState.village_defense_force_value = 'undefined';
-        this.highlightItem(value, 'defense_force_inactive_item','defense_force_inactive_item', 'defense_force');
+        prevState.is_gender_hate_crime_value = 'undefined';
+        this.highlightItem(value, 'gender_inactive_item','gender_inactive_item', 'gender');
       }    
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        village_defense_force_value: prevState.village_defense_force_value
+        is_gender_hate_crime_value: prevState.is_gender_hate_crime_value
       }
     })
   }
 
-  handleOnChangePoliceIntervene(e, value) {
+  handleOnIsCasteCrime(e, value) {
     this.setState((prevState, props) => {
-      if (prevState.police_intervene_value !== value || prevState.police_intervene_value === 'undefined') {
-        prevState.police_intervene_value = value;
-        this.highlightItem(value, 'police_intervene_inactive_item','police_intervene_active_item', 'police_intervene');
+      if (prevState.is_caste_hate_crime_value !== value || prevState.is_caste_hate_crime_value === 'undefined') {
+        prevState.is_caste_hate_crime_value = value;
+        this.highlightItem(value, 'caste_inactive_item','caste_active_item', 'caste');
       } else {
-        prevState.police_intervene_value = 'undefined';
-        this.highlightItem(value, 'police_intervene_inactive_item','police_intervene_inactive_item', 'police_intervene');
+        prevState.is_caste_hate_crime_value = 'undefined';
+        this.highlightItem(value, 'caste_inactive_item','caste_inactive_item', 'caste');
       }    
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        police_intervene_value: prevState.police_intervene_value
+        is_caste_hate_crime_value: prevState.is_caste_hate_crime_value
+      }
+    })
+  }
+
+  handleOnIsRaceCrime(e, value) {
+    this.setState((prevState, props) => {
+      if (prevState.is_race_hate_crime_value !== value || prevState.is_race_hate_crime_value === 'undefined') {
+        prevState.is_race_hate_crime_value = value;
+        this.highlightItem(value, 'race_inactive_item','race_active_item', 'race');
+      } else {
+        prevState.is_race_hate_crime_value = 'undefined';
+        this.highlightItem(value, 'race_inactive_item','race_inactive_item', 'race');
+      }    
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        is_race_hate_crime_value: prevState.is_race_hate_crime_value
+      }
+    })
+  }
+
+  handleOnIsReligionCrime(e, value) {
+    this.setState((prevState, props) => {
+      if (prevState.is_religion_hate_crime_value !== value || prevState.is_religion_hate_crime_value === 'undefined') {
+        prevState.is_religion_hate_crime_value = value;
+        this.highlightItem(value, 'religion_inactive_item','religion_active_item', 'religion');
+      } else {
+        prevState.is_religion_hate_crime_value = 'undefined';
+        this.highlightItem(value, 'religion_inactive_item','religion_inactive_item', 'religion');
+      }    
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        is_religion_hate_crime_value: prevState.is_religion_hate_crime_value
+      }
+    })
+  }
+
+  handleOnIsPoliticalCrime(e, value) {
+    this.setState((prevState, props) => {
+      if (prevState.is_political_hate_crime_value !== value || prevState.is_political_hate_crime_value === 'undefined') {
+        prevState.is_political_hate_crime_value = value;
+        this.highlightItem(value, 'political_inactive_item','political_active_item', 'political');
+      } else {
+        prevState.is_political_hate_crime_value = 'undefined';
+        this.highlightItem(value, 'political_inactive_item','political_inactive_item', 'political');
+      }    
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        is_political_hate_crime_value: prevState.is_political_hate_crime_value
+      }
+    })
+  }
+
+  handleOnIsSexualCrime(e, value) {
+    this.setState((prevState, props) => {
+      if (prevState.is_sexual_hate_crime_value !== value || prevState.is_sexual_hate_crime_value === 'undefined') {
+        prevState.is_sexual_hate_crime_value = value;
+        this.highlightItem(value, 'sexual_inactive_item','political_active_item', 'sexual');
+      } else {
+        prevState.is_sexual_hate_crime_value = 'undefined';
+        this.highlightItem(value, 'sexual_inactive_item','sexual_inactive_item', 'sexual');
+      }    
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        is_sexual_hate_crime_value: prevState.is_sexual_hate_crime_value
+      }
+    })
+  }
+
+  handleOnIsDisabilityCrime(e, value) {
+    this.setState((prevState, props) => {
+      if (prevState.is_disability_hate_crime_value !== value || prevState.is_disability_hate_crime_value === 'undefined') {
+        prevState.is_disability_hate_crime_value = value;
+        this.highlightItem(value, 'disability_inactive_item','disability_active_item', 'disability');
+      } else {
+        prevState.is_disability_hate_crime_value = 'undefined';
+        this.highlightItem(value, 'disability_inactive_item','disability_inactive_item', 'disability');
+      }    
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        is_disability_hate_crime_value: prevState.is_disability_hate_crime_value
+      }
+    })
+  }
+
+  handleOnIsEthnicityCrime(e, value) {
+    this.setState((prevState, props) => {
+      if (prevState.is_ethnicity_hate_crime_value !== value || prevState.is_ethnicity_hate_crime_value === 'undefined') {
+        prevState.is_ethnicity_hate_crime_value = value;
+        this.highlightItem(value, 'ethnicity_inactive_item','ethnicity_active_item', 'ethnicity');
+      } else {
+        prevState.is_ethnicity_hate_crime_value = 'undefined';
+        this.highlightItem(value, 'ethnicity_inactive_item','ethnicity_inactive_item', 'ethnicity');
+      }    
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        is_ethnicity_hate_crime_value: prevState.is_ethnicity_hate_crime_value
       }
     })
   }
@@ -412,18 +476,6 @@ class App extends React.Component {
     if (this.state.accused_religion_value !== 'undefined') {
       document.getElementById('accused-'+this.state.accused_religion_value).className = 'accused_inactive_item';
     }
-    if (this.state.police_to_population_value !== 'undefined') {
-      document.getElementById('police-'+this.state.police_to_population_value).className = 'police_inactive_item';
-    }
-    if (this.state.judge_to_population_value !== 'undefined') {
-      document.getElementById('judge-'+this.state.judge_to_population_value).className = 'judge_inactive_item';
-    }
-    if (this.state.police_prevent_death_value !== 'undefined') {
-      document.getElementById('police-prevent-'+this.state.police_prevent_death_value).className = 'police_prevent_inactive_item';
-    }
-     if (this.state.police_intervene_value !== 'undefined') {
-      document.getElementById('police-intervene-'+this.state.police_intervene_value).className = 'police_intervene_inactive_item';
-    }
     if (this.state.lynching_planned_value !== 'undefined') {
       document.getElementById('lynching-'+this.state.lynching_planned_value).className = 'lynching_inactive_item';
     }
@@ -439,15 +491,18 @@ class App extends React.Component {
       state_value: 'undefined',
       victim_religion_value: 'undefined',
       accused_religion_value: 'undefined',
-      police_to_population_value: 'undefined',
-      judge_to_population_value: 'undefined',
-      police_prevent_death_value: 'undefined',
       lynching_planned_value: 'undefined',
       criminalise_victims_value: 'undefined',
       area_classification_value: 'undefined',
-      police_vehicles_value: 'undefined',
-      village_defense_force_value: 'undefined',
-      police_intervene_value: 'undefined',
+      is_hate_crime_value:'undefined',
+      is_gender_hate_crime_value: 'undefined',
+      is_caste_hate_crime_value: 'undefined',
+      is_race_hate_crime_value: 'undefined',
+      is_religion_hate_crime_value: 'undefined',
+      is_political_hate_crime_value: 'undefined',
+      is_sexual_hate_crime_value: 'undefined',
+      is_disability_hate_crime_value: 'undefined',
+      is_ethnicity_hate_crime_value: 'undefined',
       year_value: {
         min: 'undefined',
         max: 'undefined'
@@ -503,20 +558,6 @@ class App extends React.Component {
     return val.accused_social_classification === this;
   }
 
-  checkPoliceRatio(val, index, arr) {
-    if(this === 'undefined') {
-      return true;
-    }
-    return val.police_to_population_in_state === this;
-  }
-
-  checkJudgeRatio(val, index, arr) {
-    if(this === 'undefined') {
-      return true;
-    }
-    return val.judge_to_population_in_state === this;
-  }
-
   checkYear (val, index, arr) {
     if(this.min === 'undefined' || this.max === 'undefined') {
       return true;
@@ -524,20 +565,6 @@ class App extends React.Component {
     let new_date = val.date.slice(0, 7)
     // console.log(new_date, "new_date")
     return new_date >= this.min && new_date <= this.max;
-  }
-
-  checkPolicePrevent(val, index, arr) {
-    if(this === 'undefined') {
-      return true;
-    }
-    return val['did_the_police_intervention_prevent_death'] === this;
-  }
-
-  checkPoliceIntervene(val, index, arr) {
-    if(this === 'undefined') {
-      return true;
-    }
-    return val['did_the_police_intervene'] === this;
   }
 
   checkLynchingPlanned(val, index, arr) {
@@ -561,18 +588,67 @@ class App extends React.Component {
     return val.area_classification === this;
   }
 
-  checkPoliceVehicles() {
+  checkIsHateCrime(val, index, arr) {
     if(this === 'undefined') {
       return true;
     }
-    return val.police_vehicles_per_km === this;
+    return val.is_hate_crime === this;
   }
 
-  checkVillageDefenseForce() {
+  checkIsGenderCrime(val, index, arr) {
     if(this === 'undefined') {
       return true;
     }
-    return val.does_state_have_village_defence_force === this;
+    return val.is_gender_hate_crime === this; 
+  } 
+
+  checkIsCasteCrime(val, index, arr) {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.is_caste_hate_crime === this;
+  }
+
+  checkIsRaceCrime(val, index, arr) {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.is_race_hate_crime === this
+  }
+
+  checkIsReligionCrime(val, index, arr) {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.is_religion_hate_crime === this
+  }
+
+  checkIsPoliticalCrime(val, index, arr) {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.is_political_affiliation_hate_crime === this
+  }
+
+  checkIsSexualCrime(val, index, arr) {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.is_sexual_orientation_and_gender_identity_hate_crime === this
+  }
+
+  checkIsDisabilityCrime(val, index, arr) {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.is_disability_hate_crime === this
+  }
+
+  checkIsEthnicityCrime(val, index, arr) {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.is_ethnicity_hate_crime === this
   }
 
   getFilteredData(state) {
@@ -582,17 +658,20 @@ class App extends React.Component {
       .filter(this.checkState, state.state_value)
       .filter(this.checkVictimReligion, state.victim_religion_value)
       .filter(this.checkAccusedReligion, state.accused_religion_value)
-      .filter(this.checkPoliceRatio, state.police_to_population_value)
-      .filter(this.checkJudgeRatio, state.judge_to_population_value)
-      .filter(this.checkPolicePrevent, state.police_prevent_death_value)
       .filter(this.checkLynchingPlanned, state.lynching_planned_value)
       .filter(this.checkCriminaliseVictims, state.criminalise_victims_value)
       .filter(this.checkArea, state.area_classification_value)
-      .filter(this.checkPoliceVehicles, state.police_vehicles_value)
-      .filter(this.checkVillageDefenseForce, state.village_defense_force_value)
-      .filter(this.checkPoliceIntervene, state.police_intervene_value)
+      .filter(this.checkIsHateCrime, )
+      .filter(this.checkIsHateCrime, )
+      .filter(this.checkIsHateCrime, )
+      .filter(this.checkIsHateCrime, )
+      .filter(this.checkIsHateCrime, )
+      .filter(this.checkIsHateCrime, )
+      .filter(this.checkIsHateCrime, )
+      .filter(this.checkIsHateCrime, )
+      .filter(this.checkIsHateCrime, )
+      .filter(this.checkIsHateCrime, )
       .filter(this.checkYear, state.year_value)
-    // console.log(filteredData, "filteredData")
     return filteredData;
   }
 
@@ -754,42 +833,6 @@ class App extends React.Component {
           </tr>
         )
       })
-
-      let policeRatioOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'police_to_population_in_state')).map((d, i) => {
-        return (
-          <tr className='police_inactive_item' id={`police-${d.key}`}>
-            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangePolice(e, d.key)}>{d.key}</td>
-            <td>{d.value}</td>
-          </tr>
-        )
-      })
-      
-      let judgeRatioOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'judge_to_population_in_state')).map((d, i) => {
-        return (
-          <tr className='judge_inactive_item' id={`judge-${d.key}`}>
-            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeJudge(e, d.key)}>{d.key}</td>
-            <td>{d.value}</td>
-          </tr>
-        )
-      })
-
-      let policePreventOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'did_the_police_intervention_prevent_death')).map((d, i) => {
-        return (
-          <tr className='police_prevent_inactive_item' id={`police-prevent-${d.key}`}>
-            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangePolicePrevent(e, d.key)}>{d.key}</td>
-            <td>{d.value}</td>
-          </tr>
-        )
-      })
-
-      let policeInterveneOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'did_the_police_intervene')).map((d, i) => {
-        return (
-          <tr className='police_intervene_inactive_item' id={`police-intervene-${d.key}`}>
-            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangePoliceIntervene(e, d.key)}>{d.key}</td>
-            <td>{d.value}</td>
-          </tr>
-        )
-      })
       
       let lynchingOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'was_incident_planned')).map((d, i) => {
         return (
@@ -813,24 +856,6 @@ class App extends React.Component {
         return (
           <tr className='area_inactive_item' id={`area-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeArea(e, d.key)}>{d.key}</td>
-            <td>{d.value}</td>
-          </tr>
-        )
-      })
-
-      let policeVehiclesOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'police_vehicles_per_km')).map((d, i) => {
-        return (
-          <tr className='police_vehicles_inactive_item' id={`police-vehicles-${d.key}`}>
-            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangePoliceVehicles(e, d.key)}>{d.key}</td>
-            <td>{d.value}</td>
-          </tr>
-        )
-      })
-
-      let defenseForceOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'does_state_have_village_defence_force')).map((d, i) => {
-        return (
-          <tr className='defense_force_inactive_item' id={`defense-force-${d.key}`}>
-            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeVillageDefenseForce(e, d.key)}>{d.key}</td>
             <td>{d.value}</td>
           </tr>
         )
@@ -883,18 +908,6 @@ class App extends React.Component {
               </div>
               <div className="four wide column filter-title">
                 <table><tbody>
-                  <th className="table-head">Did the police intervene?</th>
-                  {policeInterveneOptions}
-                </tbody></table>
-              </div>
-              <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Did the police intervention prevent death?</th>
-                  {policePreventOptions}
-                </tbody></table>
-              </div>
-              <div className="four wide column filter-title">
-                <table><tbody>
                   <th className="table-head">Was the incident planned?</th>
                   {lynchingOptions}
                 </tbody></table>
@@ -913,18 +926,6 @@ class App extends React.Component {
               </div>
               <div className="four wide column filter-title">
                 <table><tbody>
-                  <th className="table-head">Police to population ratio</th>
-                  {policeRatioOptions}
-                </tbody></table>
-              </div>
-              <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Judge to population ratio</th>
-                  {judgeRatioOptions}
-                </tbody></table>
-              </div>
-              <div className="four wide column filter-title">
-                <table><tbody>
                   <th className="table-head">Victim social classification</th>
                   {victimReligionOptions}
                 </tbody></table>
@@ -939,18 +940,6 @@ class App extends React.Component {
                 <table><tbody>
                   <th className="table-head">Ruling party</th>
                  {partyOptions}
-                </tbody></table>
-              </div>
-              <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Police vehicles per sq. km</th>
-                  {policeVehiclesOptions}
-                </tbody></table>
-              </div>
-              <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Does state have village defence force?</th>
-                  {defenseForceOptions}
                 </tbody></table>
               </div>
             </div>
@@ -1005,11 +994,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
-
-  // <div className="four wide column filter-title">
-  //               <table><tbody>
-  //                 <th className="table-head">If the allegation on the victim were true, would it be a punishable offence?</th>
-  //                 {criminaliseOptions}
-  //               </tbody></table>
-  //             </div>
+export default HateCrime;
