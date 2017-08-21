@@ -1017,6 +1017,15 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   border-bottom: 1px solid #efefef;
 }
 
+.data-collection-page table{
+  padding: 0px !important;
+}
+
+.data-collection-page table td{
+  border-left: 1px solid rgba(34,36,38,.1) !important;
+  vertical-align: top !important;
+}
+
 .data-collection-page .page-navigation .navigation-link{
   display: inline-block;
   color: #999;
