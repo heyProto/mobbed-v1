@@ -53,6 +53,78 @@
       </div>
     </div>
   </div>
+  <div class="ui grid" id="check">
+    <div class="five wide column qa-side-panel">
+      <div class="ui compact segments sticky explainers-sticky-segment">
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qstate">
+          <p><a href="#state">State of Mob justice in India</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qlaw-and-order">
+          <p><a href="#law-and-order">Mob justice and Law and Order in India</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qaltercations-disputes">
+          <p><a href="#altercations-disputes">Mob justice due to Altercations and Disputes</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qwitch-hunting">
+          <p><a href="#witch-hunting">Mob justice due to Witch Hunting</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qthefts-and-murders">
+          <p><a href="#thefts-and-murders">Mob justice due to Thefts and Murders</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qcow-vigilantism">
+          <p><a href="#cow-vigilantism">Mob justice due to Cow Vigilantism</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qsexual-harassment">
+          <p><a href="#sexual-harassment">Mob justice due to Sexual Harassment</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qchild-lifting">
+          <p><a href="#child-lifting">Mob justice due to Child Lifting</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qhate-crime">
+          <p><a href="#hate-crime">Mob justice as Hate Crime</a></p>
+        </div>
+
+      </div>
+    </div>
+    <div class="eleven wide column" id="what">
+      <div class="answer" id="state">
+        <h3>State of Mob justice in India</h3>
+        <p>alsdnkalsdknasl dknasld kasndl aksnd lasknd aslkd nasld knas dlkasnd</p>
+      </div>
+      <div class="answer" id="law-and-order">
+        <h3>Mob justice and Law and Order in India</h3>
+        <p>alsdnkalsdknasl dknasld kasndl aksnd lasknd aslkd nasld knas dlkasnd</p>
+      </div>
+      <div class="answer" id="altercations-disputes">
+        <h3>Mob justice due to Altercations and Disputes</h3>
+        <p>alsdnkalsdknasl dknasld kasndl aksnd lasknd aslkd nasld knas dlkasnd</p>
+      </div>
+      <div class="answer" id="witch-hunting">
+        <h3>Mob justice due to Witch Hunting</h3>
+        <p>alsdnkalsdknasl dknasld kasndl aksnd lasknd aslkd nasld knas dlkasnd</p>
+      </div>
+      <div class="answer" id="thefts-and-murders">
+        <h3>Mob justice due to Thefts and Murders</h3>
+        <p>alsdnkalsdknasl dknasld kasndl aksnd lasknd aslkd nasld knas dlkasnd</p>
+      </div>
+      <div class="answer" id="cow-vigilantism">
+        <h3>Mob justice due to Cow Vigilantism</h3>
+        <p>alsdnkalsdknasl dknasld kasndl aksnd lasknd aslkd nasld knas dlkasnd</p>
+      </div>
+      <div class="answer" id="sexual-harassment">
+        <h3>Mob justice due to Sexual Harassment</h3>
+        <p>alsdnkalsdknasl dknasld kasndl aksnd lasknd aslkd nasld knas dlkasnd</p>
+      </div>
+      <div class="answer" id="child-lifting">
+        <h3>Mob justice due to Child Lifting</h3>
+        <p>alsdnkalsdknasl dknasld kasndl aksnd lasknd aslkd nasld knas dlkasnd</p>
+      </div>
+      <div class="answer" id="hate-crime">
+        <h3>Mob justice as Hate Crime</h3>
+        <p>alsdnkalsdknasl dknasld kasndl aksnd lasknd aslkd nasld knas dlkasnd</p>
+      </div>
+    </div>
+  </div>
 
 
   <div class="ten-br-space"></div>
@@ -73,10 +145,39 @@
 <script src="src/js/fixedNavBar.js"></script>
 
 <script type="text/javascript">
-  $('.ui.sticky')
-  .sticky({
-    context: '#example1'
+  $('.ui.sticky').sticky();
+  $(window).scroll(function(event){
+    $('.qa-highlight-color').children('p').children('a').css({"color":"blue"});
+
+    $('.qa-highlight-color').removeClass('qa-highlight-color');
+
+    if($('.ui.sticky').hasClass('fixed')){
+      scrollspy = true;
+    }else{
+      scrollspy = false;
+    }
+    var cutoff = $(window).scrollTop();
+    $('.answer').removeClass('qa-highlight-color').each(function() {
+        if ($(this).offset().top - 25 > cutoff) {
+            $('#q'+$(this).attr('id')).addClass('qa-highlight-color');
+
+            return false; // stops the iteration after the first one on screen
+        }
+    });
+
   });
+
+  $('.question').hover(function(){
+    $(this).addClass('qa-highlight-color');
+    $(this).children('p').children('a').css({"color":"black"});
+    $( $(this).children('p').children('a')[0].hash ).addClass('qa-highlight-color');
+  },function(){
+    $(this).removeClass('qa-highlight-color');
+    $(this).children('p').children('a').css({"color":"blue"});
+    $( $(this).children('p').children('a')[0].hash ).removeClass('qa-highlight-color');
+  })
 </script>
+</body>
+</html>
 </body>
 </html>
