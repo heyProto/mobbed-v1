@@ -67,7 +67,7 @@ class TimeBrush extends React.Component {
         width={300} height={120} padding={{left:20, right: 20, top:10, bottom:50}}
         scale={{x: "time"}}
         containerComponent={
-          <VictoryBrushContainer 
+          <VictoryBrushContainer
             dimension="x" 
             responsive={false}
             handleStyle={{fill: "#bdb8b8", height: 27, y:25, width: 7}}

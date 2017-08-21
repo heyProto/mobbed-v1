@@ -73,7 +73,7 @@
         </div>
       </div>
     </div>
-    <div class="nine wide column" id="what">
+    <div class="nine wide column">
       <div class="answer" id="what">
          <h3>What is #TheLynched?</h3>
          <p>#TheLynched is a public database of mob-justice related incidents in India. We want to go beyond the existing binaries of religion, hate, politics of cow, etc. and hope to discover indicative insights that can add to our collective understanding of the culture of mob justice in India.</p>
@@ -276,7 +276,7 @@
 <script type="text/javascript">
   $('.ui.sticky').sticky();
   $(window).scroll(function(event){
-    $('.qa-highlight-color').children('p').children('a').css({"color":"blue"});
+    // $('.qa-highlight-color').children('p').children('a').css({"color":"blue"});
 
     $('.qa-highlight-color').removeClass('qa-highlight-color');
 
@@ -298,11 +298,11 @@
 
   $('.question').hover(function(){
     $(this).addClass('qa-highlight-color');
-    $(this).children('p').children('a').css({"color":"black"});
+    // $(this).children('p').children('a').css({"color":"black"});
     $( $(this).children('p').children('a')[0].hash ).addClass('qa-highlight-color');
   },function(){
     $(this).removeClass('qa-highlight-color');
-    $(this).children('p').children('a').css({"color":"blue"});
+    // $(this).children('p').children('a').css({"color":"blue"});
     $( $(this).children('p').children('a')[0].hash ).removeClass('qa-highlight-color');
   })
 </script>
