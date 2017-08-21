@@ -55,14 +55,12 @@
       var x = new ProtoGraph.Card.toMaps()
         x.init({
         selector: document.querySelector('#card-list-div'),
-        dataURL: 'https://dkqrqc7q64awx.cloudfront.net/toReportViolence/index.json',
-        // dataURL: 'https://dwln9tzsi7g07.cloudfront.net/toReportViolence/index.json',
+        dataURL: 'https://cdn.protograph.pykih.com/toReportViolence/index.json',
         topoURL: 'src/data/india-topo.json',
         chartOptions: {
           chartTitle: 'Mob Justice in India',
           height: 600,
-          defaultCircleColor: '#F02E2E',
-          filterBy: 'menu'
+          defaultCircleColor: '#F02E2E'
         }
       })
       x.renderLaptop();
