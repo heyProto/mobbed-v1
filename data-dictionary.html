@@ -22,19 +22,25 @@
         <div class="container">
           <div class="page-navigation">
             <div class="navigation-link"><a href="index.html">Home</a></div>
-            <div class="navigation-link active-link"><a href="data.html">Data</a></div>
-            <div class="navigation-link"><a href="about.html">About</a></div>
+            <div class="navigation-link"><a href="data.html">Data</a></div>
+            <div class="navigation-link active-link"><a href="about.html">About</a></div>
           </div>
         </div>
         <div class="ui grid cover-image-div" >
           <img class="cover-image" src="src/img/lynching-cover-desktop.png" >
           <img class="cover-image-mobile" src="src/img/lynching-cover-mobile.png" width="100%" >
+          <p class="notes-div">Understanding mob justice in India beyond the binaries of gender, caste, class, religion, etc.</p>
         </div>
         <div class="ui grid">
-          <h1>Data Collection</h1>
+          <h1>How we filled the data?</h1>
+        </div>
+        <div class="ui grid">
+          <br/><br/><br/>
+          <h3>Below is the data that we collected</h3>
           <table class="ui celled table">
               <thead>
                 <tr>
+                  <th style="width: 10%;">Section</th>
                   <th style="width: 20%;">Data Point</th>
                   <th>How did we fill it up?</th>
                   <th style="width: 30%;">Valid values</th>
@@ -42,21 +48,23 @@
               </thead>
               <tbody>
                <tr id="url">
+                  <td rowspan="3"><h4>Copy paste from article</h4></td>
                   <td>*URL of primary article</td>
-                  <td>Copy paste from article</td>
+                  <td>&nbsp;</td>
                   <td>&nbsp;</td>
                </tr>
                <tr id="headline">
                   <td>*Headline of primary article</td>
-                  <td>Copy paste from article</td>
+                  <td>&nbsp;</td>
                   <td>&nbsp;</td>
                </tr>
                <tr id="image">
                   <td>*Cover Image URL of primary article</td>
-                  <td>Copy paste from article</td>
+                  <td>&nbsp;</td>
                   <td>&nbsp;</td>
                </tr>
                <tr id="approximate_date_of_incident">
+                  <td rowspan="8"><h4>When and where did it occur?</h4></td>
                   <td>*Approximate date of incident</td>
                   <td>Interpret from article</td>
                   <td>&nbsp;</td>
@@ -121,186 +129,9 @@
                   <td>Find via Google Maps</td>
                   <td>&nbsp;</td>
                </tr>
-               <tr id="count_injured">
-                  <td>*Count of people injured</td>
-                  <td>Mentioned in article</td>
-                  <td>&nbsp;</td>
-               </tr>
-               <tr id="count_dead">
-                  <td>*Count of people dead</td>
-                  <td>Mentioned in article</td>
-                  <td>&nbsp;</td>
-               </tr>
-               <tr id="describe_the_event">
-                  <td>*Describe the incident in 1-2 lines.</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-               </tr>
-               <tr id="was_incident_planned">
-                  <td>*Was the incident planned?</td>
-                  <td>
-                      <ul>
-                          <li>"Planned" if it was clearly planned against a specific victim. Example - a village meeting that decides that someone needs to be lynched.</li>
-                          <li>"Neighbourhood watch" where local citizens were on the lookout for potential "wrong-doers" and the victim  was targeted incidentally. ( Cow vigilante groups, neighbourhood watch for thieves etc).</li>
-                          <li>"Spontaneous" if the incident was triggered with no prior planning and occurred as an immediate, spontaneous response to the victim's actions.</li>
-                          <li>"Not clear" if nothing is mentioned in the article.</li>
-                      </ul>
-                  </td>
-                  <td>
-                      <ul>
-                        <li>Planned</li>
-                        <li>Neighbourhood watch</li>
-                        <li>Spontaneous</li>
-                        <li>Not clear</li>
-                      </ul>
-                  </td>
-               </tr>
-               <tr id="victim_names">
-                  <td>Name of the victims</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-               </tr>
-               <tr id="victim_social_classification">
-                  <td>*Social classification of the victims</td>
-                  <td>Interpret from article</td>
-                  <td>
-                      <ul>
-                          <li>Hindu (caste not clear)</li>
-                          <li>Hindus majorly (plus some others)</li>
-                          <li>Muslim</li>
-                          <li>Muslim majorly (plus some others)</li>
-                          <li>Dalit</li>
-                          <li>Sikh</li>
-                          <li>Christian</li>
-                          <li>Law enforcement</li>
-                          <li>Tribal</li>
-                          <li>Not clear</li>
-                      </ul>
-                  </td>
-               </tr>
-               <tr id="victim_social_classification_notes">
-                  <td>*How did you decipher the social classification of the victims?</td>
-                  <td>&nbsp;</td>
-                  <td>
-                      <ul>
-                          <li>Mentioned in article</li>
-                          <li>Inferred from names</li>
-                          <li>Inferred from actions</li>
-                      </ul>
-                  </td>
-               </tr>
-               <tr id="victim_sex">
-                  <td>*What is the sex of the victim(s)?</td>
-                  <td>Interpret from article</td>
-                  <td>
-                      <ul>
-                          <li>Male</li>
-                          <li>Female</li>
-                          <li>Transgender</li>
-                          <li>Both sex</li>
-                          <li>Not clear</li>
-                      </ul>
-                  </td>
-               </tr>
-               <tr id="title">
-                  <td>*Title of the card</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-               </tr>
-               <tr id="accused_names">
-                  <td>Names of the accused</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-               </tr>
-               <tr id="accused_social_classification">
-                  <td>*Social classification of the accused</td>
-                  <td>Interpret from article</td>
-                  <td>
-                      <ul>
-                          <li>Hindu (caste not clear)</li>
-                          <li>Hindus majorly (plus some others)</li>
-                          <li>Muslim</li>
-                          <li>Muslim majorly (plus some others)</li>
-                          <li>Dalit</li>
-                          <li>Sikh</li>
-                          <li>Christian</li>
-                          <li>Law enforcement</li>
-                          <li>Tribal</li>
-                          <li>Not clear</li>
-                      </ul>
-                  </td>
-               </tr>
-               <tr id="accused_social_classification_notes">
-                  <td>*How did you decipher the social classification of the accused?</td>
-                  <td>&nbsp;</td>
-                  <td>
-                      <ul>
-                          <li>Mentioned in article</li>
-                          <li>Inferred from names</li>
-                          <li>Inferred from actions</li>
-                      </ul>
-                  </td>
-               </tr>
-               <tr id="accused_sex">
-                  <td>*What is the sex of the accused(s)?</td>
-                  <td>Interpret from article</td>
-                  <td>
-                      <ul>
-                          <li>Male</li>
-                          <li>Female</li>
-                          <li>Transgender</li>
-                          <li>Both sex</li>
-                          <li>Not clear</li>
-                      </ul>
-                  </td>
-               </tr>
-               <tr id="did_the_police_intervene">
-                  <td>*Did the police intervene?</td>
-                  <td>Interpret from article</td>
-                  <td>
-                      <ul>
-                          <li>Yes</li>
-                          <li>No</li>
-                      </ul>
-                  </td>
-               </tr>
-               <tr id="did_the_police_intervention_prevent_death">
-                  <td>*If yes, was the police intervention able to prevent a death?</td>
-                  <td>Interpret from article</td>
-                  <td>
-                      <ul>
-                          <li>Yes</li>
-                          <li>No</li>
-                          <li>Not clear</li>
-                      </ul>
-                  </td>
-               </tr>
-               <tr id="what_the_victim_did">
-                  <td>*Scribble in one or two words what the victim doing prior to the lynching</td>
-                  <td>Interpret from article</td>
-                  <td>&nbsp;</td>
-               </tr>
-               <tr id="what the mob was doing ">
-                  <td>*Scribble in one or two words what the accused doing</td>
-                  <td>Interpret from article</td>
-                  <td>&nbsp;</td>
-               </tr>
-               <tr id="classification">
-                  <td>*How are we classifying the incident?</td>
-                  <td>&nbsp;</td>
-                  <td>
-                      <ul>
-                          <li>Cow protection related</li>
-                          <li>Disputes and altercations</li>
-                          <li>Witchcraft related</li>
-                          <li>Murder / Death</li>
-                          <li>Sexual harassment</li>
-                          <li>Child lifting</li>
-                          <li>Others</li>
-                      </ul>
-                  </td>
-               </tr>
+
                <tr id="police_vehicles_per_km">
+                  <td rowspan="6"><h4>Law and Order Situation</h4></td>
                   <td>*Number of police vehicles per square kilometres in the state</td>
                   <td>Data compiled by Bureau of Police Research and Development as on Jan 2016.</td>
                   <td>
@@ -369,7 +200,192 @@
                       </ul>
                   </td>
                </tr>
+               <tr id="did_the_police_intervene">
+                  <td>*Did the police intervene?</td>
+                  <td>Interpret from article</td>
+                  <td>
+                      <ul>
+                          <li>Yes</li>
+                          <li>No</li>
+                      </ul>
+                  </td>
+               </tr>
+               <tr id="did_the_police_intervention_prevent_death">
+                  <td>*If yes, was the police intervention able to prevent a death?</td>
+                  <td>Interpret from article</td>
+                  <td>
+                      <ul>
+                          <li>Yes</li>
+                          <li>No</li>
+                          <li>Not clear</li>
+                      </ul>
+                  </td>
+               </tr>
+               <tr id="count_injured">
+                  <td rowspan="7"><h4>The incident</h4></td>
+                  <td>*Count of people injured</td>
+                  <td>Mentioned in article</td>
+                  <td>&nbsp;</td>
+               </tr>
+               <tr id="count_dead">
+                  <td>*Count of people dead</td>
+                  <td>Mentioned in article</td>
+                  <td>&nbsp;</td>
+               </tr>
+               <tr id="describe_the_event">
+                  <td>*Describe the incident in 1-2 lines.</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+               </tr>
+               <tr id="was_incident_planned">
+                  <td>*Was the incident planned?</td>
+                  <td>
+                      <ul>
+                          <li>"Planned" if it was clearly planned against a specific victim. Example - a village meeting that decides that someone needs to be lynched.</li>
+                          <li>"Neighbourhood watch" where local citizens were on the lookout for potential "wrong-doers" and the victim  was targeted incidentally. ( Cow vigilante groups, neighbourhood watch for thieves etc).</li>
+                          <li>"Spontaneous" if the incident was triggered with no prior planning and occurred as an immediate, spontaneous response to the victim's actions.</li>
+                          <li>"Not clear" if nothing is mentioned in the article.</li>
+                      </ul>
+                  </td>
+                  <td>
+                      <ul>
+                        <li>Planned</li>
+                        <li>Neighbourhood watch</li>
+                        <li>Spontaneous</li>
+                        <li>Not clear</li>
+                      </ul>
+                  </td>
+               </tr>
+               <tr id="classification">
+                  <td>*How are we classifying the incident?</td>
+                  <td>&nbsp;</td>
+                  <td>
+                      <ul>
+                          <li>Cow protection related</li>
+                          <li>Disputes and altercations</li>
+                          <li>Witchcraft related</li>
+                          <li>Murder / Death</li>
+                          <li>Sexual harassment</li>
+                          <li>Child lifting</li>
+                          <li>Others</li>
+                      </ul>
+                  </td>
+               </tr>
+               <tr id="what_the_victim_did">
+                  <td>*Scribble in one or two words what the victim doing prior to the lynching</td>
+                  <td>Interpret from article</td>
+                  <td>&nbsp;</td>
+               </tr>
+               <tr id="what the mob was doing ">
+                  <td>*Scribble in one or two words what the accused doing</td>
+                  <td>Interpret from article</td>
+                  <td>&nbsp;</td>
+               </tr>
+               <td rowspan="10"><h4>People involved</h4></td>
+
+               <tr id="victim_names">
+                  <td>Name of the victims</td>
+                  <td>Generally comma separated list of name followed by age in bracket. Example Ram (15), Shyam (16)</td>
+                  <td>&nbsp;</td>
+               </tr>
+               <tr id="victim_social_classification">
+                  <td>*Social classification of the victims</td>
+                  <td>Interpret from article</td>
+                  <td>
+                      <ul>
+                          <li>Hindu (caste not clear)</li>
+                          <li>Hindus majorly (plus some others)</li>
+                          <li>Muslim</li>
+                          <li>Muslim majorly (plus some others)</li>
+                          <li>Dalit</li>
+                          <li>Sikh</li>
+                          <li>Christian</li>
+                          <li>Law enforcement</li>
+                          <li>Tribal</li>
+                          <li>Not clear</li>
+                      </ul>
+                  </td>
+               </tr>
+               <tr id="victim_social_classification_notes">
+                  <td>*How did you decipher the social classification of the victims?</td>
+                  <td>&nbsp;</td>
+                  <td>
+                      <ul>
+                          <li>Mentioned in article</li>
+                          <li>Inferred from names</li>
+                          <li>Inferred from actions</li>
+                      </ul>
+                  </td>
+               </tr>
+               <tr id="victim_sex">
+                  <td>*What is the sex of the victim(s)?</td>
+                  <td>Interpret from article</td>
+                  <td>
+                      <ul>
+                          <li>Male</li>
+                          <li>Female</li>
+                          <li>Transgender</li>
+                          <li>Both sex</li>
+                          <li>Not clear</li>
+                      </ul>
+                  </td>
+               </tr>
+               <tr id="title">
+                  <td>*Title of the card</td>
+                  <td>Generally name of a victim. If there are more than one victim then follow it by “and others”. Example - Ram (15) and others</td>
+                  <td>&nbsp;</td>
+               </tr>
+               <tr id="accused_names">
+                  <td>Names of the accused</td>
+                  <td>Generally comma separated list of name followed by age in bracket. Example Ram (15), Shyam (16)</td>
+                  <td>&nbsp;</td>
+               </tr>
+               <tr id="accused_social_classification">
+                  <td>*Social classification of the accused</td>
+                  <td>Interpret from article</td>
+                  <td>
+                      <ul>
+                          <li>Hindu (caste not clear)</li>
+                          <li>Hindus majorly (plus some others)</li>
+                          <li>Muslim</li>
+                          <li>Muslim majorly (plus some others)</li>
+                          <li>Dalit</li>
+                          <li>Sikh</li>
+                          <li>Christian</li>
+                          <li>Law enforcement</li>
+                          <li>Tribal</li>
+                          <li>Not clear</li>
+                      </ul>
+                  </td>
+               </tr>
+               <tr id="accused_social_classification_notes">
+                  <td>*How did you decipher the social classification of the accused?</td>
+                  <td>&nbsp;</td>
+                  <td>
+                      <ul>
+                          <li>Mentioned in article</li>
+                          <li>Inferred from names</li>
+                          <li>Inferred from actions</li>
+                      </ul>
+                  </td>
+               </tr>
+               <tr id="accused_sex">
+                  <td>*What is the sex of the accused(s)?</td>
+                  <td>Interpret from article</td>
+                  <td>
+                      <ul>
+                          <li>Male</li>
+                          <li>Female</li>
+                          <li>Transgender</li>
+                          <li>Both sex</li>
+                          <li>Not clear</li>
+                      </ul>
+                  </td>
+               </tr>
+
+
                <tr id="is_gender_hate_crime">
+                  <td rowspan="9"><h4>Hate Crime Classification</h4></td>
                   <td>*Is this incident a gender based hate crime?</td>
                   <td>Cases of witchcraft (in case of women), "social deviance", where it is evident that the victim was attacked because of being a woman/ transgender. If they were attacked not for their sex, but the nature of attack was gendered, example, sexual harassment, rape threats. </td>
                   <td>
@@ -469,6 +485,7 @@
                   </td>
                 </tr>
                <tr id="notes_to_explain_nuances">
+                  <td rowspan="4"><h4>Addendum</h4></td>
                   <td>Are there any extra notes or caveats that you want readers to know about how you filled up this card?</td>
                   <td>&nbsp;</td>
                   <td>&nbsp;</td>
@@ -763,8 +780,8 @@
           <div class="footer-container">
               <div class="page-bottom-navigation">
                 <div class="navigation-link"><a href="index.html">Home</a></div>
-                <div class="navigation-link active-link"><a href="data.html">Data</a></div>
-                <div class="navigation-link"><a href="about.html">About</a></div>
+                <div class="navigation-link"><a href="data.html">Data</a></div>
+                <div class="navigation-link active-link"><a href="about.html">About</a></div>
               </div>
           </div>
         </div>
