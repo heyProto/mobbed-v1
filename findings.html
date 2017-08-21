@@ -5,56 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>#TheLynched: Mobs enacting violent justice on alleged criminals in India.</title>
   <link rel="stylesheet" type="text/css" href="lib/semantic.min.css">
-  <link rel="stylesheet" type="text/css" href="lib/pykcharts.1.1.0.min.css">
   <link rel="stylesheet" type="text/css" href="src/css/styles.css">
-  <style>
-    table.footer{display: hidden;}
-  </style>
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
-  <div class="ie-navbar"><img src="http://s0.wp.com/wp-content/themes/vip/indianexpress/images/theindianexpress-logo.svg"></div>
-  <div class="container" style="height: auto !important;">
-      <div class="page-navigation">
+<div class="proto-about-page">
+  <div class="social-share-icons">
+    <a href="http://www.facebook.com/sharer/sharer.php?u=https://the-lynched.pykih.com/index.html" target="_blank" class="share-btn facebook">
+        <i class="fa fa-facebook"></i>
+    </a>
+    <a href="http://twitter.com/share?url=https://the-lynched.pykih.com/index.html" target="_blank" class="share-btn twitter">
+      <i class="fa fa-twitter"></i>
+    </a>
+  </div>
+  <div class="ie-navbar"><img src="http://s0.wp.com/wp-content/themes/vip/indianexpress/images/theindianexpress-logo.svg">
+  </div>
+  <div class="container">
+    <div class="page-navigation">
+      <div class="navigation-link"><a href="index.html">Home</a></div>
+      <div class="navigation-link active-link"><a href="findings.html">Findings</a></div>
+      <div class="navigation-link"><a href="data.html">Data</a></div>
+      <div class="navigation-link"><a href="about.html">About</a></div>
+    </div>
+  </div>
+  <div class="ui grid cover-image-div">
+    <img class="cover-image" src="src/img/lynching-cover-desktop.png" >
+    <img class="cover-image-mobile" src="src/img/lynching-cover-mobile.png" width="100%" >
+    <p class="notes-div disclaimer-text">Disclaimer - This project aims to look at how such incidents could<br>possibly have been avoided and is an imperfect work in progress.</p>
+  </div>
+  <div class="ui grid">
+    <h1 class="centr">Findings</h1>
+    <br/>
+  </div>
+  <div class="ui grid">
+    <div class="ui horizontal segments">
+      <div class="ui tall stacked secondary inverted segment" style="width: 50%;">
+        <h5 class="centr">CONTEXT</h5>
+        <p>Binaries and divisions are a result of generations of oppression and cycles of violence. While there are no quick fixes, we are highlighting hate crimes so it helps us understand the larger narrative.</p>
+      </div>
+      <div class="ui tall stacked secondary inverted segment" style="width: 50%;">
+        <h5 class="centr">WHAT CAN BE DONE</h5>
+        <ul style="list-style: none; padding-left: 0px;">
+            <li><input type="checkbox"/>&nbsp;&nbsp; Address polarization</li>
+            <li><input type="checkbox"/>&nbsp;&nbsp; Address and strengthen the law, order and judicial infrastructure</li>
+            <li><input type="checkbox"/>&nbsp;&nbsp; Build social norms that value human life above all our divisions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ten-br-space"></div>
+  <div class="bottom-navigation protograph-toMobJustice-sticky" id="protograph_toMobJustice_footer_container">
+  <div class="footer-container">
+      <div class="page-bottom-navigation">
         <div class="navigation-link"><a href="index.html">Home</a></div>
         <div class="navigation-link active-link"><a href="findings.html">Findings</a></div>
         <div class="navigation-link"><a href="data.html">Data</a></div>
         <div class="navigation-link"><a href="about.html">About</a></div>
       </div>
-      <div class="page-title">
-        <h1>#TheLynched</h1>
-        <div class="page-subtitle">
-          Mobs enacting violent justice on alleged criminals in India.
-        </div>
-      </div>
-      <div class="ui divider" style=""></div>
-      <br/>
-      <br/>
   </div>
-  <div class="ui grid">
-    <div class="twelve wide column">
-        <p>Mobs lynch people for all sorts of reasons ranging from Witch Craft to Theft.  </p>
-        <div id="percentage-chart"></div>
-        <p>If we ignore cases in New Delhi, then ~87% of the lynchings take place in states with:</p>
-        <ul>
-            <li>Police to Population ratios that are lower than UN recommendation.</li>
-            <li>Bad or Below Average Judge to Population ratio.</li>
-        </ul>
-        <p>Lynchings have been constantly on the rise since 2012.</p>
-
-    </div>
   </div>
-
 </div>
-<script src = "lib/pykcharts.1.1.0.min.js"></script>
+<script src="lib/jquery.min.js"></script>
+<script src="lib/semantic.min.js"></script>
+<script src="lib/jquery.sticky.js"></script>
+<script src="src/js/fixedNavBar.js"></script>
+
 <script type="text/javascript">
-  window.PykChartsInit = function (e) {
-    var k = new PykCharts.oneD.percentageBar({
-      selector: "#percentage-chart",
-      data: "percentage-bar.csv",
-      clubdata_enable: "no"
-    });
-    k.execute();
-  }
+  $('.ui.sticky')
+  .sticky({
+    context: '#example1'
+  });
 </script>
 </body>
 </html>
