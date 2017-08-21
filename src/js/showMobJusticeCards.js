@@ -50,3 +50,17 @@ if (document.getElementsByClassName('latest-incidents')[0].style.display === '')
     }
   })
 }
+// Articles section
+getJSON('https://s3.ap-south-1.amazonaws.com/dev.cdn.protograph/toReportViolence/articles.json', function (err, data){
+    if (err != null) {
+      alert('Something went wrong: ' + err);
+    } else {
+      data.map((d,i) => {
+        let createDiv = document.createElement('div');
+        createDiv.id = 'ProtoCard-article'+i
+        createDiv.className= 'ProtoCard-article'
+        document.getElementById('display-stories').appendChild(createDiv)
+        new ProtoEmbed.initFrame(document.getElementById("ProtoCard-article"+i), data[i].iframe_url, 'laptop')
+      })
+    }
+})

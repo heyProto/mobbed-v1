@@ -840,6 +840,10 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   color: black !important;
   font-weight: 700;
 }
+.ProtoCard-article {
+  border-bottom: 1px solid lightgrey;
+  margin-bottom:10px;
+}
 /*=============================== END OF INDEX PAGE ========================*/
 /*===========================================================================*/
 
