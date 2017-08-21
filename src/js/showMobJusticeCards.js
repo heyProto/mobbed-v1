@@ -45,7 +45,7 @@ if (document.getElementsByClassName('latest-incidents')[0].style.display === '')
         let createDiv = document.createElement('div');
         createDiv.id = 'ProtoCard-'+i
         document.getElementById('display-cards').appendChild(createDiv)
-        new ProtoEmbed.initFrame(document.getElementById("ProtoCard-"+i), "https://dwln9tzsi7g07.cloudfront.net/1cc352b8dae0/index.html?view_cast_id="+filteredData[i].view_cast_id+"&schema_id="+filteredData[i].schema_id, 'mobile')
+        new ProtoEmbed.initFrame(document.getElementById("ProtoCard-"+i), filteredData[i].iframe_url, 'mobile', true)
       })
     }
   })

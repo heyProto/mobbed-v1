@@ -134,6 +134,7 @@ class App extends React.Component {
   }
 
   handleSelectDateRange(domain) {
+    // console.log(domain, "domain handleSelectDateRange")
     let min = this.state.parseMonth(domain.x[0]),
       max = this.state.parseMonth(domain.x[1])
     // console.log(min, max, "hey min and max")
@@ -520,8 +521,8 @@ class App extends React.Component {
     if(this.min === 'undefined' || this.max === 'undefined') {
       return true;
     }
-    let new_date = val.date.slice(0, 7)
-    // console.log(new_date, "new_date")
+    let date_ref = val.date,
+      new_date = date_ref.slice(0, 7);
     return new_date >= this.min && new_date <= this.max;
   }
 
@@ -975,7 +976,6 @@ class App extends React.Component {
                 </div>
               </div>
               <div className="display-text">Instances of lynching were reported 
-                {this.state.category === null ? <br/> : <div>under <span className="display-text-dropdown">{this.state.category}</span></div>}
                {start_date === '' || end_date === '' ? '' : `from ${start_date} to ${end_date}` } 
               </div>
               <TimeBrush dataJSON={this.state.filteredJSON} dimensionWidth={this.props.dimensionWidth} mode={this.props.mode} handleSelectDateRange={this.handleSelectDateRange}/>
