@@ -83,15 +83,15 @@ class HateCrime extends React.Component {
           lynching_planned = this.sortObject(Utils.groupBy(this.state.dataJSON, 'was_incident_planned')),
           criminalise_victims = this.sortObject(Utils.groupBy(this.state.dataJSON, 'does_the_state_criminalise_victims_actions')),
           area_classification = this.sortObject(Utils.groupBy(this.state.dataJSON, 'area_classification')),
-          is_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_hate_crime')),
-          is_gender_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_gender_hate_crime')),
-          is_caste_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_caste_hate_crime')),
-          is_race_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_race_hate_crime')),
-          is_religion_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_religion_hate_crime')),
-          is_political_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_political_affiliation_hate_crime')),
-          is_sexual_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_sexual_orientation_and_gender_identity_hate_crime')),
-          is_disability_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_disability_hate_crime')),
-          is_ethnicity_hate_crime: this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_ethnicity_hate_crime'));
+          is_hate_crime = this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_hate_crime')),
+          is_gender_hate_crime = this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_gender_hate_crime')),
+          is_caste_hate_crime = this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_caste_hate_crime')),
+          is_race_hate_crime = this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_race_hate_crime')),
+          is_religion_hate_crime = this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_religion_hate_crime')),
+          is_political_hate_crime = this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_political_affiliation_hate_crime')),
+          is_sexual_hate_crime = this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_sexual_orientation_and_gender_identity_hate_crime')),
+          is_disability_hate_crime = this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_disability_hate_crime')),
+          is_ethnicity_hate_crime = this.sortObject(Utils.groupBy(this.state.dataJSON, 'is_ethnicity_hate_crime'));
 
         this.setState({
           menu: menu,
@@ -661,16 +661,15 @@ class HateCrime extends React.Component {
       .filter(this.checkLynchingPlanned, state.lynching_planned_value)
       .filter(this.checkCriminaliseVictims, state.criminalise_victims_value)
       .filter(this.checkArea, state.area_classification_value)
-      .filter(this.checkIsHateCrime, )
-      .filter(this.checkIsHateCrime, )
-      .filter(this.checkIsHateCrime, )
-      .filter(this.checkIsHateCrime, )
-      .filter(this.checkIsHateCrime, )
-      .filter(this.checkIsHateCrime, )
-      .filter(this.checkIsHateCrime, )
-      .filter(this.checkIsHateCrime, )
-      .filter(this.checkIsHateCrime, )
-      .filter(this.checkIsHateCrime, )
+      .filter(this.checkIsHateCrime, state.is_hate_crime_value )
+      .filter(this.checkIsGenderCrime, state.is_gender_hate_crime_value)
+      .filter(this.checkIsCasteCrime, state.is_political_caste_crime_value)
+      .filter(this.checkIsRaceCrime, state.is_race_hate_crime_value)
+      .filter(this.checkIsReligionCrime, state.is_religion_hate_crime_value)
+      .filter(this.checkIsPoliticalCrime, state.is_political_hate_crime_value )
+      .filter(this.checkIsSexualCrime, state.is_sexual_hate_crime_value )
+      .filter(this.checkIsDisabilityCrime, state.is_disability_hate_crime_value)
+      .filter(this.checkIsEthnicityCrime, state.is_ethnicity_hate_crime_value)
       .filter(this.checkYear, state.year_value)
     return filteredData;
   }
@@ -861,8 +860,87 @@ class HateCrime extends React.Component {
         )
       })
 
-      // console.log(this.state.filteredJSON,this.state.filteredJSON.length, "-----------" )
+      let hateCrimeOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'is_hate_crime')).map((d, i) => {
+        return (
+          <tr className='hate_inactive_item' id={`hate-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnIsHateCrime(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
 
+      let genderCrimeOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'is_gender_hate_crime')).map((d, i) => {
+        return (
+          <tr className='gender_inactive_item' id={`gender-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnIsGenderCrime(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
+
+      let casteCrimeOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'is_caste_hate_crime')).map((d, i) => {
+        return (
+          <tr className='caste_inactive_item' id={`caste-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnIsCasteCrime(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
+
+      let raceCrimeOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'is_race_hate_crime')).map((d, i) => {
+        return (
+          <tr className='race_inactive_item' id={`race-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnIsRaceCrime(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
+
+      let religionCrimeOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'is_religion_hate_crime')).map((d, i) => {
+        return (
+          <tr className='religion_inactive_item' id={`religion-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnIsReligionCrime(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
+
+      let politicalCrimeOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'is_political_affiliation_hate_crime')).map((d, i) => {
+        return (
+          <tr className='political_inactive_item' id={`political-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnIsPoliticalCrime(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
+
+      let sexualCrimeOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'is_sexual_orientation_and_gender_identity_hate_crime')).map((d, i) => {
+        return (
+          <tr className='sexual_inactive_item' id={`sexual-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnIsSexualCrime(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
+
+      let disabilityCrimeOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'is_disability_hate_crime')).map((d, i) => {
+        return (
+          <tr className='disability_inactive_item' id={`disability-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnIsDisabilityCrime(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
+
+      let ethnicityCrimeOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'is_ethnicity_hate_crime')).map((d, i) => {
+        return (
+          <tr className='ethnicity_inactive_item' id={`ethnicity-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnIsEthnicityCrime(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
+      
       let number_of_incidents = this.state.filteredJSON.length,
         range = this.state.filteredJSON,
         number_of_digits = number_of_incidents.toString().length,
@@ -940,6 +1018,60 @@ class HateCrime extends React.Component {
                 <table><tbody>
                   <th className="table-head">Ruling party</th>
                  {partyOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Is it hate crime?</th>
+                 {hateCrimeOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Is it a gender hate crime?</th>
+                 {genderCrimeOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Is it a caste hate crime?</th>
+                 {casteCrimeOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Is it a race hate crime?</th>
+                 {raceCrimeOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Is it a religion hate crime?</th>
+                 {religionCrimeOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Is it a political affiliation hate crime?</th>
+                 {politicalCrimeOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Is it a sexual orientation and gender identity hate crime?</th>
+                 {sexualCrimeOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Is it a disability hate crime?</th>
+                 {disabilityCrimeOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Is it a ethnicity hate crime?</th>
+                 {ethnicityCrimeOptions}
                 </tbody></table>
               </div>
             </div>

@@ -27,7 +27,7 @@ class App extends React.Component {
       accused_religion: [],
       police_vehicles: [],
       police_intervene: [],
-      village_defense_force: [],
+      village_defence_force: [],
       police_to_population: [],
       judge_to_population: [],
       police_prevent_death:[],
@@ -42,7 +42,7 @@ class App extends React.Component {
       accused_religion_value: 'undefined',
       police_to_population_value: 'undefined',
       police_vehicles_value: 'undefined',
-      village_defense_force_value: 'undefined',
+      village_defence_force_value: 'undefined',
       judge_to_population_value: 'undefined',
       police_prevent_death_value: 'undefined',
       lynching_planned_value: 'undefined',
@@ -80,7 +80,7 @@ class App extends React.Component {
           criminalise_victims = this.sortObject(Utils.groupBy(this.state.dataJSON, 'does_the_state_criminalise_victims_actions')),
           area_classification = this.sortObject(Utils.groupBy(this.state.dataJSON, 'area_classification')),
           police_vehicles = this.sortObject(Utils.groupBy(this.state.dataJSON, 'police_vehicles_per_km')),
-          village_defense_force = this.sortObject(Utils.groupBy(this.state.dataJSON, 'does_state_have_village_defence_force')),
+          village_defence_force = this.sortObject(Utils.groupBy(this.state.dataJSON, 'does_state_have_village_defence_force')),
           police_intervene = this.sortObject(Utils.groupBy(this.state.dataJSON, 'did_the_police_intervene'));
 
         this.setState({
@@ -96,7 +96,7 @@ class App extends React.Component {
           criminalise_victims: criminalise_victims,
           area_classification: area_classification,
           police_vehicles:police_vehicles,
-          village_defense_force: village_defense_force,
+          village_defence_force: village_defence_force,
           police_intervene: police_intervene
         })
     }));
@@ -344,10 +344,10 @@ class App extends React.Component {
     this.setState((prevState, props) => {
       if (prevState.police_vehicles_value !== value || prevState.police_vehicles_value === 'undefined') {
         prevState.police_vehicles_value = value;
-        this.highlightItem(value, 'police_vehicles_inactive_item','police_vehicles_active_item', 'police_vehicles');
+        this.highlightItem(value, 'police_vehicles_inactive_item','police_vehicles_active_item', 'police-vehicles');
       } else {
         prevState.police_vehicles_value = 'undefined';
-        this.highlightItem(value, 'police_vehicles_inactive_item','police_vehicles_inactive_item', 'police_vehicles');
+        this.highlightItem(value, 'police_vehicles_inactive_item','police_vehicles_inactive_item', 'police-vehicles');
       }    
       let filteredData = this.getFilteredData(prevState)
       return {
@@ -359,17 +359,17 @@ class App extends React.Component {
 
   handleOnChangeVillageDefenseForce(e, value) {
     this.setState((prevState, props) => {
-      if (prevState.village_defense_force_value !== value || prevState.village_defense_force_value === 'undefined') {
-        prevState.village_defense_force_value = value;
-        this.highlightItem(value, 'defense_force_inactive_item','defense_force_active_item', 'defense_force');
+      if (prevState.village_defence_force_value !== value || prevState.village_defence_force_value === 'undefined') {
+        prevState.village_defence_force_value = value;
+        this.highlightItem(value, 'defence_force_inactive_item','defence_force_active_item', 'defence-force');
       } else {
-        prevState.village_defense_force_value = 'undefined';
-        this.highlightItem(value, 'defense_force_inactive_item','defense_force_inactive_item', 'defense_force');
+        prevState.village_defence_force_value = 'undefined';
+        this.highlightItem(value, 'defence_force_inactive_item','defence_force_inactive_item', 'defence-force');
       }    
       let filteredData = this.getFilteredData(prevState)
       return {
         filteredJSON: filteredData,
-        village_defense_force_value: prevState.village_defense_force_value
+        village_defence_force_value: prevState.village_defence_force_value
       }
     })
   }
@@ -378,10 +378,10 @@ class App extends React.Component {
     this.setState((prevState, props) => {
       if (prevState.police_intervene_value !== value || prevState.police_intervene_value === 'undefined') {
         prevState.police_intervene_value = value;
-        this.highlightItem(value, 'police_intervene_inactive_item','police_intervene_active_item', 'police_intervene');
+        this.highlightItem(value, 'police_intervene_inactive_item','police_intervene_active_item', 'police-intervene');
       } else {
         prevState.police_intervene_value = 'undefined';
-        this.highlightItem(value, 'police_intervene_inactive_item','police_intervene_inactive_item', 'police_intervene');
+        this.highlightItem(value, 'police_intervene_inactive_item','police_intervene_inactive_item', 'police-intervene');
       }    
       let filteredData = this.getFilteredData(prevState)
       return {
@@ -396,7 +396,6 @@ class App extends React.Component {
       filteredJSON: this.state.dataJSON,
       category: null
     })
-    $("#range-slider").data('ionRangeSlider').reset()
     if (this.state.menu_value !== 'undefined') {
       document.getElementById('menu-'+this.state.menu_value).className = 'menu_inactive_item';
     }
@@ -446,7 +445,7 @@ class App extends React.Component {
       criminalise_victims_value: 'undefined',
       area_classification_value: 'undefined',
       police_vehicles_value: 'undefined',
-      village_defense_force_value: 'undefined',
+      village_defence_force_value: 'undefined',
       police_intervene_value: 'undefined',
       year_value: {
         min: 'undefined',
@@ -561,14 +560,14 @@ class App extends React.Component {
     return val.area_classification === this;
   }
 
-  checkPoliceVehicles() {
+  checkPoliceVehicles(val, index, arr) {
     if(this === 'undefined') {
       return true;
     }
     return val.police_vehicles_per_km === this;
   }
 
-  checkVillageDefenseForce() {
+  checkVillageDefenseForce(val, index, arr) {
     if(this === 'undefined') {
       return true;
     }
@@ -589,7 +588,7 @@ class App extends React.Component {
       .filter(this.checkCriminaliseVictims, state.criminalise_victims_value)
       .filter(this.checkArea, state.area_classification_value)
       .filter(this.checkPoliceVehicles, state.police_vehicles_value)
-      .filter(this.checkVillageDefenseForce, state.village_defense_force_value)
+      .filter(this.checkVillageDefenseForce, state.village_defence_force_value)
       .filter(this.checkPoliceIntervene, state.police_intervene_value)
       .filter(this.checkYear, state.year_value)
     // console.log(filteredData, "filteredData")
@@ -829,7 +828,7 @@ class App extends React.Component {
 
       let defenseForceOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'does_state_have_village_defence_force')).map((d, i) => {
         return (
-          <tr className='defense_force_inactive_item' id={`defense-force-${d.key}`}>
+          <tr className='defence_force_inactive_item' id={`defence-force-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeVillageDefenseForce(e, d.key)}>{d.key}</td>
             <td>{d.value}</td>
           </tr>

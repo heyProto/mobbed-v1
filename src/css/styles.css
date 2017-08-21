@@ -850,7 +850,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   margin-right: auto;
 }
 
-.data-page .accused_active_item, .victim_active_item, .menu_active_item, .state_active_item, .police_active_item, .judge_active_item, .police_prevent_active_item, .lynching_active_item, .criminalise_active_item, .area_active_item {
+.data-page .accused_active_item, .victim_active_item, .menu_active_item, .state_active_item, .police_active_item, .judge_active_item, .police_prevent_active_item, .lynching_active_item, .criminalise_active_item, .area_active_item, .police_vehicles_active_item, .defence_force_active_item, .police_intervene_active_item {
   background: #F02E2E;
   color: white;
 }
@@ -868,7 +868,6 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 .data-page tr{
  border-top: 1px solid #efefef;
  font-size: 11px;
- color: grey;
 }
 
 .data-page .page-navigation{
