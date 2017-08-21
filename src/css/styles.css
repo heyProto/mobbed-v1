@@ -25,6 +25,9 @@
 
 .gray{color: gray;}
 
+.centr{
+    text-align: center;
+}
 .right{
   text-align: right;
 }
@@ -919,7 +922,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 .data-page tr:first-child:hover{
   background: transparent;
  }
- 
+
 .data-page tr th{
   padding: 3px 5px;
   padding-bottom: 5px;

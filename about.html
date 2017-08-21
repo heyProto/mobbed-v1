@@ -30,107 +30,124 @@
   <div class="ui grid cover-image-div">
     <img class="cover-image" src="src/img/lynching-cover-desktop.png" >
     <img class="cover-image-mobile" src="src/img/lynching-cover-mobile.png" width="100%" >
+    <p>Understanding mob justice in India beyond the binaries of gender, caste, class, religion, etc.</p>
   </div>
-  <div class="ui grid about-page">
-    <div class="ten wide column">
-      <h2>About the project</h2>
-      <br/>
-      <h3 class="ui header">What is #TheLynched?</h3>
-      <p>#TheLynched aims to build a public database of mob justice related incidents in India from 2011, so that one can <u class="green">draw indicative insights</u> from the data that throw more light onto the problem.</p>
-      <p>This project will operate as an imperfect work in progress and <u class="red">does not aim to build a precise database from which one can draw definitive facts</u>. We are working on this now because the national conversation around lynching has taken off, however the <a href="http://indianexpress.com/article/india/ncrb-plans-to-create-database-on-lynchings-indin-mob-killings-4742279" target="_blank"> National Crime Records Bureau (NCRB) does not collect data on lynchings</a>.</p>
-      <h4 class="right"><a href="">Download the data <i class='download icon'></i></a></h4>
-      <h3 class="ui header">How are we defining lynching?</h3>
-      <p>Human Rights Watch defines “mob justice” or “lynching” as the beating or killing of a suspected criminal by a crowd, generally consisting of civilians. <sup><a href="https://www.hrw.org/report/2010/03/26/mob-justice-burundi/" target="_blank">reference</a></sup></p>
-      <p>Building on this definition, this project is looking for incidents, where —</p>
-      <ul>
-          <li>Violence or harassment is done by many on few.</li>
-          <li>The accused should believe that the victim has committed a crime.</li>
-      </ul>
-      <h3 class="ui header">How did we collect the data?</h3>
-      <p>We used MIT Media Cloud to scour through IndianExpress.com from 2010 until 2017 for first reports of mob justice. This gave us a total of 100,000 plus results. Having cast a wide net, we then progressively narrowed down the result set to 250+ unique incidents. </p>
-      <h3 class="ui header">What is new in our approach?</h3>
-      <p>#TheLynched aims to go beyond "what happened" and hopes to discover correlations and indicative insights that can add to our collective understanding.</p>
+  <div class="ui grid">
+    <h1 class="centr">About the project</h1>
+    <br/>
+  </div>
+  <div class="ui grid" id="check">
 
-          <p>We are looking at mob justice at large and not just cow vigilantism related incidents.</p>
-          <p>Based on when and where the lynching took place, we are augmenting the data with:</p>
+    <div class="seven wide column qa-side-panel">
+      <div class="ui compact segments sticky explainers-sticky-segment">
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qwhat">
+          <p><a href="#what">What is #TheLynched?</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qnumerical-analysis">
+          <p><a href="#numerical-analysis">Was the data collected for an exact numerical analysis?</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qwhy">
+          <p><a href="#why">Why build a database?</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qincluded">
+          <p><a href="#included">Which incidents are included?</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qhate-crime">
+          <p><a href="#hate-crime">How are we qualifying and quantifying hate crimes?</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qexcluded">
+          <p><a href="#excluded">Which incidents have not been included?</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qdata-collection">
+          <p><a href="#data-collection">How did we collect the data?</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qdifference">
+          <p><a href="#difference">How is this data project different from what exists already?</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qlimitations">
+          <p><a href="#limitations">What are the limitations of our approach?</a></p>
+        </div>
+        <div class="ui compact segment question explainers-sticky-segment-question" id="qcontributors">
+          <p><a href="#contributors">Contributors</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="nine wide column" id="what">
+      <div class="answer" id="what">
+         <h3>What is #TheLynched?</h3>
+         <p>#TheLynched is a public database of mob-justice related incidents in India. We want to go beyond the existing binaries of religion, hate, politics of cow, etc. and hope to discover indicative insights that can add to our collective understanding of the culture of mob justice in India.</p>
+      </div>
+      <div class="answer" id="numerical-analysis">
+          <h3>Was the data collected for an exact numerical analysis?</h3>
+          <p>No.</p>
+          <p>It is not feasible to collect every single incident of lynching across the country. That’s job is best left for the National Crime Records Bureau. The goal is to collect a representative sample of the different type of lynchings across the country. From this sample, we are then trying to draw broad insights to help us better understand the issue.</p>
+          <p>We do not intend to give out definitive conclusions or build scorecards in adversarial situations, like the of political killings in Kerala or Hindus versus Muslims.</p>
+      </div>
+      <div class="answer" id="why">
+          <h3>Why build a database?</h3>
+          <p>We, in India, do a bad job of counting incidents of lynch mobs and street justice. The National Crimes Records Bureau, the agency responsible for collecting and analysing crime data in the country, does not record incidents of lynchings. Incident reported by the media is one way to keep track of lynchings in the country. #TheLynched is an attempt to record the stories of those killed and attacked by mobs in India.</p>
+      </div>
+      <div class="answer" id="included">
+          <h3>Which incidents are included?</h3>
+          <p>Spontaneous and relatively immediate acts of retribution, exerting  of private citizens (number of accused were three or more), without consulting the police or justice department, in the name of crime control, social control or out of vengeance.</p>
+          <p>We know that we cannot include every single incident hence we have tried to collect as broad a sample that is representative.</p>
+      </div>
+      <div class="answer" id="hate-crime">
+          <h3>How are we qualifying and quantifying hate crimes?</h3>
+          <p>We are defining hate crime as: offenses motivated by hatred against a victim based on her race, religion, sexual orientation, gender, caste,  ethnicity, or national origin. (<a href="https://www.ncjrs.gov/pdffiles1/bja/162304.pdf" target="_blank">A Policymaker’s Guide to Hate Crimes, Bureau of Justice Assistance</a>)</p>
+          <p>To quantify this, we are collecting data related each of the above mentioned reasons for hate crime. <a href="data-dictionary.html">Read more at data collection methodology</a>.</p>
+      </div>
+      <div class="answer" id="excluded">
+          <h3>Which incidents have not been included?</h3>
+          <p>We are not including riots, protests, cases related to naxalism, cases related to insurgency and stone pelting at police in protest.</p>
+      </div>
+      <div class="answer" id="data-collection">
+          <h3>How did we collect the data?</h3>
+          <p>We used MIT Media Cloud to scour through IndianExpress.com from 2010 until 2017 for first reports of mob justice. This gave us a total of 100,000 plus results. Having cast a wide net, we then progressively narrowed down the result set to 200+ unique incidents. Once we have discovered an incident, we try to search follow up articles that talk about this incident from IndianExpress and other major English news sites to build our understanding of the incident. <a href="data-dictionary.html">Read more at data collection methodology</a>.</p>
+      </div>
+      <div class="answer" id="difference">
+          <h3>How is this data project different from what exists already?</h3>
+          <p>Our goal is to go beyond “what happened” and try to understand systemic loopholes that could have prevented what happened.</p>
+          <p>Data projects by IndiaSpend and TheWire focused solely on cow vigilantism related incidents, a subset of all lynching. This project tries to collect a representative sample of the different type of lynchings across the country. </p>
+          <p>The Hindustan Times’ Hate Tracker focusses only on hate crimes. We have tried to classify incidents based on the type of hate crime i.e. gender, race, ethnicity, religion, caste, etc.</p>
+          <p>However, framing the problem of lynchings only from the perspective of hate crime is problematic because:</p>
           <ul>
-              <li>Police to Population Ratio in that state
-                <ul>
-                  <li class="gray">Source: Data compiled by Bureau of Police Research and Development as on Jan 2016. <sup><a href="reference-data.html">reference</a></sup></li>
-                </ul>
-               </li>
-              <li>Benchmarked the Police to Population Ratio against recommended ratio by United Nations.</li>
-              <li>Subordinate Court Judges (lower judiciary) to Population Ratio in that state.
-                  <ul>
-                  <li class="gray">Source: From Court News, publication of the Supreme Court, Vol XI Issue No. 1 Jan - Mar 2016. <sup><a href="reference-data.html" >reference</a></sup></li>
-                </ul>
-              </li>
-              <li>Literacy of the state</li>
-              <li>
-                Did the lynching take place in an urban or rural area?
-              </li>
-              <li>Which political party's Chief Minister was in power?</li>
+              <li>The victim of the hate crime can do nothing to change their gender, religion, caste, class, etc.</li>
+              <li>The state cannot regulate emotions such as hate and love. However, the state can intervene when hate translates to action (for example, verbal abuse or assault).</li>
           </ul>
-          <p>From the story, we are trying to infer:</p>
+          <p>Hence, we tried correlating incidents of lynchings against law and order related data points:</p>
           <ul>
-              <li>Did the local police intervene in time and prevent a possible death?</li>
-              <li>
-                Prima face, was the lynching planned? We followed the following approach:
-              </li>
-              <li>Religion of the victim and the accused.
-              </li>
-              <li>If the allegation on the victim were true, would it be a punishable offence in that state?
-              </li>
+              <li>Police to Population Ratio in that state</li>
+              <li>Benchmarked the Police to Population Ratio per state against recommended ratio by United Nations</li>
+              <li>Subordinate Court Judges (lower judiciary) to Population Ratio in that state</li>
+              <li>Whether the lynching take place in an urban or rural area</li>
+              <li>Which political party was in power when the incident was reported</li>
+              <li>Whether the police intervened</li>
+              <li>Whether the police intervention prevent a possible death</li>
+              <li>And whether prima face, the lynching planned</li>
           </ul>
 
-      <h3 class="ui header">Limitations of our approach</h3>
-      <p>In order to provide a resource that can help contribute to ongoing national conversations about lynchings, the project has made every effort to infer the following fields for every incident in the database. These will occasionally prove inaccurate. If you know of more accurate information, please contact us as soon possible.</p>
-      <ol>
-        <li class="limitations">We are analysing stories only from IndianExpress.com and hence might be missing incidents, specially from regional local media.
-        </li>
-        <li class="limitations">We are populating our database only from the first report of the incident. To maintain consistency of the database across all cases, we are not looking at follow up stories for any of these incidents. Information from first reports are not verified and finer details are not yet known.
-        </li>
-        <li class="limitations">There are 4 fields where we have taken an approximation.
-        </li>
-      </ol>
-      <blockquote>
+
+      </div>
+      <div class="answer" id="limitations">
+        <h3>What are the limitations of our approach?</h3>
+          <p>1. We are building our database based on stories that first reported an incident on the IndianExpress.com and few other English news sites. There are two limitations because of this:</p>
           <ul>
-          <li>
-            Did the lynching take place in an urban or rural area?
-            <ul>
-              <li class="gray">Approach: Filled up approximately after a quick Google search of the exact village or town name. Ideally, we should have used RBI's classification of the areas by population.</li>
-            </ul>
-          </li>
-          <li>
-            Was the lynching planned? We followed the following approach:
-            <ul>
-              <li class="gray">Mark it as "Planned" if it was clearly planned against a specific victim. Example - a village meeting that decides that someone needs to be lynched.</li>
-              <li class="gray">Mark it as "Neighbourhood watch" where local citizens were on the lookout for wrongdoers and prepared to punish him/her/them. Example - Sometimes police ask villagers to stay on watch themselves against child lifters.</li></li>
-              <li class="gray">Mark it as "Spontaneous" if the accused lynchers found the victims out of coincidence.</li>
-              <li class="gray">Mark it as "Don't know" if nothing is mentioned in the article.</li>
-            </ul>
-          </li>
-          <li>Religion of the victim and the accused.
-              <ul>
-              <li class="gray">Approach: We are taking the religion directly from the article if mentioned. If not mentioned, then we are deducing from name where it is possible to ascertain with some surety. In case of confusion or if victims are from multiple religions then we are leaving it blank.</li>
-            </ul>
-          </li>
-          <li>If the allegation on the victim were true, would it be a punishable offence in that state?
-              <ul>
-              <li class="gray">The objective of this field is not to justify any illegal act or lynching.</li>
-              <li class="gray">The definition of “lynching” is the beating or killing of a <u>suspected criminal</u>. This field is being collected to analyse if the mob is even accusing the victim of an illegality.</li>
-              <li class="gray">The legality or illegality of the victim's actions does not justify the lynching.</li>
-            </ul>
-          </li>
-        </ul>
-      </blockquote>
-      <h3 class="ui header">What should I do if I have more information on a mob justice incident that is not recorded, or find an error?</h3>
-      <p>We welcome all contributions of information that may improve the quality of our data. #TheLynched is a comprehensive and ongoing process of verification, as we continue to work from an inaccurate standard toward a more perfect standard. Please pass on your information as soon as possible to <a href="mailto:rparrikh@icfj.news" target="_top">rparrikh@icfj.news</a>.</p>
-      <h3 class="ui header">Credits</h3>
+              <li>We will have missed incidents, especially the ones reported in regional local media.</li>
+              <li>First reports are often police version of the event and not verified. Moreover, finer details often emerge in later stories.</li>
+          </ul>
+          <p>2. Some data points collected are not precise</p>
+          <ul>
+              <li>If not mentioned in the article, we are interpreting social classifications of victims and accused based on names and actions.</li>
+              <li>Whether the incident took place in a rural or urban area is based on a cursory Google Search. A better way of doing this would have been to rely on Census data.</li>
+              <li>We relied on cursory Google searches to discover if state government police sites have any mention of a state sanctioned Village Defence Forces.</li>
+              <li>Based on the first news report, we are trying to infer if the incident was planned or spontaneous. Like in the case of Aklaq, initial stories might not have captured this properly.</li>
+          </ul>
 
-
-
-      <div class="ui middle aligned divided list">
+      </div>
+      <div class="answer" id="contributors">
+        <h3>Contributors</h3>
+        <div class="ui middle aligned divided list">
         <div class="item">
           <div class="right floated content">
             Editor, Concept
@@ -231,8 +248,13 @@
           </div>
         </div>
       </div>
+
+
+      </div>
     </div>
   </div>
+
+
   <div class="ten-br-space"></div>
   <div class="bottom-navigation protograph-toMobJustice-sticky" id="protograph_toMobJustice_footer_container">
   <div class="footer-container">
@@ -245,6 +267,42 @@
   </div>
 </div>
 <script src="lib/jquery.min.js"></script>
+<script src="lib/semantic.min.js"></script>
+<script src="lib/jquery.sticky.js"></script>
 <script src="src/js/fixedNavBar.js"></script>
+
+<script type="text/javascript">
+  $('.ui.sticky').sticky();
+  $(window).scroll(function(event){
+    $('.qa-highlight-color').children('p').children('a').css({"color":"blue"});
+
+    $('.qa-highlight-color').removeClass('qa-highlight-color');
+
+    if($('.ui.sticky').hasClass('fixed')){
+      scrollspy = true;
+    }else{
+      scrollspy = false;
+    }
+    var cutoff = $(window).scrollTop();
+    $('.answer').removeClass('qa-highlight-color').each(function() {
+        if ($(this).offset().top - 25 > cutoff) {
+            $('#q'+$(this).attr('id')).addClass('qa-highlight-color');
+
+            return false; // stops the iteration after the first one on screen
+        }
+    });
+
+  });
+
+  $('.question').hover(function(){
+    $(this).addClass('qa-highlight-color');
+    $(this).children('p').children('a').css({"color":"black"});
+    $( $(this).children('p').children('a')[0].hash ).addClass('qa-highlight-color');
+  },function(){
+    $(this).removeClass('qa-highlight-color');
+    $(this).children('p').children('a').css({"color":"blue"});
+    $( $(this).children('p').children('a')[0].hash ).removeClass('qa-highlight-color');
+  })
+</script>
 </body>
 </html>
