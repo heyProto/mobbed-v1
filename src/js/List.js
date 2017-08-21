@@ -21,9 +21,9 @@ class ListCards extends React.Component {
       }
     }).modal('attach events', '.close').modal('show')
     if (this.props.mode === 'laptop') {
-      let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dwln9tzsi7g07.cloudfront.net/1cc352b8dae0/index.html?view_cast_id="+card.view_cast_id+"&schema_id="+card.schema_id, "laptop")
+      let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dnt71st2q6cqr.cloudfront.net/1cc352b8dae0/index.html?view_cast_id="+card.view_cast_id+"&schema_id="+card.schema_id, "laptop")
     } else {
-      let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dwln9tzsi7g07.cloudfront.net/1cc352b8dae0/index.html?view_cast_id="+card.view_cast_id+"&schema_id="+card.schema_id, "mobile")
+      let pro = new ProtoEmbed.initFrame('proto-embed-card', "https://dnt71st2q6cqr.cloudfront.net/1cc352b8dae0/index.html?view_cast_id="+card.view_cast_id+"&schema_id="+card.schema_id, "mobile")
     }    
   }
 

@@ -25,17 +25,23 @@ class App extends React.Component {
       state: [],
       victim_religion: [],
       accused_religion: [],
+      police_vehicles: [],
+      village_defense_force: [],
       police_to_population: [],
       judge_to_population: [],
       police_prevent_death:[],
+      party: [],
       lynching_planned: [],
       criminalise_victims: [], 
       area_classification: [], 
       menu_value: 'undefined',
+      party_value: 'undefined',
       state_value: 'undefined',
       victim_religion_value: 'undefined',
       accused_religion_value: 'undefined',
       police_to_population_value: 'undefined',
+      police_vehicles_value: 'undefined',
+      village_defense_force_value: 'undefined',
       judge_to_population_value: 'undefined',
       police_prevent_death_value: 'undefined',
       lynching_planned_value: 'undefined',
@@ -60,19 +66,23 @@ class App extends React.Component {
           filteredJSON: card.data,
           topoJSON: topo.data
         });
-        let menu = this.sortObject(Utils.groupBy(this.state.dataJSON, 'menu')),
+        let menu = this.sortObject(Utils.groupBy(this.state.dataJSON, 'classification')),
+          party = this.sortObject(Utils.groupBy(this.state.dataJSON, 'party_whose_chief_minister_is_in_power')),
           state = this.sortObject(Utils.groupBy(this.state.dataJSON, 'state')),
-          victim_religion = this.sortObject(Utils.groupBy(this.state.dataJSON, 'victim_religion')),
-          accused_religion = this.sortObject(Utils.groupBy(this.state.dataJSON, 'accused_religion')),
+          victim_religion = this.sortObject(Utils.groupBy(this.state.dataJSON, 'victim_social_classification')),
+          accused_religion = this.sortObject(Utils.groupBy(this.state.dataJSON, 'accused_social_classification')),
           police_to_population = this.sortObject(Utils.groupBy(this.state.dataJSON, 'police_to_population')),
           judge_to_population = this.sortObject(Utils.groupBy(this.state.dataJSON, 'judge_to_population')),
-          police_prevent_death = this.sortObject(Utils.groupBy(this.state.dataJSON, 'did_the_police_intervene_and_prevent_the_death?')),
-          lynching_planned = this.sortObject(Utils.groupBy(this.state.dataJSON, 'how_was_the_lynching_planned')),
+          police_prevent_death = this.sortObject(Utils.groupBy(this.state.dataJSON, 'did_the_police_intervention_prevent_death')),
+          lynching_planned = this.sortObject(Utils.groupBy(this.state.dataJSON, 'was_incident_planned')),
           criminalise_victims = this.sortObject(Utils.groupBy(this.state.dataJSON, 'does_the_state_criminalise_victims_actions')),
-          area_classification = this.sortObject(Utils.groupBy(this.state.dataJSON, 'area_classification'));
+          area_classification = this.sortObject(Utils.groupBy(this.state.dataJSON, 'area_classification')),
+          police_vehicles = this.sortObject(Utils.groupBy(this.state.dataJSON, 'police_vehicles_per_km')),
+          village_defense_force = this.sortObject(Utils.groupBy(this.state.dataJSON, 'does_state_have_village_defence_force'));
 
         this.setState({
           menu: menu,
+          party: party,
           state: state,
           victim_religion: victim_religion,
           accused_religion: accused_religion,
@@ -81,13 +91,12 @@ class App extends React.Component {
           police_prevent_death: police_prevent_death,
           lynching_planned: lynching_planned,
           criminalise_victims: criminalise_victims,
-          area_classification: area_classification
+          area_classification: area_classification,
+          police_vehicles:police_vehicles,
+          village_defense_force: village_defense_force
         })
     }));
     this.showCounter();
-    if (this.props.mode === 'mobile'){
-
-    }
   }
 
   sortObject(obj) {
@@ -142,7 +151,6 @@ class App extends React.Component {
 
   handleOnChangeMenu(e, value) {
     this.setState((prevState, props) => {
-      // console.log(prevState.menu_value, value, prevState.menu_value !== value, prevState.menu_value === 'undefined', "menu change" )
       if (prevState.menu_value !== value || prevState.menu_value === 'undefined' ) {
         prevState.menu_value = value;
         this.highlightItem(value, 'menu_inactive_item', 'menu_active_item', 'menu');
@@ -154,6 +162,23 @@ class App extends React.Component {
       return {
         filteredJSON: filteredData,
         menu_value: prevState.menu_value
+      }
+    })
+  }
+
+  handleOnChangeParty(e, value) {
+    this.setState((prevState, props) => {
+      if (prevState.party_value !== value || prevState.party_value === 'undefined' ) {
+        prevState.party_value = value;
+        this.highlightItem(value, 'party_inactive_item', 'party_active_item', 'party');
+      } else {
+        prevState.party_value = 'undefined';
+        this.highlightItem(value, 'party_inactive_item', 'party_inactive_item', 'party');
+      }
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        party_value: prevState.party_value
       }
     })
   }
@@ -311,6 +336,40 @@ class App extends React.Component {
     })
   }
 
+  handleOnChangePoliceVehicles(e, value) {
+    this.setState((prevState, props) => {
+      if (prevState.police_vehicles_value !== value || prevState.police_vehicles_value === 'undefined') {
+        prevState.police_vehicles_value = value;
+        this.highlightItem(value, 'police_vehicles_inactive_item','police_vehicles_active_item', 'police_vehicles');
+      } else {
+        prevState.police_vehicles_value = 'undefined';
+        this.highlightItem(value, 'police_vehicles_inactive_item','police_vehicles_inactive_item', 'police_vehicles');
+      }    
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        police_vehicles_value: prevState.police_vehicles_value
+      }
+    })
+  }
+
+  handleOnChangeVillageDefenseForce(e, value) {
+    this.setState((prevState, props) => {
+      if (prevState.village_defense_force_value !== value || prevState.village_defense_force_value === 'undefined') {
+        prevState.village_defense_force_value = value;
+        this.highlightItem(value, 'defense_force_inactive_item','defense_force_active_item', 'defense_force');
+      } else {
+        prevState.village_defense_force_value = 'undefined';
+        this.highlightItem(value, 'defense_force_inactive_item','defense_force_inactive_item', 'defense_force');
+      }    
+      let filteredData = this.getFilteredData(prevState)
+      return {
+        filteredJSON: filteredData,
+        village_defense_force_value: prevState.village_defense_force_value
+      }
+    })
+  }
+
   handleReset(e) {
     this.setState({
       filteredJSON: this.state.dataJSON,
@@ -319,6 +378,9 @@ class App extends React.Component {
     $("#range-slider").data('ionRangeSlider').reset()
     if (this.state.menu_value !== 'undefined') {
       document.getElementById('menu-'+this.state.menu_value).className = 'menu_inactive_item';
+    }
+    if (this.state.party_value !== 'undefined') {
+      document.getElementById('party-'+this.state.party_value).className = 'party_inactive_item';
     }
     if (this.state.state_value !== 'undefined'){
       document.getElementById('state-'+this.state.state_value).className = 'state_inactive_item';
@@ -349,6 +411,7 @@ class App extends React.Component {
     }
     this.setState({
       menu_value: 'undefined',
+      party_value: 'undefined',
       state_value: 'undefined',
       victim_religion_value: 'undefined',
       accused_religion_value: 'undefined',
@@ -358,6 +421,8 @@ class App extends React.Component {
       lynching_planned_value: 'undefined',
       criminalise_victims_value: 'undefined',
       area_classification_value: 'undefined',
+      police_vehicles_value: 'undefined',
+      village_defense_force_value: 'undefined',
       year_value: {
         min: 'undefined',
         max: 'undefined'
@@ -382,7 +447,14 @@ class App extends React.Component {
     if(this === 'undefined') {
       return true;
     }
-    return val.menu === this;
+    return val.classification === this;
+  }
+
+  checkParty(val, index, arr) {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.party_whose_chief_minister_is_in_power === this;
   }
 
   checkState(val, index, arr){
@@ -396,28 +468,28 @@ class App extends React.Component {
     if(this === 'undefined') {
       return true;
     }
-    return val.victim_religion === this;
+    return val.victim_social_classification === this;
   }
 
   checkAccusedReligion(val, index, arr) {
     if(this === 'undefined') {
       return true;
     }
-    return val.accused_religion === this;
+    return val.accused_social_classification === this;
   }
 
   checkPoliceRatio(val, index, arr) {
     if(this === 'undefined') {
       return true;
     }
-    return val.police_to_population === this;
+    return val.police_to_population_in_state === this;
   }
 
   checkJudgeRatio(val, index, arr) {
     if(this === 'undefined') {
       return true;
     }
-    return val.judge_to_population === this;
+    return val.judge_to_population_in_state === this;
   }
 
   checkYear (val, index, arr) {
@@ -433,14 +505,14 @@ class App extends React.Component {
     if(this === 'undefined') {
       return true;
     }
-    return val['did_the_police_intervene_and_prevent_the_death?'] === this;
+    return val['did_the_police_intervention_prevent_death'] === this;
   }
 
   checkLynchingPlanned(val, index, arr) {
     if(this === 'undefined') {
       return true;
     }
-    return val.how_was_the_lynching_planned === this;
+    return val.was_incident_planned === this;
   }
 
   checkCriminaliseVictims(val, index, arr) {
@@ -457,9 +529,24 @@ class App extends React.Component {
     return val.area_classification === this;
   }
 
+  checkPoliceVehicles() {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.police_vehicles_per_km === this;
+  }
+
+  checkVillageDefenseForce() {
+    if(this === 'undefined') {
+      return true;
+    }
+    return val.does_state_have_village_defence_force === this;
+  }
+
   getFilteredData(state) {
     let filteredData = this.state.dataJSON
       .filter(this.checkMenu, state.menu_value)
+      .filter(this.checkParty, state.party_value)
       .filter(this.checkState, state.state_value)
       .filter(this.checkVictimReligion, state.victim_religion_value)
       .filter(this.checkAccusedReligion, state.accused_religion_value)
@@ -469,6 +556,8 @@ class App extends React.Component {
       .filter(this.checkLynchingPlanned, state.lynching_planned_value)
       .filter(this.checkCriminaliseVictims, state.criminalise_victims_value)
       .filter(this.checkArea, state.area_classification_value)
+      .filter(this.checkPoliceVehicles, state.police_vehicles_value)
+      .filter(this.checkVillageDefenseForce, state.village_defense_force_value)
       .filter(this.checkYear, state.year_value)
     // console.log(filteredData, "filteredData")
     return filteredData;
@@ -476,7 +565,7 @@ class App extends React.Component {
 
   showFilters() {
     this.setState({
-      height: 600,
+      height: 700,
       overflow: 'auto',
       showTapArea: 'none',
       hideTapArea: 'block'
@@ -576,10 +665,19 @@ class App extends React.Component {
         </div>
       )
     } else {
-      let menuOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'menu')).map((d, i) => {
+      let menuOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'classification')).map((d, i) => {
         return (
           <tr className='menu_inactive_item' id={`menu-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeMenu(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
+
+      let partyOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'party_whose_chief_minister_is_in_power')).map((d, i) => {
+        return (
+          <tr className='party_inactive_item' id={`party-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeParty(e, d.key)}>{d.key}</td>
             <td>{d.value}</td>
           </tr>
         )
@@ -594,7 +692,7 @@ class App extends React.Component {
         )
       })
    
-      let victimReligionOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'victim_religion')).map((d, i) => {
+      let victimReligionOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'victim_social_classification')).map((d, i) => {
         let name;
         if (d.key === ''){
           name = 'Unknown'
@@ -609,7 +707,7 @@ class App extends React.Component {
         )
       })
 
-      let accusedReligionOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'accused_religion')).map((d, i) => {
+      let accusedReligionOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'accused_social_classification')).map((d, i) => {
         let name;
         if (d.key === ''){
           name = 'Unknown'
@@ -624,7 +722,7 @@ class App extends React.Component {
         )
       })
 
-      let policeRatioOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'police_to_population')).map((d, i) => {
+      let policeRatioOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'police_to_population_in_state')).map((d, i) => {
         return (
           <tr className='police_inactive_item' id={`police-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangePolice(e, d.key)}>{d.key}</td>
@@ -633,7 +731,7 @@ class App extends React.Component {
         )
       })
       
-      let judgeRatioOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'judge_to_population')).map((d, i) => {
+      let judgeRatioOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'judge_to_population_in_state')).map((d, i) => {
         return (
           <tr className='judge_inactive_item' id={`judge-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeJudge(e, d.key)}>{d.key}</td>
@@ -642,7 +740,7 @@ class App extends React.Component {
         )
       })
 
-      let policePreventOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'did_the_police_intervene_and_prevent_the_death?')).map((d, i) => {
+      let policePreventOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'did_the_police_intervention_prevent_death')).map((d, i) => {
         return (
           <tr className='police_prevent_inactive_item' id={`police-prevent-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangePolicePrevent(e, d.key)}>{d.key}</td>
@@ -651,7 +749,7 @@ class App extends React.Component {
         )
       })
       
-      let lynchingOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'how_was_the_lynching_planned')).map((d, i) => {
+      let lynchingOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'was_incident_planned')).map((d, i) => {
         return (
           <tr className='lynching_inactive_item' id={`lynching-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeLynchingPlanned(e, d.key)}>{d.key}</td>
@@ -673,6 +771,24 @@ class App extends React.Component {
         return (
           <tr className='area_inactive_item' id={`area-${d.key}`}>
             <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeArea(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
+
+      let policeVehiclesOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'police_vehicles_per_km')).map((d, i) => {
+        return (
+          <tr className='police_vehicles_inactive_item' id={`police-vehicles-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangePoliceVehicles(e, d.key)}>{d.key}</td>
+            <td>{d.value}</td>
+          </tr>
+        )
+      })
+
+      let defenseForceOptions = this.sortObject(Utils.groupBy(this.state.filteredJSON, 'does_state_have_village_defence_force')).map((d, i) => {
+        return (
+          <tr className='defense_force_inactive_item' id={`defense-force-${d.key}`}>
+            <td id={d.key} key={i} value={d.key} onClick={(e) => this.handleOnChangeVillageDefenseForce(e, d.key)}>{d.key}</td>
             <td>{d.value}</td>
           </tr>
         )
@@ -717,9 +833,9 @@ class App extends React.Component {
               <span className="arrow-down"></span><div id="tap-me">Tap here to explore data</div><span className="arrow-down"></span>
             </div>
             <div id="filter-region" className="ui grid" style={styles}>
-              <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
+              <div className="four wide column filter-title">
                 <table><tbody>
-                  <th className="table-head">Reason</th>
+                  <th className="table-head">Classification</th>
                   {menuOptions}
                 </tbody></table>
               </div>
@@ -733,12 +849,6 @@ class App extends React.Component {
                 <table><tbody>
                   <th className="table-head">Was the lynching planned?</th>
                   {lynchingOptions}
-                </tbody></table>
-              </div>
-              <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">If the allegation on the victim were true, would it be a punishable offence?</th>
-                  {criminaliseOptions}
                 </tbody></table>
               </div>
               <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
@@ -771,10 +881,28 @@ class App extends React.Component {
                   {victimReligionOptions}
                 </tbody></table>
               </div>
-              <div className="four wide column filter-title">
+              <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
                 <table><tbody>
                   <th className="table-head">Accused religion</th>
                   {accusedReligionOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
+                <table><tbody>
+                  <th className="table-head">Ruling party</th>
+                  {partyOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Police vehicles per sq. km</th>
+                  {policeVehiclesOptions}
+                </tbody></table>
+              </div>
+              <div className="four wide column filter-title">
+                <table><tbody>
+                  <th className="table-head">Does state have village defence force?</th>
+                  {defenseForceOptions}
                 </tbody></table>
               </div>
             </div>
@@ -830,3 +958,10 @@ class App extends React.Component {
 }
 
 export default App;
+
+  // <div className="four wide column filter-title">
+  //               <table><tbody>
+  //                 <th className="table-head">If the allegation on the victim were true, would it be a punishable offence?</th>
+  //                 {criminaliseOptions}
+  //               </tbody></table>
+  //             </div>
