@@ -136,7 +136,7 @@ class App extends React.Component {
   }
 
   handleSelectDateRange(domain) {
-    // console.log(domain, "domain handleSelectDateRange")
+    console.log(domain, "domain handleSelectDateRange")
     let min = this.state.parseMonth(domain.x[0]),
       max = this.state.parseMonth(domain.x[1])
     // console.log(min, max, "hey min and max")
@@ -982,7 +982,7 @@ class App extends React.Component {
                   <span className="animate-number">{number_of_incidents}</span>
                 </div>
               </div>
-              <div className="display-text">Instances of lynching were reported 
+              <div className="display-text">Instances of lynching were reported <br/>
                {start_date === '' || end_date === '' ? '' : `from ${start_date} to ${end_date}` } 
               </div>
               <TimeBrush dataJSON={this.state.filteredJSON} dimensionWidth={this.props.dimensionWidth} start_domain={this.state.start_domain} end_domain={this.state.end_domain} mode={this.props.mode} handleSelectDateRange={this.handleSelectDateRange}/>

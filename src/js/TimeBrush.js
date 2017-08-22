@@ -12,7 +12,8 @@ class TimeBrush extends React.Component {
   }
 
    componentWillMount() {
-    let parseDate = timeFormat("%b-%Y"),
+    // let parseDate = timeFormat("%b-%Y"),
+    let parseDate = timeFormat("%Y-%m"),
       width;
 
     let num_incidents = [];
@@ -60,6 +61,7 @@ class TimeBrush extends React.Component {
   }
 
   render() {
+    console.log(this.state.sorted_arr, "this.state.sorted_arr")
     let start_domain, end_domain;
     if (this.props.start_domain === 'undefined' && this.props.end_domain === 'undefined'){
       start_domain = this.state.sorted_arr[0].date_obj;
