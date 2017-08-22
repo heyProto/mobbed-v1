@@ -1208,7 +1208,6 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 }
 
 @media only screen and (max-width: 450px){
-
   .ui.grid>* {
     padding:0px;
   }
@@ -1385,8 +1384,16 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   }
 
   .page-navigation .navigation-link{
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+  }
+
+  .disclaimer-text{
+    text-align: center;
+  }
+
+  .disclaimer-text br{
+    display: none;
   }
 
   .filter-area .tap-area .tap-area-div{
@@ -1437,6 +1444,12 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
     padding:5px !important;
   }
 
+  .hate-crime-toggle{
+    text-align: center !important;
+    display: block !important;
+    margin-top: 0px;
+  }
+
   /*=== index-page ===*/
   .banner-div{
     background-image: url("../../src/img/banner-mobile.png");
@@ -1451,12 +1464,12 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
     font-weight: 300;
     letter-spacing: 15px;
     position: absolute;
-    top: 53px;
-    left: 73px;
+    top: 54px !important;
+    left: 67px !important;
   }
 
   .display-summary{
-    margin-top: 50px;
+    margin-top: 50px !important;
   }
 
   .counter-area{
