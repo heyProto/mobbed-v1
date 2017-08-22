@@ -70,6 +70,7 @@ class TimeBrush extends React.Component {
       start_domain = this.props.start_domain;
       end_domain = this.props.end_domain;
     }
+    console.log(start_domain,  end_domain, "domain")
     return (
       <VictoryChart 
         domainPadding={10}
@@ -79,7 +80,7 @@ class TimeBrush extends React.Component {
           <VictoryBrushContainer
             selectedDomain={{x:[start_domain, end_domain]}}
             dimension="x" 
-            responsive={false}
+            responsive={this.props.mode === 'mobile' ? true : false}
             handleStyle={{fill: "#bdb8b8", height: 27, y:25, width: 7}}
             onDomainChange={(domain) => this.props.handleSelectDateRange(domain)}/>
         }

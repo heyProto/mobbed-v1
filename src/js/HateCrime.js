@@ -1048,7 +1048,7 @@ class HateCrime extends React.Component {
               </div>
               <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
                 <table><tbody>
-                  <th className="table-head">Ruling party</th>
+                  <th className="table-head">Party whose Chief Minister is in power</th>
                  {partyOptions}
                 </tbody></table>
               </div>
