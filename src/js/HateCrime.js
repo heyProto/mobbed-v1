@@ -168,7 +168,6 @@ class HateCrime extends React.Component {
   }
 
   handleOnChangeMenu(e, value) {
-    console.log(value, "value")
     this.setState((prevState, props) => {
       if (prevState.menu_value !== value || prevState.menu_value === 'undefined' ) {
         prevState.menu_value = value;
