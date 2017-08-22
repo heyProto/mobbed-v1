@@ -438,7 +438,6 @@ class App extends React.Component {
     // console.log(this.state.dataJSON, "this.state.dataJSON")
     let end_domain = new Date (this.state.dataJSON[0].date),
       start_domain = new Date (this.state.dataJSON[this.state.dataJSON.length - 1].date)
-    console.log(start_domain, end_domain, "domans")
     this.setState({
       menu_value: 'undefined',
       party_value: 'undefined',
