@@ -61,7 +61,6 @@ class TimeBrush extends React.Component {
   }
 
   render() {
-    console.log(this.state.sorted_arr, "this.state.sorted_arr")
     let start_domain, end_domain;
     if (this.props.start_domain === 'undefined' && this.props.end_domain === 'undefined'){
       start_domain = this.state.sorted_arr[0].date_obj;
@@ -70,7 +69,6 @@ class TimeBrush extends React.Component {
       start_domain = this.props.start_domain;
       end_domain = this.props.end_domain;
     }
-    console.log(start_domain,  end_domain, "domain")
     return (
       <VictoryChart 
         domainPadding={10}

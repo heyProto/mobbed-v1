@@ -136,7 +136,6 @@ class App extends React.Component {
   }
 
   handleSelectDateRange(domain) {
-    console.log(domain, "domain handleSelectDateRange")
     let min = this.state.parseMonth(domain.x[0]),
       max = this.state.parseMonth(domain.x[1])
     // console.log(min, max, "hey min and max")
@@ -160,6 +159,7 @@ class App extends React.Component {
     this.setState((prevState, props) => {
       if (prevState.menu_value !== value || prevState.menu_value === 'undefined' ) {
         prevState.menu_value = value;
+        console.log(value, "menu")
         this.highlightItem(value, 'menu_inactive_item', 'menu_active_item', 'menu');
       } else {
         prevState.menu_value = 'undefined';
@@ -467,10 +467,12 @@ class App extends React.Component {
       inactiveClass = inactive,
       activeClass = active;
     let i = 0;
+    console.log(elm, inactiveClass, activeClass, "---------active-----")
     while (i < elm.length) {
       i++;
       elm[0].className = inactiveClass;
     }
+    console.log(document.getElementById(`${identifier}-${value}`), "id", activeClass)
     let selectItem = document.getElementById(`${identifier}-${value}`);
     selectItem.className = activeClass;
   }
