@@ -158,13 +158,11 @@
     }
     var cutoff = $(window).scrollTop();
     $('.answer').removeClass('qa-highlight-color').each(function() {
-        if ($(this).offset().top - 25 > cutoff) {
-            $('#q'+$(this).attr('id')).addClass('qa-highlight-color');
-
-            return false; // stops the iteration after the first one on screen
-        }
+      if ($(this).offset().top - 25 > cutoff) {
+        $('#q'+$(this).attr('id')).addClass('qa-highlight-color');
+        return false; // stops the iteration after the first one on screen
+      }
     });
-
   });
 
   $('.question').hover(function(){
