@@ -59,8 +59,9 @@ class HateCrime extends React.Component {
         min: 'undefined',
         max: 'undefined'
       },
-      parseMonth: timeFormat("%Y-%m"),
-
+      start_domain: 'undefined',
+      end_domain: 'undefined',
+      parseMonth: timeFormat("%Y-%m")
     }
     this.handleCircleClicked = this.handleCircleClicked.bind(this);
     this.handleSelectDateRange = this.handleSelectDateRange.bind(this);
@@ -512,6 +513,8 @@ class HateCrime extends React.Component {
     if (this.state.is_ethnicity_hate_crime_value !== 'undefined') {
       document.getElementById('ethnicity-'+this.state.is_ethnicity_hate_crime_value).className = 'ethnicity_inactive_item';
     }
+    let end_domain = new Date (this.state.dataJSON[0].date),
+      start_domain = new Date (this.state.dataJSON[this.state.dataJSON.length - 1].date)
     this.setState({
       menu_value: 'undefined',
       party_value: 'undefined',
@@ -533,7 +536,9 @@ class HateCrime extends React.Component {
       year_value: {
         min: 'undefined',
         max: 'undefined'
-      }
+      },
+      start_domain: start_domain,
+      end_domain: end_domain
     })
   }
 
@@ -1128,7 +1133,7 @@ class HateCrime extends React.Component {
                 {this.state.category === null ? <br/> : <div>under <span className="display-text-dropdown">{this.state.category}</span></div>}
                {start_date === '' || end_date === '' ? '' : `from ${start_date} to ${end_date}` } 
               </div>
-              <TimeBrush dataJSON={this.state.filteredJSON} dimensionWidth={this.props.dimensionWidth} mode={this.props.mode} handleSelectDateRange={this.handleSelectDateRange}/>
+              <TimeBrush dataJSON={this.state.filteredJSON} dimensionWidth={this.props.dimensionWidth} mode={this.props.mode} start_domain={this.state.start_domain} end_domain={this.state.end_domain} handleSelectDateRange={this.handleSelectDateRange}/>
             </div>
             <div className="ten wide column filter-title">
               <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>

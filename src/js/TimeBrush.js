@@ -61,6 +61,16 @@ class TimeBrush extends React.Component {
 
   render() {
     // console.log(this.state.sorted_arr, "this.state.sorted_arr")
+    console.log(this.state.sorted_arr, this.props.start_domain, "date object")
+    let start_domain, end_domain;
+    if (this.props.start_domain === 'undefined' && this.props.end_domain === 'undefined'){
+      start_domain = this.state.sorted_arr[0].date_obj;
+      end_domain = this.state.sorted_arr[this.state.sorted_arr.length -1].date_obj;
+      console.log(start_domain, end_domain, "--------")
+    } else {
+      start_domain = this.props.start_domain;
+      end_domain = this.props.end_domain;
+    }
     return (
       <VictoryChart 
         domainPadding={10}
@@ -68,6 +78,7 @@ class TimeBrush extends React.Component {
         scale={{x: "time"}}
         containerComponent={
           <VictoryBrushContainer
+            selectedDomain={{x:[start_domain, end_domain]}}
             dimension="x" 
             responsive={false}
             handleStyle={{fill: "#bdb8b8", height: 27, y:25, width: 7}}
