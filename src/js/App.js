@@ -463,17 +463,16 @@ class App extends React.Component {
   }
 
   highlightItem(value, inactive, active, identifier) {
-    let elm = document.getElementsByClassName(active),
+    let elm = document.getElementsByClassName(inactive),
       inactiveClass = inactive,
       activeClass = active;
     let i = 0;
-    console.log(elm, inactiveClass, activeClass, "---------active-----")
-    debugger;
+    // console.log(elm, inactiveClass, activeClass, "---------active-----")
     while (i < elm.length) {
       i++;
-      elm[0].className = inactiveClass;
+      elm[0].className = activeClass;
     }
-    console.log(document.getElementById(`${identifier}-${value}`), "id", activeClass)
+    // console.log(document.getElementById(`${identifier}-${value}`), "id", activeClass)
     let selectItem = document.getElementById(`${identifier}-${value}`);
     selectItem.className = activeClass;
   }

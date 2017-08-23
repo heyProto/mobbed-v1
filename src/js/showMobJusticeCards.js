@@ -54,24 +54,36 @@ if (document.getElementsByClassName('latest-incidents')[0].style.display === '')
             '</div>'+
           '</div>'
         document.getElementById('display-cards').innerHTML = mob_cards
-        console.log(document.getElementById('ProtoCard-'+ i), "document.getElementById('ProtoCard-'+ i)")
-        // let createDiv = document.createElement('div');
-        // createDiv.id = 'ProtoCard-'+i
-        // document.getElementById('display-cards').appendChild(createDiv)
-        // new ProtoEmbed.initFrame(document.getElementById("ProtoCard-"+i), filteredData[i].iframe_url, 'mobile', true)
       })
+      let dimension = getScreenSize(), mode;
+      if (dimension.width <= 400){
+        mode = 'mobile';
+      } else {
+        mode = 'laptop';
+      } 
       for (let i=0; i<7; i++) {
         let createDiv = document.createElement('div');
           createDiv.id = 'ProtoCard-'+i
         document.getElementById('ProtoCard-'+i).addEventListener('click', function (d) {
-          new ProtoEmbed.initFrame(document.getElementById("ProtoCard-"+i), filteredData[i].iframe_url, 'mobile', true)
+          $('.ui.modal').modal({
+            onHidden: function(e) {
+              let element = document.querySelector("#proto-embed-card iframe");
+              element.parentNode.removeChild(element);
+            },
+            onVisible: function () {
+              $("#proto-modal").addClass('scrolling')
+            }
+          }).modal('attach events', '.close').modal('show')
+          if (mode === 'laptop') {
+            let pro = new ProtoEmbed.initFrame(document.getElementById("proto-embed-card"), filteredData[i].iframe_url, 'laptop')
+          } else {
+            let pro = new ProtoEmbed.initFrame(document.getElementById("proto-embed-card"), filteredData[i].iframe_url, 'mobile', true)
+          } 
         })
       }
     }
   })
 }
-
-document.getElementById('')
 // Articles section
 getJSON('https://s3.ap-south-1.amazonaws.com/dev.cdn.protograph/toReportViolence/articles.json', function (err, data){
     if (err != null) {
@@ -86,3 +98,17 @@ getJSON('https://s3.ap-south-1.amazonaws.com/dev.cdn.protograph/toReportViolence
       })
     }
 })
+
+function getScreenSize() {
+  let w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    width = w.innerWidth || e.clientWidth || g.clientWidth,
+    height = w.innerHeight|| e.clientHeight|| g.clientHeight;
+
+  return {
+    width: width,
+    height: height
+  };
+}

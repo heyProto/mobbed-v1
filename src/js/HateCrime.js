@@ -542,13 +542,13 @@ class HateCrime extends React.Component {
   }
 
   highlightItem(value, inactive, active, identifier) {
-    let elm = document.getElementsByClassName(active),
+    let elm = document.getElementsByClassName(inactive),
       inactiveClass = inactive,
       activeClass = active;
     let i = 0;
     while (i < elm.length) {
       i++;
-      elm[0].className = inactiveClass;
+      elm[0].className = activeClass;
     }
     let selectItem = document.getElementById(`${identifier}-${value}`);
     selectItem.className = activeClass;
