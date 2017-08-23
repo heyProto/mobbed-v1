@@ -1022,7 +1022,19 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   padding: 3px 5px;
   padding-bottom: 5px;
   vertical-align: bottom;
- }
+}
+
+.data-page .filter-help-text{
+  padding: 5px;
+  font-size: 11px;
+  background: #fafafa;
+  color: black;
+  vertical-align: super;
+}
+
+.data-page .filter-help-text:hover {
+  background: #fafafa;
+}
 /*=== end of data-page css ===*/
 
 /*=== explainers-page ===*/

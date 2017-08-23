@@ -887,7 +887,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Classification</th></tr>
+                    <tr><th className="table-head">Classification<div className="ui icon button filter-help-text" data-tooltip="Add users to your feed" data-position="bottom center">
+                        <i className="circular help icon"></i>
+                    </div></th></tr>
                   </thead>
                   <tbody>{menuOptions}</tbody>
                 </table>
