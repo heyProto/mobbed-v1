@@ -958,7 +958,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 }
 
 .data-page .table-tbody{
-  height:190px; 
+  height:150px; 
   overflow-y:auto; 
   display:block;
 }

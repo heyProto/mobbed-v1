@@ -607,7 +607,7 @@ class App extends React.Component {
 
   showFilters() {
     this.setState({
-      height: 830,
+      height: 850,
       overflow: 'auto',
       showTapArea: 'none',
       hideTapArea: 'block'
@@ -895,22 +895,6 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Did the police intervene?</th></tr>
-                  </thead>
-                  <tbody>{policeInterveneOptions}</tbody>
-                </table>
-              </div>
-              <div className="four wide column filter-title">
-                <table>
-                  <thead className="table-thead">
-                    <tr><th className="table-head">Did the police intervention prevent death?</th></tr>
-                  </thead>
-                  <tbody>{policePreventOptions}</tbody>
-                </table>
-              </div>
-              <div className="four wide column filter-title">
-                <table>
-                  <thead className="table-thead">
                     <tr><th className="table-head">Was the incident planned?</th></tr>
                   </thead>
                   <tbody>{lynchingOptions}</tbody>                 
@@ -927,18 +911,18 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Area type</th></tr>
+                    <tr><th className="table-head">Party whose Chief Minister is in power</th></tr>
                   </thead>
-                  <tbody>{areaOptions}</tbody>
-               </table>
+                  <tbody className="table-tbody">{partyOptions}</tbody>
+                </table>
               </div>
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Police to population ratio</th></tr>
+                    <tr><th className="table-head">Area type</th></tr>
                   </thead>
-                  <tbody>{policeRatioOptions}</tbody>
-                </table>
+                  <tbody>{areaOptions}</tbody>
+               </table>
               </div>
               <div className="four wide column filter-title">
                 <table>
@@ -951,25 +935,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Victim social classification</th></tr>
+                    <tr><th className="table-head">Police to population ratio</th></tr>
                   </thead>
-                  <tbody>{victimReligionOptions}</tbody>                  
-                </table>
-              </div>
-              <div className="four wide column filter-title">
-                <table>
-                  <thead className="table-thead">
-                    <tr><th className="table-head">Accused social classification</th></tr>
-                  </thead>
-                  <tbody className="table-tbody">{accusedReligionOptions}</tbody>
-                </table>
-              </div>
-              <div className="four wide column filter-title">
-                <table>
-                  <thead className="table-thead">
-                    <tr><th className="table-head">Party whose Chief Minister is in power</th></tr>
-                  </thead>
-                  <tbody className="table-tbody">{partyOptions}</tbody>
+                  <tbody>{policeRatioOptions}</tbody>
                 </table>
               </div>
               <div className="four wide column filter-title">
@@ -983,9 +951,41 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
+                    <tr><th className="table-head">Did the police intervene?</th></tr>
+                  </thead>
+                  <tbody>{policeInterveneOptions}</tbody>
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Did the police intervention prevent death?</th></tr>
+                  </thead>
+                  <tbody>{policePreventOptions}</tbody>
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
                     <tr><th className="table-head">Does state have village defence force?</th></tr>
                   </thead>
                   <tbody>{defenseForceOptions}</tbody>                  
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Victim social classification</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{victimReligionOptions}</tbody>                  
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Accused social classification</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{accusedReligionOptions}</tbody>
                 </table>
               </div>
             </div>

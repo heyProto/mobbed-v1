@@ -1013,63 +1013,7 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Classification</th></tr>
-                  </thead>
-                  <tbody>{menuOptions}</tbody>
-                </table>
-              </div>
-              <div className="four wide column filter-title">
-                <table>
-                  <thead className="table-thead">
-                    <tr><th className="table-head">Was the incident planned?</th></tr>
-                  </thead>
-                  <tbody>{lynchingOptions}</tbody>                 
-                </table>
-              </div>
-              <div className="four wide column filter-title">
-                <table>
-                  <thead className="table-thead">
-                    <tr><th className="table-head">State</th></tr>
-                  </thead>
-                  <tbody className="table-tbody">{stateOptions}</tbody>
-                </table>
-              </div>
-              <div className="four wide column filter-title">
-                <table>
-                  <thead className="table-thead">
-                    <tr><th className="table-head">Area type</th></tr>
-                  </thead>
-                  <tbody>{areaOptions}</tbody>                  
-                </table>
-              </div>
-              <div className="four wide column filter-title">
-                <table>
-                  <thead className="table-thead">
-                    <tr><th className="table-head">Victim social classification</th></tr>
-                  </thead>
-                  <tbody>{victimReligionOptions}</tbody>                 
-                </table>
-              </div>
-              <div className="four wide column filter-title">
-                <table>
-                  <thead className="table-thead">
-                    <tr><th className="table-head">Accused social classification</th></tr>
-                  </thead>
-                  <tbody className="table-tbody">{accusedReligionOptions}</tbody>
-                </table>
-              </div>
-              <div className="four wide column filter-title">
-                <table>
-                  <thead className="table-thead">
-                    <tr><th className="table-head">Party whose Chief Minister is in power</th></tr>
-                  </thead>
-                  <tbody className="table-tbody">{partyOptions}</tbody>                
-                </table>
-              </div>
-              <div className="four wide column filter-title">
-                <table>
-                  <thead className="table-thead">
-                    <tr><th className="table-head">Is it hate crime?</th></tr>
+                    <tr><th className="table-head">Is it a hate crime?</th></tr>
                   </thead>
                   <tbody>{hateCrimeOptions}</tbody>               
                  </table>
@@ -1136,6 +1080,62 @@ class HateCrime extends React.Component {
                     <tr><th className="table-head">Is it a ethnicity hate crime?</th></tr>
                   </thead>
                   <tbody>{ethnicityCrimeOptions}</tbody>                 
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Classification</th></tr>
+                  </thead>
+                  <tbody>{menuOptions}</tbody>
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Was the incident planned?</th></tr>
+                  </thead>
+                  <tbody>{lynchingOptions}</tbody>                 
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">State</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{stateOptions}</tbody>
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Party whose Chief Minister is in power</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{partyOptions}</tbody>                
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Area type</th></tr>
+                  </thead>
+                  <tbody>{areaOptions}</tbody>                  
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Victim social classification</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{victimReligionOptions}</tbody>                 
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Accused social classification</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{accusedReligionOptions}</tbody>
                 </table>
               </div>
             </div>
