@@ -954,6 +954,14 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   text-align: center;
 }
 
+.answer.axios{
+  margin-bottom: 45px;
+}
+
+.answer.axios > h2{
+  text-align: left;
+}
+
 .explainers-page .explainers-sticky-segment{
   border: 0px !important;
 }
