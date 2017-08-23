@@ -226,7 +226,7 @@ class App extends React.Component {
 
   handleOnChangeAR(e, value) {
     this.setState((prevState, props) => {
-      if (prevState.victim_religion_value !== value || prevState.victim_religion_value === 'undefined' ) {
+      if (prevState.accused_religion_value !== value || prevState.accused_religion_value === 'undefined' ) {
         prevState.accused_religion_value = value;
         this.highlightItem(value, 'accused_inactive_item', 'accused_active_item', 'accused');
       } else {
@@ -602,6 +602,10 @@ class App extends React.Component {
       .filter(this.checkPoliceIntervene, state.police_intervene_value)
       .filter(this.checkYear, state.year_value)
     // console.log(filteredData, "filteredData")
+    this.setState({
+      start_domain: new Date(filteredData[0].date),
+      end_domain: new Date(filteredData[filteredData.length - 1].date)
+    })
     return filteredData;
   }
 
@@ -1142,10 +1146,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-  // <div className="four wide column filter-title">
-  //               <table><tbody>
-  //                 <th className="table-head">If the allegation on the victim were true, would it be a punishable offence?</th>
-  //                 {criminaliseOptions}
-  //               </tbody></table>
-  //             </div>

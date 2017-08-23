@@ -237,7 +237,7 @@ class HateCrime extends React.Component {
 
   handleOnChangeAR(e, value) {
     this.setState((prevState, props) => {
-      if (prevState.victim_religion_value !== value || prevState.victim_religion_value === 'undefined' ) {
+      if (prevState.accused_religion_value !== value || prevState.accused_religion_value === 'undefined' ) {
         prevState.accused_religion_value = value;
         this.highlightItem(value, 'accused_inactive_item', 'accused_active_item', 'accused');
       } else {
