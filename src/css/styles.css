@@ -1015,7 +1015,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 .data-page thead tr:first-child:hover{
   background: transparent;
-  pointer-events: none;
+  /*pointer-events: none;*/
  }
 
 .data-page tr th{
@@ -1025,11 +1025,9 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 }
 
 .data-page .filter-help-text{
-  padding: 5px;
-  font-size: 11px;
-  background: #fafafa;
-  color: black;
-  vertical-align: super;
+  color: #b5b5b5;
+  display: inline-block;
+  margin-left: 5px;
 }
 
 .data-page .filter-help-text:hover {

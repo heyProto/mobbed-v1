@@ -1000,8 +1000,89 @@ class HateCrime extends React.Component {
       second_tap_area_style = {
         display: this.state.hideTapArea
       }
+      $('#hate-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
 
-      $('.ui.dropdown').dropdown()
+      $('#gender-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#caste-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#race-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#religion-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#political-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#sexual-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#disability-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#ethnicity-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#menu-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#planned-incident-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#state-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#party-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#area-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
 
       return (
         <div className="banner-area">
@@ -1013,7 +1094,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Is it a hate crime?</th></tr>
+                    <tr><th className="table-head">Is it a hate crime?
+                      <div id="hate-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{hateCrimeOptions}</tbody>               
                  </table>
@@ -1021,7 +1104,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Is it a gender hate crime?</th></tr>
+                    <tr><th className="table-head">Is it a gender hate crime?
+                      <div id="gender-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{genderCrimeOptions}</tbody>                
                 </table>
@@ -1029,7 +1114,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Is it a caste hate crime?</th></tr>
+                    <tr><th className="table-head">Is it a caste hate crime?
+                      <div id="caste-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{casteCrimeOptions}</tbody>                
                 </table>
@@ -1037,7 +1124,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Is it a race hate crime?</th></tr>
+                    <tr><th className="table-head">Is it a race hate crime?
+                      <div id="race-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{raceCrimeOptions}</tbody>               
                  </table>
@@ -1045,7 +1134,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Is it a religion hate crime?</th></tr>
+                    <tr><th className="table-head">Is it a religion hate crime?
+                      <div id="religion-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{religionCrimeOptions}</tbody>                
                 </table>
@@ -1053,7 +1144,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Is it a political affiliation hate crime?</th></tr>
+                    <tr><th className="table-head">Is it a political affiliation hate crime?
+                      <div id="political-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{politicalCrimeOptions}</tbody>                
                 </table>
@@ -1061,7 +1154,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Is it a sexual orientation and gender identity hate crime?</th></tr>
+                    <tr><th className="table-head">Is it a sexual orientation and gender identity hate crime?
+                      <div id="sexual-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{sexualCrimeOptions}</tbody>                 
                 </table>
@@ -1069,7 +1164,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Is it a disability hate crime?</th></tr>
+                    <tr><th className="table-head">Is it a disability hate crime?
+                      <div id="disability-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{disabilityCrimeOptions}</tbody>                 
                 </table>
@@ -1077,7 +1174,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Is it a ethnicity hate crime?</th></tr>
+                    <tr><th className="table-head">Is it a ethnicity hate crime?
+                      <div id="ethnicity-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{ethnicityCrimeOptions}</tbody>                 
                 </table>
@@ -1085,7 +1184,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Classification</th></tr>
+                    <tr><th className="table-head">Classification
+                      <div id="menu-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{menuOptions}</tbody>
                 </table>
@@ -1093,7 +1194,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Was the incident planned?</th></tr>
+                    <tr><th className="table-head">Was the incident planned?
+                      <div id="planned-incident-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{lynchingOptions}</tbody>                 
                 </table>
@@ -1101,7 +1204,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">State</th></tr>
+                    <tr><th className="table-head">State
+                      <div id="state-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody className="table-tbody">{stateOptions}</tbody>
                 </table>
@@ -1109,7 +1214,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Party whose Chief Minister is in power</th></tr>
+                    <tr><th className="table-head">Party whose Chief Minister is in power
+                      <div id="party-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody className="table-tbody">{partyOptions}</tbody>                
                 </table>
@@ -1117,7 +1224,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Area type</th></tr>
+                    <tr><th className="table-head">Area type
+                      <div id="area-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{areaOptions}</tbody>                  
                 </table>
@@ -1125,7 +1234,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Victim social classification</th></tr>
+                    <tr><th className="table-head">Victim social classification
+                      <div id="victim-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody className="table-tbody">{victimReligionOptions}</tbody>                 
                 </table>
@@ -1133,7 +1244,9 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Accused social classification</th></tr>
+                    <tr><th className="table-head">Accused social classification
+                      <div id="accused-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody className="table-tbody">{accusedReligionOptions}</tbody>
                 </table>

@@ -875,7 +875,83 @@ class App extends React.Component {
         display: this.state.hideTapArea
       }
 
-      $('.ui.dropdown').dropdown()
+      $('#menu-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#planned-incident-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#state-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#party-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#area-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#judge-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#police-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#police-vehicles-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#police-intervene-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#police-prevent-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#defence-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#victim-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
+
+      $('#accused-help').popup({
+        position : 'bottom center',
+        title    : 'My favorite dog',
+        content  : 'My favorite dog would like other dogs as much as themselves'
+      })
 
       return (
         <div className="banner-area">
@@ -887,9 +963,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Classification<div className="ui icon button filter-help-text" data-tooltip="Add users to your feed" data-position="bottom center">
-                        <i className="circular help icon"></i>
-                    </div></th></tr>
+                    <tr><th className="table-head">Classification
+                      <div id="menu-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{menuOptions}</tbody>
                 </table>
@@ -897,7 +973,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Was the incident planned?</th></tr>
+                    <tr><th className="table-head">Was the incident planned?
+                      <div id="planned-incident-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{lynchingOptions}</tbody>                 
                 </table>
@@ -905,7 +983,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">State</th></tr>
+                    <tr><th className="table-head">State
+                      <div id="state-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody className="table-tbody">{stateOptions}</tbody>
                 </table>
@@ -913,7 +993,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Party whose Chief Minister is in power</th></tr>
+                    <tr><th className="table-head">Party whose Chief Minister is in power
+                      <div id="party-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody className="table-tbody">{partyOptions}</tbody>
                 </table>
@@ -921,7 +1003,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Area type</th></tr>
+                    <tr><th className="table-head">Area type
+                      <div id="area-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{areaOptions}</tbody>
                </table>
@@ -929,7 +1013,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Judge to population ratio</th></tr>
+                    <tr><th className="table-head">Judge to population ratio
+                      <div id="judge-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{judgeRatioOptions}</tbody>                  
                 </table>
@@ -937,7 +1023,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Police to population ratio</th></tr>
+                    <tr><th className="table-head">Police to population ratio
+                      <div id="police-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{policeRatioOptions}</tbody>
                 </table>
@@ -945,7 +1033,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Police vehicles per sq. km</th></tr>
+                    <tr><th className="table-head">Police vehicles per sq. km
+                      <div id="police-vehicles-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody className="table-tbody">{policeVehiclesOptions}</tbody>                
                 </table>
@@ -953,7 +1043,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Did the police intervene?</th></tr>
+                    <tr><th className="table-head">Did the police intervene?
+                      <div id="police-intervene-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{policeInterveneOptions}</tbody>
                 </table>
@@ -961,7 +1053,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Did the police intervention prevent death?</th></tr>
+                    <tr><th className="table-head">Did the police intervention prevent death?
+                      <div id="police-prevent-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{policePreventOptions}</tbody>
                 </table>
@@ -969,7 +1063,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Does state have village defence force?</th></tr>
+                    <tr><th className="table-head">Does state have village defence force?
+                      <div id="defence-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody>{defenseForceOptions}</tbody>                  
                 </table>
@@ -977,7 +1073,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Victim social classification</th></tr>
+                    <tr><th className="table-head">Victim social classification
+                      <div id="victim-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody className="table-tbody">{victimReligionOptions}</tbody>                  
                 </table>
@@ -985,7 +1083,9 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Accused social classification</th></tr>
+                    <tr><th className="table-head">Accused social classification
+                      <div id="accused-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    </th></tr>
                   </thead>
                   <tbody className="table-tbody">{accusedReligionOptions}</tbody>
                 </table>
