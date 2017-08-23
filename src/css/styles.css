@@ -10,6 +10,12 @@
   margin-bottom: 9px;
 }
 
+.subheader{
+  font-weight: 200;
+  font-style: oblique;
+  margin-bottom: 70px;
+}
+
 .notes-div{
   margin-top: 20px;
   margin-bottom: 20px;
@@ -21,6 +27,7 @@
   font-size: 10px;
   color: grey;
   font-weight: 100;
+  margin-left: 400px;
 }
 
 .green{

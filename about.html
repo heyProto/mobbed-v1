@@ -31,7 +31,7 @@
   <div class="ui grid cover-image-div">
     <img class="cover-image" src="src/img/lynching-cover-desktop.png" >
     <img class="cover-image-mobile" src="src/img/lynching-cover-mobile.png" width="100%" >
-    <p class="notes-div disclaimer-text">Disclaimer - This project aims to look at how such incidents could<br>possibly have been avoided and is an imperfect work in progress.</p>
+    <p class="notes-div disclaimer-text">Disclaimer - This project aims to understand what causes and facilitates mob violence in India with the hope that we can move a step closer to preventing such incidents. This, however, is an imperfect work in progress.</p>
   </div>
   <div class="ui grid">
     <h1 class="centr">About the project</h1>
@@ -81,8 +81,16 @@
       <div class="answer" id="numerical-analysis">
           <h3>Was the data collected for an exact numerical analysis?</h3>
           <p>No.</p>
-          <p>It is not feasible to collect every single incident of lynching across the country. That’s job is best left for the National Crime Records Bureau. The goal is to collect a representative sample of the different type of lynchings across the country. From this sample, we are then trying to draw broad insights to help us better understand the issue.</p>
-          <p>We do not intend to give out definitive conclusions or build scorecards in adversarial situations, like the of political killings in Kerala or Hindus versus Muslims.</p>
+          <p>Our endeavour is to collect a representative sample of different kinds of mob led violent incidents in the country - vigilante justice, lynchings, spontaneous disputes and altercations, and hate crimes. </p>
+          <p>It is not possible to collect data about every single incident of mob led violence across the country. We think that job would be best left to the National Crime Records Bureau. Further, since this is secondary data built on reports, it was not always possible to establish certain facts with full authority. </p>
+          <p><u>We do not intend to make definite claims or scorecards</u> but draw indicative insights that can take us forward in our understanding of this indefensible and unjustified social phenomenon. Hence, we are using the following quantitative grading in our discussion of the findings: </p>
+          <ul>
+            <li>“Few”  ( When given value formed 0-20 percent of the cases on a variable)</li>
+            <li>“Some” ( When given value formed 21-40 percent of the cases on a variable)</li>
+            <li>“Roughly half”  ( When given value formed 41-60 percent of the cases on a variable)</li>
+            <li>“Many”  ( When given value formed 61-80 percent of the cases on a variable)</li>
+            <li>“Most” ( When given value formed 81-100 percent of the cases on a variable)</li>
+          </ul>
       </div>
       <div class="answer" id="why">
           <h3>Why build a database?</h3>
@@ -108,27 +116,19 @@
       </div>
       <div class="answer" id="difference">
           <h3>How is this data project different from what exists already?</h3>
-          <p>Our goal is to go beyond “what happened” and try to understand systemic loopholes that could have prevented what happened.</p>
-          <p>Data projects by IndiaSpend and TheWire focused solely on cow vigilantism related incidents, a subset of all lynching. This project tries to collect a representative sample of the different type of lynchings across the country. </p>
-          <p>The Hindustan Times’ Hate Tracker focusses only on hate crimes. We have tried to classify incidents based on the type of hate crime i.e. gender, race, ethnicity, religion, caste, etc.</p>
-          <p>However, framing the problem of lynchings only from the perspective of hate crime is problematic because:</p>
+          <p>Public data projects on the issue have so far restricted themselves to cow vigilantism (<a href="http://www.aljazeera.com/indepth/opinion/2017/07/india-epidemic-mob-lynching-170706113733914.html" target="_blank">here</a>, <a href="https://thewire.in/153091/storymap-lynchings-india-cow-slaughter-beef-ban-gau-rakshak/" target="_blank">here</a>, <a href="http://www.indiaspend.com/cover-story/86-dead-in-cow-related-violence-since-2010-are-muslim-97-attacks-after-2014-2014" target="_blank">here</a>) or <a href="http://www.hindustantimes.com/hate-tracker" target="_blank">hate crime</a>. Our goal is to be more comprehensive, and we have gone beyond “what happened” to
+          situate the incidents in their social, political and legal context.</p>
+          <p>The variables that we are studying include:</p>
           <ul>
-              <li>The victim of the hate crime can do nothing to change their gender, religion, caste, class, etc.</li>
-              <li>The state cannot regulate emotions such as hate and love. However, the state can intervene when hate translates to action (for example, verbal abuse or assault).</li>
+              <li>Police to population ratio in that state, benchmarked the police to population ratio per state against recommended ratio by United Nations.</li>
+              <li>Subordinate court judges (lower judiciary) to population ratio in that state.</li>
+              <li>Whether the lynching took place in an urban or a rural area.</li>
+              <li>The political party to which the ruling chief minister of the state belonged when the incident was reported.</li>
+              <li>Whether the police intervened.</li>
+              <li>Whether the police intervention was able to prevent a possible death.</li>
+              <li>Whether prima facie, the lynching seemed planned.</li>
+              <li>And whether the incident was a hate crime (gender/caste/religion/ethnicity/race/disability/sexual orientation and gender identity/political affiliation).</li>
           </ul>
-          <p>Hence, we tried correlating incidents of lynchings against law and order related data points:</p>
-          <ul>
-              <li>Police to Population Ratio in that state</li>
-              <li>Benchmarked the Police to Population Ratio per state against recommended ratio by United Nations</li>
-              <li>Subordinate Court Judges (lower judiciary) to Population Ratio in that state</li>
-              <li>Whether the lynching take place in an urban or rural area</li>
-              <li>Which political party was in power when the incident was reported</li>
-              <li>Whether the police intervened</li>
-              <li>Whether the police intervention prevent a possible death</li>
-              <li>And whether prima face, the lynching planned</li>
-          </ul>
-
-
       </div>
       <div class="answer" id="limitations">
         <h3>What are the limitations of our approach?</h3>
@@ -144,7 +144,6 @@
               <li>We relied on cursory Google searches to discover if state government police sites have any mention of a state sanctioned Village Defence Forces.</li>
               <li>Based on the first news report, we are trying to infer if the incident was planned or spontaneous. Like in the case of Aklaq, initial stories might not have captured this properly.</li>
           </ul>
-
       </div>
       <div class="answer" id="contributors">
         <h3>Contributors</h3>
