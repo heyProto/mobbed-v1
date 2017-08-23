@@ -468,6 +468,7 @@ class App extends React.Component {
       activeClass = active;
     let i = 0;
     console.log(elm, inactiveClass, activeClass, "---------active-----")
+    debugger;
     while (i < elm.length) {
       i++;
       elm[0].className = inactiveClass;

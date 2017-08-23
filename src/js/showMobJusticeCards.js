@@ -40,16 +40,38 @@ if (document.getElementsByClassName('latest-incidents')[0].style.display === '')
       document.getElementById('animate-number').innerHTML = data.length;
       document.getElementById('start-date').innerHTML = start_date;
       document.getElementById('end-date').innerHTML = end_date;
-      let filteredData = data.slice(0,7)
+      let filteredData = data.slice(0,7),
+        mob_cards = '';
       filteredData.map((d,i) => {
-        let createDiv = document.createElement('div');
-        createDiv.id = 'ProtoCard-'+i
-        document.getElementById('display-cards').appendChild(createDiv)
-        new ProtoEmbed.initFrame(document.getElementById("ProtoCard-"+i), filteredData[i].iframe_url, 'mobile', true)
+        let img = filteredData[i].image ? filteredData[i].image : filteredData[i].screen_shot_url
+        mob_cards += '<div id="ProtoCard-'+ i +'" class="mob-justice-incidents">' +
+          '<img class="card-image" src="'+img+ '" width="100%"/>'+
+          '<div class="protograph-gradient">'+
+            '<div class="data-card-content">'+
+              '<div class="data-card-title">' + filteredData[i].title + '</div>'+
+              '<div class="data-card-date">' + filteredData[i].date +'</div>' +
+              '</div>'+
+            '</div>'+
+          '</div>'
+        document.getElementById('display-cards').innerHTML = mob_cards
+        console.log(document.getElementById('ProtoCard-'+ i), "document.getElementById('ProtoCard-'+ i)")
+        // let createDiv = document.createElement('div');
+        // createDiv.id = 'ProtoCard-'+i
+        // document.getElementById('display-cards').appendChild(createDiv)
+        // new ProtoEmbed.initFrame(document.getElementById("ProtoCard-"+i), filteredData[i].iframe_url, 'mobile', true)
       })
+      for (let i=0; i<7; i++) {
+        let createDiv = document.createElement('div');
+          createDiv.id = 'ProtoCard-'+i
+        document.getElementById('ProtoCard-'+i).addEventListener('click', function (d) {
+          new ProtoEmbed.initFrame(document.getElementById("ProtoCard-"+i), filteredData[i].iframe_url, 'mobile', true)
+        })
+      }
     }
   })
 }
+
+document.getElementById('')
 // Articles section
 getJSON('https://s3.ap-south-1.amazonaws.com/dev.cdn.protograph/toReportViolence/articles.json', function (err, data){
     if (err != null) {
