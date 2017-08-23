@@ -53,7 +53,9 @@ class App extends React.Component {
         min: 'undefined',
         max: 'undefined'
       },
-      parseMonth: timeFormat("%Y-%m"),
+      start_domain: 'undefined',
+      end_domain: 'undefined',
+      parseMonth: timeFormat("%Y-%m")
     }
     this.handleCircleClicked = this.handleCircleClicked.bind(this);
     this.handleSelectDateRange = this.handleSelectDateRange.bind(this);
@@ -134,7 +136,6 @@ class App extends React.Component {
   }
 
   handleSelectDateRange(domain) {
-    // console.log(domain, "domain handleSelectDateRange")
     let min = this.state.parseMonth(domain.x[0]),
       max = this.state.parseMonth(domain.x[1])
     // console.log(min, max, "hey min and max")
@@ -158,6 +159,7 @@ class App extends React.Component {
     this.setState((prevState, props) => {
       if (prevState.menu_value !== value || prevState.menu_value === 'undefined' ) {
         prevState.menu_value = value;
+        console.log(value, "menu")
         this.highlightItem(value, 'menu_inactive_item', 'menu_active_item', 'menu');
       } else {
         prevState.menu_value = 'undefined';
@@ -433,6 +435,9 @@ class App extends React.Component {
     if (this.state.area_classification_value !== 'undefined') {
       document.getElementById('area-'+this.state.area_classification_value).className = 'area_inactive_item';
     }
+    // console.log(this.state.dataJSON, "this.state.dataJSON")
+    let end_domain = new Date (this.state.dataJSON[0].date),
+      start_domain = new Date (this.state.dataJSON[this.state.dataJSON.length - 1].date)
     this.setState({
       menu_value: 'undefined',
       party_value: 'undefined',
@@ -451,7 +456,9 @@ class App extends React.Component {
       year_value: {
         min: 'undefined',
         max: 'undefined'
-      }
+      },
+      start_domain: start_domain,
+      end_domain: end_domain
     })
   }
 
@@ -460,10 +467,13 @@ class App extends React.Component {
       inactiveClass = inactive,
       activeClass = active;
     let i = 0;
+    console.log(elm, inactiveClass, activeClass, "---------active-----")
+    debugger;
     while (i < elm.length) {
       i++;
       elm[0].className = inactiveClass;
     }
+    console.log(document.getElementById(`${identifier}-${value}`), "id", activeClass)
     let selectItem = document.getElementById(`${identifier}-${value}`);
     selectItem.className = activeClass;
   }
@@ -937,7 +947,7 @@ class App extends React.Component {
               </div>
               <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
                 <table><tbody>
-                  <th className="table-head">Ruling party</th>
+                  <th className="table-head">Party whose Chief Minister is in power</th>
                  {partyOptions}
                 </tbody></table>
               </div>
@@ -975,10 +985,10 @@ class App extends React.Component {
                   <span className="animate-number">{number_of_incidents}</span>
                 </div>
               </div>
-              <div className="display-text">Instances of lynching were reported 
+              <div className="display-text">Instances of lynching were reported <br/>
                {start_date === '' || end_date === '' ? '' : `from ${start_date} to ${end_date}` } 
               </div>
-              <TimeBrush dataJSON={this.state.filteredJSON} dimensionWidth={this.props.dimensionWidth} mode={this.props.mode} handleSelectDateRange={this.handleSelectDateRange}/>
+              <TimeBrush dataJSON={this.state.filteredJSON} dimensionWidth={this.props.dimensionWidth} start_domain={this.state.start_domain} end_domain={this.state.end_domain} mode={this.props.mode} handleSelectDateRange={this.handleSelectDateRange}/>
             </div>
             <div className="ten wide column filter-title">
               <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>

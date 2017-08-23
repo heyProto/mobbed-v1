@@ -12,7 +12,8 @@ class TimeBrush extends React.Component {
   }
 
    componentWillMount() {
-    let parseDate = timeFormat("%b-%Y"),
+    // let parseDate = timeFormat("%b-%Y"),
+    let parseDate = timeFormat("%Y-%m"),
       width;
 
     let num_incidents = [];
@@ -60,7 +61,14 @@ class TimeBrush extends React.Component {
   }
 
   render() {
-    // console.log(this.state.sorted_arr, "this.state.sorted_arr")
+    let start_domain, end_domain;
+    if (this.props.start_domain === 'undefined' && this.props.end_domain === 'undefined'){
+      start_domain = this.state.sorted_arr[0].date_obj;
+      end_domain = this.state.sorted_arr[this.state.sorted_arr.length -1].date_obj;
+    } else {
+      start_domain = this.props.start_domain;
+      end_domain = this.props.end_domain;
+    }
     return (
       <VictoryChart 
         domainPadding={10}
@@ -68,8 +76,9 @@ class TimeBrush extends React.Component {
         scale={{x: "time"}}
         containerComponent={
           <VictoryBrushContainer
+            selectedDomain={{x:[start_domain, end_domain]}}
             dimension="x" 
-            responsive={false}
+            responsive={this.props.mode === 'mobile' ? true : false}
             handleStyle={{fill: "#bdb8b8", height: 27, y:25, width: 7}}
             onDomainChange={(domain) => this.props.handleSelectDateRange(domain)}/>
         }

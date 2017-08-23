@@ -59,8 +59,9 @@ class HateCrime extends React.Component {
         min: 'undefined',
         max: 'undefined'
       },
-      parseMonth: timeFormat("%Y-%m"),
-
+      start_domain: 'undefined',
+      end_domain: 'undefined',
+      parseMonth: timeFormat("%Y-%m")
     }
     this.handleCircleClicked = this.handleCircleClicked.bind(this);
     this.handleSelectDateRange = this.handleSelectDateRange.bind(this);
@@ -408,7 +409,7 @@ class HateCrime extends React.Component {
     this.setState((prevState, props) => {
       if (prevState.is_sexual_hate_crime_value !== value || prevState.is_sexual_hate_crime_value === 'undefined') {
         prevState.is_sexual_hate_crime_value = value;
-        this.highlightItem(value, 'sexual_inactive_item','political_active_item', 'sexual');
+        this.highlightItem(value, 'sexual_inactive_item','sexual_active_item', 'sexual');
       } else {
         prevState.is_sexual_hate_crime_value = 'undefined';
         this.highlightItem(value, 'sexual_inactive_item','sexual_inactive_item', 'sexual');
@@ -460,7 +461,6 @@ class HateCrime extends React.Component {
       filteredJSON: this.state.dataJSON,
       category: null
     })
-    $("#range-slider").data('ionRangeSlider').reset()
     if (this.state.menu_value !== 'undefined') {
       document.getElementById('menu-'+this.state.menu_value).className = 'menu_inactive_item';
     }
@@ -485,6 +485,35 @@ class HateCrime extends React.Component {
     if (this.state.area_classification_value !== 'undefined') {
       document.getElementById('area-'+this.state.area_classification_value).className = 'area_inactive_item';
     }
+    if (this.state.is_hate_crime_value !== 'undefined') {
+      document.getElementById('hate-'+this.state.is_hate_crime_value).className = 'hate_inactive_item';
+    }
+    if (this.state.is_gender_hate_crime_value !== 'undefined') {
+      document.getElementById('gender-'+this.state.is_gender_hate_crime_value).className = 'gender_inactive_item';
+    }
+    if (this.state.is_caste_hate_crime_value !== 'undefined') {
+      document.getElementById('caste-'+this.state.is_caste_hate_crime_value).className = 'caste_inactive_item';
+    }
+    if (this.state.is_race_hate_crime_value !== 'undefined') {
+      document.getElementById('race-'+this.state.is_race_hate_crime_value).className = 'caste_inactive_item';
+    }
+    if (this.state.is_religion_hate_crime_value !== 'undefined') {
+      document.getElementById('religion-'+this.state.is_religion_hate_crime_value).className = 'religion_inactive_item';
+    }
+    if (this.state.is_political_hate_crime_value !== 'undefined') {
+      document.getElementById('political-'+this.state.is_political_hate_crime_value).className = 'political_inactive_item';
+    }
+    if (this.state.is_sexual_hate_crime_value !== 'undefined') {
+      document.getElementById('sexual-'+this.state.is_sexual_hate_crime_value).className = 'sexual_inactive_item';
+    }
+    if (this.state.is_disability_hate_crime_value !== 'undefined') {
+      document.getElementById('disability-'+this.state.is_disability_hate_crime_value).className = 'disability_inactive_item';
+    }
+    if (this.state.is_ethnicity_hate_crime_value !== 'undefined') {
+      document.getElementById('ethnicity-'+this.state.is_ethnicity_hate_crime_value).className = 'ethnicity_inactive_item';
+    }
+    let end_domain = new Date (this.state.dataJSON[0].date),
+      start_domain = new Date (this.state.dataJSON[this.state.dataJSON.length - 1].date)
     this.setState({
       menu_value: 'undefined',
       party_value: 'undefined',
@@ -506,7 +535,9 @@ class HateCrime extends React.Component {
       year_value: {
         min: 'undefined',
         max: 'undefined'
-      }
+      },
+      start_domain: start_domain,
+      end_domain: end_domain
     })
   }
 
@@ -652,6 +683,7 @@ class HateCrime extends React.Component {
   }
 
   getFilteredData(state) {
+    // console.log(state, state.menu_value, "-----------", this.state.dataJSON)
     let filteredData = this.state.dataJSON
       .filter(this.checkMenu, state.menu_value)
       .filter(this.checkParty, state.party_value)
@@ -659,11 +691,10 @@ class HateCrime extends React.Component {
       .filter(this.checkVictimReligion, state.victim_religion_value)
       .filter(this.checkAccusedReligion, state.accused_religion_value)
       .filter(this.checkLynchingPlanned, state.lynching_planned_value)
-      .filter(this.checkCriminaliseVictims, state.criminalise_victims_value)
       .filter(this.checkArea, state.area_classification_value)
       .filter(this.checkIsHateCrime, state.is_hate_crime_value )
       .filter(this.checkIsGenderCrime, state.is_gender_hate_crime_value)
-      .filter(this.checkIsCasteCrime, state.is_political_caste_crime_value)
+      .filter(this.checkIsCasteCrime, state.is_caste_hate_crime_value)
       .filter(this.checkIsRaceCrime, state.is_race_hate_crime_value)
       .filter(this.checkIsReligionCrime, state.is_religion_hate_crime_value)
       .filter(this.checkIsPoliticalCrime, state.is_political_hate_crime_value )
@@ -671,6 +702,7 @@ class HateCrime extends React.Component {
       .filter(this.checkIsDisabilityCrime, state.is_disability_hate_crime_value)
       .filter(this.checkIsEthnicityCrime, state.is_ethnicity_hate_crime_value)
       .filter(this.checkYear, state.year_value)
+    console.log(filteredData, "filteredData")
     return filteredData;
   }
 
@@ -1016,7 +1048,7 @@ class HateCrime extends React.Component {
               </div>
               <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
                 <table><tbody>
-                  <th className="table-head">Ruling party</th>
+                  <th className="table-head">Party whose Chief Minister is in power</th>
                  {partyOptions}
                 </tbody></table>
               </div>
@@ -1100,7 +1132,7 @@ class HateCrime extends React.Component {
                 {this.state.category === null ? <br/> : <div>under <span className="display-text-dropdown">{this.state.category}</span></div>}
                {start_date === '' || end_date === '' ? '' : `from ${start_date} to ${end_date}` } 
               </div>
-              <TimeBrush dataJSON={this.state.filteredJSON} dimensionWidth={this.props.dimensionWidth} mode={this.props.mode} handleSelectDateRange={this.handleSelectDateRange}/>
+              <TimeBrush dataJSON={this.state.filteredJSON} dimensionWidth={this.props.dimensionWidth} mode={this.props.mode} start_domain={this.state.start_domain} end_domain={this.state.end_domain} handleSelectDateRange={this.handleSelectDateRange}/>
             </div>
             <div className="ten wide column filter-title">
               <Map dataJSON={this.state.filteredJSON} topoJSON={this.state.topoJSON} chartOptions={this.props.chartOptions} mode={this.props.mode} circleClicked={this.state.circleClicked} handleCircleClicked={this.handleCircleClicked} circleHover={this.state.circleHover}/>

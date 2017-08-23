@@ -86,7 +86,7 @@
 
       </div>
     </div>
-    <div class="eleven wide column" id="what">
+    <div class="eleven wide column">
       <div class="answer axios" id="state">
         <h2>State of Mob justice in India</h2>
         <p>alsdnkalsdknasl dknasld kasndl aksnd lasknd aslkd nasld knas dlkasnd</p>
@@ -147,7 +147,7 @@
 <script type="text/javascript">
   $('.ui.sticky').sticky();
   $(window).scroll(function(event){
-    $('.qa-highlight-color').children('p').children('a').css({"color":"blue"});
+    // $('.qa-highlight-color').children('p').children('a').css({"color":"blue"});
 
     $('.qa-highlight-color').removeClass('qa-highlight-color');
 
@@ -158,22 +158,20 @@
     }
     var cutoff = $(window).scrollTop();
     $('.answer').removeClass('qa-highlight-color').each(function() {
-        if ($(this).offset().top - 25 > cutoff) {
-            $('#q'+$(this).attr('id')).addClass('qa-highlight-color');
-
-            return false; // stops the iteration after the first one on screen
-        }
+      if ($(this).offset().top - 25 > cutoff) {
+        $('#q'+$(this).attr('id')).addClass('qa-highlight-color');
+        return false; // stops the iteration after the first one on screen
+      }
     });
-
   });
 
   $('.question').hover(function(){
     $(this).addClass('qa-highlight-color');
-    $(this).children('p').children('a').css({"color":"black"});
+    // $(this).children('p').children('a').css({"color":"black"});
     $( $(this).children('p').children('a')[0].hash ).addClass('qa-highlight-color');
   },function(){
     $(this).removeClass('qa-highlight-color');
-    $(this).children('p').children('a').css({"color":"blue"});
+    // $(this).children('p').children('a').css({"color":"blue"});
     $( $(this).children('p').children('a')[0].hash ).removeClass('qa-highlight-color');
   })
 </script>

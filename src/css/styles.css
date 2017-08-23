@@ -74,6 +74,22 @@
   display: none;
 }
 
+.hate-crime-toggle{
+  text-align: right !important;
+  display: block !important;
+  margin-top: 0px;
+}
+
+.hate-crime-toggle .ui.button,.hate-crime-toggle .ui.buttons .button,.hate-crime-toggle .ui.buttons .or{
+  font-size: 12px !important;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.data-page .cover-image-div{
+  margin-bottom: 20px !important;
+}
+
 /*========== social share ==========*/
 .social-share-icons{
   display: inline-block;
@@ -840,6 +856,21 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   color: black !important;
   font-weight: 700;
 }
+
+.index-page .mob-justice-incidents {
+  width: 270px;
+  display: inline-block;
+  text-align: left;
+  background: white;
+  margin-left: 15px;
+  margin-bottom: 25px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+  border: 1px solid rgb(241, 241, 241);
+  transition: all 250ms cubic-bezier(.02, .01, .47, 1);
+} 
+
 .ProtoCard-article {
   border-bottom: 1px solid lightgrey;
   margin-bottom:10px;
@@ -866,7 +897,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   margin-right: auto;
 }
 
-.data-page .accused_active_item, .victim_active_item, .menu_active_item, .state_active_item, .police_active_item, .judge_active_item, .police_prevent_active_item, .lynching_active_item, .criminalise_active_item, .area_active_item, .police_vehicles_active_item, .defence_force_active_item, .police_intervene_active_item {
+.accused_active_item, .victim_active_item, .menu_active_item, .state_active_item, .police_active_item, .judge_active_item, .police_prevent_active_item, .lynching_active_item, .criminalise_active_item, .area_active_item, .police_vehicles_active_item, .defence_force_active_item, .police_intervene_active_item, .hate_active_item, .gender_active_item, .caste_active_item, .race_active_item, .religion_active_item, .political_active_item, .sexual_active_item, .disability_active_item, .ethnicity_active_item {
   background: #F02E2E;
   color: white;
 }
@@ -1200,7 +1231,6 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 }
 
 @media only screen and (max-width: 450px){
-
   .ui.grid>* {
     padding:0px;
   }
@@ -1377,8 +1407,16 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   }
 
   .page-navigation .navigation-link{
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+  }
+
+  .disclaimer-text{
+    text-align: center;
+  }
+
+  .disclaimer-text br{
+    display: none;
   }
 
   .filter-area .tap-area .tap-area-div{
@@ -1429,6 +1467,12 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
     padding:5px !important;
   }
 
+  .hate-crime-toggle{
+    text-align: center !important;
+    display: block !important;
+    margin-top: 0px;
+  }
+
   /*=== index-page ===*/
   .banner-div{
     background-image: url("../../src/img/banner-mobile.png");
@@ -1443,12 +1487,12 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
     font-weight: 300;
     letter-spacing: 15px;
     position: absolute;
-    top: 53px;
-    left: 73px;
+    top: 54px !important;
+    left: 67px !important;
   }
 
   .display-summary{
-    margin-top: 50px;
+    margin-top: 50px !important;
   }
 
   .counter-area{
