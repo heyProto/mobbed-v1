@@ -86,7 +86,7 @@
 }
 
 .hate-crime-toggle{
-  text-align: right !important;
+  text-align: center !important;
   display: block !important;
   margin-top: 0px;
 }
@@ -99,6 +99,30 @@
 
 .data-page .cover-image-div{
   margin-bottom: 20px !important;
+}
+
+.findings-top-notes{
+  width: 100%;
+}
+
+.findings-top-notes .left-section{
+  width: 60%;
+  background: #dcddde !important;
+  color: black;
+}
+
+.findings-h3{
+  margin-top: 10px;
+  color: black;
+}
+
+.findings-ul{
+  list-style: none;
+  padding-left: 0px;
+}
+
+.findings-top-notes .right-section{
+  width: 40% !important;
 }
 
 /*========== social share ==========*/
