@@ -937,14 +937,30 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   color: white;
 }
 
+.data-page .filter-title{
+  font-weight: 400;
+  padding-bottom: 0px !important
+}
+
 .data-page table{
   font-size: 1.1em;
   width: 100%;
   text-align: left;
 }
 
+.data-page .table-thead{
+  display: block;
+}
+
 .data-page .table-head{
+  font-size: 16px;
   padding: 5px !important;
+}
+
+.data-page .table-tbody{
+  height:150px; 
+  overflow-y:auto; 
+  display:block;
 }
 
 .data-page tr{
@@ -986,6 +1002,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 .data-page tr td{
   padding: 3px 5px;
+  width: 100%;
 }
 
 .data-page tr td:last-child{
@@ -994,18 +1011,30 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 .data-page tr:first-child{
   border-top: 0px;
- font-weight: bold;
 }
 
-.data-page tr:first-child:hover{
+.data-page thead tr:first-child:hover{
   background: transparent;
+  pointer-events: none;
  }
 
 .data-page tr th{
   padding: 3px 5px;
   padding-bottom: 5px;
   vertical-align: bottom;
- }
+}
+
+.data-page .filter-help-text{
+  padding: 5px;
+  font-size: 11px;
+  background: #fafafa;
+  color: black;
+  vertical-align: super;
+}
+
+.data-page .filter-help-text:hover {
+  background: #fafafa;
+}
 /*=== end of data-page css ===*/
 
 /*=== explainers-page ===*/

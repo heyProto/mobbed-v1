@@ -607,7 +607,7 @@ class App extends React.Component {
 
   showFilters() {
     this.setState({
-      height: 820,
+      height: 850,
       overflow: 'auto',
       showTapArea: 'none',
       hideTapArea: 'block'
@@ -885,82 +885,110 @@ class App extends React.Component {
             </div>
             <div id="filter-region" className="ui grid" style={styles}>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Classification</th>
-                  {menuOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Classification<div className="ui icon button filter-help-text" data-tooltip="Add users to your feed" data-position="bottom center">
+                        <i className="circular help icon"></i>
+                    </div></th></tr>
+                  </thead>
+                  <tbody>{menuOptions}</tbody>
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Did the police intervene?</th>
-                  {policeInterveneOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Was the incident planned?</th></tr>
+                  </thead>
+                  <tbody>{lynchingOptions}</tbody>                 
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Did the police intervention prevent death?</th>
-                  {policePreventOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">State</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{stateOptions}</tbody>
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Was the incident planned?</th>
-                  {lynchingOptions}
-                </tbody></table>
-              </div>
-              <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
-                <table><tbody>
-                  <th className="table-head">State</th>
-                  {stateOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Party whose Chief Minister is in power</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{partyOptions}</tbody>
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Area type</th>
-                  {areaOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Area type</th></tr>
+                  </thead>
+                  <tbody>{areaOptions}</tbody>
+               </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Police to population ratio</th>
-                  {policeRatioOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Judge to population ratio</th></tr>
+                  </thead>
+                  <tbody>{judgeRatioOptions}</tbody>                  
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Judge to population ratio</th>
-                  {judgeRatioOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Police to population ratio</th></tr>
+                  </thead>
+                  <tbody>{policeRatioOptions}</tbody>
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Victim social classification</th>
-                  {victimReligionOptions}
-                </tbody></table>
-              </div>
-              <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
-                <table><tbody>
-                  <th className="table-head">Accused social classification</th>
-                  {accusedReligionOptions}
-                </tbody></table>
-              </div>
-              <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
-                <table><tbody>
-                  <th className="table-head">Party whose Chief Minister is in power</th>
-                 {partyOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Police vehicles per sq. km</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{policeVehiclesOptions}</tbody>                
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Police vehicles per sq. km</th>
-                  {policeVehiclesOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Did the police intervene?</th></tr>
+                  </thead>
+                  <tbody>{policeInterveneOptions}</tbody>
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Does state have village defence force?</th>
-                  {defenseForceOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Did the police intervention prevent death?</th></tr>
+                  </thead>
+                  <tbody>{policePreventOptions}</tbody>
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Does state have village defence force?</th></tr>
+                  </thead>
+                  <tbody>{defenseForceOptions}</tbody>                  
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Victim social classification</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{victimReligionOptions}</tbody>                  
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Accused social classification</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{accusedReligionOptions}</tbody>
+                </table>
               </div>
             </div>
             <div className="tap-area" style={second_tap_area_style} onClick={(e) => this.hideFilters(e)}>

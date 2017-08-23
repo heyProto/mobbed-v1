@@ -708,7 +708,7 @@ class HateCrime extends React.Component {
 
   showFilters() {
     this.setState({
-      height: 820,
+      height: 830,
       overflow: 'auto',
       showTapArea: 'none',
       hideTapArea: 'block'
@@ -1011,100 +1011,132 @@ class HateCrime extends React.Component {
             </div>
             <div id="filter-region" className="ui grid" style={styles}>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Classification</th>
-                  {menuOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Is it a hate crime?</th></tr>
+                  </thead>
+                  <tbody>{hateCrimeOptions}</tbody>               
+                 </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Was the incident planned?</th>
-                  {lynchingOptions}
-                </tbody></table>
-              </div>
-              <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
-                <table><tbody>
-                  <th className="table-head">State</th>
-                  {stateOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Is it a gender hate crime?</th></tr>
+                  </thead>
+                  <tbody>{genderCrimeOptions}</tbody>                
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Area type</th>
-                  {areaOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Is it a caste hate crime?</th></tr>
+                  </thead>
+                  <tbody>{casteCrimeOptions}</tbody>                
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Victim social classification</th>
-                  {victimReligionOptions}
-                </tbody></table>
-              </div>
-              <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
-                <table><tbody>
-                  <th className="table-head">Accused social classification</th>
-                  {accusedReligionOptions}
-                </tbody></table>
-              </div>
-              <div className="four wide column filter-title" style={{height:190, overflow:'scroll'}}>
-                <table><tbody>
-                  <th className="table-head">Party whose Chief Minister is in power</th>
-                 {partyOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Is it a race hate crime?</th></tr>
+                  </thead>
+                  <tbody>{raceCrimeOptions}</tbody>               
+                 </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Is it hate crime?</th>
-                 {hateCrimeOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Is it a religion hate crime?</th></tr>
+                  </thead>
+                  <tbody>{religionCrimeOptions}</tbody>                
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Is it a gender hate crime?</th>
-                 {genderCrimeOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Is it a political affiliation hate crime?</th></tr>
+                  </thead>
+                  <tbody>{politicalCrimeOptions}</tbody>                
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Is it a caste hate crime?</th>
-                 {casteCrimeOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Is it a sexual orientation and gender identity hate crime?</th></tr>
+                  </thead>
+                  <tbody>{sexualCrimeOptions}</tbody>                 
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Is it a race hate crime?</th>
-                 {raceCrimeOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Is it a disability hate crime?</th></tr>
+                  </thead>
+                  <tbody>{disabilityCrimeOptions}</tbody>                 
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Is it a religion hate crime?</th>
-                 {religionCrimeOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Is it a ethnicity hate crime?</th></tr>
+                  </thead>
+                  <tbody>{ethnicityCrimeOptions}</tbody>                 
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Is it a political affiliation hate crime?</th>
-                 {politicalCrimeOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Classification</th></tr>
+                  </thead>
+                  <tbody>{menuOptions}</tbody>
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Is it a sexual orientation and gender identity hate crime?</th>
-                 {sexualCrimeOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Was the incident planned?</th></tr>
+                  </thead>
+                  <tbody>{lynchingOptions}</tbody>                 
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Is it a disability hate crime?</th>
-                 {disabilityCrimeOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">State</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{stateOptions}</tbody>
+                </table>
               </div>
               <div className="four wide column filter-title">
-                <table><tbody>
-                  <th className="table-head">Is it a ethnicity hate crime?</th>
-                 {ethnicityCrimeOptions}
-                </tbody></table>
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Party whose Chief Minister is in power</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{partyOptions}</tbody>                
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Area type</th></tr>
+                  </thead>
+                  <tbody>{areaOptions}</tbody>                  
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Victim social classification</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{victimReligionOptions}</tbody>                 
+                </table>
+              </div>
+              <div className="four wide column filter-title">
+                <table>
+                  <thead className="table-thead">
+                    <tr><th className="table-head">Accused social classification</th></tr>
+                  </thead>
+                  <tbody className="table-tbody">{accusedReligionOptions}</tbody>
+                </table>
               </div>
             </div>
             <div className="tap-area" style={second_tap_area_style} onClick={(e) => this.hideFilters(e)}>
