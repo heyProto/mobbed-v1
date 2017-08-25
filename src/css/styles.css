@@ -600,6 +600,7 @@ table{
 }
 
 .geo-region {
+  /*fill: #FBF3E6;*/
   fill: #DADFF4;
 }
 
@@ -1033,6 +1034,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 .data-page .filter-help-text:hover {
   background: #fafafa;
 }
+
 /*=== end of data-page css ===*/
 
 /*=== explainers-page ===*/

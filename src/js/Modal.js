@@ -3,9 +3,9 @@ import React from 'react';
 class Modal extends React.Component {
   render() {
     return(
-      <div id="proto-modal" className="ui modal small">
+      <div id="proto-modal" className="ui modal small scrolling content">
         <i className="close icon"></i>
-        <div className="image scrolling content">
+        <div>
           <div id="proto-embed-card"></div>
         </div>
       </div>
