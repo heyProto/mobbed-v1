@@ -911,6 +911,36 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   border-bottom: 1px solid lightgrey;
   margin-bottom:10px;
 }
+
+.index-page .tolink-light-text, .tolink-title{
+  display: inline-block;
+  vertical-align: top;
+  margin-right:5px;
+  margin-left:3px;
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+.index-page .tolink-light-text{
+  color: #999;
+}
+
+.index-page .tolink-content-div{
+  padding: 15px 20px;
+  margin-top: 0px !important;
+}
+
+.index-page .tolink-laptop-mode{
+  background-color: white;
+  /*box-shadow: 0px 2px 4px 0px #c3c0c0;*/
+}
+
+.index-page .tolink-profile-image{
+  width:30px;
+  height: 30px;
+  border-radius: 20px
+}
+
 /*=============================== END OF INDEX PAGE ========================*/
 /*===========================================================================*/
 

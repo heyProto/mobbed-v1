@@ -99,6 +99,32 @@ getJSON('https://s3.ap-south-1.amazonaws.com/dev.cdn.protograph/toReportViolence
     }
 })
 
+//twitter chatter
+
+let interval = setInterval(function(){   
+  getJSON('https://cdn.protograph.pykih.com/toReportViolence/twitter.json', function (err, data){
+    if (err != null) {
+      alert('Something went wrong: ' + err);
+    } else {
+      let tweets='<div class="ui feed"><br>';
+      data.map((d,i) => {       
+        tweets += 
+          '<div class="event">'+
+            '<div class="label">'+
+              '<img src="'+d.author_image+'">'+
+            '</div>'+
+            '<div class="content">'+
+              '<div class="date">@'+d.twitter_handle+'</div>'+
+              '<div class="summary">'+d.author+ '</div>'+
+              '<div class="extra text">'+ d.description+'</div>'+             
+            '</div>'+
+          '</div>'
+        document.getElementById('display-tweets').innerHTML = tweets + '</div>'     
+      })
+    }
+  })
+}, 10000)
+
 function getScreenSize() {
   let w = window,
     d = document,
@@ -112,3 +138,17 @@ function getScreenSize() {
     height: height
   };
 }
+
+// <a href="'+d.canonical+'" target="_blank">
+
+ // tweets +=  '<div id="ProtoCard-tweet-'+ i+'" class="ProtoCard-tweet">'+
+        //   '<a href={d.canonical} target="_blank" class="protograph-url">'+
+        //     '<div>'+
+        //       '<img src="https://abs.twimg.com/icons/apple-touch-icon-192x192.png" width="25px" height="25px"/>'+
+        //       '<div class="tolink-title">'+d.author+'</div>'+
+        //       '<div class="tolink-light-text">@indianExpress</div>'+
+        //     '</div>'+
+        //     '<h3 class="ui header">'+d.description+'</h3>'+
+        //     '<div class="tolink-light-text">'+d.date+'</div>'+
+        //   '</a>'+
+        // '</div>';
