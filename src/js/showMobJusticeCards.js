@@ -100,8 +100,29 @@ getJSON('https://s3.ap-south-1.amazonaws.com/dev.cdn.protograph/toReportViolence
 })
 
 //twitter chatter
+getJSON('https://cdn.protograph.pykih.com/toReportViolence/twitter.json', function (err, data){
+    if (err != null) {
+      alert('Something went wrong: ' + err);
+    } else {
+      // let tweets='<div class="ui feed"><br>';
+      let tweets = '';
+      data.map((d,i) => {       
+        tweets += '<div style="margin-bottom:20px;padding:5px;"><a href="'+d.canonical+'" target="_blank" class="protograph-url">' +
+          '<div>'+
+            '<img class="tolink-profile-image" src="'+d.author_image+'">'+
+          '</div>'+         
+          '<div>'+
+            '<div>'+d.author+'</div>'+
+            '<div class="tolink-light-text">@'+d.twitter_handle+'</div>'+
+            '<div>'+d.description+'</div>'+
+          '</div>'+
+        '</a></div>' 
+      document.getElementById('display-tweets').innerHTML = tweets;   
+      })
+    }
+  })
 
-// let interval = setInterval(function(){   
+let interval = setInterval(function(){   
   getJSON('https://cdn.protograph.pykih.com/toReportViolence/twitter.json', function (err, data){
     if (err != null) {
       alert('Something went wrong: ' + err);
@@ -123,7 +144,7 @@ getJSON('https://s3.ap-south-1.amazonaws.com/dev.cdn.protograph/toReportViolence
       })
     }
   })
-// }, 1000)
+}, 60000)
 
 function getScreenSize() {
   let w = window,

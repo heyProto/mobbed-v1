@@ -652,21 +652,6 @@ class App extends React.Component {
     }
   }
 
-  removeTag(event, tag) {
-    console.log(tag, "tag")
-    this.setState((prevState, props) => {
-      // debugger;
-      console.log(prevState, prevState[tag.value], tag.value, "prevState[tag.value]")
-      prevState[tag.value] = 'undefined';  
-      let filteredData = this.getFilteredData(prevState)
-      let value = tag.value
-      return {
-        filteredJSON: filteredData,
-        value: prevState[tag.value]
-      }
-    })
-  }
-
 
   renderLaptop() {
     if (this.state.dataJSON === undefined) {
@@ -935,20 +920,6 @@ class App extends React.Component {
         position : 'bottom center',
         html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       }) 
-      
-      // let menu_tag = this.state.menu_value !== 'undefined' ? <span onClick={(e) => this.removeMenuTag(e)} className="ui label">Classification<i className="delete icon"></i></span> : '',
-      // lynching_planned_tag = this.state.lynching_planned_value !== 'undefined' ? <span onClick={(e) => this.removeMenuTag(e)} className="ui label">Was incident...<i className="delete icon"></i></span> : '',
-      // state_tag = this.state.state_value !== 'undefined' ? <span onClick={(e) => this.removeMenuTag(e)} className="ui label">State<i className="delete icon"></i></span> : '',
-      // party_tag = this.state.party_value !== 'undefined' ? <span onClick={(e) => this.removeMenuTag(e)} className="ui label">Ruling party<i className="delete icon"></i></span> : '',
-      // area_tag = this.state.area_classification_value !== 'undefined' ? <span onClick={(e) => this.removeMenuTag(e)} className="ui label">Area<i className="delete icon"></i></span> : '',
-      // judge_tag = this.state.judge_to_population_value !== 'undefined' ? <span onClick={(e) => this.removeMenuTag(e)} className="ui label">Judge to...<i className="delete icon"></i></span> : '',
-      // police_tag = this.state.police_to_population_value !== 'undefined' ? <span onClick={(e) => this.removeMenuTag(e)} className="ui label">Police to...<i className="delete icon"></i></span> : '',
-      // police_vehicle_tag = this.state.police_vehicles_value !== 'undefined' ? <span onClick={(e) => this.removeMenuTag(e)} className="ui label">Police vehicles...<i className="delete icon"></i></span> : '', 
-      // police_intervene_tag = this.state.police_intervene_value !== 'undefined' ? <span onClick={(e) => this.removeMenuTag(e)} className="ui label">Police intervene<i className="delete icon"></i></span> : '',
-      // police_prevent_tag = this.state.police_prevent_death_value !== 'undefined' ? <span onClick={(e) => this.removeMenuTag(e)} className="ui label">Police intervene<i className="delete icon"></i></span> : '', 
-      // defence_force_tag = this.state.village_defence_force_value !== 'undefined' ? <span onClick={(e) => this.removeMenuTag(e)} className="ui label">Defense force<i className="delete icon"></i></span> : '',
-      // victim_tag = this.state.victim_religion_value !== 'undefined' ? <span onClick={(e) => this.removeMenuTag(e)} className="ui label">Victim social..<i className="delete icon"></i></span> : '',
-      // accused_tag = this.state.accused_religion_value !== 'undefined' ? <span onClick={(e) => this.removeMenuTag(e)} className="ui label">Accused social...<i className="delete icon"></i></span> : '';
 
       return (
         <div className="banner-area">
@@ -1105,7 +1076,7 @@ class App extends React.Component {
                 </div>
               </div>
               <div className="display-text">Instances of lynching were reported <br/>
-               {start_date === '' || end_date === '' ? '' : `from ${start_date} to ${end_date}` } {tags}
+               {start_date === '' || end_date === '' ? '' : `from ${start_date} to ${end_date}` }
               </div>
               <TimeBrush dataJSON={this.state.filteredJSON} dimensionWidth={this.props.dimensionWidth} start_domain={this.state.start_domain} end_domain={this.state.end_domain} mode={this.props.mode} handleSelectDateRange={this.handleSelectDateRange}/>
             </div>
@@ -1134,5 +1105,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// {menu_tag} {lynching_planned_tag} {state_tag} {party_tag} {area_tag} {police_tag} {judge_tag} {police_intervene_tag} {police_prevent_tag} {police_vehicle_tag} {defence_force_tag} {victim_tag} {accused_tag}
