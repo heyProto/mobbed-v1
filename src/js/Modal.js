@@ -5,9 +5,7 @@ class Modal extends React.Component {
     return(
       <div id="proto-modal" className="ui modal small scrolling content">
         <i className="close icon"></i>
-        <div>
-          <div id="proto-embed-card"></div>
-        </div>
+        <div id="proto-embed-card"></div>
       </div>
     )
   }
