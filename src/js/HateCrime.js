@@ -1002,86 +1002,57 @@ class HateCrime extends React.Component {
       }
       $('#hate-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#gender-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#caste-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#race-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#religion-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#political-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#sexual-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#disability-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#ethnicity-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#menu-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#planned-incident-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
-      })
-
-      $('#state-help').popup({
-        position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
-      })
-
-      $('#party-help').popup({
-        position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
-      })
-
-      $('#area-help').popup({
-        position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       return (
@@ -1205,7 +1176,6 @@ class HateCrime extends React.Component {
                 <table>
                   <thead className="table-thead">
                     <tr><th className="table-head">State
-                      <div id="state-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
                     </th></tr>
                   </thead>
                   <tbody className="table-tbody">{stateOptions}</tbody>
@@ -1215,7 +1185,6 @@ class HateCrime extends React.Component {
                 <table>
                   <thead className="table-thead">
                     <tr><th className="table-head">Party whose Chief Minister is in power
-                      <div id="party-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
                     </th></tr>
                   </thead>
                   <tbody className="table-tbody">{partyOptions}</tbody>                
@@ -1225,7 +1194,6 @@ class HateCrime extends React.Component {
                 <table>
                   <thead className="table-thead">
                     <tr><th className="table-head">Area type
-                      <div id="area-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
                     </th></tr>
                   </thead>
                   <tbody>{areaOptions}</tbody>                  

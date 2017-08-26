@@ -881,80 +881,62 @@ class App extends React.Component {
 
       $('#menu-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#planned-incident-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
-      })
-
-      $('#state-help').popup({
-        position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+       html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#party-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#area-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#judge-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#police-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#police-vehicles-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#police-intervene-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#police-prevent-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#defence-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#victim-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       $('#accused-help').popup({
         position : 'bottom center',
-        title    : 'My favorite dog',
-        content  : 'My favorite dog would like other dogs as much as themselves'
+        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
       })
 
       return (
@@ -987,9 +969,7 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">State
-                      <div id="state-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
-                    </th></tr>
+                    <tr><th className="table-head">State</th></tr>                    
                   </thead>
                   <tbody className="table-tbody">{stateOptions}</tbody>
                 </table>
@@ -998,7 +978,6 @@ class App extends React.Component {
                 <table>
                   <thead className="table-thead">
                     <tr><th className="table-head">Party whose Chief Minister is in power
-                      <div id="party-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
                     </th></tr>
                   </thead>
                   <tbody className="table-tbody">{partyOptions}</tbody>
@@ -1007,9 +986,7 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Area type
-                      <div id="area-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
-                    </th></tr>
+                    <tr><th className="table-head">Area type</th></tr>                   
                   </thead>
                   <tbody>{areaOptions}</tbody>
                </table>
