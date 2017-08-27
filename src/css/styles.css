@@ -240,7 +240,7 @@
 .filter-area{
   display: inline-block;
   width: 100%;
-  background: #fafafa;
+  background: #fdf9f3;
 }
 
 .filter-area .tap-area {
@@ -251,7 +251,11 @@
   padding: 15px 0px;
   font-weight: bold;
   cursor: pointer;
-  background: #fafafa;
+  background: #fdf9f3;
+}
+
+.ui.button{
+  background: #fdf9f3;
 }
 
 .filter-title{
@@ -267,7 +271,7 @@
 .filter-area .tap-area .reset-all {
   border: 1px solid #F02E2E;
   color: #F02E2E;
-  background-color: #fafafa;
+  background-color: #fdf9f3;
   z-index: 200;
 }
 
@@ -291,7 +295,7 @@
 }
 
 .single-background{
-  background: #fafafa;
+  background: #fdf9f3;
   height: 80px;
   width: 50px;
   display: inline-block;
@@ -459,9 +463,14 @@ table{
   position: relative;
   cursor: pointer;
   /*box-shadow: 0 20px 20px rgba(0,0,0,0.08);*/
-  box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-  border: 1px solid rgb(241, 241, 241);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+  /*border: 1px solid rgb(241, 241, 241);*/
   transition: all 250ms cubic-bezier(.02, .01, .47, 1);
+}
+
+
+.ui.dimmer>.content{
+  height: 0 !important;
 }
 
 .protograph-tolink-card{
@@ -902,14 +911,15 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   margin-bottom: 25px;
   position: relative;
   cursor: pointer;
-  box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-  border: 1px solid rgb(241, 241, 241);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+  /*border: 1px solid rgb(241, 241, 241);*/
   transition: all 250ms cubic-bezier(.02, .01, .47, 1);
 }
 
 .ProtoCard-article {
-  border-bottom: 1px solid lightgrey;
-  margin-bottom:10px;
+  border-bottom: 1px solid #efefef;
+  /*margin-bottom:10px;*/
+  padding-bottom: 20px;
 }
 
 .index-page .tolink-light-text, .tolink-title{
@@ -1226,6 +1236,10 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   vertical-align: top;
 }
 
+.ui.small.modal{
+  width: 678px !important; 
+}
+
 .user-image{
   background: #efefef;
   height: 30px;
@@ -1259,7 +1273,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 .protograph-toMobJustice-sticky {
   position: fixed;
-  background: #fafafa;
+  background: #fdf9f3;
   width: 100%;
   z-index: 1000;
   max-width: 100%;
