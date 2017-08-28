@@ -393,10 +393,6 @@ table{
   width: 100%;
 }
 
-.ui.modal{
-  top: 10%;
-}
-
 .ui.grid{
   margin-top: 0px;
   width: 970px;
@@ -468,9 +464,12 @@ table{
   transition: all 250ms cubic-bezier(.02, .01, .47, 1);
 }
 
-
 .ui.dimmer>.content{
   height: 0;
+}
+
+.ui.modal{
+  top: 40px;
 }
 
 .protograph-tolink-card{

@@ -15,9 +15,6 @@ class ListCards extends React.Component {
         let element = document.querySelector("#proto-embed-card iframe");
         element.parentNode.removeChild(element);
         props.handleCircleClicked(false);
-      },
-      onVisible: function() {
-        $('#proto-modal').css("height", "100% !important")
       }
     }).modal('attach events', '.close').modal('show')
     if (this.props.mode === 'laptop') {
