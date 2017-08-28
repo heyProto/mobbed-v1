@@ -84,9 +84,9 @@ if (document.getElementsByClassName('latest-incidents')[0].style.display === '')
             }
           }).modal('attach events', '.close').modal('show')
           if (mode === 'laptop') {
-            let pro = new ProtoEmbed.initFrame(document.getElementById("proto-embed-card"), filteredData[i].iframe_url, 'laptop')
+            let pro = new ProtoEmbed.initFrame(document.getElementById("proto-embed-card"), data[i].iframe_url, 'laptop')
           } else {
-            let pro = new ProtoEmbed.initFrame(document.getElementById("proto-embed-card"), filteredData[i].iframe_url, 'mobile', true)
+            let pro = new ProtoEmbed.initFrame(document.getElementById("proto-embed-card"), data[i].iframe_url, 'mobile', true)
           } 
         })
       }
