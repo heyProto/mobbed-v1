@@ -80,6 +80,7 @@ class TimeBrush extends React.Component {
             dimension="x" 
             responsive={this.props.mode === 'mobile' ? true : false}
             handleStyle={{fill: "#bdb8b8", height: 27, y:25, width: 7}}
+            selectionStyle={{stroke: "transparent", fill: "#d88d13", fillOpacity: 0.1}}
             onDomainChange={(domain) => this.props.handleSelectDateRange(domain)}/>
         }
       > 

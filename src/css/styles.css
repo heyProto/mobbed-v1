@@ -602,14 +602,15 @@ table{
 .geo-borders {
   fill: none;
   stroke: white;
+  stroke: #ffdede;
   stroke-width: 0.5px;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
 
 .geo-region {
-  /*fill: #FBF3E6;*/
-  fill: #DADFF4;
+  /*fill: #fdf9f3;*/
+  fill: #FBF3E6;
 }
 
 .region-outline{
@@ -949,12 +950,12 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   height: 30px;
   border-radius: 20px
 }
-/*
+
 .index-page .profile-title-div{
   display: inline-block;
-  margin-left: 10px;
+  margin-left: 5px; 
 }
-*/
+
 .index-page .protograph-url{
   text-decoration: none;
   color: black;
