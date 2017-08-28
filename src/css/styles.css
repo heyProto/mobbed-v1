@@ -14,6 +14,7 @@
   font-weight: 200;
   font-style: oblique;
   margin-bottom: 70px;
+  padding: 0px !important;
 }
 
 .notes-div{
@@ -119,6 +120,12 @@
 .findings-ul{
   list-style: none;
   padding-left: 0px;
+}
+
+#display-tweets p{
+  padding-left: 35px;
+  padding-right: 10px;
+  margin-bottom: 15px;
 }
 
 .findings-top-notes .right-section{
@@ -949,7 +956,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 .index-page .profile-title-div{
   display: inline-block;
-  margin-left: 5px; 
+  margin-left: 5px;
 }
 
 .index-page .protograph-url{
@@ -1278,9 +1285,10 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 .latest-incidents{
   display: block !important;
-  border-left: 1px solid #efefef;
-  border-right: 1px solid #efefef;
+  /*border-left: 1px solid #efefef;*/
+  /*border-right: 1px solid #efefef;*/
 }
+
 
 .main-content-grid{
   width: 970px !important;
