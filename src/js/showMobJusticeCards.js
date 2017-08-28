@@ -104,18 +104,17 @@ getJSON('https://cdn.protograph.pykih.com/toReportViolence/twitter.json', functi
     if (err != null) {
       alert('Something went wrong: ' + err);
     } else {
-      // let tweets='<div class="ui feed"><br>';
       let tweets = '';
       data.map((d,i) => {       
         tweets += '<div style="margin-bottom:20px;padding:5px;"><a href="'+d.canonical+'" target="_blank" class="protograph-url">' +
-          '<div>'+
+          '<div style="margin-bottom:10px">'+
             '<img class="tolink-profile-image" src="'+d.author_image+'">'+
+            '<div class="profile-title-div">'+
+              '<div style="margin-bottom:0px">'+d.author+'</div>'+
+              '<div class="tolink-light-text">@' +d.twitter_handle+'</div>'+
+            '</div>'+
           '</div>'+         
-          '<div>'+
-            '<div>'+d.author+'</div>'+
-            '<div class="tolink-light-text">@'+d.twitter_handle+'</div>'+
-            '<div>'+d.description+'</div>'+
-          '</div>'+
+          '<p>'+d.description+'</p>'+
         '</a></div>' 
       document.getElementById('display-tweets').innerHTML = tweets;   
       })
@@ -127,18 +126,17 @@ let interval = setInterval(function(){
     if (err != null) {
       alert('Something went wrong: ' + err);
     } else {
-      // let tweets='<div class="ui feed"><br>';
       let tweets = '';
       data.map((d,i) => {       
         tweets += '<div style="margin-bottom:20px;padding:5px;"><a href="'+d.canonical+'" target="_blank" class="protograph-url">' +
-          '<div>'+
+          '<div style="margin-bottom:10px">'+
             '<img class="tolink-profile-image" src="'+d.author_image+'">'+
+            '<div class="profile-title-div">'+
+              '<div style="margin-bottom:0px">'+d.author+'</div>'+
+              '<div class="tolink-light-text">@' +d.twitter_handle+'</div>'+
+            '</div>'+
           '</div>'+         
-          '<div>'+
-            '<div>'+d.author+'</div>'+
-            '<div class="tolink-light-text">@'+d.twitter_handle+'</div>'+
-            '<div>'+d.description+'</div>'+
-          '</div>'+
+          '<p>'+d.description+'</p>'+
         '</a></div>' 
       document.getElementById('display-tweets').innerHTML = tweets;   
       })
