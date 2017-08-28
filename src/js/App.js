@@ -592,7 +592,7 @@ class App extends React.Component {
 
   showFilters() {
     this.setState({
-      height: 860,
+      height: 880,
       overflow: 'auto',
       showTapArea: 'none',
       hideTapArea: 'block'
@@ -861,64 +861,49 @@ class App extends React.Component {
         display: this.state.hideTapArea
       }
 
-      $('#menu-help').popup({
-        position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
-      })
-
       $('#planned-incident-help').popup({
         position : 'bottom center',
-       html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
-      })
-
-      $('#party-help').popup({
-        position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
-      })
-
-      $('#area-help').popup({
-        position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+       html: '"Planned" if it was clearly planned against a specific victim. Example - a village meeting that decides that someone needs to be lynched. "Neighbourhood watch" where local citizens were on the lookout for potential "wrong-doers" and the victim was targeted incidentally. ( Cow vigilante groups, neighbourhood watch for thieves etc). "Spontaneous" if the incident was triggered with no prior planning and occurred as an immediate, spontaneous response to the victims actions. "Not clear" if nothing is mentioned in the article.'
       })
 
       $('#judge-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Judge to population ratio in the state. From Court News, publication of the Supreme Court, Vol XI Issue No. 1 Jan - Mar 2016.'
       })
 
       $('#police-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Police to population ratio in the state. Data compiled by Bureau of Police Research and Development as on Jan 2016. The UN recommended police to population ratio is 230.'
       })
 
       $('#police-vehicles-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Number of police vehicles per square kilometres in the state. Data compiled by Bureau of Police Research and Development as on Jan 2016.'
       })
 
       $('#police-intervene-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Interpreted from article'
       })
 
       $('#police-prevent-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Interpreted from article'
       })
 
       $('#defence-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Based on what we could find from Google Searches. We found some version of Village Defence Forces or a government organised Neighbourhood Watch like organisations.'
       })
 
       $('#victim-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Either mentioned in the article or interpreted from article'
       })
 
       $('#accused-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Either mentioned in the article or interpreted from article'
       }) 
 
       return (
@@ -931,8 +916,7 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Classification
-                      <div id="menu-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    <tr><th className="table-head">What led to the violence?
                     </th></tr>
                   </thead>
                   <tbody>{menuOptions}</tbody>
@@ -959,7 +943,7 @@ class App extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Party whose Chief Minister is in power
+                    <tr><th className="table-head">Party whose Chief Minister was in power
                     </th></tr>
                   </thead>
                   <tbody className="table-tbody">{partyOptions}</tbody>

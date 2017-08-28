@@ -470,7 +470,7 @@ table{
 
 
 .ui.dimmer>.content{
-  height: 0 !important;
+  height: 0;
 }
 
 .protograph-tolink-card{

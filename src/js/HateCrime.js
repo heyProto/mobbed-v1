@@ -708,7 +708,7 @@ class HateCrime extends React.Component {
 
   showFilters() {
     this.setState({
-      height: 830,
+      height: 900,
       overflow: 'auto',
       showTapArea: 'none',
       hideTapArea: 'block'
@@ -1002,58 +1002,63 @@ class HateCrime extends React.Component {
       }
       $('#hate-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Yes, if any of the hate crime categories are yes.'
       })
 
       $('#gender-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Cases of witchcraft (in case of women), "social deviance", where it is evident that the victim was attacked because of being a woman/ transgender. If they were attacked not for their sex, but the nature of attack was gendered, example, sexual harassment, rape threats.'
       })
 
       $('#caste-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Yes, if someone is attacked because they belong to a different caste, for certain caste specific practices, for inter-caste marriage and relationships, for transgressing caste boundaries, for caste based derogatory remarks.'
       })
 
       $('#race-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Yes, if someone is attacked because they belong/perceived to belong to a different racial group i.e. have distinct biological and physical traits / features / appearances. Example: Attacks on people from the North-eastern part of India, on people from African nationals.'
       })
 
       $('#religion-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Yes, if attacked for practicing/not practicing a certain religious faith, for hurting religious sentiments, for a particular religious practice, inter-religious marriage/relationship.'
       })
 
       $('#political-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Yes, if someone is attacked because they belong to a different political party, or ideology, have criticized a certain political viewpoint, are trying to convert people politically etc.'
       })
 
       $('#sexual-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Yes, if someone is attacked merely because they are homosexual / bisexual / asexual and / or for their gender identity/expression. For example,for cross dressing, for identifying with a gender that is different from their biological sex'
       })
 
       $('#disability-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Yes, if someone with physical and/or mental disability is attacked (especially cases of Suspicions of witchcraft, Child lifting etc)'
       })
 
       $('#ethnicity-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
-      })
-
-      $('#menu-help').popup({
-        position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: 'Yes, if someone is attacked because they belong to a different social or cultural group, speak a different dialect or language, trace their ancestry to a different lineage, come from a different tribe, or from a different region etc.'
       })
 
       $('#planned-incident-help').popup({
         position : 'bottom center',
-        html: '<p>My favorite dog would like other dogs as much as themselves</p><br>There was a farmer had a dog Bingo was his name-o'
+        html: '"Planned" if it was clearly planned against a specific victim. Example - a village meeting that decides that someone needs to be lynched. "Neighbourhood watch" where local citizens were on the lookout for potential "wrong-doers" and the victim was targeted incidentally. ( Cow vigilante groups, neighbourhood watch for thieves etc). "Spontaneous" if the incident was triggered with no prior planning and occurred as an immediate, spontaneous response to the victims actions. "Not clear" if nothing is mentioned in the article.'
       })
+
+      $('#victim-help').popup({
+        position : 'bottom center',
+        html: 'Either mentioned in the article or interpreted from article'
+      })
+
+      $('#accused-help').popup({
+        position : 'bottom center',
+        html: 'Either mentioned in the article or interpreted from article'
+      }) 
 
       return (
         <div className="banner-area">
@@ -1155,8 +1160,7 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Classification
-                      <div id="menu-help" className="ui filter-help-text"><i className="help circle icon"></i></div>
+                    <tr><th className="table-head">What led to the violence?
                     </th></tr>
                   </thead>
                   <tbody>{menuOptions}</tbody>
@@ -1184,7 +1188,7 @@ class HateCrime extends React.Component {
               <div className="four wide column filter-title">
                 <table>
                   <thead className="table-thead">
-                    <tr><th className="table-head">Party whose Chief Minister is in power
+                    <tr><th className="table-head">Party whose Chief Minister was in power
                     </th></tr>
                   </thead>
                   <tbody className="table-tbody">{partyOptions}</tbody>                
