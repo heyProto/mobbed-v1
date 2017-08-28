@@ -464,9 +464,9 @@ table{
   transition: all 250ms cubic-bezier(.02, .01, .47, 1);
 }
 
-.ui.dimmer>.content{
+/*.ui.dimmer>.content{
   height: 0;
-}
+}*/
 
 .ui.modal{
   top: 40px;

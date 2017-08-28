@@ -72,12 +72,15 @@ if (document.getElementsByClassName('latest-incidents')[0].style.display === '')
           createDiv.id = 'ProtoCard-'+i
         document.getElementById('ProtoCard-'+i).addEventListener('click', function (d) {
           $('.ui.modal').modal({
+            onShow: function() {
+              $("#proto-modal").css("height", 0)
+            },
+            onHide: function(){
+              $("#proto-modal").css("height", "100%")
+            },
             onHidden: function(e) {
               let element = document.querySelector("#proto-embed-card iframe");
               element.parentNode.removeChild(element);
-            },
-            onVisible: function () {
-              $("#proto-modal").addClass('scrolling')
             }
           }).modal('attach events', '.close').modal('show')
           if (mode === 'laptop') {

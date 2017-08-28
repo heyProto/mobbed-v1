@@ -11,10 +11,16 @@ class ListCards extends React.Component {
   handleOpenModal(e, card){
     let props = this.props; 
     $('.ui.modal').modal({
+      onShow: function() {
+        $("#proto-modal").css("height", 0)
+      },
+      onHide: function(){
+        $("#proto-modal").css("height", "100%")
+      },
       onHidden: function(e) {
         let element = document.querySelector("#proto-embed-card iframe");
         element.parentNode.removeChild(element);
-        props.handleCircleClicked(false);
+        props.handleCircleClicked(false);       
       }
     }).modal('attach events', '.close').modal('show')
     if (this.props.mode === 'laptop') {

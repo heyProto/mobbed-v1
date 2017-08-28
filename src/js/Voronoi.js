@@ -22,9 +22,14 @@ class Voronoi extends React.Component {
   handleOnClick(e, card, name) {
     let props = this.props; 
     $('.ui.modal').modal({
+      onShow: function() {
+        $("#proto-modal").css("height", 0)
+      },
+      onHide: function(){
+        $("#proto-modal").css("height", "100%")
+      },
       onHidden: function(e) {
         let element = document.querySelector("#proto-embed-card iframe");
-        // console.log(element, "element")
         element.parentNode.removeChild(element);
         props.handleCircleClicked(false);
       }
