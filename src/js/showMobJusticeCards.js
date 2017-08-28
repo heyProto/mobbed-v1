@@ -50,8 +50,8 @@ if (document.getElementsByClassName('latest-incidents')[0].style.display === '')
       let mob_cards = '';
       data.map((d,i) => {
         let img = d.screen_shot_url
-        mob_cards += '<div id="ProtoCard-'+ i +'" class="mob-justice-incidents">' +
-          '<img class="card-image" src="'+img+ '" width="100%"/>'+
+        mob_cards += '<div id="ProtoCard-'+ i +'" class="mob-justice-incidents" style="height:220px;overflow:hidden;">' +
+          '<img src="'+img+ '" width="100%"/>'+
           '<div class="protograph-gradient">'+
             '<div class="data-card-content">'+
               '<div class="data-card-title">' + d.title + '</div>'+
