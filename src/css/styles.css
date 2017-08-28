@@ -107,7 +107,7 @@
 
 .findings-top-notes .left-section{
   width: 60%;
-  background: #dcddde !important;
+  background: #FBF3E6 !important;
   color: black;
 }
 
@@ -420,8 +420,8 @@ table{
 }
 
 .qa-highlight-color{
-  background-color: #CCE2FF !important;
-  color: black;
+  background-color: #FBF3E6 !important;
+  /*color: red !important;*/
 }
 
 .proto-graph-code {
@@ -463,10 +463,6 @@ table{
   /*border: 1px solid rgb(241, 241, 241);*/
   transition: all 250ms cubic-bezier(.02, .01, .47, 1);
 }
-
-/*.ui.dimmer>.content{
-  height: 0;
-}*/
 
 .ui.modal{
   top: 40px;
