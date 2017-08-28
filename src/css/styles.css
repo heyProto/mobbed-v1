@@ -107,7 +107,7 @@
 
 .findings-top-notes .left-section{
   width: 60%;
-  background: #dcddde !important;
+  background: #FBF3E6 !important;
   color: black;
 }
 
@@ -420,8 +420,8 @@ table{
 }
 
 .qa-highlight-color{
-  background-color: #CCE2FF !important;
-  color: black;
+  background-color: #FBF3E6 !important;
+  /*color: red !important;*/
 }
 
 .proto-graph-code {
@@ -465,7 +465,7 @@ table{
 }
 
 .ui.dimmer>.content{
-  height: 0;
+  /*height: 100%;*/
 }
 
 .ui.modal{
