@@ -27,12 +27,11 @@ function getJSON(url, callback) {
   xhr.send();
 };
 
-if (document.getElementsByClassName('latest-incidents')[0].style.display === '') {
-  getJSON('https://cdn.protograph.pykih.com/toReportViolence/index.json', function (err, data){
-    if (err != null) {
-      alert('Something went wrong: ' + err);
-    } else {
-      let start_date_split = (new Date (data[data.length - 1].date)).toDateString().split(" "),
+getJSON('https://cdn.protograph.pykih.com/49a045aea2b71456f5d04f4a/index.json', function (err, data){
+  if (err != null) {
+    alert('Something went wrong: ' + err);
+  } else {
+    let start_date_split = (new Date (data[data.length - 1].date)).toDateString().split(" "),
         end_date_split = (new Date (data[0].date)).toDateString().split(" "),
         start_date = start_date_split[2] + " " + start_date_split[1] + " '" + start_date_split[3].slice(-2),
         end_date = end_date_split[2] + " " + end_date_split[1] + " '" + end_date_split[3].slice(-2);
@@ -40,16 +39,23 @@ if (document.getElementsByClassName('latest-incidents')[0].style.display === '')
       document.getElementById('animate-number').innerHTML = data.length;
       document.getElementById('start-date').innerHTML = start_date;
       document.getElementById('end-date').innerHTML = end_date;
-      let filteredData = data.slice(0,7),
-        mob_cards = '';
-      filteredData.map((d,i) => {
-        let img = filteredData[i].image ? filteredData[i].image : filteredData[i].screen_shot_url
+  }
+})
+
+if (document.getElementsByClassName('latest-incidents')[0].style.display === '') {
+  getJSON('https://cdn.protograph.pykih.com/be0b3c8854f0b1e774b96580/index.json', function (err, data){
+    if (err != null) {
+      alert('Something went wrong: ' + err);
+    } else {      
+      let mob_cards = '';
+      data.map((d,i) => {
+        let img = d.screen_shot_url
         mob_cards += '<div id="ProtoCard-'+ i +'" class="mob-justice-incidents">' +
           '<img class="card-image" src="'+img+ '" width="100%"/>'+
           '<div class="protograph-gradient">'+
             '<div class="data-card-content">'+
-              '<div class="data-card-title">' + filteredData[i].title + '</div>'+
-              '<div class="data-card-date">' + filteredData[i].date +'</div>' +
+              '<div class="data-card-title">' + d.title + '</div>'+
+              '<div class="data-card-date">' + d.date +'</div>' +
               '</div>'+
             '</div>'+
           '</div>'
@@ -85,7 +91,7 @@ if (document.getElementsByClassName('latest-incidents')[0].style.display === '')
   })
 }
 // Articles section
-getJSON('https://s3.ap-south-1.amazonaws.com/dev.cdn.protograph/toReportViolence/articles.json', function (err, data){
+getJSON('https://cdn.protograph.pykih.com/8dc5499c508b5b27951d9de1/index.json', function (err, data){
     if (err != null) {
       alert('Something went wrong: ' + err);
     } else {
@@ -157,15 +163,3 @@ function getScreenSize() {
     height: height
   };
 }
-
-// tweets += 
-//           '<div class="event">'+
-//             '<div class="label">'+
-//               '<img src="'+d.author_image+'">'+
-//             '</div>'+
-//             '<div class="content">'+
-//               '<div class="date">@'+d.twitter_handle+'</div>'+
-//               '<div class="summary">'+d.author+ '</div>'+
-//               '<div class="extra text">'+ d.description+'</div>'+             
-//             '</div>'+
-//           '</div>'

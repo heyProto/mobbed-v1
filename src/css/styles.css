@@ -240,7 +240,7 @@
 .filter-area{
   display: inline-block;
   width: 100%;
-  background: #fdf9f3;
+  background: #FBF3E6;
 }
 
 .filter-area .tap-area {
@@ -251,11 +251,11 @@
   padding: 15px 0px;
   font-weight: bold;
   cursor: pointer;
-  background: #fdf9f3;
+  background: #FBF3E6;
 }
 
 .ui.button{
-  background: #fdf9f3;
+  background: #FBF3E6;
 }
 
 .filter-title{
@@ -271,7 +271,7 @@
 .filter-area .tap-area .reset-all {
   border: 1px solid #F02E2E;
   color: #F02E2E;
-  background-color: #fdf9f3;
+  background-color: #FBF3E6;
   z-index: 200;
 }
 
@@ -295,7 +295,7 @@
 }
 
 .single-background{
-  background: #fdf9f3;
+  background: #FBF3E6;
   height: 80px;
   width: 50px;
   display: inline-block;
@@ -601,6 +601,7 @@ table{
 
 .geo-borders {
   fill: none;
+  stroke: white;
   stroke: #ffdede;
   stroke-width: 0.5px;
   stroke-linejoin: round;
@@ -608,7 +609,8 @@ table{
 }
 
 .geo-region {
-  fill: #fdf9f3;
+  /*fill: #fdf9f3;*/
+  fill: #FBF3E6;
 }
 
 .region-outline{
@@ -1006,8 +1008,8 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 }
 
 .data-page .table-tbody{
-  height:150px; 
-  overflow-y:auto; 
+  height:150px;
+  overflow-y:auto;
   display:block;
 }
 
@@ -1235,7 +1237,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 }
 
 .ui.small.modal{
-  width: 678px !important; 
+  width: 678px !important;
 }
 
 .user-image{
@@ -1271,7 +1273,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 .protograph-toMobJustice-sticky {
   position: fixed;
-  background: #fdf9f3;
+  background: #FBF3E6;
   width: 100%;
   z-index: 1000;
   max-width: 100%;
