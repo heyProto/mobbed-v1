@@ -247,7 +247,7 @@
 .filter-area{
   display: inline-block;
   width: 100%;
-  background: #FBF3E6;
+  background: #fafafa;
 }
 
 .filter-area .tap-area {
@@ -258,11 +258,7 @@
   padding: 15px 0px;
   font-weight: bold;
   cursor: pointer;
-  background: #FBF3E6;
-}
-
-.ui.button{
-  background: #FBF3E6;
+  background: #fafafa;
 }
 
 .filter-title{
@@ -278,7 +274,7 @@
 .filter-area .tap-area .reset-all {
   border: 1px solid #F02E2E;
   color: #F02E2E;
-  background-color: #FBF3E6;
+  background-color: #fafafa;
   z-index: 200;
 }
 
@@ -302,7 +298,7 @@
 }
 
 .single-background{
-  background: #FBF3E6;
+  background: #fafafa;
   height: 80px;
   width: 50px;
   display: inline-block;
@@ -605,15 +601,13 @@ table{
 .geo-borders {
   fill: none;
   stroke: white;
-  stroke: #ffdede;
   stroke-width: 0.5px;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
 
 .geo-region {
-  /*fill: #fdf9f3;*/
-  fill: #FBF3E6;
+  fill: #DADFF4;
 }
 
 .region-outline{
@@ -1279,7 +1273,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
 .protograph-toMobJustice-sticky {
   position: fixed;
-  background: #FBF3E6;
+  background: white;
   width: 100%;
   z-index: 1000;
   max-width: 100%;
