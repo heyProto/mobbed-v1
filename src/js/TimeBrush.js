@@ -11,10 +11,10 @@ class TimeBrush extends React.Component {
     }
   }
 
-   componentWillMount() {
+  componentWillMount() {
     // let parseDate = timeFormat("%b-%Y"),
-    let parseDate = timeFormat("%Y-%m"),
-      width;
+    console.log("will mount")
+    let parseDate = timeFormat("%Y-%m");
 
     let num_incidents = [];
     this.props.dataJSON.map(function (d){

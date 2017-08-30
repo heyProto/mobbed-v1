@@ -49,13 +49,15 @@ if (document.getElementsByClassName('latest-incidents')[0].style.display === '')
     } else {      
       let mob_cards = '';
       data.map((d,i) => {
-        let img = d.screen_shot_url
+        let img = d.screen_shot_url,
+          new_date = d.date.split("-"),
+          month = new Date(d.date).toLocaleDateString('en-US', {month: 'short'});
         mob_cards += '<div id="ProtoCard-'+ i +'" class="mob-justice-incidents" style="height:220px;overflow:hidden;">' +
           '<img src="'+img+ '" width="100%"/>'+
           '<div class="protograph-gradient">'+
             '<div class="data-card-content">'+
               '<div class="data-card-title">' + d.title + '</div>'+
-              '<div class="data-card-date">' + d.date +'</div>' +
+              '<div class="data-card-date">' + new_date[2]+"th "+ month + " "+ new_date[0]+'</div>' +
               '</div>'+
             '</div>'+
           '</div>'
@@ -67,7 +69,7 @@ if (document.getElementsByClassName('latest-incidents')[0].style.display === '')
       } else {
         mode = 'laptop';
       } 
-      for (let i=0; i<7; i++) {
+      for (let i=0; i<data.length; i++) {
         let createDiv = document.createElement('div');
           createDiv.id = 'ProtoCard-'+i
         document.getElementById('ProtoCard-'+i).addEventListener('click', function (d) {
