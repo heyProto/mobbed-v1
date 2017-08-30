@@ -853,7 +853,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 }
 
 .index-page .banner-div{
-  background-image: url("../../src/img/banner.png");
+  background-image: url("https://s3.ap-south-1.amazonaws.com/cdn.protograph/mobbed/img/banner.png");
   height: 211px;
   width: 100%;
 }
