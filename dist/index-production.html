@@ -4,8 +4,9 @@
   <meta charset = "UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>#Mobbed: What emboldens lynching and vigilantism in India?</title>
-  <link rel="stylesheet" type="text/css" href="the-lynched-lib.min.css">
-  <link rel="stylesheet" type="text/css" href="the-lynched-app.min.css">
+  <link rel="stylesheet" type="text/css" href="lib/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="src/css/styles.css">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
   <div class="index-page">
@@ -18,457 +19,71 @@
     <div class="container">
       <div class="page-navigation">
         <div class="navigation-link active-link"><a href="index.html">Home</a></div>
+        <div class="navigation-link"><a href="findings.html">Findings</a></div>
         <div class="navigation-link"><a href="data.html">Data</a></div>
         <div class="navigation-link"><a href="about.html">About</a></div>
       </div>
-    </div>
     <div class="ui grid cover-image-div" >
       <img class="cover-image" src="src/img/lynching-cover-desktop.png" >
       <img class="cover-image-mobile" src="src/img/lynching-cover-mobile.png" width="100%" >
+      <p class="notes-div disclaimer-text">Disclaimer - This project aims to understand what causes and facilitates mob violence<br/> in India with the hope that we can move a step closer to preventing such incidents.</p>
+      <h3 class="subheader">Lynchings and other forms of mob violence have caught attention in the recent past, especially in the context of ‘cow protection’. <span class="highlight">But what are the root causes of these incidents?</span> <span class="highlight">Did mob violence emerge suddenly?</span> <span class="highlight">Are there common patterns to lynchings across regions in India?</span> This project stemmed out of curiosity about these basic, and even more complex questions such as: <span class="highlight">Does this kind of violence happen for specific reasons?</span> <span class="highlight">Does the law and order capacity of the state have any bearing on the frequency of these incidents?</span> <span class="highlight">And most importantly, is there anything can be done about it?</span> We tried our best to answer these questions by shedding our biases and preconceived notions. As you explore the data and visualizations, be sure to check out our FAQ that contains answers on our approach, data collection, design and interpretation.</h3>
+      <div class="banner-div">
+        <a class="data-url" href="data.html">
+          <div class="counter-area">
+            <div class="number-background">
+              <div class="single-background"></div>
+              <div class="single-background"></div>
+              <div class="single-background"></div>
+            </div>
+            <div class="display-counter">
+              <span id="animate-number" class="animate-number">0</span>
+            </div>
+          </div>
+          <div class="display-summary">Instances of lynching were reported<br>from <span id="start-date"></span> to <span id="end-date"></span>
+          </div>
+        </a>
+      </div>
     </div>
+
     <div class="ui grid main-content-grid">
       <div class="four wide column twitter-chatter">
-        <h4 class="ui header column-header zero-padding">Chatter on Twitter</h4>
-        <div class="ui feed">
-          <br>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/helen.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Helen Troy</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/laura.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Laura Faucet</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/helen.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Helen Troy</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/laura.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Laura Faucet</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/helen.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Helen Troy</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/laura.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Laura Faucet</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/helen.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Helen Troy</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/laura.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Laura Faucet</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/helen.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Helen Troy</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/laura.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Laura Faucet</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/helen.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Helen Troy</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/laura.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Laura Faucet</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/helen.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Helen Troy</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/laura.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Laura Faucet</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/helen.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Helen Troy</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/laura.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Laura Faucet</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/helen.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Helen Troy</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-          <div class="event">
-            <div class="label">
-              <img src="https://semantic-ui.com/images/avatar/small/laura.jpg">
-            </div>
-            <div class="content">
-              <div class="date">
-                3 days ago
-              </div>
-              <div class="summary">
-                 <a>Laura Faucet</a>
-              </div>
-              <div class="extra text">
-                Have you seen what's going on in Israel? Can you believe it.
-              </div>
-            </div>
-          </div>
-        </div>
+        <h4 class="ui header column-header zero-padding">Chatter</h4>
+        <div id="display-tweets"></div>
       </div>
       <div class="five wide column latest-incidents">
-        <h4 class="ui header column-header">Latest incidents</h4>
+        <h4 class="ui header column-header">Incidents</h4>
         <div id="display-cards"></div>
       </div>
       <div class="seven wide column">
-        <h4 class="ui header column-header">IndianExpress Stories</h4>
-        <div id="display-stories">
-          <div id="ProtGraph-1">
-            <div id="protograph-div" class="protograph-tolink-card">
-              <a href="http://indianexpress.com/article/opinion/columns/when-the-nation-is-charged-up-for-vengeance-4740059/" target="_blank" className="protograph-url">
-                <h3 class="ui header">When the nation is charged up, for vengeance</h3>
-                <br/>
-                <div>
-                  <img class="index-story-image" src="http://images.indianexpress.com/2017/07/lynch.jpg" width="100%"/>
-                </div>
-                <p class="index-story-text">Cow vigilantes and self-proclaimed ghazis don’t need state legitimacy to carry out the violent actions that they engage in. The problem starts when the state itself remains silent against such heinous crimes</p>
-              </a>
-              <div class="protograph-footer">
-                <div class="protograph-credits"><a class="protograph-card-link" href="#" target="_blank">toLink</a></div>
-              </div>
-            </div>
-          </div>
-
-        <div id="ProtGraph-2">
-          <div id="protograph-div" class="protograph-tolink-card">
-            <a href="http://indianexpress.com/article/opinion/columns/crime-and-context-4739229/" target="_blank" className="protograph-url">
-              <h3 class="ui header">Crime and context</h3>
-              <br/>
-              <div>
-                <img class="index-story-image" src="http://images.indianexpress.com/2017/06/not-in-my-name-7593.jpg" width="100%"/>
-              </div>
-              <p class="index-story-text">Lynchings draw upon the master narrative of cow protection promoted by the current political elites</p>
-              </a>
-              <div class="protograph-footer">
-                <div class="protograph-credits"><a class="protograph-card-link" href="#" target="_blank">toLink</a></div>
-              </div>
-          </div>
+        <h4 class="ui header column-header">Coverage in IndianExpress.com</h4>
+        <div id="display-stories"></div>
+      </div>
+      <div id="proto-modal" class="ui modal small scrolling content">
+        <i class="close icon"></i>
+        <div>
+          <div id="proto-embed-card"></div>
         </div>
-
-        <div id="ProtGraph-3">
-          <div id="protograph-div" class="protograph-tolink-card">
-            <a href="http://indianexpress.com/article/opinion/we-the-cows-4723469/" target="_blank" className="protograph-url">
-              <h3 class="ui header">We, the Cows</h3>
-              <br/>
-              <div>
-                <img class="index-story-image" src="http://images.indianexpress.com/2017/06/cow-7591.jpg" width="100%"/>
-              </div>
-              <p class="index-story-text">All cows are created equal, but cows born in Karnal or Kanpur or Alwar are more equal than cows born in Kochi or Kohima or Imphal. Every week mobs are lynching, torturing and humiliating innocent Muslims and Dalits in the name and under the pretext of cow protection.</p>
-              </a>
-              <div class="protograph-footer">
-                <div class="protograph-credits"><a class="protograph-card-link" href="#" target="_blank">toLink</a></div>
-              </div>
-          </div>
-        </div>
-
-        <div id="ProtGraph-4">
-          <div id="protograph-div" class="protograph-tolink-card">
-            <a href="http://indianexpress.com/article/opinion/lynch-mobs-narendra-modi-sabarmati-ashram-the-pms-trail-is-this-my-country-the-country-of-bapu-4728749/" target="_blank" className="protograph-url">
-              <h3 class="ui header">The PM's Trail: Is this my country, the country of Bapu?</h3>
-              <br/>
-              <div>
-                <img class="index-story-image" src="http://images.indianexpress.com/2017/06/jyoti-malhotra-modi.jpg" width="100%"/>
-              </div>
-              <p class="index-story-text">Prime Minister Narendra Modi's angry remarks at Sabarmati about those killing innocents in the name of the cow doesn't seem to be shared by the CMs of states where the killings are taking place.</p>
-              </a>
-              <div class="protograph-footer">
-                <div class="protograph-credits"><a class="protograph-card-link" href="#" target="_blank">toLink</a></div>
-              </div>
-          </div>
-        </div>
-
-        <div id="ProtGraph-5">
-          <div id="protograph-div" class="protograph-tolink-card">
-            <a href="http://indianexpress.com/article/opinion/india-is-becoming-a-hindu-pakistan-kashmir-police-ballabhgarh-lynching-beef-muslim-dadri-4722104/" target="_blank" className="protograph-url">
-              <h3 class="ui header">Is India becoming a Hindu Pakistan?</h3>
-              <br/>
-              <div>
-                <img class="index-story-image" src="http://images.indianexpress.com/2017/06/mathura-stabbing-759.jpg" width="100%"/>
-              </div>
-              <p class="index-story-text">Mohammed Ayub’s killing in Kashmir has kindled a sense of shame in the community; but the ghastly silence over 15-year-old Junaid Khan’s murder is a national outrage.</p>
-              </a>
-              <div class="protograph-footer">
-                <div class="protograph-credits"><a class="protograph-card-link" href="#" target="_blank">toLink</a></div>
-              </div>
-          </div>
-        </div>
-
-        <div id="ProtGraph-6">
-          <div id="protograph-div" class="protograph-tolink-card">
-            <a href="http://indianexpress.com/article/opinion/editorials/junaid-khan-mob-lynching-bjp-religion-vote-4723464/" target="_blank" className="protograph-url">
-              <h3 class="ui header">Junaid’s murder</h3>
-              <br/>
-              <p class="index-story-text">The quietude of the BJP-ruled governments in the states and of the Narendra Modi-led Centre — in stark contrast to their regular drum-beating on definitions and tests of nationalism/Indian-ness — and the heavy-footedness of the law enforcement machinery in the aftermath, implicates them in every such attack.</p>
-              </a>
-              <div class="protograph-footer">
-                <div class="protograph-credits"><a class="protograph-card-link" href="#" target="_blank">toLink</a></div>
-              </div>
-          </div>
-        </div>
-
-        <div id="ProtGraph-7">
-          <div id="protograph-div" class="protograph-tolink-card">
-            <a href="http://indianexpress.com/article/opinion/columns/junaid-pehlu-khan-mob-lynching-religion-minorities-hindu-muslim-politics-4723451/" target="_blank" className="protograph-url">
-              <h3 class="ui header">May the silent be damned</h3>
-              <br/>
-              <div>
-                <img class="index-story-image" src="http://images.indianexpress.com/2017/05/jharkhand1.jpg" width="100%"/>
-              </div>
-              <p class="index-story-text">A big riot would concentrate the mind, make a damning headline. A protracted riot in slow motion, individual victims across different states, simply makes this appear another daily routine. This makes opposing it harder; it makes holding onto the outrage nearly impossible.</p>
-              </a>
-              <div class="protograph-footer">
-                <div class="protograph-credits"><a class="protograph-card-link" href="#" target="_blank">toLink</a></div>
-              </div>
-          </div>
-        </div>
-
-        <div id="ProtGraph-8">
-          <div id="protograph-div" class="protograph-tolink-card">
-            <a href="http://indianexpress.com/article/opinion/in-the-republic-of-lynching-srinagar-ayub-pandith-ballabhgarh-law-society-4721647/" target="_blank" className="protograph-url">
-              <h3 class="ui header">In the Republic of lynching</h3>
-              <br/>
-              <div>
-                <img class="index-story-image" src="http://images.indianexpress.com/2017/05/verma-759.jpg" width="100%"/>
-              </div>
-              <p class="index-story-text">In this sense the lynch squad is not pathological but part of the normalcy of a paranoid society, of a politics of suspicion which has no purpose. Rumor becomes a way of processing anxiety. It is almost as if violence has a social function when law breaks down.</p>
-              </a>
-              <div class="protograph-footer">
-                <div class="protograph-credits"><a class="protograph-card-link" href="#" target="_blank">toLink</a></div>
-              </div>
-          </div>
-        </div>
+      </div>
     </div>
   </div>
-</div>
 <div class="five-br-space"></div>
 <div class="bottom-navigation protograph-toMobJustice-sticky" id="protograph_toMobJustice_footer_container">
   <div class="footer-container" >
       <div class="page-bottom-navigation">
         <div class="navigation-link active-link"><a href="index.html">Home</a></div>
+        <div class="navigation-link"><a href="findings.html">Findings</a></div>
         <div class="navigation-link"><a href="data.html">Data</a></div>
         <div class="navigation-link"><a href="about.html">About</a></div>
       </div>
   </div>
 </div>
 </div> <!-- end of index page -->
-<script src="the-lynched-lib.min.js"></script>
+
+<script src="lib/jquery.min.js"></script>
+<script src="lib/semantic.min.js"></script>
 <script src="https://d2m6lzru8erw1k.cloudfront.net/lib/protoGraph.min.js"></script>
-<script src="the-lynched-app.min.js"></script>
 <script src="src/js/showMobJusticeCards.js"></script>
+<script src="src/js/fixedNavBar.js"></script>
 </body>
 </html>
