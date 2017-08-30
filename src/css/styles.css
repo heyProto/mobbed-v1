@@ -417,6 +417,12 @@ table{
   display: block;
 }
 
+.larger{
+  font-size: 1.1em;
+  font-weight: 800;
+  letter-spacing: 0px;
+}
+
 .answer{
   padding: 10px;
   margin-bottom: 30px;
