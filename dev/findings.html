@@ -4,8 +4,9 @@
   <meta charset = "UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>#Mobbed: What emboldens lynching and vigilantism in India?</title>
-  <link rel="stylesheet" type="text/css" href="https://cdn.protograph.pykih.com/mobbed/the-lynched-lib.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.protograph.pykih.com/mobbed/the-lynched-app.min.css">
+  <link rel="stylesheet" type="text/css" href="lib/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="src/css/styles.css">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
 <div class="proto-about-page">
@@ -28,8 +29,8 @@
     </div>
   </div>
   <div class="ui grid cover-image-div">
-    <img class="cover-image" src="https://cdn.protograph.pykih.com/mobbed/img/lynching-cover-desktop.jpg" >
-    <img class="cover-image-mobile" src="https://cdn.protograph.pykih.com/mobbed/img/lynching-cover-mobile.jpg" width="100%" >
+    <img class="cover-image" src="src/img/lynching-cover-desktop.jpg" >
+    <img class="cover-image-mobile" src="src/img/lynching-cover-mobile.jpg" width="100%" >
     <p class="notes-div disclaimer-text">Disclaimer - This project aims to understand what causes and facilitates mob violence<br/> in India with the hope that we can move a step closer to preventing such incidents.</p>
   </div>
   <div class="ui grid">
@@ -139,8 +140,42 @@
   </div>
   </div>
 </div>
-<script src="https://cdn.protograph.pykih.com/mobbed/the-lynched-lib.min.js"></script>
-<script src="https://cdn.protograph.pykih.com/mobbed/the-lynched-about.min.js"></script>
+<script src="lib/jquery.min.js"></script>
+<script src="lib/semantic.min.js"></script>
+<script src="lib/jquery.sticky.js"></script>
+<script src="src/js/fixedNavBar.js"></script>
+
+<script type="text/javascript">
+  $('.ui.sticky').sticky();
+  $(window).scroll(function(event){
+    // $('.qa-highlight-color').children('p').children('a').css({"color":"blue"});
+
+    $('.qa-highlight-color').removeClass('qa-highlight-color');
+
+    if($('.ui.sticky').hasClass('fixed')){
+      scrollspy = true;
+    }else{
+      scrollspy = false;
+    }
+    var cutoff = $(window).scrollTop();
+    $('.answer').removeClass('qa-highlight-color').each(function() {
+      if ($(this).offset().top - 25 > cutoff) {
+        $('#q'+$(this).attr('id')).addClass('qa-highlight-color');
+        return false; // stops the iteration after the first one on screen
+      }
+    });
+  });
+
+  $('.question').hover(function(){
+    $(this).addClass('qa-highlight-color');
+    // $(this).children('p').children('a').css({"color":"black"});
+    $( $(this).children('p').children('a')[0].hash ).addClass('qa-highlight-color');
+  },function(){
+    $(this).removeClass('qa-highlight-color');
+    // $(this).children('p').children('a').css({"color":"blue"});
+    $( $(this).children('p').children('a')[0].hash ).removeClass('qa-highlight-color');
+  })
+</script>
 </body>
 </html>
 </body>
