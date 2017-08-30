@@ -1648,6 +1648,10 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
     width: 300px !important;
   }
 
+  .about-main-content{
+    padding: 0px 20px !important;
+  }
+
 
 }
 
