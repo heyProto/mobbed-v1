@@ -702,7 +702,15 @@ class HateCrime extends React.Component {
       .filter(this.checkIsDisabilityCrime, state.is_disability_hate_crime_value)
       .filter(this.checkIsEthnicityCrime, state.is_ethnicity_hate_crime_value)
       .filter(this.checkYear, state.year_value)
-    console.log(filteredData, "filteredData")
+    
+    if (filteredData[0] !== undefined){
+        state.start_domain = new Date(filteredData[0].date),
+        state.end_domain = new Date(filteredData[filteredData.length - 1].date)
+      } else {
+        state.start_domain = NaN;
+        state.end_domain = NaN;
+      }
+
     return filteredData;
   }
 

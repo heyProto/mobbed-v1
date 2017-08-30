@@ -584,10 +584,15 @@ class App extends React.Component {
       .filter(this.checkPoliceIntervene, state.police_intervene_value)
       .filter(this.checkYear, state.year_value)
     
-      console.log(state.start_domain, "state.start_domain")
-      state.start_domain = new Date(filteredData[0].date),
-      state.end_domain = new Date(filteredData[filteredData.length - 1].date)
-
+      // console.log(state.start_domain, "state.start_domain",filteredData[0], filteredData)
+      if (filteredData[0] !== undefined){
+        state.start_domain = new Date(filteredData[0].date),
+        state.end_domain = new Date(filteredData[filteredData.length - 1].date)
+      } else {
+        state.start_domain = NaN;
+        state.end_domain = NaN;
+      }
+      
     return filteredData;
   }
 
