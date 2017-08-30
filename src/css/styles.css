@@ -1473,6 +1473,10 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
     padding-right: 0px;
   }
 
+  .ui.grid>[class*="eleven wide"].column {
+    width: 100%!important;
+  }
+
   .ui.grid>[class*="sixteen wide"].column {
     width: 100%!important;
   }
@@ -1668,6 +1672,13 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
     padding: 0px 20px !important;
   }
 
+  .findings-top-notes .right-section{
+    width: 100% !important;
+  }
+
+  .findings-top-notes{
+    display: block !important;
+  }
 
 }
 
