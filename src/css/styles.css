@@ -108,7 +108,7 @@
 
 .findings-top-notes .left-section{
   width: 60%;
-  background: #FBF3E6 !important;
+  background: #fafafa !important;
   color: black;
 }
 
@@ -423,8 +423,8 @@ table{
 }
 
 .qa-highlight-color{
-  background-color: #FBF3E6 !important;
-  /*color: red !important;*/
+  background-color: #CCE2FF !important;
+  color: black !important;
 }
 
 .proto-graph-code {
@@ -1531,6 +1531,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
   .disclaimer-text{
     text-align: center;
+    margin-left:0px;
   }
 
   .disclaimer-text br{
@@ -1628,6 +1629,10 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
     margin-top: 0px !important;
   }
 /*=== end of index-page css ===*/
+  .ui.small.modal{
+    width: 300px !important;
+  }
+
 
 }
 

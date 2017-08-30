@@ -584,6 +584,7 @@ class App extends React.Component {
       .filter(this.checkPoliceIntervene, state.police_intervene_value)
       .filter(this.checkYear, state.year_value)
     
+      console.log(state.start_domain, "state.start_domain")
       state.start_domain = new Date(filteredData[0].date),
       state.end_domain = new Date(filteredData[filteredData.length - 1].date)
 
