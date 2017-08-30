@@ -11,33 +11,33 @@ class TimeBrush extends React.Component {
     }
   }
 
-  // componentWillMount() {
-  //   let parseDate = timeFormat("%Y-%m");
+  componentWillMount() {
+    let parseDate = timeFormat("%Y-%m");
 
-  //   let num_incidents = [];
-  //   this.props.dataJSON.map(function (d){
-  //     num_incidents.push(parseDate(new Date(d.date)));
-  //   });
+    let num_incidents = [];
+    this.props.dataJSON.map(function (d){
+      num_incidents.push(parseDate(new Date(d.date)));
+    });
 
-  //   let count_obj = this.count(num_incidents),
-  //     count = Object.values(count_obj);
+    let count_obj = this.count(num_incidents),
+      count = Object.values(count_obj);
 
-  //   // console.log(count_obj, "count_obj")
-  //   let arr=[], j=0;
-  //   for (let i in count_obj) {
-  //     arr[j] = ({
-  //       "year": i,
-  //       "date_obj": new Date(i),
-  //       "count": count_obj[i] 
-  //     })
-  //     j++
-  //   }
-  //   let sorted_arr = this.sortArray(arr);
+    // console.log(count_obj, "count_obj")
+    let arr=[], j=0;
+    for (let i in count_obj) {
+      arr[j] = ({
+        "year": i,
+        "date_obj": new Date(i),
+        "count": count_obj[i] 
+      })
+      j++
+    }
+    let sorted_arr = this.sortArray(arr);
 
-  //   this.setState({
-  //     sorted_arr: sorted_arr
-  //   })
-  // }
+    this.setState({
+      sorted_arr: sorted_arr
+    })
+  }
 
   count(arr) {
     return arr.reduce((prev, curr) => (prev[curr] = ++prev[curr] || 1, prev), {})
@@ -60,32 +60,10 @@ class TimeBrush extends React.Component {
 
   render() {
     let start_domain, end_domain;
-    let parseDate = timeFormat("%Y-%m");
-
-    let num_incidents = [];
-    this.props.dataJSON.map(function (d){
-      num_incidents.push(parseDate(new Date(d.date)));
-    });
-
-    let count_obj = this.count(num_incidents),
-      count = Object.values(count_obj);
-
-    // console.log(count_obj, "count_obj")
-    let arr=[], j=0;
-    for (let i in count_obj) {
-      arr[j] = ({
-        "year": i,
-        "date_obj": new Date(i),
-        "count": count_obj[i] 
-      })
-      j++
-    }
-    let sorted_arr = this.sortArray(arr);
     if (this.props.start_domain === 'undefined' && this.props.end_domain === 'undefined'){
-      start_domain = sorted_arr[0].date_obj;
-      end_domain = sorted_arr[sorted_arr.length -1].date_obj;
+      start_domain = this.state.sorted_arr[0].date_obj;
+      end_domain = this.state.sorted_arr[this.state.sorted_arr.length -1].date_obj;
     } else {
-      console.log(this.props.start_domain, "this.props.start_domain")
       start_domain = this.props.start_domain;
       end_domain = this.props.end_domain;
     }
@@ -116,7 +94,7 @@ class TimeBrush extends React.Component {
         <VictoryBar
           style={{ data: { fill: "#F02E2E" } }}
           padding={{left: 20, right: 20, bottom:50}}
-          data={sorted_arr}
+          data={this.state.sorted_arr}
           x="date_obj"
           y="count"/>
 

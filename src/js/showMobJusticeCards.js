@@ -42,59 +42,57 @@ getJSON('https://cdn.protograph.pykih.com/49a045aea2b71456f5d04f4a/index.json', 
   }
 })
 
-if (document.getElementsByClassName('latest-incidents')[0].style.display === '') {
-  getJSON('https://cdn.protograph.pykih.com/be0b3c8854f0b1e774b96580/index.json', function (err, data){
-    if (err != null) {
-      alert('Something went wrong: ' + err);
-    } else {      
-      let mob_cards = '';
-      data.map((d,i) => {
-        let img = d.screen_shot_url,
-          new_date = d.date.split("-"),
-          month = new Date(d.date).toLocaleDateString('en-US', {month: 'short'});
-        mob_cards += '<div id="ProtoCard-'+ i +'" class="mob-justice-incidents" style="height:220px;overflow:hidden;">' +
-          '<img src="'+img+ '" width="100%"/>'+
-          '<div class="protograph-gradient">'+
-            '<div class="data-card-content">'+
-              '<div class="data-card-title">' + d.title + '</div>'+
-              '<div class="data-card-date">' + new_date[2]+"th "+ month + " "+ new_date[0]+'</div>' +
-              '</div>'+
+getJSON('https://cdn.protograph.pykih.com/be0b3c8854f0b1e774b96580/index.json', function (err, data){
+  if (err != null) {
+    alert('Something went wrong: ' + err);
+  } else {      
+    let mob_cards = '';
+    data.map((d,i) => {
+      let img = d.screen_shot_url,
+        new_date = d.date.split("-"),
+        month = new Date(d.date).toLocaleDateString('en-US', {month: 'short'});
+      mob_cards += '<div id="ProtoCard-'+ i +'" class="mob-justice-incidents" style="height:220px;overflow:hidden;">' +
+        '<img src="'+img+ '" width="100%"/>'+
+        '<div class="protograph-gradient">'+
+          '<div class="data-card-content">'+
+            '<div class="data-card-title">' + d.title + '</div>'+
+            '<div class="data-card-date">' + new_date[2]+"th "+ month + " "+ new_date[0]+'</div>' +
             '</div>'+
-          '</div>'
-        document.getElementById('display-cards').innerHTML = mob_cards
+          '</div>'+
+        '</div>'
+      document.getElementById('display-cards').innerHTML = mob_cards
+    })
+    let dimension = getScreenSize(), mode;
+    if (dimension.width <= 400){
+      mode = 'mobile';
+    } else {
+      mode = 'laptop';
+    } 
+    for (let i=0; i<data.length; i++) {
+      let createDiv = document.createElement('div');
+        createDiv.id = 'ProtoCard-'+i
+      document.getElementById('ProtoCard-'+i).addEventListener('click', function (d) {
+        $('.ui.modal').modal({
+          onShow: function() {
+            $("#proto-modal").css("height", 0)
+          },
+          onHide: function(){
+            $("#proto-modal").css("height", "100%")
+          },
+          onHidden: function(e) {
+            let element = document.querySelector("#proto-embed-card iframe");
+            element.parentNode.removeChild(element);
+          }
+        }).modal('attach events', '.close').modal('show')
+        if (mode === 'laptop') {
+          let pro = new ProtoEmbed.initFrame(document.getElementById("proto-embed-card"), data[i].iframe_url, 'laptop')
+        } else {
+          let pro = new ProtoEmbed.initFrame(document.getElementById("proto-embed-card"), data[i].iframe_url, 'mobile', true)
+        } 
       })
-      let dimension = getScreenSize(), mode;
-      if (dimension.width <= 400){
-        mode = 'mobile';
-      } else {
-        mode = 'laptop';
-      } 
-      for (let i=0; i<data.length; i++) {
-        let createDiv = document.createElement('div');
-          createDiv.id = 'ProtoCard-'+i
-        document.getElementById('ProtoCard-'+i).addEventListener('click', function (d) {
-          $('.ui.modal').modal({
-            onShow: function() {
-              $("#proto-modal").css("height", 0)
-            },
-            onHide: function(){
-              $("#proto-modal").css("height", "100%")
-            },
-            onHidden: function(e) {
-              let element = document.querySelector("#proto-embed-card iframe");
-              element.parentNode.removeChild(element);
-            }
-          }).modal('attach events', '.close').modal('show')
-          if (mode === 'laptop') {
-            let pro = new ProtoEmbed.initFrame(document.getElementById("proto-embed-card"), data[i].iframe_url, 'laptop')
-          } else {
-            let pro = new ProtoEmbed.initFrame(document.getElementById("proto-embed-card"), data[i].iframe_url, 'mobile', true)
-          } 
-        })
-      }
     }
-  })
-}
+  }
+})
 // Articles section
 getJSON('https://cdn.protograph.pykih.com/8dc5499c508b5b27951d9de1/index.json', function (err, data){
     if (err != null) {
