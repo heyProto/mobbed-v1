@@ -417,6 +417,12 @@ table{
   display: block;
 }
 
+.larger{
+  font-size: 1.1em;
+  font-weight: 800;
+  letter-spacing: 0px;
+}
+
 .answer{
   padding: 10px;
   margin-bottom: 30px;
@@ -467,7 +473,7 @@ table{
   cursor: pointer;
   /*box-shadow: 0 20px 20px rgba(0,0,0,0.08);*/
   box-shadow: 0 2px 3px rgba(0,0,0,0.1);
-  /*border: 1px solid rgb(241, 241, 241);*/
+  border: 1px solid rgb(241, 241, 241);
   transition: all 250ms cubic-bezier(.02, .01, .47, 1);
 }
 
@@ -1420,6 +1426,12 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
     box-sizing: content-box;
     margin: 0px;
     width:100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  .protograph-card .card-image{
+    height: auto !important;
   }
 
   .ui.grid{
