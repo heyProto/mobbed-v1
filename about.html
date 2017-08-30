@@ -152,7 +152,7 @@
           <div class="right floated content">
             ICFJ Associate
           </div>
-          <img class="ui avatar image" src="https://pbs.twimg.com/profile_images/77086067/Pensato_400x400.jpg">
+          <img class="ui avatar image" src="https://pbs.twimg.com/profile_images/901810284016189444/Fr-hgLuc_400x400.jpg">
           <div class="content">
             Cyril Sam
           </div>
@@ -298,8 +298,6 @@
 <script type="text/javascript">
   $('.ui.sticky').sticky();
   $(window).scroll(function(event){
-    // $('.qa-highlight-color').children('p').children('a').css({"color":"blue"});
-
     $('.qa-highlight-color').removeClass('qa-highlight-color');
 
     if($('.ui.sticky').hasClass('fixed')){
@@ -309,22 +307,19 @@
     }
     var cutoff = $(window).scrollTop();
     $('.answer').removeClass('qa-highlight-color').each(function() {
-        if ($(this).offset().top - 25 > cutoff) {
-            $('#q'+$(this).attr('id')).addClass('qa-highlight-color');
-
-            return false; // stops the iteration after the first one on screen
-        }
+      if ($(this).offset().top - 25 > cutoff) {
+        $('#q'+$(this).attr('id')).addClass('qa-highlight-color');
+        return false; // stops the iteration after the first one on screen
+      }
     });
 
   });
 
   $('.question').hover(function(){
     $(this).addClass('qa-highlight-color');
-    // $(this).children('p').children('a').css({"color":"black"});
     $( $(this).children('p').children('a')[0].hash ).addClass('qa-highlight-color');
   },function(){
     $(this).removeClass('qa-highlight-color');
-    // $(this).children('p').children('a').css({"color":"blue"});
     $( $(this).children('p').children('a')[0].hash ).removeClass('qa-highlight-color');
   })
 </script>
