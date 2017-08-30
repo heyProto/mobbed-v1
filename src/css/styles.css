@@ -132,6 +132,10 @@
   width: 40% !important;
 }
 
+.findings-hint{
+  text-align: left !important;
+}
+
 /*========== social share ==========*/
 .social-share-icons{
   display: inline-block;
