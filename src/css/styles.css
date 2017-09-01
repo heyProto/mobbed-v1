@@ -1665,7 +1665,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   }
 /*=== end of index-page css ===*/
   .ui.small.modal{
-    width: 300px !important;
+    width: 300px !important; 
   }
 
   .about-main-content{
@@ -1680,6 +1680,25 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
     display: block !important;
   }
 
+  #proto-embed-card {
+    background: rgba(255, 5, 34, 0);
+    left: 0px !important;
+    top: 50% !important;
+    width: 100vw;
+    display: inline-block;
+    position: fixed;
+    transform: translate(0%, -50%);
+  }
+
+  .proto-close {
+    position: absolute;
+    right: 45px;
+    top: 10px;
+  }
+
+  #proto-modal .transition{
+    animation-duration: 0ms;
+  }
 }
 
 

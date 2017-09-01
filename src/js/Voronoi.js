@@ -26,7 +26,9 @@ class Voronoi extends React.Component {
         $("#proto-modal").css("height", 0)
       },
       onHide: function(){
-        $("#proto-modal").css("height", "100%")
+        if (props.mode === 'laptop') {
+          $("#proto-modal").css("height", "100%")
+        }
       },
       onHidden: function(e) {
         let element = document.querySelector("#proto-embed-card iframe");
