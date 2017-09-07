@@ -1592,6 +1592,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   .answer{
     padding: 0px;
     margin-bottom: 0px;
+    text-align: left;
   }
 
   .twitter-chatter, .latest-incidents{
@@ -1709,7 +1710,6 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   #proto-modal .transition{
     animation-duration: 0ms;
   }
-  .answer .axios{text-align: left;}
 }
 
 
