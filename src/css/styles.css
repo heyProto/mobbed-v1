@@ -857,7 +857,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 }
 
 .index-page .banner-div{
-  background-image: url("https://cdn.protograph.pykih.com/mobbed/img/banner.jpg");
+  background-image: url("http://protograph.indianexpress.com/mobbed/img/banner.jpg");
   height: 211px;
   width: 100%;
 }
@@ -1168,6 +1168,10 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
   max-width: 970px;
   margin-left:auto;
   margin-right: auto;
+}
+.proto-about-page .about-main-content{
+  z-index: -100;
+  text-align: left;
 }
 /*=== end of proto-about-page css ===*/
 
@@ -1624,7 +1628,7 @@ hr{border-top: 0.5px solid #F5F5F5; box-shadow: 0px;}
 
   /*=== index-page ===*/
   .banner-div{
-    background-image: url("https://cdn.protograph.pykih.com/mobbed/img/banner-mobile.jpg");
+    background-image: url("http://protograph.indianexpress.com/mobbed/img/banner-mobile.jpg");
     height: 263px;
     width: 320px;
     margin: auto;

@@ -18,7 +18,7 @@
       <i class="fa fa-twitter"></i>
     </a>
   </div>
-  <div class="ie-navbar"><img src="http://s0.wp.com/wp-content/themes/vip/indianexpress/images/theindianexpress-logo.svg">
+  <div class="ie-navbar" style="position:fixed;"><img src="http://s0.wp.com/wp-content/themes/vip/indianexpress/images/theindianexpress-logo.svg">
   </div>
   <div class="container">
     <div class="page-navigation">
@@ -296,7 +296,7 @@
 <script src="../src/js/fixedNavBar.js"></script>
 
 <script type="text/javascript">
-  $('.ui.sticky').sticky();
+  $('.ui.sticky').sticky({topSpacing:62});
   $(window).scroll(function(event){
     $('.qa-highlight-color').removeClass('qa-highlight-color');
 
@@ -306,8 +306,10 @@
       scrollspy = false;
     }
     var cutoff = $(window).scrollTop();
+    console.log(cutoff, "cutoff")
     $('.answer').removeClass('qa-highlight-color').each(function() {
-      if ($(this).offset().top >= cutoff) {
+      console.log($(this).offset().top -62, "$(this).offset().top")
+      if ($(this).offset().top + 62 >= cutoff) {
         $('#q'+$(this).attr('id')).addClass('qa-highlight-color');
         return false; // stops the iteration after the first one on screen
       }
